@@ -551,8 +551,12 @@ section { padding:70px 0; position:relative }
     section { padding:40px 0 }
     .footer .container { flex-direction:column; text-align:center }
     .stats-grid { grid-template-columns:1fr 1fr }
+    .footer-socials { gap:8px; flex-wrap:nowrap; }
 
     .footer-social-link {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
         color: var(--brand-color);
         animation: socialWave 5s ease-in-out infinite;
     }
@@ -601,6 +605,8 @@ section { padding:70px 0; position:relative }
     .tech-tabs-container { gap:4px!important; padding:8px 6px 10px!important; justify-content:center }
     .tech-tabs-container button { font-size:0.62rem!important; padding:3px 7px!important }
     .container { padding:0 16px }
+    .footer-socials { gap:6px; flex-wrap:nowrap; }
+    .footer-social-link { width:30px; height:30px; font-size:0.75rem; }
 }
 
 [data-theme="light"] .tech-category:nth-child(1) { background:linear-gradient(180deg, rgba(59,130,246,0.06) 0%, #ffffff 100%); border-color:rgba(59,130,246,0.25) }
