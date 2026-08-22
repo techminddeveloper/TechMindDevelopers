@@ -145,7 +145,8 @@ img { max-width:100%; display:block }
 .section-header .section-desc { margin:0 auto }
 section { padding:100px 0; position:relative }
 
-.bg-grid { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px); background-size:60px 60px }
+@keyframes gridPan { 0% { background-position: 0 0; } 100% { background-position: 60px 60px; } }
+.bg-grid { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px); background-size:60px 60px; animation: gridPan 20s linear infinite; }
 .bg-glow { position:fixed; border-radius:50%; filter:blur(120px); pointer-events:none; z-index:0 }
 .bg-glow-1 { width:600px; height:600px; background:rgba(59,130,246,0.08); top:-200px; right:-200px }
 .bg-glow-2 { width:500px; height:500px; background:rgba(139,92,246,0.06); bottom:30%; left:-150px }
@@ -211,9 +212,11 @@ section { padding:100px 0; position:relative }
 .tech-tag { padding:4px 12px; background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-full); font-size:.72rem; font-weight:500; color:var(--text-secondary) }
 
 /* STATS */
-.stats-bar { padding:40px 0; border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border); background:var(--bg-secondary); position:relative; z-index:1 }
+.stats-bar { padding:40px 0; border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border); background:var(--glass); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); position:relative; z-index:1; box-shadow:0 8px 32px rgba(0,0,0,0.1); }
 .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; text-align:center }
-.stat-item h3 { font-size:clamp(1.8rem,3vw,2.5rem); font-weight:800; background:var(--gradient-primary); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text }
+.stat-item { padding: 10px; transition: transform 0.3s ease; }
+.stat-item:hover { transform: translateY(-5px) scale(1.05); }
+.stat-item h3 { font-size:clamp(1.8rem,3vw,2.5rem); font-weight:800; background:var(--gradient-cyan); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter: drop-shadow(0 0 10px rgba(6,182,212,0.3)); }
 .stat-item p { font-size:.85rem; color:var(--text-muted); margin-top:4px; font-weight:500 }
 
 /* SERVICES */
@@ -280,8 +283,9 @@ section { padding:100px 0; position:relative }
 .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start }
 .about-features { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:32px }
 .about-feature { background:var(--bg-card); border:1px solid var(--glass-border); border-radius:var(--radius); padding:24px 20px; transition:var(--transition) }
-.about-feature:hover { border-color:rgba(59,130,246,0.2); background:var(--bg-card-hover) }
-.about-feature .feature-icon { font-size:1.5rem; margin-bottom:12px }
+.about-feature:hover { border-color:rgba(59,130,246,0.2); background:var(--bg-card-hover); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.about-feature .feature-icon { width:42px; height:42px; background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.25); border-radius:10px; display:flex; align-items:center; justify-content:center; color:var(--accent-blue); font-size:1.2rem; margin-bottom:16px; box-shadow:0 0 15px rgba(59,130,246,0.15); transition:var(--transition); }
+.about-feature:hover .feature-icon { background:rgba(59,130,246,0.2); box-shadow:0 0 25px rgba(59,130,246,0.3); transform:scale(1.05); }
 .about-feature h4 { font-size:.95rem; font-weight:700; margin-bottom:6px }
 .about-feature p { font-size:.8rem; color:var(--text-muted); line-height:1.6 }
 .about-header { margin-bottom: 36px }
@@ -355,11 +359,12 @@ section { padding:100px 0; position:relative }
 
 /* CTA */
 .cta-section { z-index:1 }
-.cta-box { background:var(--bg-card); border:1px solid var(--glass-border); border-radius:24px; padding:60px; text-align:center; position:relative; overflow:hidden }
-.cta-box::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--gradient-hero) }
-.cta-box h2 { font-size:clamp(1.8rem,3.5vw,2.5rem); font-weight:800; margin-bottom:16px }
-.cta-box p { font-size:1.05rem; color:var(--text-secondary); max-width:550px; margin:0 auto 32px }
-.cta-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap }
+.cta-box { background:var(--bg-card); border:1px solid rgba(236,72,153,0.25); border-radius:24px; padding:60px; text-align:center; position:relative; overflow:hidden; box-shadow: 0 0 50px rgba(236,72,153,0.1); backdrop-filter:blur(10px); }
+.cta-box::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:var(--gradient-hero); box-shadow: 0 0 20px rgba(236,72,153,0.5); }
+.cta-box::after { content:''; position:absolute; bottom:-50%; left:-50%; width:200%; height:200%; background:radial-gradient(circle, rgba(236,72,153,0.05) 0%, transparent 60%); z-index:-1; pointer-events:none; }
+.cta-box h2 { font-size:clamp(1.8rem,3.5vw,2.5rem); font-weight:800; margin-bottom:16px; position:relative; }
+.cta-box p { font-size:1.05rem; color:var(--text-secondary); max-width:550px; margin:0 auto 32px; position:relative; }
+.cta-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; position:relative; }
 
 /* CONTACT */
 .contact { z-index:1 }
@@ -613,10 +618,10 @@ section { padding:100px 0; position:relative }
                 <div class="about-content fade-in">
                     <p class="section-desc">We've been building software since 2014, and in that time we've worked with all kinds of businesses - hospitals, schools, shops, factories, startups, you name it. What makes us different? We actually listen to what you need first, then we build it. No unnecessary features, no over-complicated tech talk. Just good software that works and helps your business grow.</p>
                     <div class="about-features">
-                        <div class="about-feature"><div class="feature-icon">&#9889;</div><h4>AI-First Approach</h4><p>We use the latest AI tools to build things faster without cutting corners on quality.</p></div>
-                        <div class="about-feature"><div class="feature-icon">&#127959;&#65039;</div><h4>Clean Architecture</h4><p>We write clean code that's easy to update and won't break when your business grows.</p></div>
-                        <div class="about-feature"><div class="feature-icon">&#128202;</div><h4>Business-First Thinking</h4><p>We know that deadlines and budgets matter - not just the technology behind it.</p></div>
-                        <div class="about-feature"><div class="feature-icon">&#128274;</div><h4>Enterprise Security</h4><p>Your data stays safe. We build security into everything from day one.</p></div>
+                        <div class="about-feature"><div class="feature-icon"><i class="fas fa-brain"></i></div><h4>AI-First Approach</h4><p>We use the latest AI tools to build things faster without cutting corners on quality.</p></div>
+                        <div class="about-feature"><div class="feature-icon"><i class="fas fa-layer-group"></i></div><h4>Clean Architecture</h4><p>We write clean code that's easy to update and won't break when your business grows.</p></div>
+                        <div class="about-feature"><div class="feature-icon"><i class="fas fa-chart-line"></i></div><h4>Business-First Thinking</h4><p>We know that deadlines and budgets matter - not just the technology behind it.</p></div>
+                        <div class="about-feature"><div class="feature-icon"><i class="fas fa-shield-halved"></i></div><h4>Enterprise Security</h4><p>Your data stays safe. We build security into everything from day one.</p></div>
                     </div>
                 </div>
                 <div class="about-visual fade-in">
