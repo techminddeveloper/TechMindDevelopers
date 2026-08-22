@@ -335,8 +335,8 @@ section { padding:100px 0; position:relative }
 .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px }
 
 /* FOOTER */
-.footer { padding:20px 0; border-top:1px solid var(--glass-border); background:var(--bg-secondary); z-index:1; position:relative }
-.footer .container { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px }
+.footer { padding:28px 0 24px; border-top:1px solid var(--glass-border); background:var(--bg-secondary); z-index:1; position:relative }
+.footer .container { display:flex; flex-direction:column; justify-content:center; align-items:center; gap:16px; text-align:center }
 .footer-logo { font-size:1.1rem; font-weight:700 }
 .footer-socials { display:flex; gap:12px; align-items:center }
 .footer-social-link { width:34px; height:34px; border-radius:50%; background:var(--glass); border:1px solid var(--glass-border); display:flex; align-items:center; justify-content:center; color:var(--text-secondary); font-size:.85rem; transition:var(--transition); text-decoration:none }
@@ -632,7 +632,6 @@ section { padding:100px 0; position:relative }
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2014 - 2025 Tech Mind Developers. All rights reserved.</p>
             <div class="footer-socials">
                 <a href="https://www.google.co.in/search?q=Tech+Mind+Developers" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Google"><i class="fab fa-google"></i></a>
                 <a href="https://www.facebook.com/TechMindDeveloper/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -642,6 +641,7 @@ section { padding:100px 0; position:relative }
                 <a href="https://github.com/techminddeveloper" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 <a href="mailto:techminddeveloper@gmail.com" class="footer-social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
+            <p>&copy; 2014 - 2025 Tech Mind Developers. All rights reserved.</p>
         </div>
     </footer>
 
