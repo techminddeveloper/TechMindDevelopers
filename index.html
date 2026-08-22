@@ -156,6 +156,19 @@ section { padding:100px 0; position:relative }
 .hero-card .tech-stack { display:flex; gap:8px; flex-wrap:wrap; margin-top:24px; padding-top:20px; border-top:1px solid var(--glass-border) }
 .tech-tag { padding:4px 12px; background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-full); font-size:.72rem; font-weight:500; color:var(--text-secondary) }
 
+.code-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--glass-border) }
+.window-dots { display:flex; gap:6px }
+.window-dot { width:10px; height:10px; border-radius:50% }
+.dot-red { background:#ef4444 } .dot-yellow { background:#f59e0b } .dot-green { background:#10b981 }
+.code-filename { font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--text-muted); display:flex; align-items:center; gap:6px }
+.code-copy-btn { background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:0.82rem; transition:var(--transition); padding:4px 8px; border-radius:4px }
+.code-copy-btn:hover { color:var(--accent-blue); background:var(--glass) }
+.tech-tabs-container { display:flex; gap:8px; flex-wrap:wrap; margin-top:20px; padding-top:16px; border-top:1px solid var(--glass-border) }
+.tech-tab { padding:5px 12px; background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-full); font-size:0.74rem; font-weight:600; color:var(--text-secondary); cursor:pointer; transition:var(--transition); display:inline-flex; align-items:center; gap:5px }
+.tech-tab:hover { background:var(--bg-card-hover); border-color:rgba(59,130,246,0.4); color:var(--text-primary); transform:translateY(-1px) }
+.tech-tab.active { background:rgba(59,130,246,0.15); border-color:var(--accent-blue); color:#60a5fa; box-shadow:0 0 14px rgba(59,130,246,0.25) }
+
+
 /* STATS */
 .stats-bar { padding:40px 0; border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border); background:var(--bg-secondary); position:relative; z-index:1 }
 .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; text-align:center }
@@ -328,19 +341,29 @@ section { padding:100px 0; position:relative }
                     <a href="#services" class="btn-secondary"><i class="fas fa-th-large"></i> Our Services</a>
                 </div>
             </div>
-            <div class="hero-visual">
+                        <div class="hero-visual">
                 <div class="hero-card">
-                    <div class="code-block">
-                        <div class="code-line"><span class="code-num">1</span><span class="code-comment">// Your next project starts here</span></div>
-                        <div class="code-line"><span class="code-num">2</span><span class="code-keyword">const</span> <span class="code-func">solution</span> = <span class="code-bracket">{</span></div>
-                        <div class="code-line"><span class="code-num">3</span>&nbsp;&nbsp;<span class="code-prop">company</span>: <span class="code-string">"Tech Mind Developers"</span>,</div>
-                        <div class="code-line"><span class="code-num">4</span>&nbsp;&nbsp;<span class="code-prop">since</span>: <span class="code-string">"2014"</span>,</div>
-                        <div class="code-line"><span class="code-num">5</span>&nbsp;&nbsp;<span class="code-prop">stack</span>: [<span class="code-string">".NET"</span>, <span class="code-string">"React"</span>, <span class="code-string">"AI"</span>],</div>
-                        <div class="code-line"><span class="code-num">6</span>&nbsp;&nbsp;<span class="code-prop">result</span>: <span class="code-string">"Business Growth &#128640;"</span></div>
-                        <div class="code-line"><span class="code-num">7</span><span class="code-bracket">}</span>;</div>
+                    <div class="code-header">
+                        <div class="window-dots">
+                            <span class="window-dot dot-red"></span>
+                            <span class="window-dot dot-yellow"></span>
+                            <span class="window-dot dot-green"></span>
+                        </div>
+                        <div class="code-filename" id="codeFileName"><i class="fas fa-file-code"></i> Program.cs</div>
+                        <button class="code-copy-btn" id="copyCodeBtn" title="Copy code"><i class="fas fa-copy"></i></button>
                     </div>
-                    <div class="tech-stack">
-                        <span class="tech-tag">ASP.NET Core</span><span class="tech-tag">React</span><span class="tech-tag">Python</span><span class="tech-tag">Azure</span><span class="tech-tag">AI Agents</span><span class="tech-tag">SQL Server</span>
+                    <div class="code-block" id="codeDisplay">
+                        <!-- Code injected dynamically via JS -->
+                    </div>
+                    <div class="tech-tabs-container" id="techTabs">
+                        <button class="tech-tab active" data-lang="dotnet"><i class="fas fa-code"></i> ASP.NET Core</button>
+                        <button class="tech-tab" data-lang="react"><i class="fab fa-react"></i> React / TS</button>
+                        <button class="tech-tab" data-lang="python"><i class="fab fa-python"></i> Python</button>
+                        <button class="tech-tab" data-lang="ai"><i class="fas fa-brain"></i> AI Agents</button>
+                        <button class="tech-tab" data-lang="sql"><i class="fas fa-database"></i> SQL Server</button>
+                        <button class="tech-tab" data-lang="azure"><i class="fas fa-cloud"></i> Azure Cloud</button>
+                        <button class="tech-tab" data-lang="node"><i class="fab fa-node-js"></i> Node.js</button>
+                        <button class="tech-tab" data-lang="mobile"><i class="fas fa-mobile-screen"></i> Mobile App</button>
                     </div>
                 </div>
             </div>
@@ -601,6 +624,193 @@ section { padding:100px 0; position:relative }
                 
                 btn.disabled = false;
                 btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+            });
+        });
+    }
+
+
+    // Interactive Code Switcher
+    const codeSnippets = {
+        dotnet: {
+            filename: "Program.cs",
+            lines: [
+                { num: 1, html: '<span class="code-comment">// ASP.NET Core Enterprise Web API</span>' },
+                { num: 2, html: '<span class="code-keyword">var</span> builder = WebApplication.<span class="code-func">CreateBuilder</span>(args);' },
+                { num: 3, html: 'builder.Services.<span class="code-func">AddTechMindServices</span>(opt => <span class="code-bracket">{</span>' },
+                { num: 4, html: '&nbsp;&nbsp;opt.<span class="code-prop">Company</span> = <span class="code-string">"Tech Mind Developers"</span>;' },
+                { num: 5, html: '&nbsp;&nbsp;opt.<span class="code-prop">Founded</span> = <span class="code-func">2014</span>;' },
+                { num: 6, html: '&nbsp;&nbsp;opt.<span class="code-prop">Stack</span> = <span class="code-string">"C# + ASP.NET Core + Azure"</span>;' },
+                { num: 7, html: '&nbsp;&nbsp;opt.<span class="code-prop">Status</span> = <span class="code-string">"Enterprise Scale &#128640;"</span>;' },
+                { num: 8, html: '<span class="code-bracket">}</span>);' },
+                { num: 9, html: '<span class="code-keyword">var</span> app = builder.<span class="code-func">Build</span>();' },
+                { num: 10, html: 'app.<span class="code-func">MapGet</span>(<span class="code-string">"/api/deploy"</span>, () => Results.<span class="code-func">Ok</span>(<span class="code-string">"Live"</span>));' }
+            ]
+        },
+        react: {
+            filename: "App.tsx",
+            lines: [
+                { num: 1, html: '<span class="code-comment">// React + TypeScript Modern Dashboard</span>' },
+                { num: 2, html: '<span class="code-keyword">import</span> React, <span class="code-bracket">{</span> useState <span class="code-bracket">}</span> <span class="code-keyword">from</span> <span class="code-string">"react"</span>;' },
+                { num: 3, html: '<span class="code-keyword">export const</span> <span class="code-func">TechMindApp</span> = () => <span class="code-bracket">{</span>' },
+                { num: 4, html: '&nbsp;&nbsp;<span class="code-keyword">const</span> [partner] = <span class="code-func">useState</span>(<span class="code-bracket">{</span>' },
+                { num: 5, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">company</span>: <span class="code-string">"Tech Mind Developers"</span>,' },
+                { num: 6, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">frontend</span>: <span class="code-string">"React 19 + TypeScript"</span>,' },
+                { num: 7, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">design</span>: <span class="code-string">"Responsive UI / UX"</span>,' },
+                { num: 8, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">outcome</span>: <span class="code-string">"High Conversion SaaS &#128640;"</span>' },
+                { num: 9, html: '&nbsp;&nbsp;<span class="code-bracket">}</span>);' },
+                { num: 10, html: '&nbsp;&nbsp;<span class="code-keyword">return</span> &lt;<span class="code-func">DashboardView</span> partner={partner} /&gt;;' },
+                { num: 11, html: '<span class="code-bracket">}</span>;' }
+            ]
+        },
+        python: {
+            filename: "main.py",
+            lines: [
+                { num: 1, html: '<span class="code-comment"># Python / FastAPI Automation Toolkit</span>' },
+                { num: 2, html: '<span class="code-keyword">from</span> fastapi <span class="code-keyword">import</span> FastAPI' },
+                { num: 3, html: '<span class="code-keyword">from</span> techmind <span class="code-keyword">import</span> AIWorkflowEngine' },
+                { num: 4, html: 'app = <span class="code-func">FastAPI</span>(title=<span class="code-string">"Tech Mind Automation"</span>)' },
+                { num: 5, html: '@app.<span class="code-func">post</span>(<span class="code-string">"/run-pipeline"</span>)' },
+                { num: 6, html: '<span class="code-keyword">async def</span> <span class="code-func">execute</span>(data: dict):' },
+                { num: 7, html: '&nbsp;&nbsp;&nbsp;&nbsp;bot = <span class="code-func">AIWorkflowEngine</span>(since=<span class="code-func">2014</span>)' },
+                { num: 8, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return await</span> bot.<span class="code-func">process</span>(' },
+                { num: 9, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tasks=data[<span class="code-string">"tasks"</span>],' },
+                { num: 10, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result=<span class="code-string">"10x Faster Workflow &#128640;"</span>' },
+                { num: 11, html: '&nbsp;&nbsp;&nbsp;&nbsp;)' }
+            ]
+        },
+        ai: {
+            filename: "agent.ts",
+            lines: [
+                { num: 1, html: '<span class="code-comment">// Custom Autonomous AI Agent</span>' },
+                { num: 2, html: '<span class="code-keyword">import</span> <span class="code-bracket">{</span> Agent <span class="code-bracket">}</span> <span class="code-keyword">from</span> <span class="code-string">"@techmind/ai-core"</span>;' },
+                { num: 3, html: '<span class="code-keyword">const</span> customAgent = <span class="code-keyword">new</span> <span class="code-func">Agent</span>(<span class="code-bracket">{</span>' },
+                { num: 4, html: '&nbsp;&nbsp;<span class="code-prop">models</span>: [<span class="code-string">"Claude 3.5"</span>, <span class="code-string">"GPT-4o"</span>],' },
+                { num: 5, html: '&nbsp;&nbsp;<span class="code-prop">capabilities</span>: [<span class="code-string">"Vibe Coding"</span>, <span class="code-string">"Data Sync"</span>],' },
+                { num: 6, html: '&nbsp;&nbsp;<span class="code-prop">company</span>: <span class="code-string">"Tech Mind Developers"</span>,' },
+                { num: 7, html: '&nbsp;&nbsp;<span class="code-prop">goal</span>: <span class="code-string">"Zero Manual Repetitive Tasks &#128640;"</span>' },
+                { num: 8, html: '<span class="code-bracket">}</span>);' },
+                { num: 9, html: '<span class="code-keyword">await</span> customAgent.<span class="code-func">deployToProduction</span>();' }
+            ]
+        },
+        sql: {
+            filename: "schema.sql",
+            lines: [
+                { num: 1, html: '<span class="code-comment">-- SQL Server High-Performance Procedure</span>' },
+                { num: 2, html: '<span class="code-keyword">CREATE PROCEDURE</span> <span class="code-func">sp_DeployEnterpriseSystem</span>' },
+                { num: 3, html: '&nbsp;&nbsp;&nbsp;&nbsp;@Company <span class="code-keyword">NVARCHAR</span>(100) = <span class="code-string">'Tech Mind Developers'</span>,' },
+                { num: 4, html: '&nbsp;&nbsp;&nbsp;&nbsp;@Founded <span class="code-keyword">INT</span> = <span class="code-func">2014</span>' },
+                { num: 5, html: '<span class="code-keyword">AS</span>' },
+                { num: 6, html: '<span class="code-keyword">BEGIN</span>' },
+                { num: 7, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">SELECT</span> Status = <span class="code-string">'Optimized Indices'</span>,' },
+                { num: 8, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Architecture = <span class="code-string">'Scalable &amp; High-Availability'</span>,' },
+                { num: 9, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result = <span class="code-string">'Sub-Millisecond Query Response &#128640;'</span>;' },
+                { num: 10, html: '<span class="code-keyword">END</span>;' }
+            ]
+        },
+        azure: {
+            filename: "pipeline.yml",
+            lines: [
+                { num: 1, html: '<span class="code-comment"># Azure DevOps CI/CD Cloud Pipeline</span>' },
+                { num: 2, html: '<span class="code-prop">trigger</span>: [ <span class="code-string">main</span> ]' },
+                { num: 3, html: '<span class="code-prop">stages</span>:' },
+                { num: 4, html: '&nbsp;&nbsp;- <span class="code-prop">stage</span>: <span class="code-string">DeployToAzure</span>' },
+                { num: 5, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">jobs</span>:' },
+                { num: 6, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="code-prop">deployment</span>: <span class="code-string">TechMindCloudInfrastructure</span>' },
+                { num: 7, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">environment</span>: <span class="code-string">"Production Cloud"</span>' },
+                { num: 8, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">strategy</span>:' },
+                { num: 9, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">runOnce</span>:' },
+                { num: 10, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">deploy</span>: [ <span class="code-func">ZeroDowntimeRelease</span> ]' }
+            ]
+        },
+        node: {
+            filename: "server.js",
+            lines: [
+                { num: 1, html: '<span class="code-comment">// Node.js Microservices Architecture</span>' },
+                { num: 2, html: '<span class="code-keyword">import</span> express <span class="code-keyword">from</span> <span class="code-string">"express"</span>;' },
+                { num: 3, html: '<span class="code-keyword">const</span> app = <span class="code-func">express</span>();' },
+                { num: 4, html: 'app.<span class="code-func">get</span>(<span class="code-string">"/api/grow"</span>, (req, res) => <span class="code-bracket">{</span>' },
+                { num: 5, html: '&nbsp;&nbsp;res.<span class="code-func">json</span>(<span class="code-bracket">{</span>' },
+                { num: 6, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">partner</span>: <span class="code-string">"Tech Mind Developers"</span>,' },
+                { num: 7, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">experience</span>: <span class="code-string">"Since 2014"</span>,' },
+                { num: 8, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">backend</span>: <span class="code-string">"REST + GraphQL APIs"</span>,' },
+                { num: 9, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">performance</span>: <span class="code-string">"Ultra Fast &amp; Scalable &#128640;"</span>' },
+                { num: 10, html: '&nbsp;&nbsp;<span class="code-bracket">}</span>);' },
+                { num: 11, html: '<span class="code-bracket">}</span>);' },
+                { num: 12, html: 'app.<span class="code-func">listen</span>(<span class="code-func">8080</span>);' }
+            ]
+        },
+        mobile: {
+            filename: "App.dart",
+            lines: [
+                { num: 1, html: '<span class="code-comment">// Flutter / React Native Cross-Platform App</span>' },
+                { num: 2, html: '<span class="code-keyword">class</span> <span class="code-func">TechMindMobileApp</span> <span class="code-keyword">extends</span> <span class="code-func">StatelessWidget</span> <span class="code-bracket">{</span>' },
+                { num: 3, html: '&nbsp;&nbsp;@override' },
+                { num: 4, html: '&nbsp;&nbsp;<span class="code-keyword">Widget</span> <span class="code-func">build</span>(BuildContext context) <span class="code-bracket">{</span>' },
+                { num: 5, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-func">MaterialApp</span>(' },
+                { num: 6, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="code-string">"iOS &amp; Android Ready"</span>,' },
+                { num: 7, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theme: TechMindTheme.<span class="code-prop">DarkAI</span>,' },
+                { num: 8, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;home: <span class="code-func">InstantDeployScreen</span>(),' },
+                { num: 9, html: '&nbsp;&nbsp;&nbsp;&nbsp;);' },
+                { num: 10, html: '&nbsp;&nbsp;<span class="code-bracket">}</span>' },
+                { num: 11, html: '<span class="code-bracket">}</span>' }
+            ]
+        }
+    };
+
+    function renderCodeSnippet(langKey) {
+        const snippet = codeSnippets[langKey] || codeSnippets.dotnet;
+        const codeDisplay = document.getElementById('codeDisplay');
+        const fileNameEl = document.getElementById('codeFileName');
+        
+        if (fileNameEl) {
+            fileNameEl.innerHTML = `<i class="fas fa-file-code"></i> ${snippet.filename}`;
+        }
+        
+        if (codeDisplay) {
+            let htmlContent = '';
+            snippet.lines.forEach(line => {
+                htmlContent += `<div class="code-line"><span class="code-num">${line.num}</span>${line.html}</div>`;
+            });
+            codeDisplay.innerHTML = htmlContent;
+        }
+    }
+
+    // Initialize with default
+    renderCodeSnippet('dotnet');
+
+    // Add Tab click listeners
+    const techTabs = document.querySelectorAll('.tech-tab');
+    techTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            techTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            const lang = this.getAttribute('data-lang');
+            renderCodeSnippet(lang);
+        });
+    });
+
+    // Copy Code Button
+    const copyBtn = document.getElementById('copyCodeBtn');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+            const activeTab = document.querySelector('.tech-tab.active');
+            const langKey = activeTab ? activeTab.getAttribute('data-lang') : 'dotnet';
+            const snippet = codeSnippets[langKey];
+            if (!snippet) return;
+            
+            // Extract raw text
+            const tempDiv = document.createElement('div');
+            const rawText = snippet.lines.map(l => {
+                tempDiv.innerHTML = l.html;
+                return tempDiv.innerText;
+            }).join('
+');
+
+            navigator.clipboard.writeText(rawText).then(() => {
+                copyBtn.innerHTML = '<i class="fas fa-check" style="color:#10b981"></i>';
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+                }, 2000);
             });
         });
     }
