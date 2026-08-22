@@ -28,7 +28,7 @@
                 { num: 7, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">design</span>: <span class="code-string">"Responsive UI / UX"</span>,' },
                 { num: 8, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">outcome</span>: <span class="code-string">"High Conversion SaaS &#128640;"</span>' },
                 { num: 9, html: '&nbsp;&nbsp;<span class="code-bracket">}</span>);' },
-                { num: 10, html: '&nbsp;&nbsp;<span class="code-keyword">return</span> &lt;<span class="code-func">DashboardView</span> partner={partner} /&gt;;' },
+                { num: 10, html: '&nbsp;&nbsp;<span class="code-keyword">return</span> &lt;<span class="code-func">DashView</span> partner={partner} /&gt;;' },
                 { num: 11, html: '<span class="code-bracket">}</span>;' }
             ]
         },
