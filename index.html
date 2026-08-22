@@ -101,6 +101,21 @@
 [data-theme="light"] .hero-card { background: var(--code-bg); }
 [data-theme="light"] .social-links a:hover { color: #fff; }
 
+/* Light theme service cards */
+[data-theme="light"] .service-tags { border-top-color:rgba(0,0,0,0.06) }
+[data-theme="light"] .service-card:nth-child(1) { background:linear-gradient(180deg, rgba(59,130,246,0.06) 0%, #ffffff 100%); border-color:rgba(59,130,246,0.25) }
+[data-theme="light"] .service-card:nth-child(1) .service-tags span { background:rgba(59,130,246,0.08); border-color:rgba(59,130,246,0.3); color:#1d4ed8 }
+[data-theme="light"] .service-card:nth-child(2) { background:linear-gradient(180deg, rgba(236,72,153,0.06) 0%, #ffffff 100%); border-color:rgba(236,72,153,0.25) }
+[data-theme="light"] .service-card:nth-child(2) .service-tags span { background:rgba(236,72,153,0.08); border-color:rgba(236,72,153,0.3); color:#be185d }
+[data-theme="light"] .service-card:nth-child(3) { background:linear-gradient(180deg, rgba(16,185,129,0.06) 0%, #ffffff 100%); border-color:rgba(16,185,129,0.25) }
+[data-theme="light"] .service-card:nth-child(3) .service-tags span { background:rgba(16,185,129,0.08); border-color:rgba(16,185,129,0.3); color:#047857 }
+[data-theme="light"] .service-card:nth-child(4) { background:linear-gradient(180deg, rgba(6,182,212,0.06) 0%, #ffffff 100%); border-color:rgba(6,182,212,0.25) }
+[data-theme="light"] .service-card:nth-child(4) .service-tags span { background:rgba(6,182,212,0.08); border-color:rgba(6,182,212,0.3); color:#0e7490 }
+[data-theme="light"] .service-card:nth-child(5) { background:linear-gradient(180deg, rgba(245,158,11,0.06) 0%, #ffffff 100%); border-color:rgba(245,158,11,0.25) }
+[data-theme="light"] .service-card:nth-child(5) .service-tags span { background:rgba(245,158,11,0.08); border-color:rgba(245,158,11,0.3); color:#b45309 }
+[data-theme="light"] .service-card:nth-child(6) { background:linear-gradient(180deg, rgba(139,92,246,0.06) 0%, #ffffff 100%); border-color:rgba(139,92,246,0.25) }
+[data-theme="light"] .service-card:nth-child(6) .service-tags span { background:rgba(139,92,246,0.08); border-color:rgba(139,92,246,0.3); color:#6d28d9 }
+
 /* ===== SHARED VARIABLES ===== */
 :root {
     --gradient-primary: linear-gradient(135deg, #3b82f6, #8b5cf6);
@@ -204,27 +219,61 @@ section { padding:100px 0; position:relative }
 /* SERVICES */
 .services { z-index:1 }
 .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px }
-.service-card { background:var(--bg-card); border:1px solid var(--glass-border); border-radius:var(--radius); padding:36px 28px; transition:var(--transition); position:relative; overflow:hidden }
-.service-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; opacity:0; transition:var(--transition) }
-.service-card:nth-child(1)::before { background:var(--gradient-primary) }
-.service-card:nth-child(2)::before { background:var(--gradient-pink) }
-.service-card:nth-child(3)::before { background:var(--gradient-emerald) }
-.service-card:nth-child(4)::before { background:var(--gradient-cyan) }
-.service-card:nth-child(5)::before { background:linear-gradient(135deg,#f59e0b,#ef4444) }
-.service-card:nth-child(6)::before { background:var(--gradient-primary) }
-.service-card:hover { background:var(--bg-card-hover); border-color:rgba(59,130,246,0.2); transform:translateY(-4px); box-shadow:var(--shadow-glow) }
-.service-card:hover::before { opacity:1 }
-.service-icon { width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:20px }
-.service-card:nth-child(1) .service-icon { background:rgba(59,130,246,0.12); color:var(--accent-blue) }
-.service-card:nth-child(2) .service-icon { background:rgba(236,72,153,0.12); color:var(--accent-pink) }
-.service-card:nth-child(3) .service-icon { background:rgba(16,185,129,0.12); color:var(--accent-emerald) }
-.service-card:nth-child(4) .service-icon { background:rgba(6,182,212,0.12); color:var(--accent-cyan) }
-.service-card:nth-child(5) .service-icon { background:rgba(245,158,11,0.12); color:#f59e0b }
-.service-card:nth-child(6) .service-icon { background:rgba(139,92,246,0.12); color:var(--accent-purple) }
+.service-card { border-radius:var(--radius); padding:36px 28px; transition:var(--transition); position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; backdrop-filter:blur(10px) }
+.service-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; opacity:0.85; transition:var(--transition) }
+.service-icon { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:22px; transition:var(--transition) }
 .service-card h3 { font-size:1.15rem; font-weight:700; margin-bottom:12px }
 .service-card p { font-size:.9rem; color:var(--text-secondary); line-height:1.7 }
-.service-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:16px }
-.service-tags span { padding:3px 10px; background:var(--glass); border-radius:var(--radius-full); font-size:.7rem; color:var(--text-muted); font-weight:500 }
+.service-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.06) }
+.service-tags span { padding:4px 11px; border-radius:var(--radius-full); font-size:.72rem; font-weight:500; transition:var(--transition) }
+
+/* Card 1: Custom Software (Electric Blue) */
+.service-card:nth-child(1) { background:linear-gradient(180deg, rgba(59,130,246,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(59,130,246,0.2) }
+.service-card:nth-child(1)::before { background:linear-gradient(90deg, #3b82f6, #60a5fa) }
+.service-card:nth-child(1) .service-icon { background:rgba(59,130,246,0.15); color:#60a5fa; border:1px solid rgba(59,130,246,0.3); box-shadow:0 0 20px rgba(59,130,246,0.2) }
+.service-card:nth-child(1) .service-tags span { background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.25); color:#93c5fd }
+.service-card:nth-child(1):hover { transform:translateY(-6px); border-color:rgba(59,130,246,0.55); box-shadow:0 16px 36px rgba(59,130,246,0.2) }
+.service-card:nth-child(1):hover .service-icon { transform:scale(1.08); box-shadow:0 0 28px rgba(59,130,246,0.4) }
+
+/* Card 2: AI & Automation (Hot Pink / Magenta) */
+.service-card:nth-child(2) { background:linear-gradient(180deg, rgba(236,72,153,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(236,72,153,0.2) }
+.service-card:nth-child(2)::before { background:linear-gradient(90deg, #ec4899, #f472b6) }
+.service-card:nth-child(2) .service-icon { background:rgba(236,72,153,0.15); color:#f472b6; border:1px solid rgba(236,72,153,0.3); box-shadow:0 0 20px rgba(236,72,153,0.2) }
+.service-card:nth-child(2) .service-tags span { background:rgba(236,72,153,0.1); border:1px solid rgba(236,72,153,0.25); color:#f9a8d4 }
+.service-card:nth-child(2):hover { transform:translateY(-6px); border-color:rgba(236,72,153,0.55); box-shadow:0 16px 36px rgba(236,72,153,0.2) }
+.service-card:nth-child(2):hover .service-icon { transform:scale(1.08); box-shadow:0 0 28px rgba(236,72,153,0.4) }
+
+/* Card 3: Web Design (Emerald Green) */
+.service-card:nth-child(3) { background:linear-gradient(180deg, rgba(16,185,129,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(16,185,129,0.2) }
+.service-card:nth-child(3)::before { background:linear-gradient(90deg, #10b981, #34d399) }
+.service-card:nth-child(3) .service-icon { background:rgba(16,185,129,0.15); color:#34d399; border:1px solid rgba(16,185,129,0.3); box-shadow:0 0 20px rgba(16,185,129,0.2) }
+.service-card:nth-child(3) .service-tags span { background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25); color:#6ee7b7 }
+.service-card:nth-child(3):hover { transform:translateY(-6px); border-color:rgba(16,185,129,0.55); box-shadow:0 16px 36px rgba(16,185,129,0.2) }
+.service-card:nth-child(3):hover .service-icon { transform:scale(1.08); box-shadow:0 0 28px rgba(16,185,129,0.4) }
+
+/* Card 4: Mobile App (Electric Cyan) */
+.service-card:nth-child(4) { background:linear-gradient(180deg, rgba(6,182,212,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(6,182,212,0.2) }
+.service-card:nth-child(4)::before { background:linear-gradient(90deg, #06b6d4, #22d3ee) }
+.service-card:nth-child(4) .service-icon { background:rgba(6,182,212,0.15); color:#22d3ee; border:1px solid rgba(6,182,212,0.3); box-shadow:0 0 20px rgba(6,182,212,0.2) }
+.service-card:nth-child(4) .service-tags span { background:rgba(6,182,212,0.1); border:1px solid rgba(6,182,212,0.25); color:#67e8f9 }
+.service-card:nth-child(4):hover { transform:translateY(-6px); border-color:rgba(6,182,212,0.55); box-shadow:0 16px 36px rgba(6,182,212,0.2) }
+.service-card:nth-child(4):hover .service-icon { transform:scale(1.08); box-shadow:0 0 28px rgba(6,182,212,0.4) }
+
+/* Card 5: Cloud & DevOps (Warm Amber / Gold) */
+.service-card:nth-child(5) { background:linear-gradient(180deg, rgba(245,158,11,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(245,158,11,0.2) }
+.service-card:nth-child(5)::before { background:linear-gradient(90deg, #f59e0b, #fbbf24) }
+.service-card:nth-child(5) .service-icon { background:rgba(245,158,11,0.15); color:#fbbf24; border:1px solid rgba(245,158,11,0.3); box-shadow:0 0 20px rgba(245,158,11,0.2) }
+.service-card:nth-child(5) .service-tags span { background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.25); color:#fde68a }
+.service-card:nth-child(5):hover { transform:translateY(-6px); border-color:rgba(245,158,11,0.55); box-shadow:0 16px 36px rgba(245,158,11,0.2) }
+.service-card:nth-child(5):hover .service-icon { transform:scale(1.08); box-shadow:0 0 28px rgba(245,158,11,0.4) }
+
+/* Card 6: E-Commerce (Purple / Violet) */
+.service-card:nth-child(6) { background:linear-gradient(180deg, rgba(139,92,246,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(139,92,246,0.2) }
+.service-card:nth-child(6)::before { background:linear-gradient(90deg, #8b5cf6, #a78bfa) }
+.service-card:nth-child(6) .service-icon { background:rgba(139,92,246,0.15); color:#a78bfa; border:1px solid rgba(139,92,246,0.3); box-shadow:0 0 20px rgba(139,92,246,0.2) }
+.service-card:nth-child(6) .service-tags span { background:rgba(139,92,246,0.1); border:1px solid rgba(139,92,246,0.25); color:#c4b5fd }
+.service-card:nth-child(6):hover { transform:translateY(-6px); border-color:rgba(139,92,246,0.55); box-shadow:0 16px 36px rgba(139,92,246,0.2) }
+.service-card:nth-child(6):hover .service-icon { transform:scale(1.08); box-shadow:0 0 28px rgba(139,92,246,0.4) }
 
 /* ABOUT */
 .about { z-index:1 }
