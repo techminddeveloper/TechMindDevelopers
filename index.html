@@ -363,15 +363,15 @@ section { padding:100px 0; position:relative }
                     </div>
                     <div class="code-block" id="codeDisplay">
                         <div class="code-line"><span class="code-num">1</span><span class="code-comment">// ASP.NET Core Enterprise Web API</span></div>
-                        <div class="code-line"><span class="code-num">2</span><span class="code-keyword">var</span> builder = WebApplication.<span class="code-func">CreateBuilder</span>(args);</div>
-                        <div class="code-line"><span class="code-num">3</span>builder.Services.<span class="code-func">AddTechMindServices</span>(opt =&gt; <span class="code-bracket">{</span></div>
+                        <div class="code-line"><span class="code-num">2</span><span class="code-keyword">var</span> b = WebApplication.<span class="code-func">CreateBuilder</span>(args);</div>
+                        <div class="code-line"><span class="code-num">3</span>b.Services.<span class="code-func">AddTechMind</span>(opt =&gt; <span class="code-bracket">{</span></div>
                         <div class="code-line"><span class="code-num">4</span>&nbsp;&nbsp;opt.<span class="code-prop">Company</span> = <span class="code-string">"Tech Mind Developers"</span>;</div>
-                        <div class="code-line"><span class="code-num">5</span>&nbsp;&nbsp;opt.<span class="code-prop">Founded</span> = <span class="code-func">2014</span>;</div>
-                        <div class="code-line"><span class="code-num">6</span>&nbsp;&nbsp;opt.<span class="code-prop">Stack</span> = <span class="code-string">"C# + ASP.NET Core + Azure"</span>;</div>
-                        <div class="code-line"><span class="code-num">7</span>&nbsp;&nbsp;opt.<span class="code-prop">Status</span> = <span class="code-string">"Enterprise Scale &#128640;"</span>;</div>
+                        <div class="code-line"><span class="code-num">5</span>&nbsp;&nbsp;opt.<span class="code-prop">Since</span> = <span class="code-func">2014</span>;</div>
+                        <div class="code-line"><span class="code-num">6</span>&nbsp;&nbsp;opt.<span class="code-prop">Stack</span> = <span class="code-string">"C# + Azure"</span>;</div>
+                        <div class="code-line"><span class="code-num">7</span>&nbsp;&nbsp;opt.<span class="code-prop">Status</span> = <span class="code-string">"Enterprise &#128640;"</span>;</div>
                         <div class="code-line"><span class="code-num">8</span><span class="code-bracket">}</span>);</div>
-                        <div class="code-line"><span class="code-num">9</span><span class="code-keyword">var</span> app = builder.<span class="code-func">Build</span>();</div>
-                        <div class="code-line"><span class="code-num">10</span>app.<span class="code-func">MapGet</span>(<span class="code-string">"/api/deploy"</span>, () =&gt; Results.<span class="code-func">Ok</span>(<span class="code-string">"Live"</span>));</div>
+                        <div class="code-line"><span class="code-num">9</span><span class="code-keyword">var</span> app = b.<span class="code-func">Build</span>();</div>
+                        <div class="code-line"><span class="code-num">10</span>app.<span class="code-func">MapGet</span>(<span class="code-string">"/"</span>, () =&gt; <span class="code-string">"Live"</span>;</div>
                     </div>
                     <div class="tech-tabs-container" style="display:flex;flex-wrap:wrap;gap:6px;padding:10px 14px 12px">
                         <button class="tech-tab active" data-lang="dotnet" style="background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.4);color:#a5b4fc;padding:5px 12px;border-radius:20px;font-size:0.72rem;cursor:pointer;transition:all 0.2s">&#9670; ASP.NET Core</button>
