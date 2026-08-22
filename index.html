@@ -196,9 +196,11 @@ section { padding:100px 0; position:relative }
 .about-feature .feature-icon { font-size:1.5rem; margin-bottom:12px }
 .about-feature h4 { font-size:.95rem; font-weight:700; margin-bottom:6px }
 .about-feature p { font-size:.8rem; color:var(--text-muted); line-height:1.6 }
-.about-header { margin-bottom: 32px }
-.about-card-stack { display:flex; flex-direction:column; gap:14px }
-.about-stat-card { background:var(--bg-card); border:1px solid var(--glass-border); border-radius:var(--radius); padding:18px 22px; display:flex; align-items:center; gap:18px; transition:var(--transition) }
+.about-header { margin-bottom: 36px }
+.about-visual { padding-top: 22px }
+@media(max-width:1024px) { .about-visual { padding-top: 0 } }
+.about-card-stack { display:flex; flex-direction:column; gap:12px }
+.about-stat-card { background:var(--bg-card); border:1px solid var(--glass-border); border-radius:var(--radius); padding:15px 20px; display:flex; align-items:center; gap:18px; transition:var(--transition) }
 .about-stat-card:hover { background:var(--bg-card-hover); transform:translateX(6px) }
 .about-stat-card .stat-icon { width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.15rem; flex-shrink:0 }
 .about-stat-card:nth-child(1) .stat-icon { background:rgba(59,130,246,0.12); color:var(--accent-blue) }
