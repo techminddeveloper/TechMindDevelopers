@@ -189,17 +189,19 @@ section { padding:100px 0; position:relative }
 
 /* ABOUT */
 .about { z-index:1 }
-.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start }
 .about-features { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:32px }
 .about-feature { background:var(--bg-card); border:1px solid var(--glass-border); border-radius:var(--radius); padding:24px 20px; transition:var(--transition) }
 .about-feature:hover { border-color:rgba(59,130,246,0.2); background:var(--bg-card-hover) }
 .about-feature .feature-icon { font-size:1.5rem; margin-bottom:12px }
 .about-feature h4 { font-size:.95rem; font-weight:700; margin-bottom:6px }
 .about-feature p { font-size:.8rem; color:var(--text-muted); line-height:1.6 }
-.about-card-stack { display:flex; flex-direction:column; gap:16px }
-.about-stat-card { background:var(--bg-card); border:1px solid var(--glass-border); border-radius:var(--radius); padding:24px; display:flex; align-items:center; gap:20px; transition:var(--transition) }
-.about-stat-card:hover { background:var(--bg-card-hover); transform:translateX(8px) }
-.about-stat-card .stat-icon { width:50px; height:50px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0 }
+.about-visual { padding-top:118px }
+@media(max-width:1024px) { .about-visual { padding-top:0 } }
+.about-card-stack { display:flex; flex-direction:column; gap:12px }
+.about-stat-card { background:var(--bg-card); border:1px solid var(--glass-border); border-radius:var(--radius); padding:16px 20px; display:flex; align-items:center; gap:18px; transition:var(--transition) }
+.about-stat-card:hover { background:var(--bg-card-hover); transform:translateX(6px) }
+.about-stat-card .stat-icon { width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.15rem; flex-shrink:0 }
 .about-stat-card:nth-child(1) .stat-icon { background:rgba(59,130,246,0.12); color:var(--accent-blue) }
 .about-stat-card:nth-child(2) .stat-icon { background:rgba(16,185,129,0.12); color:var(--accent-emerald) }
 .about-stat-card:nth-child(3) .stat-icon { background:rgba(236,72,153,0.12); color:var(--accent-pink) }
