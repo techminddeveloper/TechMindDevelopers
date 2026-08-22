@@ -147,18 +147,13 @@
 
     // Tab click listeners
     var techTabs = document.querySelectorAll(".tech-tab");
+    // Handle Tab Clicks
     for (var i = 0; i < techTabs.length; i++) {
         techTabs[i].addEventListener("click", function() {
             for (var j = 0; j < techTabs.length; j++) {
                 techTabs[j].classList.remove("active");
-                techTabs[j].style.background = "rgba(99,102,241,0.08)";
-                techTabs[j].style.borderColor = "rgba(255,255,255,0.1)";
-                techTabs[j].style.color = "rgba(255,255,255,0.6)";
             }
             this.classList.add("active");
-            this.style.background = "rgba(99,102,241,0.15)";
-            this.style.borderColor = "rgba(99,102,241,0.4)";
-            this.style.color = "#a5b4fc";
             var lang = this.getAttribute("data-lang");
             renderCodeSnippet(lang);
         });

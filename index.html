@@ -43,6 +43,20 @@
     --accent-emerald: #10b981;
     --navbar-bg: rgba(10,10,15,0.85);
     --code-bg: rgba(255,255,255,0.03);
+
+    --code-keyword: #c084fc;
+    --code-func: #60a5fa;
+    --code-string: #34d399;
+    --code-comment: var(--text-muted);
+    --code-bracket: #fbbf24;
+    --code-prop: #f472b6;
+
+    --tab-bg-default: rgba(99,102,241,0.08);
+    --tab-border-default: rgba(255,255,255,0.1);
+    --tab-color-default: rgba(255,255,255,0.6);
+    --tab-bg-active: rgba(99,102,241,0.15);
+    --tab-border-active: rgba(99,102,241,0.4);
+    --tab-color-active: #a5b4fc;
 }
 
 /* ===== LIGHT THEME ===== */
@@ -58,6 +72,20 @@
     --text-muted: #8888a0;
     --navbar-bg: rgba(248,249,252,0.9);
     --code-bg: rgba(0,0,0,0.04);
+
+    --code-keyword: #9333ea;
+    --code-func: #2563eb;
+    --code-string: #059669;
+    --code-comment: var(--text-muted);
+    --code-bracket: #d97706;
+    --code-prop: #db2777;
+
+    --tab-bg-default: rgba(99,102,241,0.08);
+    --tab-border-default: rgba(0,0,0,0.1);
+    --tab-color-default: #555570;
+    --tab-bg-active: rgba(99,102,241,0.15);
+    --tab-border-active: rgba(99,102,241,0.4);
+    --tab-color-active: #4338ca;
 }
 
 [data-theme="light"] .bg-grid {
@@ -155,7 +183,11 @@ section { padding:100px 0; position:relative }
 .code-block::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:4px }
 .code-line { display:flex; gap:12px; white-space:nowrap }
 .code-num { color:var(--text-muted); user-select:none; min-width:24px; text-align:right }
-.code-keyword { color:#c084fc } .code-func { color:#60a5fa } .code-string { color:#34d399 } .code-comment { color:var(--text-muted); font-style:italic } .code-bracket { color:#fbbf24 } .code-prop { color:#f472b6 }
+.code-keyword { color:var(--code-keyword) } .code-func { color:var(--code-func) } .code-string { color:var(--code-string) } .code-comment { color:var(--code-comment); font-style:italic } .code-bracket { color:var(--code-bracket) } .code-prop { color:var(--code-prop) }
+.tech-tabs-container { display:flex; flex-wrap:wrap; gap:6px; padding:10px 14px 12px }
+.tech-tab { background:var(--tab-bg-default); border:1px solid var(--tab-border-default); color:var(--tab-color-default); padding:5px 12px; border-radius:20px; font-size:0.72rem; cursor:pointer; transition:all 0.2s }
+.tech-tab:hover { border-color:var(--tab-border-active); color:var(--tab-color-active) }
+.tech-tab.active { background:var(--tab-bg-active); border-color:var(--tab-border-active); color:var(--tab-color-active) }
 .hero-card .tech-stack { display:flex; gap:8px; flex-wrap:wrap; margin-top:24px; padding-top:20px; border-top:1px solid var(--glass-border) }
 .tech-tag { padding:4px 12px; background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-full); font-size:.72rem; font-weight:500; color:var(--text-secondary) }
 
@@ -373,15 +405,15 @@ section { padding:100px 0; position:relative }
                         <div class="code-line"><span class="code-num">9</span><span class="code-keyword">var</span> app = b.<span class="code-func">Build</span>();</div>
                         <div class="code-line"><span class="code-num">10</span>app.<span class="code-func">MapGet</span>(<span class="code-string">"/"</span>, () =&gt; <span class="code-string">"Live"</span>);</div>
                     </div>
-                    <div class="tech-tabs-container" style="display:flex;flex-wrap:wrap;gap:6px;padding:10px 14px 12px">
-                        <button class="tech-tab active" data-lang="dotnet" style="background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.4);color:#a5b4fc;padding:5px 12px;border-radius:20px;font-size:0.72rem;cursor:pointer;transition:all 0.2s">&#9670; ASP.NET Core</button>
-                        <button class="tech-tab" data-lang="react" style="background:rgba(99,102,241,0.08);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);padding:5px 12px;border-radius:20px;font-size:0.72rem;cursor:pointer;transition:all 0.2s">&#9883; React / TS</button>
-                        <button class="tech-tab" data-lang="python" style="background:rgba(99,102,241,0.08);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);padding:5px 12px;border-radius:20px;font-size:0.72rem;cursor:pointer;transition:all 0.2s">&#128013; Python</button>
-                        <button class="tech-tab" data-lang="ai" style="background:rgba(99,102,241,0.08);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);padding:5px 12px;border-radius:20px;font-size:0.72rem;cursor:pointer;transition:all 0.2s">&#129504; AI Agents</button>
-                        <button class="tech-tab" data-lang="sql" style="background:rgba(99,102,241,0.08);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);padding:5px 12px;border-radius:20px;font-size:0.72rem;cursor:pointer;transition:all 0.2s">&#128451; SQL Server</button>
-                        <button class="tech-tab" data-lang="azure" style="background:rgba(99,102,241,0.08);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);padding:5px 12px;border-radius:20px;font-size:0.72rem;cursor:pointer;transition:all 0.2s">&#9729; Azure Cloud</button>
-                        <button class="tech-tab" data-lang="node" style="background:rgba(99,102,241,0.08);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);padding:5px 12px;border-radius:20px;font-size:0.72rem;cursor:pointer;transition:all 0.2s">&#128994; Node.js</button>
-                        <button class="tech-tab" data-lang="mobile" style="background:rgba(99,102,241,0.08);border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);padding:5px 12px;border-radius:20px;font-size:0.72rem;cursor:pointer;transition:all 0.2s">&#128241; Mobile App</button>
+                    <div class="tech-tabs-container">
+                        <button class="tech-tab active" data-lang="dotnet">&#9670; ASP.NET Core</button>
+                        <button class="tech-tab" data-lang="react">&#9883; React / TS</button>
+                        <button class="tech-tab" data-lang="python">&#128013; Python</button>
+                        <button class="tech-tab" data-lang="ai">&#129504; AI Agents</button>
+                        <button class="tech-tab" data-lang="sql">&#128451; SQL Server</button>
+                        <button class="tech-tab" data-lang="azure">&#9729; Azure Cloud</button>
+                        <button class="tech-tab" data-lang="node">&#128994; Node.js</button>
+                        <button class="tech-tab" data-lang="mobile">&#128241; Mobile App</button>
                     </div>
                 </div>
             </div>
