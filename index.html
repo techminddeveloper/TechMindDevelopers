@@ -220,7 +220,7 @@ section { padding:70px 0; position:relative }
 .stat-item p { font-size:.85rem; color:var(--text-muted); margin-top:4px; font-weight:500 }
 
 /* SERVICES */
-.services { z-index:1 }
+.services { z-index:1; padding-bottom: 40px; }
 .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px }
 .service-card { border-radius:var(--radius); padding:36px 28px; transition:var(--transition); position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; backdrop-filter:blur(10px) }
 .service-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; opacity:0.85; transition:var(--transition) }
@@ -279,7 +279,7 @@ section { padding:70px 0; position:relative }
 .service-card:nth-child(6):hover .service-icon { transform:scale(1.08); box-shadow:0 0 28px rgba(139,92,246,0.4) }
 
 /* ABOUT */
-.about { z-index:1 }
+.about { z-index:1; padding-top: 30px; padding-bottom: 30px; }
 .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start }
 .about-features { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:32px }
 .about-feature { background:var(--bg-card); border:1px solid var(--glass-border); border-radius:var(--radius); padding:24px 20px; transition:var(--transition) }
@@ -346,7 +346,7 @@ section { padding:70px 0; position:relative }
 .about-stat-card:nth-child(6):hover { border-color:rgba(245,158,11,0.3); }
 
 /* TECH STACK */
-.tech-section { z-index:1; background:var(--bg-secondary); border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border) }
+.tech-section { z-index:1; padding-top: 50px; background:var(--bg-secondary); border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border) }
 .tech-categories { display:grid; grid-template-columns:repeat(3,1fr); gap:24px }
 .tech-category { background:var(--bg-card); border:1px solid var(--glass-border); border-radius:var(--radius); padding:28px }
 .tech-category h3 { font-size:1rem; font-weight:700; margin-bottom:16px; color:var(--accent-blue) }
