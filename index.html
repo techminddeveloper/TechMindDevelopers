@@ -353,7 +353,16 @@ section { padding:100px 0; position:relative }
                         <button class="code-copy-btn" id="copyCodeBtn" title="Copy code"><i class="fas fa-copy"></i></button>
                     </div>
                     <div class="code-block" id="codeDisplay">
-                        <!-- Code injected dynamically via JS -->
+<div class="code-line"><span class="code-num">1</span><span class="code-comment">// ASP.NET Core Enterprise Web API</span></div>
+                        <div class="code-line"><span class="code-num">2</span><span class="code-keyword">var</span> builder = WebApplication.<span class="code-func">CreateBuilder</span>(args);</div>
+                        <div class="code-line"><span class="code-num">3</span>builder.Services.<span class="code-func">AddTechMindServices</span>(opt =&gt; <span class="code-bracket">{</span></div>
+                        <div class="code-line"><span class="code-num">4</span>&nbsp;&nbsp;opt.<span class="code-prop">Company</span> = <span class="code-string">"Tech Mind Developers"</span>;</div>
+                        <div class="code-line"><span class="code-num">5</span>&nbsp;&nbsp;opt.<span class="code-prop">Founded</span> = <span class="code-func">2014</span>;</div>
+                        <div class="code-line"><span class="code-num">6</span>&nbsp;&nbsp;opt.<span class="code-prop">Stack</span> = <span class="code-string">"C# + ASP.NET Core + Azure"</span>;</div>
+                        <div class="code-line"><span class="code-num">7</span>&nbsp;&nbsp;opt.<span class="code-prop">Status</span> = <span class="code-string">"Enterprise Scale &#128640;"</span>;</div>
+                        <div class="code-line"><span class="code-num">8</span><span class="code-bracket">}</span>);</div>
+                        <div class="code-line"><span class="code-num">9</span><span class="code-keyword">var</span> app = builder.<span class="code-func">Build</span>();</div>
+                        <div class="code-line"><span class="code-num">10</span>app.<span class="code-func">MapGet</span>(<span class="code-string">"/api/deploy"</span>, () =&gt; Results.<span class="code-func">Ok</span>(<span class="code-string">"Live"</span>));</div>
                     </div>
                     <div class="tech-tabs-container" id="techTabs">
                         <button class="tech-tab active" data-lang="dotnet"><i class="fas fa-code"></i> ASP.NET Core</button>
@@ -545,91 +554,77 @@ section { padding:100px 0; position:relative }
     {"@context":"https://schema.org","@type":"ProfessionalService","name":"Tech Mind Developers","description":"Software development company since 2014. We build AI-powered enterprise software, full-stack web applications, mobile apps, business automation, and cloud solutions for businesses worldwide.","url":"https://techminddeveloper.github.io/TechMindDevelopers/","telephone":"+91-7835019421","email":"techminddeveloper@gmail.com","foundingDate":"2014","address":{"@type":"PostalAddress","addressLocality":"Delhi NCR","addressCountry":"IN"},"sameAs":["https://github.com/techminddeveloper","https://www.linkedin.com/company/tech-mind-developers/"],"serviceType":["Custom Software Development","AI and Intelligent Automation","Website Design and Development","Mobile App Development","Cloud and DevOps Solutions","E-Commerce Solutions"],"areaServed":"Worldwide","priceRange":"$$"}
     </script>
 
-    <script>
-    // Navbar scroll
-    const navbar=document.getElementById('navbar');
-    window.addEventListener('scroll',()=>{navbar.classList.toggle('scrolled',window.scrollY>50)});
-
-    // Hamburger
-    const hamburger=document.getElementById('hamburger');
-    const navLinks=document.getElementById('navLinks');
-    const navOverlay=document.getElementById('navOverlay');
-    hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');navLinks.classList.toggle('active');navOverlay.classList.toggle('active');document.body.style.overflow=navLinks.classList.contains('active')?'hidden':''});
-    navOverlay.addEventListener('click',closeMenu);
-    function closeMenu(){hamburger.classList.remove('active');navLinks.classList.remove('active');navOverlay.classList.remove('active');document.body.style.overflow=''}
-
-    // Theme toggle
-    const themeToggle=document.getElementById('themeToggle');
-    const html=document.documentElement;
-    const savedTheme=localStorage.getItem('theme')||'dark';
-    html.setAttribute('data-theme',savedTheme);
-    updateIcon(savedTheme);
-    themeToggle.addEventListener('click',()=>{
-        const current=html.getAttribute('data-theme');
-        const next=current==='dark'?'light':'dark';
-        html.setAttribute('data-theme',next);
-        localStorage.setItem('theme',next);
-        updateIcon(next);
-    });
-    function updateIcon(theme){
-        themeToggle.innerHTML=theme==='dark'?'<i class="fas fa-sun"></i>':'<i class="fas fa-moon"></i>';
-    }
-
-    // Scroll reveal
-    const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,index)=>{if(entry.isIntersecting){setTimeout(()=>{entry.target.classList.add('visible')},index*100);observer.unobserve(entry.target)}})},{threshold:0.1});
-    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
-
-    // Contact form
     
-    
-    // Contact form AJAX submit with in-page confirmation
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = document.getElementById('submitBtn');
-            const statusMsg = document.getElementById('formStatusMsg');
-            
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            statusMsg.style.display = 'none';
-
-            const formData = new FormData(contactForm);
-
-            fetch('https://formsubmit.co/ajax/techminddeveloper@gmail.com', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json'
-                },
-                body: formData
-            })
-            .then(res => res.json())
-            .then(data => {
-                statusMsg.style.display = 'block';
-                statusMsg.style.background = 'rgba(16, 185, 129, 0.15)';
-                statusMsg.style.border = '1px solid #10b981';
-                statusMsg.style.color = '#10b981';
-                statusMsg.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully. We will get back to you within 24 hours.';
-                
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-                contactForm.reset();
-            })
-            .catch(err => {
-                statusMsg.style.display = 'block';
-                statusMsg.style.background = 'rgba(239, 68, 68, 0.15)';
-                statusMsg.style.border = '1px solid #ef4444';
-                statusMsg.style.color = '#ef4444';
-                statusMsg.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Oops! Something went wrong. Please try again or email us directly.';
-                
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-            });
+<script>
+    // ===== NAVBAR SCROLL =====
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
     }
 
+    // ===== HAMBURGER MENU =====
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const navOverlay = document.getElementById('navOverlay');
 
-    // Interactive Code Switcher
+    if (hamburger && navLinks && navOverlay) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        navOverlay.addEventListener('click', closeMenu);
+    }
+
+    function closeMenu() {
+        if (hamburger) hamburger.classList.remove('active');
+        if (navLinks) navLinks.classList.remove('active');
+        if (navOverlay) navOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // ===== THEME TOGGLE =====
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    htmlEl.setAttribute('data-theme', savedTheme);
+    updateIcon(savedTheme);
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const current = htmlEl.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            htmlEl.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            updateIcon(next);
+        });
+    }
+
+    function updateIcon(theme) {
+        if (themeToggle) {
+            themeToggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        }
+    }
+
+    // ===== SCROLL REVEAL =====
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 80);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ===== INTERACTIVE CODE SWITCHER =====
     const codeSnippets = {
         dotnet: {
             filename: "Program.cs",
@@ -763,20 +758,17 @@ section { padding:100px 0; position:relative }
         const fileNameEl = document.getElementById('codeFileName');
         
         if (fileNameEl) {
-            fileNameEl.innerHTML = `<i class="fas fa-file-code"></i> ${snippet.filename}`;
+            fileNameEl.innerHTML = '<i class="fas fa-file-code"></i> ' + snippet.filename;
         }
         
         if (codeDisplay) {
             let htmlContent = '';
             snippet.lines.forEach(line => {
-                htmlContent += `<div class="code-line"><span class="code-num">${line.num}</span>${line.html}</div>`;
+                htmlContent += '<div class="code-line"><span class="code-num">' + line.num + '</span>' + line.html + '</div>';
             });
             codeDisplay.innerHTML = htmlContent;
         }
     }
-
-    // Initialize with default
-    renderCodeSnippet('dotnet');
 
     // Add Tab click listeners
     const techTabs = document.querySelectorAll('.tech-tab');
@@ -798,13 +790,12 @@ section { padding:100px 0; position:relative }
             const snippet = codeSnippets[langKey];
             if (!snippet) return;
             
-            // Extract raw text
             const tempDiv = document.createElement('div');
-            const rawText = snippet.lines.map(l => {
+            const linesText = snippet.lines.map(l => {
                 tempDiv.innerHTML = l.html;
-                return tempDiv.innerText;
-            }).join('
-');
+                return tempDiv.innerText || tempDiv.textContent;
+            });
+            const rawText = linesText.join('\n');
 
             navigator.clipboard.writeText(rawText).then(() => {
                 copyBtn.innerHTML = '<i class="fas fa-check" style="color:#10b981"></i>';
@@ -815,6 +806,61 @@ section { padding:100px 0; position:relative }
         });
     }
 
+    // ===== CONTACT FORM AJAX =====
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const statusMsg = document.getElementById('formStatusMsg');
+            
+            if (btn) {
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            }
+            if (statusMsg) {
+                statusMsg.style.display = 'none';
+            }
+
+            const formData = new FormData(contactForm);
+
+            fetch('https://formsubmit.co/ajax/techminddeveloper@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (statusMsg) {
+                    statusMsg.style.display = 'block';
+                    statusMsg.style.background = 'rgba(16, 185, 129, 0.15)';
+                    statusMsg.style.border = '1px solid #10b981';
+                    statusMsg.style.color = '#10b981';
+                    statusMsg.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully. We will get back to you within 24 hours.';
+                }
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                }
+                contactForm.reset();
+            })
+            .catch(err => {
+                if (statusMsg) {
+                    statusMsg.style.display = 'block';
+                    statusMsg.style.background = 'rgba(239, 68, 68, 0.15)';
+                    statusMsg.style.border = '1px solid #ef4444';
+                    statusMsg.style.color = '#ef4444';
+                    statusMsg.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Oops! Something went wrong. Please try again or email us directly.';
+                }
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                }
+            });
+        });
+    }
 </script>
 </body>
 </html>
