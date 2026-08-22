@@ -4,16 +4,16 @@
         dotnet: {
             filename: "Program.cs",
             lines: [
-                { num: 1, html: '<span class="code-comment">// ASP.NET Core Enterprise Web API</span>' },
-                { num: 2, html: '<span class="code-keyword">var</span> builder = WebApplication.<span class="code-func">CreateBuilder</span>(args);' },
-                { num: 3, html: 'builder.Services.<span class="code-func">AddTechMindServices</span>(opt =&gt; <span class="code-bracket">{</span>' },
-                { num: 4, html: '&nbsp;&nbsp;opt.<span class="code-prop">Company</span> = <span class="code-string">"Tech Mind Developers"</span>;' },
-                { num: 5, html: '&nbsp;&nbsp;opt.<span class="code-prop">Founded</span> = <span class="code-func">2014</span>;' },
-                { num: 6, html: '&nbsp;&nbsp;opt.<span class="code-prop">Stack</span> = <span class="code-string">"C# + ASP.NET Core + Azure"</span>;' },
-                { num: 7, html: '&nbsp;&nbsp;opt.<span class="code-prop">Status</span> = <span class="code-string">"Enterprise Scale &#128640;"</span>;' },
+                { num: 1, html: '<span class="code-comment">// ASP.NET Core Web API</span>' },
+                { num: 2, html: '<span class="code-keyword">var</span> b = WebApplication.<span class="code-func">CreateBuilder</span>(args);' },
+                { num: 3, html: 'b.Services.<span class="code-func">AddTechMind</span>(o =&gt; <span class="code-bracket">{</span>' },
+                { num: 4, html: '&nbsp;&nbsp;o.<span class="code-prop">Company</span> = <span class="code-string">"Tech Mind"</span>;' },
+                { num: 5, html: '&nbsp;&nbsp;o.<span class="code-prop">Since</span> = <span class="code-func">2014</span>;' },
+                { num: 6, html: '&nbsp;&nbsp;o.<span class="code-prop">Stack</span> = <span class="code-string">"C# + Azure"</span>;' },
+                { num: 7, html: '&nbsp;&nbsp;o.<span class="code-prop">Status</span> = <span class="code-string">"Enterprise &#128640;"</span>;' },
                 { num: 8, html: '<span class="code-bracket">}</span>);' },
-                { num: 9, html: '<span class="code-keyword">var</span> app = builder.<span class="code-func">Build</span>();' },
-                { num: 10, html: 'app.<span class="code-func">MapGet</span>(<span class="code-string">"/api/deploy"</span>, () =&gt; Results.<span class="code-func">Ok</span>(<span class="code-string">"Live"</span>));' }
+                { num: 9, html: '<span class="code-keyword">var</span> app = b.<span class="code-func">Build</span>();' },
+                { num: 10, html: 'app.<span class="code-func">MapGet</span>(<span class="code-string">"/"</span>, () =&gt; <span class="code-string">"Live"</span>);' }
             ]
         },
         react: {
@@ -51,15 +51,15 @@
         ai: {
             filename: "agent.ts",
             lines: [
-                { num: 1, html: '<span class="code-comment">// Custom Autonomous AI Agent</span>' },
-                { num: 2, html: '<span class="code-keyword">import</span> <span class="code-bracket">{</span> Agent <span class="code-bracket">}</span> <span class="code-keyword">from</span> <span class="code-string">"@techmind/ai-core"</span>;' },
-                { num: 3, html: '<span class="code-keyword">const</span> customAgent = <span class="code-keyword">new</span> <span class="code-func">Agent</span>(<span class="code-bracket">{</span>' },
+                { num: 1, html: '<span class="code-comment">// Autonomous AI Agent</span>' },
+                { num: 2, html: '<span class="code-keyword">import</span> <span class="code-bracket">{</span> Agent <span class="code-bracket">}</span> <span class="code-keyword">from</span> <span class="code-string">"ai-core"</span>;' },
+                { num: 3, html: '<span class="code-keyword">const</span> bot = <span class="code-keyword">new</span> <span class="code-func">Agent</span>(<span class="code-bracket">{</span>' },
                 { num: 4, html: '&nbsp;&nbsp;<span class="code-prop">models</span>: [<span class="code-string">"Claude 3.5"</span>, <span class="code-string">"GPT-4o"</span>],' },
-                { num: 5, html: '&nbsp;&nbsp;<span class="code-prop">capabilities</span>: [<span class="code-string">"Vibe Coding"</span>, <span class="code-string">"Data Sync"</span>],' },
-                { num: 6, html: '&nbsp;&nbsp;<span class="code-prop">company</span>: <span class="code-string">"Tech Mind Developers"</span>,' },
-                { num: 7, html: '&nbsp;&nbsp;<span class="code-prop">goal</span>: <span class="code-string">"Zero Manual Repetitive Tasks &#128640;"</span>' },
+                { num: 5, html: '&nbsp;&nbsp;<span class="code-prop">skills</span>: [<span class="code-string">"Code"</span>, <span class="code-string">"Deploy"</span>],' },
+                { num: 6, html: '&nbsp;&nbsp;<span class="code-prop">client</span>: <span class="code-string">"Tech Mind"</span>,' },
+                { num: 7, html: '&nbsp;&nbsp;<span class="code-prop">goal</span>: <span class="code-string">"Zero Manual Tasks &#128640;"</span>' },
                 { num: 8, html: '<span class="code-bracket">}</span>);' },
-                { num: 9, html: '<span class="code-keyword">await</span> customAgent.<span class="code-func">deployToProduction</span>();' }
+                { num: 9, html: '<span class="code-keyword">await</span> bot.<span class="code-func">deploy</span>();' }
             ]
         },
         sql: {
