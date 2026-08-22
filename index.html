@@ -14,11 +14,11 @@
     <meta property="og:url" content="https://techminddeveloper.github.io/TechMindDevelopers/">
     <link rel="canonical" href="https://techminddeveloper.github.io/TechMindDevelopers/">
     <!-- Favicons -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2">
+    <link rel="shortcut icon" href="favicon.ico?v=2">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -156,9 +156,9 @@ section { padding:70px 0; position:relative }
 .navbar { position:fixed; top:0; left:0; width:100%; z-index:1000; padding:16px 0; transition:var(--transition) }
 .navbar.scrolled { background:var(--navbar-bg); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid var(--glass-border); padding:10px 0 }
 .navbar .container { display:flex; align-items:center; justify-content:space-between }
-.nav-logo { font-size:1.3rem; font-weight:800; display:flex; align-items:center; gap:10px; transition:var(--transition) }
-.nav-logo:hover .logo-icon { transform:rotate(12deg) scale(1.08); box-shadow:0 0 20px rgba(59,130,246,0.5); }
-.nav-logo .logo-icon { width:36px; height:36px; background:var(--gradient-primary); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1rem; color:#fff; transition:var(--transition); }
+.nav-logo { font-size:1.3rem; font-weight:800; display:flex; align-items:center; gap:10px; transition:var(--transition); text-decoration:none }
+.nav-logo .logo-img { width:32px; height:32px; object-fit:contain; filter:drop-shadow(0 0 8px rgba(34,211,238,0.4)); transition:var(--transition); }
+.nav-logo:hover .logo-img { transform:scale(1.1) rotate(6deg); filter:drop-shadow(0 0 16px rgba(34,211,238,0.8)); }
 .nav-links { display:flex; align-items:center; gap:6px; list-style:none; margin-left:auto; margin-right:16px; background:var(--glass); border:1px solid var(--glass-border); padding:5px 8px; border-radius:var(--radius-full); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
 .nav-links li { display:flex; }
 .nav-links a { font-size:.88rem; font-weight:600; color:var(--text-secondary); padding:8px 16px; border-radius:var(--radius-full); transition:var(--transition); position:relative; letter-spacing:0.2px; text-decoration:none; }
@@ -700,7 +700,7 @@ section { padding:70px 0; position:relative }
     <nav class="navbar" id="navbar">
         <div class="container">
             <a href="#" class="nav-logo">
-                <div class="logo-icon"><i class="fas fa-bolt"></i></div>
+                <img src="logo-icon.png" alt="Tech Mind Developers Logo" class="logo-img">
                 <span>Tech Mind <span class="gradient-text">Developers</span></span>
             </a>
             <ul class="nav-links" id="navLinks">
