@@ -181,6 +181,10 @@ section { padding:100px 0; position:relative }
 .code-block::-webkit-scrollbar { height:4px }
 .code-block::-webkit-scrollbar-track { background:transparent }
 .code-block::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:4px }
+.code-header-bar { display:flex; align-items:center; justify-content:space-between; padding:10px 16px 6px; border-bottom:1px solid var(--glass-border) }
+.code-filename { font-size:0.75rem; color:var(--text-secondary) }
+.code-copy-btn { background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:0.8rem; transition:color 0.2s }
+.code-copy-btn:hover { color:var(--text-primary) }
 .code-line { display:flex; gap:12px; white-space:nowrap }
 .code-num { color:var(--text-muted); user-select:none; min-width:24px; text-align:right }
 .code-keyword { color:var(--code-keyword) } .code-func { color:var(--code-func) } .code-string { color:var(--code-string) } .code-comment { color:var(--code-comment); font-style:italic } .code-bracket { color:var(--code-bracket) } .code-prop { color:var(--code-prop) }
@@ -384,14 +388,14 @@ section { padding:100px 0; position:relative }
             </div>
             <div class="hero-visual">
                 <div class="hero-card">
-                    <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 16px 6px;border-bottom:1px solid rgba(255,255,255,0.06)">
+                    <div class="code-header-bar">
                         <div style="display:flex;gap:6px">
                             <span style="width:10px;height:10px;border-radius:50%;background:#ff5f57;display:inline-block"></span>
                             <span style="width:10px;height:10px;border-radius:50%;background:#febc2e;display:inline-block"></span>
                             <span style="width:10px;height:10px;border-radius:50%;background:#28c840;display:inline-block"></span>
                         </div>
-                        <span id="codeFileName" style="font-size:0.75rem;color:rgba(255,255,255,0.5)"><i class="fas fa-file-code"></i> Program.cs</span>
-                        <button id="copyCodeBtn" style="background:none;border:none;color:rgba(255,255,255,0.4);cursor:pointer;font-size:0.8rem" title="Copy code"><i class="fas fa-copy"></i></button>
+                        <span id="codeFileName" class="code-filename"><i class="fas fa-file-code"></i> Program.cs</span>
+                        <button id="copyCodeBtn" class="code-copy-btn" title="Copy code"><i class="fas fa-copy"></i></button>
                     </div>
                     <div class="code-block" id="codeDisplay">
                         <div class="code-line"><span class="code-num">1</span><span class="code-comment">// ASP.NET Core Web API</span></div>
