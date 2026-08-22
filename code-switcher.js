@@ -7,7 +7,7 @@
                 { num: 1, html: '<span class="code-comment">// ASP.NET Core Web API</span>' },
                 { num: 2, html: '<span class="code-keyword">var</span> b = WebApplication.<span class="code-func">CreateBuilder</span>(args);' },
                 { num: 3, html: 'b.Services.<span class="code-func">AddTechMind</span>(o =&gt; <span class="code-bracket">{</span>' },
-                { num: 4, html: '&nbsp;&nbsp;o.<span class="code-prop">Company</span> = <span class="code-string">"Tech Mind"</span>;' },
+                { num: 4, html: '&nbsp;&nbsp;o.<span class="code-prop">Company</span> = <span class="code-string">"Tech Mind Developers"</span>;' },
                 { num: 5, html: '&nbsp;&nbsp;o.<span class="code-prop">Since</span> = <span class="code-func">2014</span>;' },
                 { num: 6, html: '&nbsp;&nbsp;o.<span class="code-prop">Stack</span> = <span class="code-string">"C# + Azure"</span>;' },
                 { num: 7, html: '&nbsp;&nbsp;o.<span class="code-prop">Status</span> = <span class="code-string">"Enterprise &#128640;"</span>;' },
@@ -56,7 +56,7 @@
                 { num: 3, html: '<span class="code-keyword">const</span> bot = <span class="code-keyword">new</span> <span class="code-func">Agent</span>(<span class="code-bracket">{</span>' },
                 { num: 4, html: '&nbsp;&nbsp;<span class="code-prop">models</span>: [<span class="code-string">"Claude 3.5"</span>, <span class="code-string">"GPT-4o"</span>],' },
                 { num: 5, html: '&nbsp;&nbsp;<span class="code-prop">skills</span>: [<span class="code-string">"Code"</span>, <span class="code-string">"Deploy"</span>],' },
-                { num: 6, html: '&nbsp;&nbsp;<span class="code-prop">client</span>: <span class="code-string">"Tech Mind"</span>,' },
+                { num: 6, html: '&nbsp;&nbsp;<span class="code-prop">client</span>: <span class="code-string">"Tech Mind Developers"</span>,' },
                 { num: 7, html: '&nbsp;&nbsp;<span class="code-prop">goal</span>: <span class="code-string">"Zero Manual Tasks &#128640;"</span>' },
                 { num: 8, html: '<span class="code-bracket">}</span>);' },
                 { num: 9, html: '<span class="code-keyword">await</span> bot.<span class="code-func">deploy</span>();' }
