@@ -362,13 +362,13 @@ section { padding:100px 0; position:relative }
                         <button id="copyCodeBtn" style="background:none;border:none;color:rgba(255,255,255,0.4);cursor:pointer;font-size:0.8rem" title="Copy code"><i class="fas fa-copy"></i></button>
                     </div>
                     <div class="code-block" id="codeDisplay">
-                        <div class="code-line"><span class="code-num">1</span><span class="code-comment">// ASP.NET Core Enterprise Web API</span></div>
+                        <div class="code-line"><span class="code-num">1</span><span class="code-comment">// ASP.NET Core Web API</span></div>
                         <div class="code-line"><span class="code-num">2</span><span class="code-keyword">var</span> b = WebApplication.<span class="code-func">CreateBuilder</span>(args);</div>
-                        <div class="code-line"><span class="code-num">3</span>b.Services.<span class="code-func">AddTechMind</span>(opt =&gt; <span class="code-bracket">{</span></div>
-                        <div class="code-line"><span class="code-num">4</span>&nbsp;&nbsp;opt.<span class="code-prop">Company</span> = <span class="code-string">"Tech Mind Developers"</span>;</div>
-                        <div class="code-line"><span class="code-num">5</span>&nbsp;&nbsp;opt.<span class="code-prop">Since</span> = <span class="code-func">2014</span>;</div>
-                        <div class="code-line"><span class="code-num">6</span>&nbsp;&nbsp;opt.<span class="code-prop">Stack</span> = <span class="code-string">"C# + Azure"</span>;</div>
-                        <div class="code-line"><span class="code-num">7</span>&nbsp;&nbsp;opt.<span class="code-prop">Status</span> = <span class="code-string">"Enterprise &#128640;"</span>;</div>
+                        <div class="code-line"><span class="code-num">3</span>b.Services.<span class="code-func">AddTechMind</span>(o =&gt; <span class="code-bracket">{</span></div>
+                        <div class="code-line"><span class="code-num">4</span>&nbsp;&nbsp;o.<span class="code-prop">Company</span> = <span class="code-string">"Tech Mind Developers"</span>;</div>
+                        <div class="code-line"><span class="code-num">5</span>&nbsp;&nbsp;o.<span class="code-prop">Since</span> = <span class="code-func">2014</span>;</div>
+                        <div class="code-line"><span class="code-num">6</span>&nbsp;&nbsp;o.<span class="code-prop">Stack</span> = <span class="code-string">"C# + Azure"</span>;</div>
+                        <div class="code-line"><span class="code-num">7</span>&nbsp;&nbsp;o.<span class="code-prop">Status</span> = <span class="code-string">"Enterprise &#128640;"</span>;</div>
                         <div class="code-line"><span class="code-num">8</span><span class="code-bracket">}</span>);</div>
                         <div class="code-line"><span class="code-num">9</span><span class="code-keyword">var</span> app = b.<span class="code-func">Build</span>();</div>
                         <div class="code-line"><span class="code-num">10</span>app.<span class="code-func">MapGet</span>(<span class="code-string">"/"</span>, () =&gt; <span class="code-string">"Live"</span>);</div>
