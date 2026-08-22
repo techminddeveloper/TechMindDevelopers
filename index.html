@@ -196,10 +196,9 @@ section { padding:100px 0; position:relative }
 .about-feature .feature-icon { font-size:1.5rem; margin-bottom:12px }
 .about-feature h4 { font-size:.95rem; font-weight:700; margin-bottom:6px }
 .about-feature p { font-size:.8rem; color:var(--text-muted); line-height:1.6 }
-.about-visual { padding-top:118px }
-@media(max-width:1024px) { .about-visual { padding-top:0 } }
-.about-card-stack { display:flex; flex-direction:column; gap:12px }
-.about-stat-card { background:var(--bg-card); border:1px solid var(--glass-border); border-radius:var(--radius); padding:16px 20px; display:flex; align-items:center; gap:18px; transition:var(--transition) }
+.about-header { margin-bottom: 32px }
+.about-card-stack { display:flex; flex-direction:column; gap:14px }
+.about-stat-card { background:var(--bg-card); border:1px solid var(--glass-border); border-radius:var(--radius); padding:18px 22px; display:flex; align-items:center; gap:18px; transition:var(--transition) }
 .about-stat-card:hover { background:var(--bg-card-hover); transform:translateX(6px) }
 .about-stat-card .stat-icon { width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.15rem; flex-shrink:0 }
 .about-stat-card:nth-child(1) .stat-icon { background:rgba(59,130,246,0.12); color:var(--accent-blue) }
@@ -407,10 +406,12 @@ section { padding:100px 0; position:relative }
 
     <section class="about" id="about">
         <div class="container">
+            <div class="about-header fade-in">
+                <span class="section-label">About Us</span>
+                <h2 class="section-title">Why Businesses Choose <span class="gradient-text">To Work With Us</span></h2>
+            </div>
             <div class="about-grid">
                 <div class="about-content fade-in">
-                    <span class="section-label">About Us</span>
-                    <h2 class="section-title">Why Businesses Choose <span class="gradient-text">To Work With Us</span></h2>
                     <p class="section-desc">We've been building software since 2014, and in that time we've worked with all kinds of businesses &mdash; hospitals, schools, shops, factories, startups, you name it. What makes us different? We actually listen to what you need first, then we build it. No unnecessary features, no over-complicated tech talk. Just good software that works and helps your business grow.</p>
                     <div class="about-features">
                         <div class="about-feature"><div class="feature-icon">&#9889;</div><h4>AI-First Approach</h4><p>We use the latest AI tools to build things faster without cutting corners on quality.</p></div>
