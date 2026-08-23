@@ -1,6 +1,15 @@
 # Tech Mind Developers - Official Website & Portal
 
+[![Live Demo](https://img.shields.io/badge/Live%20Website-Visit%20Site-3b82f6?style=for-the-badge&logo=google-chrome&logoColor=white)](https://techminddeveloper.github.io/TechMindDevelopers/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/techminddeveloper/TechMindDevelopers)
+
+> 🌐 **Live Website Demo:** **[https://techminddeveloper.github.io/TechMindDevelopers/](https://techminddeveloper.github.io/TechMindDevelopers/)**
+
 Welcome to the official web application and services portal for **Tech Mind Developers**.
+
+## 🚀 Live Demo
+You can view and interact with the live website directly here:  
+👉 **[Visit Tech Mind Developers Portal](https://techminddeveloper.github.io/TechMindDevelopers/)**
 
 ## 🏢 About Tech Mind Developers
 Tech Mind Developers delivers end-to-end software solutions, enterprise web development, cloud architectures, and digital transformation for businesses across healthcare, retail, ERP, and education.
