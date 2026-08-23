@@ -846,7 +846,7 @@ section { padding:70px 0; position:relative }
                 <div class="hero-badge"><span class="pulse"></span>Software Development Company &bull; Since 2014</div>
                 <h1>
                     <span class="static-line">We Build the Software</span>
-                    <span class="dynamic-line"><span class="gradient-text" id="typewriterText">Custom Enterprise Software</span></span>
+                    <span class="dynamic-line"><span class="gradient-text" id="typewriterText">Your Business Actually Needs</span></span>
                 </h1>
                 <p>Since 2014, we have been helping businesses like yours get the right software built - websites, mobile apps, cloud systems, AI tools, and everything in between. You tell us what you need, and we make it happen. Simple as that.</p>
                 <div class="hero-buttons">
@@ -1211,11 +1211,11 @@ section { padding:70px 0; position:relative }
 
     // Dynamic Hero Headline Typewriter
     const phrases = [
+        "Your Business Actually Needs",
         "Custom Enterprise Software",
         "AI Agents & Automation",
         "Scalable Mobile & Web Apps",
-        "High-Performance Cloud Systems",
-        "Your Business Actually Needs"
+        "High-Performance Cloud Systems"
     ];
     let phraseIdx = 0;
     let charIdx = phrases[0].length;
@@ -1233,20 +1233,20 @@ section { padding:70px 0; position:relative }
             charIdx++;
         }
 
-        let speed = isDeleting ? 30 : 65;
+        let speed = isDeleting ? 25 : 55;
 
         if (!isDeleting && charIdx === current.length) {
-            speed = 2200; // Pause when phrase is fully typed
+            speed = 1600; // Comfortable pause on full phrase
             isDeleting = true;
         } else if (isDeleting && charIdx === 0) {
             isDeleting = false;
             phraseIdx = (phraseIdx + 1) % phrases.length;
-            speed = 350; // Pause before typing next phrase
+            speed = 250; // Pause before typing next phrase
         }
 
         setTimeout(typeEffect, speed);
     }
-    setTimeout(typeEffect, 2000);
+    setTimeout(typeEffect, 1200);
 
     // Animated Counters for Stats Bar (Re-animates every time on scroll)
     const counters = document.querySelectorAll('.counter');
