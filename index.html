@@ -153,8 +153,8 @@ section { padding:70px 0; position:relative }
 .bg-glow-3 { width:400px; height:400px; background:rgba(236,72,153,0.05); bottom:-100px; right:20% }
 
 /* NAVBAR */
-.navbar { position:fixed; top:0; left:0; width:100%; z-index:1000; padding:16px 0; transition:var(--transition) }
-.navbar.scrolled { background:var(--navbar-bg); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid var(--glass-border); padding:10px 0 }
+.navbar { position:fixed; top:0; left:0; width:100%; z-index:1000; padding:16px 0; transition:padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; border:none }
+.navbar.scrolled { background:var(--navbar-bg); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:none; box-shadow:0 8px 30px rgba(0,0,0,0.3); padding:10px 0 }
 .navbar .container { display:flex; align-items:center; justify-content:space-between }
 .nav-logo { font-size:1.3rem; font-weight:800; display:flex; align-items:center; gap:10px; transition:var(--transition); text-decoration:none }
 .nav-logo .logo-img { width:32px; height:32px; object-fit:contain; filter:drop-shadow(0 0 8px rgba(34,211,238,0.4)); transition:var(--transition); }
