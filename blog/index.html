@@ -75,9 +75,11 @@
     .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text-heading); font-weight:800; font-size:1.15rem; }
     .nav-logo img { width:34px; height:34px; border-radius:8px; }
     .gradient-text { background:linear-gradient(135deg, #38bdf8 0%, #818cf8 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    .nav-links { display:flex; align-items:center; gap:20px; list-style:none; }
-    .nav-links a { color:var(--text); text-decoration:none; font-size:0.92rem; font-weight:600; transition:var(--transition); }
-    .nav-links a:hover, .nav-links a.active { color:var(--accent); }
+    .nav-actions { display:flex; align-items:center; gap:14px; }
+    .nav-link-home { color:var(--text); text-decoration:none; font-size:0.9rem; font-weight:600; display:flex; align-items:center; gap:6px; transition:var(--transition); padding:7px 14px; border-radius:10px; }
+    .nav-link-home:hover { color:var(--accent); background:rgba(59,130,246,0.08); }
+    .nav-cta-btn { display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color:#ffffff; padding:7px 18px; border-radius:10px; font-weight:700; font-size:0.86rem; text-decoration:none; transition:var(--transition); box-shadow:0 0 15px rgba(14,165,233,0.3); }
+    .nav-cta-btn:hover { transform:translateY(-1px); box-shadow:0 0 22px rgba(14,165,233,0.5); }
     .theme-toggle { background:var(--bg-card); border:1px solid var(--border); color:var(--text-heading); width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:var(--transition); }
     .theme-toggle:hover { border-color:var(--accent); color:var(--accent); }
 
@@ -110,21 +112,18 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6TZZCBV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
-    <nav class="navbar">
+        <nav class="navbar">
         <div class="container">
             <div class="nav-inner">
                 <a href="https://techminddevelopers.in/" class="nav-logo">
                     <img src="../logo-icon.png" alt="Tech Mind Developers">
                     <span>Tech Mind <span class="gradient-text">Developers</span></span>
                 </a>
-                <ul class="nav-links">
-                    <li><a href="https://techminddevelopers.in/#services">Services</a></li>
-                    <li><a href="https://techminddevelopers.in/#tech">Tech Stack</a></li>
-                    <li><a href="https://techminddevelopers.in/#about">About</a></li>
-                    <li><a href="index.html" class="active">Blog</a></li>
-                    <li><a href="https://techminddevelopers.in/#contact">Contact</a></li>
-                </ul>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+                <div class="nav-actions">
+                    <a href="https://techminddevelopers.in/" class="nav-link-home"><i class="fas fa-arrow-left"></i> <span>Main Website</span></a>
+                    <a href="https://techminddevelopers.in/#contact" class="nav-cta-btn"><i class="fas fa-paper-plane"></i> <span>Get a Quote</span></a>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+                </div>
             </div>
         </div>
     </nav>
