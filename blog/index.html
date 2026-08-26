@@ -28,9 +28,9 @@
     <!-- End Google Analytics -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Insights &amp; Simple Software Guides | Tech Mind Developers</title>
-    <meta name="description" content="Simple, practical guides on building business software, pathology lab systems, restaurant websites, school portals, and AI tools by Tech Mind Developers.">
-    <meta name="keywords" content="Software Development Blog, Pathology Lab Software Guide, Business Web Apps, School ERP Portal, Restaurant Website, Gym Website, Tech Mind Developers">
+    <title>Tech Insights &amp; Software Engineering Guides | Tech Mind Developers</title>
+    <meta name="description" content="Explore practical, human-written guides on pathology lab software, restaurant ordering systems, school portals, custom ERPs, and modern web apps by Tech Mind Developers.">
+    <meta name="keywords" content="Software Engineering Blog, Pathology Lab Software Guide, Restaurant Website Development, School ERP Portal, Custom Software vs SaaS, Tech Mind Developers">
     <meta name="author" content="Tech Mind Developers">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://techminddevelopers.in/blog/index.html">
@@ -48,11 +48,12 @@
         --border-hover: rgba(59,130,246,0.4);
         --text: #94a3b8;
         --text-heading: #f8fafc;
-        --accent: #3b82f6;
-        --radius: 16px;
+        --accent: #38bdf8;
+        --gradient-hero: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #ec4899 100%);
+        --radius: 18px;
         --radius-sm: 10px;
         --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        --shadow: 0 10px 30px rgba(0,0,0,0.5);
+        --shadow: 0 10px 35px rgba(0,0,0,0.5);
     }
     [data-theme="light"] {
         --bg: #f8fafc;
@@ -65,46 +66,83 @@
         --shadow: 0 10px 30px rgba(0,0,0,0.06);
     }
     * { margin:0; padding:0; box-sizing:border-box; font-family:var(--font-primary); }
-    body { background:var(--bg); color:var(--text); line-height:1.7; transition:background 0.3s, color 0.3s; }
-    .container { max-width:1140px; margin:0 auto; padding:0 24px; }
+    body { background:var(--bg); color:var(--text); line-height:1.7; transition:background 0.3s, color 0.3s; min-height:100vh; overflow-x:hidden; }
+    .container { max-width:1160px; margin:0 auto; padding:0 24px; position:relative; z-index:1; }
+
+    /* Animated Tech Grid & Glow Backgrounds (Matching Homepage) */
+    @keyframes gridPan { 0% { background-position: 0 0; } 100% { background-position: 60px 60px; } }
+    .bg-grid { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0; background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px); background-size:60px 60px; animation: gridPan 20s linear infinite; }
+    [data-theme="light"] .bg-grid { background-image:linear-gradient(rgba(0,0,0,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.03) 1px,transparent 1px); }
+    
+    .bg-glow { position:fixed; border-radius:50%; filter:blur(130px); pointer-events:none; z-index:0; }
+    .bg-glow-1 { width:550px; height:550px; background:rgba(56,189,248,0.07); top:-150px; right:-150px; }
+    .bg-glow-2 { width:500px; height:500px; background:rgba(129,140,248,0.06); bottom:20%; left:-150px; }
+    .bg-glow-3 { width:400px; height:400px; background:rgba(236,72,153,0.05); top:40%; right:15%; }
     
     /* Navbar */
-    .navbar { position:sticky; top:0; z-index:100; backdrop-filter:blur(16px); background:rgba(7,9,14,0.85); border-bottom:1px solid var(--border); padding:16px 0; }
-    [data-theme="light"] .navbar { background:rgba(248,250,252,0.9); }
+    .navbar { position:sticky; top:0; z-index:100; backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); background:rgba(7,9,14,0.85); border-bottom:1px solid var(--border); padding:14px 0; transition:var(--transition); }
+    [data-theme="light"] .navbar { background:rgba(248,250,252,0.92); }
     .nav-inner { display:flex; justify-content:space-between; align-items:center; }
-    .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text-heading); font-weight:800; font-size:1.15rem; }
-    .nav-logo img { width:34px; height:34px; border-radius:8px; }
-    .gradient-text { background:linear-gradient(135deg, #38bdf8 0%, #818cf8 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-    .nav-actions { display:flex; align-items:center; gap:14px; }
-    .nav-link-home { color:var(--text); text-decoration:none; font-size:0.9rem; font-weight:600; display:flex; align-items:center; gap:6px; transition:var(--transition); padding:7px 14px; border-radius:10px; }
-    .nav-link-home:hover { color:var(--accent); background:rgba(59,130,246,0.08); }
-    .nav-cta-btn { display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color:#ffffff; padding:7px 18px; border-radius:10px; font-weight:700; font-size:0.86rem; text-decoration:none; transition:var(--transition); box-shadow:0 0 15px rgba(14,165,233,0.3); }
-    .nav-cta-btn:hover { transform:translateY(-1px); box-shadow:0 0 22px rgba(14,165,233,0.5); }
+    .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text-heading); font-weight:800; font-size:1.15rem; letter-spacing:-0.2px; }
+    .nav-logo img { width:34px; height:34px; border-radius:8px; filter:drop-shadow(0 0 10px rgba(56,189,248,0.4)); }
+    .gradient-text { background:var(--gradient-hero); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    
+    .nav-actions { display:flex; align-items:center; gap:12px; }
+    .nav-link-home { color:var(--text); text-decoration:none; font-size:0.88rem; font-weight:600; display:flex; align-items:center; gap:6px; transition:var(--transition); padding:7px 14px; border-radius:10px; background:var(--bg-card); border:1px solid var(--border); }
+    .nav-link-home:hover { color:var(--accent); border-color:var(--accent); background:rgba(56,189,248,0.08); }
+    .nav-cta-btn { display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color:#ffffff; padding:8px 18px; border-radius:10px; font-weight:700; font-size:0.86rem; text-decoration:none; transition:var(--transition); box-shadow:0 0 16px rgba(14,165,233,0.35); }
+    .nav-cta-btn:hover { transform:translateY(-1px); box-shadow:0 0 24px rgba(14,165,233,0.55); }
     .theme-toggle { background:var(--bg-card); border:1px solid var(--border); color:var(--text-heading); width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:var(--transition); }
     .theme-toggle:hover { border-color:var(--accent); color:var(--accent); }
 
     /* Header */
-    .blog-header { text-align:center; padding:70px 0 40px; }
-    .blog-badge { display:inline-flex; align-items:center; gap:8px; padding:6px 16px; border-radius:100px; background:rgba(59,130,246,0.1); border:1px solid var(--border-hover); color:#38bdf8; font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:16px; }
-    .blog-title { font-size:2.8rem; font-weight:900; color:var(--text-heading); line-height:1.2; margin-bottom:16px; letter-spacing:-0.5px; }
-    .blog-subtitle { font-size:1.1rem; color:var(--text); max-width:650px; margin:0 auto; }
+    .blog-header { text-align:center; padding:65px 0 35px; }
+    .blog-badge { display:inline-flex; align-items:center; gap:8px; padding:6px 16px; border-radius:100px; background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.25); color:#38bdf8; font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; margin-bottom:18px; }
+    .pulse-dot { width:8px; height:8px; background:#10b981; border-radius:50%; animation:pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1; transform:scale(1)} 50%{opacity:.4; transform:scale(0.85)} }
+    .blog-title { font-size:clamp(2.3rem, 4.5vw, 3.2rem); font-weight:900; color:var(--text-heading); line-height:1.18; margin-bottom:16px; letter-spacing:-0.8px; }
+    .blog-subtitle { font-size:1.1rem; color:var(--text); max-width:680px; margin:0 auto; line-height:1.7; }
+
+    /* Search & Filter Controls */
+    .controls-wrapper { max-width:760px; margin:25px auto 40px; }
+    .search-box { position:relative; margin-bottom:18px; }
+    .search-box i { position:absolute; left:18px; top:50%; transform:translateY(-50%); color:var(--text); font-size:1rem; }
+    .search-input { width:100%; padding:14px 20px 14px 48px; background:var(--bg-card); border:1px solid var(--border); border-radius:14px; color:var(--text-heading); font-size:0.95rem; outline:none; transition:var(--transition); backdrop-filter:blur(10px); }
+    .search-input:focus { border-color:#38bdf8; box-shadow:0 0 20px rgba(56,189,248,0.25); background:rgba(255,255,255,0.04); }
+    
+    .filter-tabs { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; }
+    .tab-btn { background:var(--bg-card); border:1px solid var(--border); color:var(--text); padding:7px 16px; border-radius:20px; font-size:0.84rem; font-weight:600; cursor:pointer; transition:var(--transition); }
+    .tab-btn:hover { border-color:var(--accent); color:var(--text-heading); }
+    .tab-btn.active { background:rgba(56,189,248,0.12); border-color:#38bdf8; color:#38bdf8; font-weight:700; box-shadow:0 0 15px rgba(56,189,248,0.2); }
 
     /* Post Grid */
-    .blog-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:28px; padding:30px 0 80px; }
-    .blog-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:30px; display:flex; flex-direction:column; justify-content:space-between; transition:var(--transition); text-decoration:none; color:inherit; }
-    .blog-card:hover { transform:translateY(-4px); border-color:var(--border-hover); box-shadow:var(--shadow); }
-    .card-tag { display:inline-block; font-size:0.76rem; font-weight:700; text-transform:uppercase; color:#38bdf8; background:rgba(56,189,248,0.1); padding:4px 10px; border-radius:6px; margin-bottom:14px; align-self:flex-start; }
-    .card-title { font-size:1.35rem; font-weight:800; color:var(--text-heading); margin-bottom:12px; line-height:1.35; }
-    .card-desc { font-size:0.92rem; color:var(--text); line-height:1.6; margin-bottom:20px; flex-grow:1; }
+    .blog-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:28px; padding-bottom:80px; }
+    .blog-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); transition:var(--transition); position:relative; overflow:hidden; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+    .blog-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent-color); opacity:0.8; transition:var(--transition); }
+    .blog-card:hover { transform:translateY(-6px); border-color:var(--accent-border); box-shadow:0 14px 40px var(--accent-bg); }
+    .blog-card:hover::before { height:4px; opacity:1; box-shadow:0 0 15px var(--accent-color); }
+    
+    .card-inner-link { padding:28px; display:flex; flex-direction:column; justify-content:space-between; height:100%; text-decoration:none; color:inherit; }
+    .card-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+    .card-tag { display:inline-flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:700; text-transform:uppercase; color:var(--accent-color); background:var(--accent-bg); border:1px solid var(--accent-border); padding:4px 10px; border-radius:6px; letter-spacing:0.3px; }
+    .card-read-time { font-size:0.78rem; color:var(--text); display:flex; align-items:center; gap:4px; }
+    .card-title { font-size:1.32rem; font-weight:800; color:var(--text-heading); margin-bottom:12px; line-height:1.36; letter-spacing:-0.2px; transition:var(--transition); }
+    .blog-card:hover .card-title { color:#38bdf8; }
+    .card-desc { font-size:0.92rem; color:var(--text); line-height:1.65; margin-bottom:22px; flex-grow:1; }
     .card-footer { display:flex; justify-content:space-between; align-items:center; font-size:0.82rem; color:var(--text); border-top:1px solid var(--border); padding-top:16px; }
-    .card-read { color:var(--accent); font-weight:700; display:flex; align-items:center; gap:6px; }
+    .card-read { color:var(--accent-color); font-weight:700; display:flex; align-items:center; gap:6px; transition:var(--transition); }
+    .blog-card:hover .card-read i { transform:translateX(4px); }
+    
+    .no-results { grid-column: 1 / -1; text-align:center; padding:60px 20px; display:none; }
+    .no-results i { font-size:2.5rem; color:var(--text); margin-bottom:12px; }
 
     /* Footer */
-    .footer { border-top:1px solid var(--border); padding:32px 0; text-align:center; font-size:0.86rem; color:var(--text); }
+    .footer { border-top:1px solid var(--border); padding:32px 0; text-align:center; font-size:0.86rem; color:var(--text); position:relative; z-index:1; }
     .footer a { color:var(--accent); text-decoration:none; }
 
     @media (max-width:768px) {
-        .blog-title { font-size:2.1rem; }
+        .blog-grid { grid-template-columns: 1fr; }
+        .nav-link-home span { display:none; }
     }
     </style>
 </head>
@@ -112,6 +150,12 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6TZZCBV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     
+    <!-- Background Decorators -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
     <nav class="navbar">
         <div class="container">
             <div class="nav-inner">
@@ -130,184 +174,231 @@
 
     <header class="blog-header">
         <div class="container">
-            <div class="blog-badge"><i class="fas fa-book-open"></i> Simple Tech Guides</div>
-            <h1 class="blog-title">Articles &amp; <span class="gradient-text">Software Advice</span></h1>
-            <p class="blog-subtitle">Clear, easy-to-read guides to help you understand how modern software works and how it can save your business time and money.</p>
+            <div class="blog-badge"><span class="pulse-dot"></span> Helpful Tech Guides</div>
+            <h1 class="blog-title">Simple Guides &amp; <span class="gradient-text">Tech Advice</span></h1>
+            <p class="blog-subtitle">Easy-to-read articles to help you understand how modern software, websites, and automation save your business time and grow revenue.</p>
+            
+            <div class="controls-wrapper">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="blogSearch" class="search-input" placeholder="Search guides (e.g. Pathology, ERP, Restaurant, Flutter, Razorpay)...">
+                </div>
+                <div class="filter-tabs">
+                    <button class="tab-btn active" data-filter="all">All Guides (13)</button>
+                    <button class="tab-btn" data-filter="healthcare">🧪 Healthcare</button>
+                    <button class="tab-btn" data-filter="local-biz">🍽️ Business &amp; Retail</button>
+                    <button class="tab-btn" data-filter="ecommerce">🛒 E-Commerce</button>
+                    <button class="tab-btn" data-filter="education">🏫 Education</button>
+                    <button class="tab-btn" data-filter="tech-ai">🧠 Tech &amp; AI</button>
+                    <button class="tab-btn" data-filter="enterprise">📊 ERP &amp; Strategy</button>
+                </div>
+            </div>
         </div>
     </header>
 
     <main class="container">
-        <div class="blog-grid">
+        <div class="blog-grid" id="blogGrid">
 
-            <!-- Card: how-to-automate-pathology-lab-software (August 18, 2026) -->
-            <a href="how-to-automate-pathology-lab-software.html" class="blog-card">
-                <div>
-                    <span class="card-tag"><i class="fas fa-flask-vial"></i> Healthcare</span>
+            <article class="blog-card" data-category="healthcare" data-title="how to automate your pathology lab and diagnostic center (2025 guide) learn how modern diagnostic labs save hours every day by switching from manual word reports to simple software with barcode sample tracking and instant whatsapp report delivery. healthcare" style="--accent-color:#38bdf8; --accent-bg:rgba(56,189,248,0.12); --accent-border:rgba(56,189,248,0.3);">
+                <a href="how-to-automate-pathology-lab-software.html" class="card-inner-link">
+                    <div class="card-top">
+                        <span class="card-tag"><i class="fas fa-flask-vial"></i> Healthcare</span>
+                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                    </div>
                     <h2 class="card-title">How to Automate Your Pathology Lab and Diagnostic Center (2025 Guide)</h2>
                     <p class="card-desc">Learn how modern diagnostic labs save hours every day by switching from manual Word reports to simple software with barcode sample tracking and instant WhatsApp report delivery.</p>
-                </div>
-                <div class="card-footer">
-                    <span><i class="far fa-calendar-alt"></i> August 2026</span>
-                    <span class="card-read">Read Article <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
+                    <div class="card-footer">
+                        <span class="card-date"><i class="far fa-calendar-alt"></i> August 2026</span>
+                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </article>
 
-            <!-- Card: why-restaurants-need-a-custom-website-2025 (August 02, 2026) -->
-            <a href="why-restaurants-need-a-custom-website-2025.html" class="blog-card">
-                <div>
-                    <span class="card-tag"><i class="fas fa-utensils"></i> Restaurants</span>
+            <article class="blog-card" data-category="local-biz" data-title="why every restaurant and cafe needs its own direct ordering website stop losing 30% of every food order to delivery apps. discover how an easy online menu with direct upi payments boosts your restaurant profit margins. restaurants" style="--accent-color:#f59e0b; --accent-bg:rgba(245,158,11,0.12); --accent-border:rgba(245,158,11,0.3);">
+                <a href="why-restaurants-need-a-custom-website-2025.html" class="card-inner-link">
+                    <div class="card-top">
+                        <span class="card-tag"><i class="fas fa-utensils"></i> Restaurants</span>
+                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                    </div>
                     <h2 class="card-title">Why Every Restaurant and Cafe Needs Its Own Direct Ordering Website</h2>
                     <p class="card-desc">Stop losing 30% of every food order to delivery apps. Discover how an easy online menu with direct UPI payments boosts your restaurant profit margins.</p>
-                </div>
-                <div class="card-footer">
-                    <span><i class="far fa-calendar-alt"></i> August 2026</span>
-                    <span class="card-read">Read Article <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
+                    <div class="card-footer">
+                        <span class="card-date"><i class="far fa-calendar-alt"></i> August 2026</span>
+                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </article>
 
-            <!-- Card: how-to-build-custom-ecommerce-store-india (July 22, 2026) -->
-            <a href="how-to-build-custom-ecommerce-store-india.html" class="blog-card">
-                <div>
-                    <span class="card-tag"><i class="fas fa-shopping-cart"></i> E-Commerce</span>
+            <article class="blog-card" data-category="ecommerce" data-title="how to build a fast e-commerce store with razorpay & upi in india everything you need to know about setting up a high-speed online store that accepts google pay, phonepe, paytm, and credit cards with instant order notifications. e-commerce" style="--accent-color:#10b981; --accent-bg:rgba(16,185,129,0.12); --accent-border:rgba(16,185,129,0.3);">
+                <a href="how-to-build-custom-ecommerce-store-india.html" class="card-inner-link">
+                    <div class="card-top">
+                        <span class="card-tag"><i class="fas fa-shopping-cart"></i> E-Commerce</span>
+                        <span class="card-read-time"><i class="far fa-clock"></i> 6 min</span>
+                    </div>
                     <h2 class="card-title">How to Build a Fast E-Commerce Store with Razorpay & UPI in India</h2>
                     <p class="card-desc">Everything you need to know about setting up a high-speed online store that accepts Google Pay, PhonePe, Paytm, and credit cards with instant order notifications.</p>
-                </div>
-                <div class="card-footer">
-                    <span><i class="far fa-calendar-alt"></i> July 2026</span>
-                    <span class="card-read">Read Article <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
+                    <div class="card-footer">
+                        <span class="card-date"><i class="far fa-calendar-alt"></i> July 2026</span>
+                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </article>
 
-            <!-- Card: why-schools-need-modern-school-management-website (July 09, 2026) -->
-            <a href="why-schools-need-modern-school-management-website.html" class="blog-card">
-                <div>
-                    <span class="card-tag"><i class="fas fa-graduation-cap"></i> Education</span>
+            <article class="blog-card" data-category="education" data-title="why modern schools need a website and online management portal parents expect online fee payments, instant admission forms, and digital report cards. see how a custom school portal saves staff hours of administrative paperwork. education" style="--accent-color:#8b5cf6; --accent-bg:rgba(139,92,246,0.12); --accent-border:rgba(139,92,246,0.3);">
+                <a href="why-schools-need-modern-school-management-website.html" class="card-inner-link">
+                    <div class="card-top">
+                        <span class="card-tag"><i class="fas fa-graduation-cap"></i> Education</span>
+                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                    </div>
                     <h2 class="card-title">Why Modern Schools Need a Website and Online Management Portal</h2>
                     <p class="card-desc">Parents expect online fee payments, instant admission forms, and digital report cards. See how a custom school portal saves staff hours of administrative paperwork.</p>
-                </div>
-                <div class="card-footer">
-                    <span><i class="far fa-calendar-alt"></i> July 2026</span>
-                    <span class="card-read">Read Article <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
+                    <div class="card-footer">
+                        <span class="card-date"><i class="far fa-calendar-alt"></i> July 2026</span>
+                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </article>
 
-            <!-- Card: ai-chatbots-automated-workflows-for-business (June 26, 2026) -->
-            <a href="ai-chatbots-automated-workflows-for-business.html" class="blog-card">
-                <div>
-                    <span class="card-tag"><i class="fas fa-brain"></i> AI & Automation</span>
+            <article class="blog-card" data-category="tech-ai" data-title="how smart ai chatbots and automation help modern businesses grow see how small and medium businesses use smart ai chatbots to answer customer questions 24/7, book appointments, and cut down manual office work. ai & automation" style="--accent-color:#ec4899; --accent-bg:rgba(236,72,153,0.12); --accent-border:rgba(236,72,153,0.3);">
+                <a href="ai-chatbots-automated-workflows-for-business.html" class="card-inner-link">
+                    <div class="card-top">
+                        <span class="card-tag"><i class="fas fa-brain"></i> AI & Automation</span>
+                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                    </div>
                     <h2 class="card-title">How Smart AI Chatbots and Automation Help Modern Businesses Grow</h2>
                     <p class="card-desc">See how small and medium businesses use smart AI chatbots to answer customer questions 24/7, book appointments, and cut down manual office work.</p>
-                </div>
-                <div class="card-footer">
-                    <span><i class="far fa-calendar-alt"></i> June 2026</span>
-                    <span class="card-read">Read Article <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
+                    <div class="card-footer">
+                        <span class="card-date"><i class="far fa-calendar-alt"></i> June 2026</span>
+                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </article>
 
-            <!-- Card: why-coaching-institutes-need-a-website-and-app (June 12, 2026) -->
-            <a href="why-coaching-institutes-need-a-website-and-app.html" class="blog-card">
-                <div>
-                    <span class="card-tag"><i class="fas fa-chalkboard-teacher"></i> Coaching & Tutors</span>
+            <article class="blog-card" data-category="education" data-title="how a website helps coaching institutes and tutors get more students attract more local students with online demo booking, recorded video lectures, downloadable study notes, and automated online test series. coaching & tutors" style="--accent-color:#a855f7; --accent-bg:rgba(168,85,247,0.12); --accent-border:rgba(168,85,247,0.3);">
+                <a href="why-coaching-institutes-need-a-website-and-app.html" class="card-inner-link">
+                    <div class="card-top">
+                        <span class="card-tag"><i class="fas fa-chalkboard-teacher"></i> Coaching & Tutors</span>
+                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                    </div>
                     <h2 class="card-title">How a Website Helps Coaching Institutes and Tutors Get More Students</h2>
                     <p class="card-desc">Attract more local students with online demo booking, recorded video lectures, downloadable study notes, and automated online test series.</p>
-                </div>
-                <div class="card-footer">
-                    <span><i class="far fa-calendar-alt"></i> June 2026</span>
-                    <span class="card-read">Read Article <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
+                    <div class="card-footer">
+                        <span class="card-date"><i class="far fa-calendar-alt"></i> June 2026</span>
+                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </article>
 
-            <!-- Card: flutter-vs-react-native-mobile-app-development (May 28, 2026) -->
-            <a href="flutter-vs-react-native-mobile-app-development.html" class="blog-card">
-                <div>
-                    <span class="card-tag"><i class="fas fa-mobile-alt"></i> Mobile Apps</span>
+            <article class="blog-card" data-category="tech-ai" data-title="flutter vs react native: which is best for your mobile app in 2025? how to build one single mobile app that runs smoothly on both android and iphone without paying developers to build two separate apps. mobile apps" style="--accent-color:#06b6d4; --accent-bg:rgba(6,182,212,0.12); --accent-border:rgba(6,182,212,0.3);">
+                <a href="flutter-vs-react-native-mobile-app-development.html" class="card-inner-link">
+                    <div class="card-top">
+                        <span class="card-tag"><i class="fas fa-mobile-alt"></i> Mobile Apps</span>
+                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                    </div>
                     <h2 class="card-title">Flutter vs React Native: Which Is Best for Your Mobile App in 2025?</h2>
                     <p class="card-desc">How to build one single mobile app that runs smoothly on both Android and iPhone without paying developers to build two separate apps.</p>
-                </div>
-                <div class="card-footer">
-                    <span><i class="far fa-calendar-alt"></i> May 2026</span>
-                    <span class="card-read">Read Article <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
+                    <div class="card-footer">
+                        <span class="card-date"><i class="far fa-calendar-alt"></i> May 2026</span>
+                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </article>
 
-            <!-- Card: why-real-estate-agents-need-property-listing-website (May 14, 2026) -->
-            <a href="why-real-estate-agents-need-property-listing-website.html" class="blog-card">
-                <div>
-                    <span class="card-tag"><i class="fas fa-building"></i> Real Estate</span>
+            <article class="blog-card" data-category="local-biz" data-title="why real estate agents and property dealers need their own website showcase your top residential and commercial properties with hd photos, google maps locations, and instant whatsapp inquiry buttons to close deals faster. real estate" style="--accent-color:#3b82f6; --accent-bg:rgba(59,130,246,0.12); --accent-border:rgba(59,130,246,0.3);">
+                <a href="why-real-estate-agents-need-property-listing-website.html" class="card-inner-link">
+                    <div class="card-top">
+                        <span class="card-tag"><i class="fas fa-building"></i> Real Estate</span>
+                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                    </div>
                     <h2 class="card-title">Why Real Estate Agents and Property Dealers Need Their Own Website</h2>
                     <p class="card-desc">Showcase your top residential and commercial properties with HD photos, Google Maps locations, and instant WhatsApp inquiry buttons to close deals faster.</p>
-                </div>
-                <div class="card-footer">
-                    <span><i class="far fa-calendar-alt"></i> May 2026</span>
-                    <span class="card-read">Read Article <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
+                    <div class="card-footer">
+                        <span class="card-date"><i class="far fa-calendar-alt"></i> May 2026</span>
+                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </article>
 
-            <!-- Card: how-custom-erp-crm-boosts-business-efficiency (April 25, 2026) -->
-            <a href="how-custom-erp-crm-boosts-business-efficiency.html" class="blog-card">
-                <div>
-                    <span class="card-tag"><i class="fas fa-chart-line"></i> ERP & CRM</span>
+            <article class="blog-card" data-category="enterprise" data-title="how a custom erp and crm system helps you run your entire business stop losing customer details across random whatsapp chats and excel files. learn how a simple custom dashboard keeps your whole team organized. erp & crm" style="--accent-color:#6366f1; --accent-bg:rgba(99,102,241,0.12); --accent-border:rgba(99,102,241,0.3);">
+                <a href="how-custom-erp-crm-boosts-business-efficiency.html" class="card-inner-link">
+                    <div class="card-top">
+                        <span class="card-tag"><i class="fas fa-chart-line"></i> ERP & CRM</span>
+                        <span class="card-read-time"><i class="far fa-clock"></i> 6 min</span>
+                    </div>
                     <h2 class="card-title">How a Custom ERP and CRM System Helps You Run Your Entire Business</h2>
                     <p class="card-desc">Stop losing customer details across random WhatsApp chats and Excel files. Learn how a simple custom dashboard keeps your whole team organized.</p>
-                </div>
-                <div class="card-footer">
-                    <span><i class="far fa-calendar-alt"></i> April 2026</span>
-                    <span class="card-read">Read Article <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
+                    <div class="card-footer">
+                        <span class="card-date"><i class="far fa-calendar-alt"></i> April 2026</span>
+                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </article>
 
-            <!-- Card: why-gyms-and-fitness-studios-need-a-website (April 08, 2026) -->
-            <a href="why-gyms-and-fitness-studios-need-a-website.html" class="blog-card">
-                <div>
-                    <span class="card-tag"><i class="fas fa-dumbbell"></i> Fitness & Gyms</span>
+            <article class="blog-card" data-category="local-biz" data-title="how a modern website helps gyms and fitness studios get more members new gym members search google before joining. learn how showing membership plans, equipment photos, and free 1-day pass passes fills your gym with new members. fitness & gyms" style="--accent-color:#f97316; --accent-bg:rgba(249,115,22,0.12); --accent-border:rgba(249,115,22,0.3);">
+                <a href="why-gyms-and-fitness-studios-need-a-website.html" class="card-inner-link">
+                    <div class="card-top">
+                        <span class="card-tag"><i class="fas fa-dumbbell"></i> Fitness & Gyms</span>
+                        <span class="card-read-time"><i class="far fa-clock"></i> 4 min</span>
+                    </div>
                     <h2 class="card-title">How a Modern Website Helps Gyms and Fitness Studios Get More Members</h2>
                     <p class="card-desc">New gym members search Google before joining. Learn how showing membership plans, equipment photos, and free 1-day pass passes fills your gym with new members.</p>
-                </div>
-                <div class="card-footer">
-                    <span><i class="far fa-calendar-alt"></i> April 2026</span>
-                    <span class="card-read">Read Article <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
+                    <div class="card-footer">
+                        <span class="card-date"><i class="far fa-calendar-alt"></i> April 2026</span>
+                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </article>
 
-            <!-- Card: aspnet-core-vs-nodejs-enterprise-web-apps (March 22, 2026) -->
-            <a href="aspnet-core-vs-nodejs-enterprise-web-apps.html" class="blog-card">
-                <div>
-                    <span class="card-tag"><i class="fas fa-server"></i> Web Development</span>
+            <article class="blog-card" data-category="tech-ai" data-title="asp.net core vs node.js for business web apps: which one should you pick? a plain english comparison of asp.net core and node.js. find out which technology is the best match for your business website or custom portal. web development" style="--accent-color:#38bdf8; --accent-bg:rgba(56,189,248,0.12); --accent-border:rgba(56,189,248,0.3);">
+                <a href="aspnet-core-vs-nodejs-enterprise-web-apps.html" class="card-inner-link">
+                    <div class="card-top">
+                        <span class="card-tag"><i class="fas fa-server"></i> Web Development</span>
+                        <span class="card-read-time"><i class="far fa-clock"></i> 6 min</span>
+                    </div>
                     <h2 class="card-title">ASP.NET Core vs Node.js for Business Web Apps: Which One Should You Pick?</h2>
                     <p class="card-desc">A plain English comparison of ASP.NET Core and Node.js. Find out which technology is the best match for your business website or custom portal.</p>
-                </div>
-                <div class="card-footer">
-                    <span><i class="far fa-calendar-alt"></i> March 2026</span>
-                    <span class="card-read">Read Article <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
+                    <div class="card-footer">
+                        <span class="card-date"><i class="far fa-calendar-alt"></i> March 2026</span>
+                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </article>
 
-            <!-- Card: why-your-business-website-needs-redesign-2025 (March 07, 2026) -->
-            <a href="why-your-business-website-needs-redesign-2025.html" class="blog-card">
-                <div>
-                    <span class="card-tag"><i class="fas fa-paint-brush"></i> Design & UI</span>
+            <article class="blog-card" data-category="local-biz" data-title="5 clear signs your business website needs a modern redesign if your website takes longer than 3 seconds to load or looks messy on mobile phones, discover how a modern redesign doubles your customer inquiries. design & ui" style="--accent-color:#f43f5e; --accent-bg:rgba(244,63,94,0.12); --accent-border:rgba(244,63,94,0.3);">
+                <a href="why-your-business-website-needs-redesign-2025.html" class="card-inner-link">
+                    <div class="card-top">
+                        <span class="card-tag"><i class="fas fa-paint-brush"></i> Design & UI</span>
+                        <span class="card-read-time"><i class="far fa-clock"></i> 4 min</span>
+                    </div>
                     <h2 class="card-title">5 Clear Signs Your Business Website Needs a Modern Redesign</h2>
                     <p class="card-desc">If your website takes longer than 3 seconds to load or looks messy on mobile phones, discover how a modern redesign doubles your customer inquiries.</p>
-                </div>
-                <div class="card-footer">
-                    <span><i class="far fa-calendar-alt"></i> March 2026</span>
-                    <span class="card-read">Read Article <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
+                    <div class="card-footer">
+                        <span class="card-date"><i class="far fa-calendar-alt"></i> March 2026</span>
+                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </article>
 
-            <!-- Card: why-custom-software-beats-off-the-shelf-tools (February 16, 2026) -->
-            <a href="why-custom-software-beats-off-the-shelf-tools.html" class="blog-card">
-                <div>
-                    <span class="card-tag"><i class="fas fa-cubes"></i> Business Strategy</span>
+            <article class="blog-card" data-category="enterprise" data-title="why custom software is better than monthly subscriptions for growing companies why paying monthly fees for rigid software gets expensive over time, and how custom software gives you 100% ownership with zero monthly user charges. business strategy" style="--accent-color:#14b8a6; --accent-bg:rgba(20,184,166,0.12); --accent-border:rgba(20,184,166,0.3);">
+                <a href="why-custom-software-beats-off-the-shelf-tools.html" class="card-inner-link">
+                    <div class="card-top">
+                        <span class="card-tag"><i class="fas fa-cubes"></i> Business Strategy</span>
+                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                    </div>
                     <h2 class="card-title">Why Custom Software Is Better Than Monthly Subscriptions for Growing Companies</h2>
                     <p class="card-desc">Why paying monthly fees for rigid software gets expensive over time, and how custom software gives you 100% ownership with zero monthly user charges.</p>
-                </div>
-                <div class="card-footer">
-                    <span><i class="far fa-calendar-alt"></i> February 2026</span>
-                    <span class="card-read">Read Article <i class="fas fa-arrow-right"></i></span>
-                </div>
-            </a>
+                    <div class="card-footer">
+                        <span class="card-date"><i class="far fa-calendar-alt"></i> February 2026</span>
+                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </article>
 
+            <div class="no-results" id="noResults">
+                <i class="fas fa-search-minus"></i>
+                <h3>No articles found</h3>
+                <p>Try searching for a different keyword or select another category tab.</p>
+            </div>
         </div>
     </main>
 
@@ -318,6 +409,7 @@
     </footer>
 
     <script>
+    // Theme Toggle
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;
     const savedTheme = localStorage.getItem('tmd-theme') || 'dark';
@@ -340,6 +432,47 @@
             icon.className = 'fas fa-moon';
         }
     }
+
+    // Real-Time Search & Category Filtering
+    const searchInput = document.getElementById('blogSearch');
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const cards = document.querySelectorAll('.blog-card');
+    const noResults = document.getElementById('noResults');
+
+    let currentFilter = 'all';
+
+    function filterCards() {
+        const query = searchInput.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            const searchData = card.getAttribute('data-title');
+
+            const matchesFilter = (currentFilter === 'all' || category === currentFilter);
+            const matchesQuery = (!query || searchData.includes(query));
+
+            if (matchesFilter && matchesQuery) {
+                card.style.display = 'block';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    searchInput.addEventListener('input', filterCards);
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentFilter = btn.getAttribute('data-filter');
+            filterCards();
+        });
+    });
     </script>
 </body>
 </html>
