@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="50%" stop-color="#07090e"/>
+      <stop offset="100%" stop-color="#05070a"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="50%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#9333ea"/>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#9333ea" stop-opacity="0.05"/>
+    </linearGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.035)" stroke-width="1"/>
+    </pattern>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="600" height="340" fill="url(#bgGrad)"/>
+  <rect width="600" height="340" fill="url(#grid)"/>
+
+  <!-- Ambient Glow Orbs -->
+  <circle cx="500" cy="80" r="140" fill="#0284c7" opacity="0.12" filter="url(#glow)"/>
+  <circle cx="100" cy="260" r="120" fill="#4f46e5" opacity="0.08" filter="url(#glow)"/>
+
+  <!-- Geometric Tech Waves -->
+  <path d="M 0,220 Q 150,160 300,240 T 600,180 L 600,340 L 0,340 Z" fill="url(#glowGrad)"/>
+  <path d="M 0,260 Q 200,200 400,280 T 600,230" fill="none" stroke="url(#accentGrad)" stroke-width="2" opacity="0.5"/>
+  <path d="M 0,290 Q 250,240 450,300 T 600,270" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.3" stroke-dasharray="6,6"/>
+
+  <!-- Glassmorphic Center Card -->
+  <g transform="translate(40, 45)">
+    <rect width="520" height="250" rx="16" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <rect x="0" y="0" width="520" height="3" fill="url(#accentGrad)" rx="1.5"/>
+
+    <!-- Category Pill Badge -->
+    <g transform="translate(30, 32)">
+      <rect width="130" height="28" rx="6" fill="#0284c7" fill-opacity="0.15" stroke="#0284c7" stroke-opacity="0.4" stroke-width="1"/>
+      <text x="65" y="18" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" text-anchor="middle" letter-spacing="1">WEB BACKEND</text>
+    </g>
+
+    <!-- Tech Mind Developers Branding Watermark -->
+    <text x="490" y="50" fill="rgba(255,255,255,0.25)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" text-anchor="end" letter-spacing="0.5">TECH MIND DEVELOPERS</text>
+
+    <!-- Main Title -->
+    <text x="30" y="115" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="800" letter-spacing="-0.5">ASP.NET Core vs Node.js</text>
+    
+    <!-- Subtitle -->
+    <text x="30" y="150" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="600">Modern Backend Architecture</text>
+
+    <!-- Bottom Feature Indicator Line -->
+    <g transform="translate(30, 205)">
+      <circle cx="6" cy="0" r="4" fill="#10b981"/>
+      <text x="18" y="4" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500">Official Tech Mind Engineering Guide</text>
+    </g>
+
+    <!-- Right-Side Decorative Graphic Ring -->
+    <g transform="translate(420, 135)">
+      <circle cx="0" cy="0" r="45" fill="url(#accentGrad)" fill-opacity="0.12" stroke="url(#accentGrad)" stroke-width="1.5" stroke-dasharray="4,4"/>
+      <circle cx="0" cy="0" r="32" fill="#0284c7" fill-opacity="0.2"/>
+      <circle cx="0" cy="0" r="18" fill="url(#accentGrad)"/>
+    </g>
+  </g>
+</svg>

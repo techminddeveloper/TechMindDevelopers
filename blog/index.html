@@ -29,13 +29,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Guides &amp; Tech Advice | Tech Mind Developers</title>
-    <meta name="description" content="Explore practical, human-written guides on AI automation, pathology lab systems, restaurant ordering, school portals, and custom software by Tech Mind Developers.">
+    <meta name="description" content="Explore practical, human-written guides on AI automation, pathology lab software, restaurant ordering, school portals, and custom web apps by Tech Mind Developers.">
     <meta name="keywords" content="AI in Daily Life, AI Business Automation, Pathology Lab Software Guide, Restaurant Website Development, School ERP Portal, Tech Mind Developers">
     <meta name="author" content="Tech Mind Developers Team">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://techminddevelopers.in/blog/index.html">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg?v=2">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.webp?v=2">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -67,7 +67,7 @@
     }
     * { margin:0; padding:0; box-sizing:border-box; font-family:var(--font-primary); }
     body { background:var(--bg); color:var(--text); line-height:1.7; transition:background 0.3s, color 0.3s; min-height:100vh; overflow-x:hidden; }
-    .container { max-width:1160px; margin:0 auto; padding:0 24px; position:relative; z-index:1; }
+    .container { max-width:1200px; margin:0 auto; padding:0 24px; position:relative; z-index:1; }
 
     /* Animated Tech Grid & Glow Backgrounds */
     @keyframes gridPan { 0% { background-position: 0 0; } 100% { background-position: 60px 60px; } }
@@ -115,20 +115,26 @@
     .tab-btn:hover { border-color:var(--accent); color:var(--text-heading); }
     .tab-btn.active { background:rgba(56,189,248,0.12); border-color:#38bdf8; color:#38bdf8; font-weight:700; box-shadow:0 0 15px rgba(56,189,248,0.2); }
 
-    /* Post Grid */
-    .blog-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:28px; padding-bottom:80px; }
-    .blog-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); transition:var(--transition); position:relative; overflow:hidden; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
-    .blog-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent-color); opacity:0.8; transition:var(--transition); }
+    /* Responsive 3-Column Visual Cards Grid */
+    .blog-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(340px, 1fr)); gap:28px; padding-bottom:80px; }
+    .blog-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); transition:var(--transition); position:relative; overflow:hidden; backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); display:flex; flex-direction:column; }
+    .blog-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent-color); opacity:0.85; transition:var(--transition); z-index:2; }
     .blog-card:hover { transform:translateY(-6px); border-color:var(--accent-border); box-shadow:0 14px 40px var(--accent-bg); }
     .blog-card:hover::before { height:4px; opacity:1; box-shadow:0 0 15px var(--accent-color); }
     
-    .card-inner-link { padding:28px; display:flex; flex-direction:column; justify-content:space-between; height:100%; text-decoration:none; color:inherit; }
+    .card-thumb-wrap { width:100%; height:195px; min-height:195px; overflow:hidden; position:relative; background:#0b0f19; border-bottom:1px solid var(--border); display:block; }
+    .card-thumb-img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .blog-card:hover .card-thumb-img { transform:scale(1.05); }
+    .card-thumb-overlay { position:absolute; inset:0; background:linear-gradient(to bottom, transparent 65%, rgba(7,9,14,0.6) 100%); pointer-events:none; }
+
+    .card-inner-link { display:flex; flex-direction:column; justify-content:space-between; height:100%; text-decoration:none; color:inherit; flex-grow:1; }
+    .card-content-wrap { padding:22px 26px 26px; display:flex; flex-direction:column; flex-grow:1; justify-content:space-between; }
     .card-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
-    .card-tag { display:inline-flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:700; text-transform:uppercase; color:var(--accent-color); background:var(--accent-bg); border:1px solid var(--accent-border); padding:4px 10px; border-radius:6px; letter-spacing:0.3px; }
-    .card-read-time { font-size:0.78rem; color:var(--text); display:flex; align-items:center; gap:4px; }
-    .card-title { font-size:1.32rem; font-weight:800; color:var(--text-heading); margin-bottom:12px; line-height:1.36; letter-spacing:-0.2px; transition:var(--transition); }
+    .card-tag { display:inline-flex; align-items:center; gap:6px; font-size:0.75rem; font-weight:700; text-transform:uppercase; color:var(--accent-color); background:var(--accent-bg); border:1px solid var(--accent-border); padding:5px 12px; border-radius:6px; letter-spacing:0.4px; }
+    .card-read-time { font-size:0.78rem; color:var(--text); display:flex; align-items:center; gap:5px; }
+    .card-title { font-size:1.28rem; font-weight:800; color:var(--text-heading); margin-bottom:12px; line-height:1.36; letter-spacing:-0.2px; transition:var(--transition); }
     .blog-card:hover .card-title { color:#38bdf8; }
-    .card-desc { font-size:0.92rem; color:var(--text); line-height:1.65; margin-bottom:22px; flex-grow:1; }
+    .card-desc { font-size:0.91rem; color:var(--text); line-height:1.65; margin-bottom:20px; flex-grow:1; }
     .card-footer { display:flex; justify-content:space-between; align-items:center; font-size:0.82rem; color:var(--text); border-top:1px solid var(--border); padding-top:16px; }
     .card-read { color:var(--accent-color); font-weight:700; display:flex; align-items:center; gap:6px; transition:var(--transition); }
     .blog-card:hover .card-read i { transform:translateX(4px); }
@@ -160,7 +166,7 @@
         <div class="container">
             <div class="nav-inner">
                 <a href="https://techminddevelopers.in/" class="nav-logo">
-                    <img src="../logo-icon.png" alt="Tech Mind Developers">
+                    <img src="../logo-icon.webp" alt="Tech Mind Developers">
                     <span>Tech Mind <span class="gradient-text">Developers</span></span>
                 </a>
                 <div class="nav-actions">
@@ -201,225 +207,315 @@
 
             <article class="blog-card" data-category="tech-ai" data-title="why you must embrace ai today or risk being left behind in business technology moves fast. learn why businesses and professionals who don't adopt ai tools will struggle to compete with those who use ai to work 5x faster. ai & growth" style="--accent-color:#ec4899; --accent-bg:rgba(236,72,153,0.12); --accent-border:rgba(236,72,153,0.3);">
                 <a href="why-adapting-to-ai-is-essential-to-not-fall-behind.html" class="card-inner-link">
-                    <div class="card-top">
-                        <span class="card-tag"><i class="fas fa-rocket"></i> AI & Growth</span>
-                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                    <div class="card-thumb-wrap">
+                        <img src="assets/images/why-adapting-to-ai-is-essential-to-not-fall-behind.webp" alt="Why You Must Embrace AI Today or Risk Being Left Behind in Business" class="card-thumb-img" loading="lazy">
+                        <div class="card-thumb-overlay"></div>
                     </div>
-                    <h2 class="card-title">Why You Must Embrace AI Today or Risk Being Left Behind in Business</h2>
-                    <p class="card-desc">Technology moves fast. Learn why businesses and professionals who don't adopt AI tools will struggle to compete with those who use AI to work 5x faster.</p>
-                    <div class="card-footer">
-                        <span class="card-date"><i class="far fa-calendar-alt"></i> August 2026</span>
-                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    <div class="card-content-wrap">
+                        <div class="card-top">
+                            <span class="card-tag"><i class="fas fa-rocket"></i> AI & Growth</span>
+                            <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                        </div>
+                        <h2 class="card-title">Why You Must Embrace AI Today or Risk Being Left Behind in Business</h2>
+                        <p class="card-desc">Technology moves fast. Learn why businesses and professionals who don't adopt AI tools will struggle to compete with those who use AI to work 5x faster.</p>
+                        <div class="card-footer">
+                            <span class="card-date"><i class="far fa-calendar-alt"></i> August 2026</span>
+                            <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </article>
 
             <article class="blog-card" data-category="tech-ai" data-title="how ai is changing everyday life and making work 10x easier (a simple guide) a friendly guide on how artificial intelligence helps in our everyday lives, from smart phone assistants to automating boring office paperwork. ai & future" style="--accent-color:#a855f7; --accent-bg:rgba(168,85,247,0.12); --accent-border:rgba(168,85,247,0.3);">
                 <a href="how-ai-is-transforming-daily-life-and-work.html" class="card-inner-link">
-                    <div class="card-top">
-                        <span class="card-tag"><i class="fas fa-brain"></i> AI & Future</span>
-                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                    <div class="card-thumb-wrap">
+                        <img src="assets/images/how-ai-is-transforming-daily-life-and-work.webp" alt="How AI Is Changing Everyday Life and Making Work 10x Easier (A Simple Guide)" class="card-thumb-img" loading="lazy">
+                        <div class="card-thumb-overlay"></div>
                     </div>
-                    <h2 class="card-title">How AI Is Changing Everyday Life and Making Work 10x Easier (A Simple Guide)</h2>
-                    <p class="card-desc">A friendly guide on how artificial intelligence helps in our everyday lives, from smart phone assistants to automating boring office paperwork.</p>
-                    <div class="card-footer">
-                        <span class="card-date"><i class="far fa-calendar-alt"></i> August 2026</span>
-                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    <div class="card-content-wrap">
+                        <div class="card-top">
+                            <span class="card-tag"><i class="fas fa-brain"></i> AI & Future</span>
+                            <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                        </div>
+                        <h2 class="card-title">How AI Is Changing Everyday Life and Making Work 10x Easier (A Simple Guide)</h2>
+                        <p class="card-desc">A friendly guide on how artificial intelligence helps in our everyday lives, from smart phone assistants to automating boring office paperwork.</p>
+                        <div class="card-footer">
+                            <span class="card-date"><i class="far fa-calendar-alt"></i> August 2026</span>
+                            <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </article>
 
-            <article class="blog-card" data-category="healthcare" data-title="how to automate your pathology lab and diagnostic center (Modern guide) learn how modern diagnostic labs save hours every day by switching from manual word reports to simple software with barcode sample tracking and instant whatsapp report delivery. healthcare" style="--accent-color:#38bdf8; --accent-bg:rgba(56,189,248,0.12); --accent-border:rgba(56,189,248,0.3);">
+            <article class="blog-card" data-category="healthcare" data-title="how to automate your pathology lab and diagnostic center (complete guide) learn how modern diagnostic labs save hours every day by switching from manual word reports to simple software with barcode sample tracking and instant whatsapp report delivery. healthcare" style="--accent-color:#38bdf8; --accent-bg:rgba(56,189,248,0.12); --accent-border:rgba(56,189,248,0.3);">
                 <a href="how-to-automate-pathology-lab-software.html" class="card-inner-link">
-                    <div class="card-top">
-                        <span class="card-tag"><i class="fas fa-flask-vial"></i> Healthcare</span>
-                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                    <div class="card-thumb-wrap">
+                        <img src="assets/images/how-to-automate-pathology-lab-software.webp" alt="How to Automate Your Pathology Lab and Diagnostic Center (Complete Guide)" class="card-thumb-img" loading="lazy">
+                        <div class="card-thumb-overlay"></div>
                     </div>
-                    <h2 class="card-title">How to Automate Your Pathology Lab and Diagnostic Center (Complete Guide)</h2>
-                    <p class="card-desc">Learn how modern diagnostic labs save hours every day by switching from manual Word reports to simple software with barcode sample tracking and instant WhatsApp report delivery.</p>
-                    <div class="card-footer">
-                        <span class="card-date"><i class="far fa-calendar-alt"></i> August 2026</span>
-                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    <div class="card-content-wrap">
+                        <div class="card-top">
+                            <span class="card-tag"><i class="fas fa-flask-vial"></i> Healthcare</span>
+                            <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                        </div>
+                        <h2 class="card-title">How to Automate Your Pathology Lab and Diagnostic Center (Complete Guide)</h2>
+                        <p class="card-desc">Learn how modern diagnostic labs save hours every day by switching from manual Word reports to simple software with barcode sample tracking and instant WhatsApp report delivery.</p>
+                        <div class="card-footer">
+                            <span class="card-date"><i class="far fa-calendar-alt"></i> August 2026</span>
+                            <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </article>
 
             <article class="blog-card" data-category="local-biz" data-title="why every restaurant and cafe needs its own direct ordering website stop losing 30% of every food order to delivery apps. discover how an easy online menu with direct upi payments boosts your restaurant profit margins. restaurants" style="--accent-color:#f59e0b; --accent-bg:rgba(245,158,11,0.12); --accent-border:rgba(245,158,11,0.3);">
-                <a href="why-restaurants-need-a-custom-website-Modern.html" class="card-inner-link">
-                    <div class="card-top">
-                        <span class="card-tag"><i class="fas fa-utensils"></i> Restaurants</span>
-                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                <a href="why-restaurants-need-a-custom-website-2025.html" class="card-inner-link">
+                    <div class="card-thumb-wrap">
+                        <img src="assets/images/why-restaurants-need-a-custom-website-2025.webp" alt="Why Every Restaurant and Cafe Needs Its Own Direct Ordering Website" class="card-thumb-img" loading="lazy">
+                        <div class="card-thumb-overlay"></div>
                     </div>
-                    <h2 class="card-title">Why Every Restaurant and Cafe Needs Its Own Direct Ordering Website</h2>
-                    <p class="card-desc">Stop losing 30% of every food order to delivery apps. Discover how an easy online menu with direct UPI payments boosts your restaurant profit margins.</p>
-                    <div class="card-footer">
-                        <span class="card-date"><i class="far fa-calendar-alt"></i> August 2026</span>
-                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    <div class="card-content-wrap">
+                        <div class="card-top">
+                            <span class="card-tag"><i class="fas fa-utensils"></i> Restaurants</span>
+                            <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                        </div>
+                        <h2 class="card-title">Why Every Restaurant and Cafe Needs Its Own Direct Ordering Website</h2>
+                        <p class="card-desc">Stop losing 30% of every food order to delivery apps. Discover how an easy online menu with direct UPI payments boosts your restaurant profit margins.</p>
+                        <div class="card-footer">
+                            <span class="card-date"><i class="far fa-calendar-alt"></i> August 2026</span>
+                            <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </article>
 
             <article class="blog-card" data-category="ecommerce" data-title="how to build a fast e-commerce store with razorpay & upi in india everything you need to know about setting up a high-speed online store that accepts google pay, phonepe, paytm, and credit cards with instant order notifications. e-commerce" style="--accent-color:#10b981; --accent-bg:rgba(16,185,129,0.12); --accent-border:rgba(16,185,129,0.3);">
                 <a href="how-to-build-custom-ecommerce-store-india.html" class="card-inner-link">
-                    <div class="card-top">
-                        <span class="card-tag"><i class="fas fa-shopping-cart"></i> E-Commerce</span>
-                        <span class="card-read-time"><i class="far fa-clock"></i> 6 min</span>
+                    <div class="card-thumb-wrap">
+                        <img src="assets/images/how-to-build-custom-ecommerce-store-india.webp" alt="How to Build a Fast E-Commerce Store with Razorpay & UPI in India" class="card-thumb-img" loading="lazy">
+                        <div class="card-thumb-overlay"></div>
                     </div>
-                    <h2 class="card-title">How to Build a Fast E-Commerce Store with Razorpay & UPI in India</h2>
-                    <p class="card-desc">Everything you need to know about setting up a high-speed online store that accepts Google Pay, PhonePe, Paytm, and credit cards with instant order notifications.</p>
-                    <div class="card-footer">
-                        <span class="card-date"><i class="far fa-calendar-alt"></i> July 2026</span>
-                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    <div class="card-content-wrap">
+                        <div class="card-top">
+                            <span class="card-tag"><i class="fas fa-shopping-cart"></i> E-Commerce</span>
+                            <span class="card-read-time"><i class="far fa-clock"></i> 6 min</span>
+                        </div>
+                        <h2 class="card-title">How to Build a Fast E-Commerce Store with Razorpay & UPI in India</h2>
+                        <p class="card-desc">Everything you need to know about setting up a high-speed online store that accepts Google Pay, PhonePe, Paytm, and credit cards with instant order notifications.</p>
+                        <div class="card-footer">
+                            <span class="card-date"><i class="far fa-calendar-alt"></i> July 2026</span>
+                            <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </article>
 
             <article class="blog-card" data-category="education" data-title="why modern schools need a website and online management portal parents expect online fee payments, instant admission forms, and digital report cards. see how a custom school portal saves staff hours of administrative paperwork. education" style="--accent-color:#8b5cf6; --accent-bg:rgba(139,92,246,0.12); --accent-border:rgba(139,92,246,0.3);">
                 <a href="why-schools-need-modern-school-management-website.html" class="card-inner-link">
-                    <div class="card-top">
-                        <span class="card-tag"><i class="fas fa-graduation-cap"></i> Education</span>
-                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                    <div class="card-thumb-wrap">
+                        <img src="assets/images/why-schools-need-modern-school-management-website.webp" alt="Why Modern Schools Need a Website and Online Management Portal" class="card-thumb-img" loading="lazy">
+                        <div class="card-thumb-overlay"></div>
                     </div>
-                    <h2 class="card-title">Why Modern Schools Need a Website and Online Management Portal</h2>
-                    <p class="card-desc">Parents expect online fee payments, instant admission forms, and digital report cards. See how a custom school portal saves staff hours of administrative paperwork.</p>
-                    <div class="card-footer">
-                        <span class="card-date"><i class="far fa-calendar-alt"></i> July 2026</span>
-                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    <div class="card-content-wrap">
+                        <div class="card-top">
+                            <span class="card-tag"><i class="fas fa-graduation-cap"></i> Education</span>
+                            <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                        </div>
+                        <h2 class="card-title">Why Modern Schools Need a Website and Online Management Portal</h2>
+                        <p class="card-desc">Parents expect online fee payments, instant admission forms, and digital report cards. See how a custom school portal saves staff hours of administrative paperwork.</p>
+                        <div class="card-footer">
+                            <span class="card-date"><i class="far fa-calendar-alt"></i> July 2026</span>
+                            <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </article>
 
             <article class="blog-card" data-category="tech-ai" data-title="how smart ai chatbots and automation help modern businesses grow see how small and medium businesses use smart ai chatbots to answer customer questions 24/7, book appointments, and cut down manual office work. ai & automation" style="--accent-color:#ec4899; --accent-bg:rgba(236,72,153,0.12); --accent-border:rgba(236,72,153,0.3);">
                 <a href="ai-chatbots-automated-workflows-for-business.html" class="card-inner-link">
-                    <div class="card-top">
-                        <span class="card-tag"><i class="fas fa-brain"></i> AI & Automation</span>
-                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                    <div class="card-thumb-wrap">
+                        <img src="assets/images/ai-chatbots-automated-workflows-for-business.webp" alt="How Smart AI Chatbots and Automation Help Modern Businesses Grow" class="card-thumb-img" loading="lazy">
+                        <div class="card-thumb-overlay"></div>
                     </div>
-                    <h2 class="card-title">How Smart AI Chatbots and Automation Help Modern Businesses Grow</h2>
-                    <p class="card-desc">See how small and medium businesses use smart AI chatbots to answer customer questions 24/7, book appointments, and cut down manual office work.</p>
-                    <div class="card-footer">
-                        <span class="card-date"><i class="far fa-calendar-alt"></i> June 2026</span>
-                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    <div class="card-content-wrap">
+                        <div class="card-top">
+                            <span class="card-tag"><i class="fas fa-brain"></i> AI & Automation</span>
+                            <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                        </div>
+                        <h2 class="card-title">How Smart AI Chatbots and Automation Help Modern Businesses Grow</h2>
+                        <p class="card-desc">See how small and medium businesses use smart AI chatbots to answer customer questions 24/7, book appointments, and cut down manual office work.</p>
+                        <div class="card-footer">
+                            <span class="card-date"><i class="far fa-calendar-alt"></i> June 2026</span>
+                            <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </article>
 
             <article class="blog-card" data-category="education" data-title="how a website helps coaching institutes and tutors get more students attract more local students with online demo booking, recorded video lectures, downloadable study notes, and automated online test series. coaching & tutors" style="--accent-color:#a855f7; --accent-bg:rgba(168,85,247,0.12); --accent-border:rgba(168,85,247,0.3);">
                 <a href="why-coaching-institutes-need-a-website-and-app.html" class="card-inner-link">
-                    <div class="card-top">
-                        <span class="card-tag"><i class="fas fa-chalkboard-teacher"></i> Coaching & Tutors</span>
-                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                    <div class="card-thumb-wrap">
+                        <img src="assets/images/why-coaching-institutes-need-a-website-and-app.webp" alt="How a Website Helps Coaching Institutes and Tutors Get More Students" class="card-thumb-img" loading="lazy">
+                        <div class="card-thumb-overlay"></div>
                     </div>
-                    <h2 class="card-title">How a Website Helps Coaching Institutes and Tutors Get More Students</h2>
-                    <p class="card-desc">Attract more local students with online demo booking, recorded video lectures, downloadable study notes, and automated online test series.</p>
-                    <div class="card-footer">
-                        <span class="card-date"><i class="far fa-calendar-alt"></i> June 2026</span>
-                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    <div class="card-content-wrap">
+                        <div class="card-top">
+                            <span class="card-tag"><i class="fas fa-chalkboard-teacher"></i> Coaching & Tutors</span>
+                            <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                        </div>
+                        <h2 class="card-title">How a Website Helps Coaching Institutes and Tutors Get More Students</h2>
+                        <p class="card-desc">Attract more local students with online demo booking, recorded video lectures, downloadable study notes, and automated online test series.</p>
+                        <div class="card-footer">
+                            <span class="card-date"><i class="far fa-calendar-alt"></i> June 2026</span>
+                            <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </article>
 
-            <article class="blog-card" data-category="tech-ai" data-title="flutter vs react native: which is best for your mobile app Today? how to build one single mobile app that runs smoothly on both android and iphone without paying developers to build two separate apps. mobile apps" style="--accent-color:#06b6d4; --accent-bg:rgba(6,182,212,0.12); --accent-border:rgba(6,182,212,0.3);">
+            <article class="blog-card" data-category="tech-ai" data-title="flutter vs react native: which is best for your mobile app? how to build one single mobile app that runs smoothly on both android and iphone without paying developers to build two separate apps. mobile apps" style="--accent-color:#06b6d4; --accent-bg:rgba(6,182,212,0.12); --accent-border:rgba(6,182,212,0.3);">
                 <a href="flutter-vs-react-native-mobile-app-development.html" class="card-inner-link">
-                    <div class="card-top">
-                        <span class="card-tag"><i class="fas fa-mobile-alt"></i> Mobile Apps</span>
-                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                    <div class="card-thumb-wrap">
+                        <img src="assets/images/flutter-vs-react-native-mobile-app-development.webp" alt="Flutter vs React Native: Which Is Best for Your Mobile App?" class="card-thumb-img" loading="lazy">
+                        <div class="card-thumb-overlay"></div>
                     </div>
-                    <h2 class="card-title">Flutter vs React Native: Which Is Best for Your Mobile App?</h2>
-                    <p class="card-desc">How to build one single mobile app that runs smoothly on both Android and iPhone without paying developers to build two separate apps.</p>
-                    <div class="card-footer">
-                        <span class="card-date"><i class="far fa-calendar-alt"></i> May 2026</span>
-                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    <div class="card-content-wrap">
+                        <div class="card-top">
+                            <span class="card-tag"><i class="fas fa-mobile-alt"></i> Mobile Apps</span>
+                            <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                        </div>
+                        <h2 class="card-title">Flutter vs React Native: Which Is Best for Your Mobile App?</h2>
+                        <p class="card-desc">How to build one single mobile app that runs smoothly on both Android and iPhone without paying developers to build two separate apps.</p>
+                        <div class="card-footer">
+                            <span class="card-date"><i class="far fa-calendar-alt"></i> May 2026</span>
+                            <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </article>
 
             <article class="blog-card" data-category="local-biz" data-title="why real estate agents and property dealers need their own website showcase your top residential and commercial properties with hd photos, google maps locations, and instant whatsapp inquiry buttons to close deals faster. real estate" style="--accent-color:#3b82f6; --accent-bg:rgba(59,130,246,0.12); --accent-border:rgba(59,130,246,0.3);">
                 <a href="why-real-estate-agents-need-property-listing-website.html" class="card-inner-link">
-                    <div class="card-top">
-                        <span class="card-tag"><i class="fas fa-building"></i> Real Estate</span>
-                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                    <div class="card-thumb-wrap">
+                        <img src="assets/images/why-real-estate-agents-need-property-listing-website.webp" alt="Why Real Estate Agents and Property Dealers Need Their Own Website" class="card-thumb-img" loading="lazy">
+                        <div class="card-thumb-overlay"></div>
                     </div>
-                    <h2 class="card-title">Why Real Estate Agents and Property Dealers Need Their Own Website</h2>
-                    <p class="card-desc">Showcase your top residential and commercial properties with HD photos, Google Maps locations, and instant WhatsApp inquiry buttons to close deals faster.</p>
-                    <div class="card-footer">
-                        <span class="card-date"><i class="far fa-calendar-alt"></i> May 2026</span>
-                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    <div class="card-content-wrap">
+                        <div class="card-top">
+                            <span class="card-tag"><i class="fas fa-building"></i> Real Estate</span>
+                            <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                        </div>
+                        <h2 class="card-title">Why Real Estate Agents and Property Dealers Need Their Own Website</h2>
+                        <p class="card-desc">Showcase your top residential and commercial properties with HD photos, Google Maps locations, and instant WhatsApp inquiry buttons to close deals faster.</p>
+                        <div class="card-footer">
+                            <span class="card-date"><i class="far fa-calendar-alt"></i> May 2026</span>
+                            <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </article>
 
             <article class="blog-card" data-category="enterprise" data-title="how a custom erp and crm system helps you run your entire business stop losing customer details across random whatsapp chats and excel files. learn how a simple custom dashboard keeps your whole team organized. erp & crm" style="--accent-color:#6366f1; --accent-bg:rgba(99,102,241,0.12); --accent-border:rgba(99,102,241,0.3);">
                 <a href="how-custom-erp-crm-boosts-business-efficiency.html" class="card-inner-link">
-                    <div class="card-top">
-                        <span class="card-tag"><i class="fas fa-chart-line"></i> ERP & CRM</span>
-                        <span class="card-read-time"><i class="far fa-clock"></i> 6 min</span>
+                    <div class="card-thumb-wrap">
+                        <img src="assets/images/how-custom-erp-crm-boosts-business-efficiency.webp" alt="How a Custom ERP and CRM System Helps You Run Your Entire Business" class="card-thumb-img" loading="lazy">
+                        <div class="card-thumb-overlay"></div>
                     </div>
-                    <h2 class="card-title">How a Custom ERP and CRM System Helps You Run Your Entire Business</h2>
-                    <p class="card-desc">Stop losing customer details across random WhatsApp chats and Excel files. Learn how a simple custom dashboard keeps your whole team organized.</p>
-                    <div class="card-footer">
-                        <span class="card-date"><i class="far fa-calendar-alt"></i> April 2026</span>
-                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    <div class="card-content-wrap">
+                        <div class="card-top">
+                            <span class="card-tag"><i class="fas fa-chart-line"></i> ERP & CRM</span>
+                            <span class="card-read-time"><i class="far fa-clock"></i> 6 min</span>
+                        </div>
+                        <h2 class="card-title">How a Custom ERP and CRM System Helps You Run Your Entire Business</h2>
+                        <p class="card-desc">Stop losing customer details across random WhatsApp chats and Excel files. Learn how a simple custom dashboard keeps your whole team organized.</p>
+                        <div class="card-footer">
+                            <span class="card-date"><i class="far fa-calendar-alt"></i> April 2026</span>
+                            <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </article>
 
             <article class="blog-card" data-category="local-biz" data-title="how a modern website helps gyms and fitness studios get more members new gym members search google before joining. learn how showing membership plans, equipment photos, and free 1-day pass passes fills your gym with new members. fitness & gyms" style="--accent-color:#f97316; --accent-bg:rgba(249,115,22,0.12); --accent-border:rgba(249,115,22,0.3);">
                 <a href="why-gyms-and-fitness-studios-need-a-website.html" class="card-inner-link">
-                    <div class="card-top">
-                        <span class="card-tag"><i class="fas fa-dumbbell"></i> Fitness & Gyms</span>
-                        <span class="card-read-time"><i class="far fa-clock"></i> 4 min</span>
+                    <div class="card-thumb-wrap">
+                        <img src="assets/images/why-gyms-and-fitness-studios-need-a-website.webp" alt="How a Modern Website Helps Gyms and Fitness Studios Get More Members" class="card-thumb-img" loading="lazy">
+                        <div class="card-thumb-overlay"></div>
                     </div>
-                    <h2 class="card-title">How a Modern Website Helps Gyms and Fitness Studios Get More Members</h2>
-                    <p class="card-desc">New gym members search Google before joining. Learn how showing membership plans, equipment photos, and free 1-day pass passes fills your gym with new members.</p>
-                    <div class="card-footer">
-                        <span class="card-date"><i class="far fa-calendar-alt"></i> April 2026</span>
-                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    <div class="card-content-wrap">
+                        <div class="card-top">
+                            <span class="card-tag"><i class="fas fa-dumbbell"></i> Fitness & Gyms</span>
+                            <span class="card-read-time"><i class="far fa-clock"></i> 4 min</span>
+                        </div>
+                        <h2 class="card-title">How a Modern Website Helps Gyms and Fitness Studios Get More Members</h2>
+                        <p class="card-desc">New gym members search Google before joining. Learn how showing membership plans, equipment photos, and free 1-day pass passes fills your gym with new members.</p>
+                        <div class="card-footer">
+                            <span class="card-date"><i class="far fa-calendar-alt"></i> April 2026</span>
+                            <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </article>
 
             <article class="blog-card" data-category="tech-ai" data-title="asp.net core vs node.js for business web apps: which one should you pick? a plain english comparison of asp.net core and node.js. find out which technology is the best match for your business website or custom portal. web development" style="--accent-color:#38bdf8; --accent-bg:rgba(56,189,248,0.12); --accent-border:rgba(56,189,248,0.3);">
                 <a href="aspnet-core-vs-nodejs-enterprise-web-apps.html" class="card-inner-link">
-                    <div class="card-top">
-                        <span class="card-tag"><i class="fas fa-server"></i> Web Development</span>
-                        <span class="card-read-time"><i class="far fa-clock"></i> 6 min</span>
+                    <div class="card-thumb-wrap">
+                        <img src="assets/images/aspnet-core-vs-nodejs-enterprise-web-apps.webp" alt="ASP.NET Core vs Node.js for Business Web Apps: Which One Should You Pick?" class="card-thumb-img" loading="lazy">
+                        <div class="card-thumb-overlay"></div>
                     </div>
-                    <h2 class="card-title">ASP.NET Core vs Node.js for Business Web Apps: Which One Should You Pick?</h2>
-                    <p class="card-desc">A plain English comparison of ASP.NET Core and Node.js. Find out which technology is the best match for your business website or custom portal.</p>
-                    <div class="card-footer">
-                        <span class="card-date"><i class="far fa-calendar-alt"></i> March 2026</span>
-                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    <div class="card-content-wrap">
+                        <div class="card-top">
+                            <span class="card-tag"><i class="fas fa-server"></i> Web Development</span>
+                            <span class="card-read-time"><i class="far fa-clock"></i> 6 min</span>
+                        </div>
+                        <h2 class="card-title">ASP.NET Core vs Node.js for Business Web Apps: Which One Should You Pick?</h2>
+                        <p class="card-desc">A plain English comparison of ASP.NET Core and Node.js. Find out which technology is the best match for your business website or custom portal.</p>
+                        <div class="card-footer">
+                            <span class="card-date"><i class="far fa-calendar-alt"></i> March 2026</span>
+                            <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </article>
 
             <article class="blog-card" data-category="local-biz" data-title="5 clear signs your business website needs a modern redesign if your website takes longer than 3 seconds to load or looks messy on mobile phones, discover how a modern redesign doubles your customer inquiries. design & ui" style="--accent-color:#f43f5e; --accent-bg:rgba(244,63,94,0.12); --accent-border:rgba(244,63,94,0.3);">
-                <a href="why-your-business-website-needs-redesign-Modern.html" class="card-inner-link">
-                    <div class="card-top">
-                        <span class="card-tag"><i class="fas fa-paint-brush"></i> Design & UI</span>
-                        <span class="card-read-time"><i class="far fa-clock"></i> 4 min</span>
+                <a href="why-your-business-website-needs-redesign-2025.html" class="card-inner-link">
+                    <div class="card-thumb-wrap">
+                        <img src="assets/images/why-your-business-website-needs-redesign-2025.webp" alt="5 Clear Signs Your Business Website Needs a Modern Redesign" class="card-thumb-img" loading="lazy">
+                        <div class="card-thumb-overlay"></div>
                     </div>
-                    <h2 class="card-title">5 Clear Signs Your Business Website Needs a Modern Redesign</h2>
-                    <p class="card-desc">If your website takes longer than 3 seconds to load or looks messy on mobile phones, discover how a modern redesign doubles your customer inquiries.</p>
-                    <div class="card-footer">
-                        <span class="card-date"><i class="far fa-calendar-alt"></i> March 2026</span>
-                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    <div class="card-content-wrap">
+                        <div class="card-top">
+                            <span class="card-tag"><i class="fas fa-paint-brush"></i> Design & UI</span>
+                            <span class="card-read-time"><i class="far fa-clock"></i> 4 min</span>
+                        </div>
+                        <h2 class="card-title">5 Clear Signs Your Business Website Needs a Modern Redesign</h2>
+                        <p class="card-desc">If your website takes longer than 3 seconds to load or looks messy on mobile phones, discover how a modern redesign doubles your customer inquiries.</p>
+                        <div class="card-footer">
+                            <span class="card-date"><i class="far fa-calendar-alt"></i> March 2026</span>
+                            <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </article>
 
             <article class="blog-card" data-category="enterprise" data-title="why custom software is better than monthly subscriptions for growing companies why paying monthly fees for rigid software gets expensive over time, and how custom software gives you 100% ownership with zero monthly user charges. business strategy" style="--accent-color:#14b8a6; --accent-bg:rgba(20,184,166,0.12); --accent-border:rgba(20,184,166,0.3);">
                 <a href="why-custom-software-beats-off-the-shelf-tools.html" class="card-inner-link">
-                    <div class="card-top">
-                        <span class="card-tag"><i class="fas fa-cubes"></i> Business Strategy</span>
-                        <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                    <div class="card-thumb-wrap">
+                        <img src="assets/images/why-custom-software-beats-off-the-shelf-tools.webp" alt="Why Custom Software Is Better Than Monthly Subscriptions for Growing Companies" class="card-thumb-img" loading="lazy">
+                        <div class="card-thumb-overlay"></div>
                     </div>
-                    <h2 class="card-title">Why Custom Software Is Better Than Monthly Subscriptions for Growing Companies</h2>
-                    <p class="card-desc">Why paying monthly fees for rigid software gets expensive over time, and how custom software gives you 100% ownership with zero monthly user charges.</p>
-                    <div class="card-footer">
-                        <span class="card-date"><i class="far fa-calendar-alt"></i> February 2026</span>
-                        <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                    <div class="card-content-wrap">
+                        <div class="card-top">
+                            <span class="card-tag"><i class="fas fa-cubes"></i> Business Strategy</span>
+                            <span class="card-read-time"><i class="far fa-clock"></i> 5 min</span>
+                        </div>
+                        <h2 class="card-title">Why Custom Software Is Better Than Monthly Subscriptions for Growing Companies</h2>
+                        <p class="card-desc">Why paying monthly fees for rigid software gets expensive over time, and how custom software gives you 100% ownership with zero monthly user charges.</p>
+                        <div class="card-footer">
+                            <span class="card-date"><i class="far fa-calendar-alt"></i> February 2026</span>
+                            <span class="card-read">Read Guide <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                 </a>
             </article>
@@ -483,7 +579,7 @@
             const matchesQuery = (!query || searchData.includes(query));
 
             if (matchesFilter && matchesQuery) {
-                card.style.display = 'block';
+                card.style.display = 'flex';
                 visibleCount++;
             } else {
                 card.style.display = 'none';
