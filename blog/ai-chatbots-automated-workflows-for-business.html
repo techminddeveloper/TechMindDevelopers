@@ -119,7 +119,7 @@
     .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text-heading); font-weight:800; font-size:1.15rem; }
     .nav-logo img { width:34px; height:34px; border-radius:8px; }
     .gradient-text { background:var(--gradient-hero); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-    .nav-actions { display:flex; align-items:center; gap:12px; }
+    .nav-actions { display:flex; align-items:center; gap:10px; margin-left:auto; }
     .nav-link-home { color:var(--text); text-decoration:none; font-size:0.88rem; font-weight:600; display:flex; align-items:center; gap:6px; transition:var(--transition); padding:7px 14px; border-radius:10px; background:var(--bg-card); border:1px solid var(--border); }
     .nav-link-home:hover { color:var(--accent); border-color:var(--accent); background:rgba(56,189,248,0.08); }
     .nav-cta-btn { display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color:#ffffff; padding:8px 18px; border-radius:10px; font-weight:700; font-size:0.86rem; text-decoration:none; transition:var(--transition); box-shadow:0 0 16px rgba(14,165,233,0.35); }
@@ -191,7 +191,7 @@
     <div class="bg-glow bg-glow-1"></div>
     <div class="bg-glow bg-glow-2"></div>
 
-    <nav class="navbar">
+        <nav class="navbar">
         <div class="container">
             <div class="nav-inner">
                 <a href="https://techminddevelopers.in/" class="nav-logo">
@@ -199,8 +199,8 @@
                     <span>Tech Mind <span class="gradient-text">Developers</span></span>
                 </a>
                 <div class="nav-actions">
-                    <a href="https://techminddevelopers.in/" class="nav-link-home"><i class="fas fa-arrow-left"></i> <span>Main Website</span></a>
-                    <a href="index.html" class="nav-link-home"><i class="fas fa-home"></i> <span>Blog Home</span></a>
+                    <a href="https://techminddevelopers.in/" class="nav-btn-home"><i class="fas fa-arrow-left"></i> <span>Main Website</span></a>
+                    <a href="index.html" class="nav-btn-home"><i class="fas fa-th-large"></i> <span>Blog Home</span></a>
                     <a href="https://techminddevelopers.in/#contact" class="nav-cta-btn"><i class="fas fa-paper-plane"></i> <span>Get a Quote</span></a>
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
                 </div>
