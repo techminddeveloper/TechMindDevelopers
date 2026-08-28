@@ -218,6 +218,7 @@
                 <span><i class="fas fa-laptop-code"></i> Tech Mind Developers Team</span>
                 <span><i class="far fa-calendar-alt"></i> July 14, 2026</span>
                 <span><i class="far fa-clock"></i> 6 min read</span>
+                <span><i class="far fa-eye"></i> <span id="viewCount">...</span> views</span>
             </div>
         </header>
 
@@ -296,6 +297,41 @@
         const scrolled = (winScroll / height) * 100;
         document.getElementById('readingProgressBar').style.width = scrolled + '%';
     });
+    </script>
+    <!-- Method 2: Smart Unique-Session Serverless View Counter -->
+    <script>
+    (async function initViewCounter() {
+        const slug = window.location.pathname.split('/').pop().replace('.html', '') || 'blog-post';
+        const el = document.getElementById('viewCount');
+        if (!el) return;
+        
+        const sessionKey = 'tmd_visited_' + slug;
+        const hasVisitedSession = sessionStorage.getItem(sessionKey);
+        const cachedCount = localStorage.getItem('tmd_views_' + slug);
+        
+        // Instant render from cache (Zero lag)
+        if (cachedCount) el.textContent = cachedCount;
+        
+        // If already visited in this session, do NOT increment on refresh (Prevent fake spam)
+        if (hasVisitedSession) return;
+        
+        try {
+            const apiKey = 'tmd_blog_' + slug.replace(/[^a-zA-Z0-9_-]/g, '_');
+            const res = await fetch('https://api.visitorbadge.io/api/visitors?path=' + apiKey, { cache: 'no-cache' });
+            if (res.ok) {
+                const text = await res.text();
+                const match = text.match(/aria-label="VISITORS:\s*([0-9,kM\.\+]+)"/i) || text.match(/>([0-9,kM\.\+]+)</);
+                if (match && match[1]) {
+                    const count = match[1];
+                    el.textContent = count;
+                    localStorage.setItem('tmd_views_' + slug, count);
+                    sessionStorage.setItem(sessionKey, '1'); // Lock session so refresh doesn't inflate count
+                }
+            }
+        } catch (e) {
+            if (!cachedCount) el.textContent = '1';
+        }
+    })();
     </script>
 </body>
 </html>
