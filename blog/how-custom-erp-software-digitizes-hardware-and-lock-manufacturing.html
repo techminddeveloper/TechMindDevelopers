@@ -266,22 +266,26 @@
         themeToggle.querySelector('i').className = newTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
     });
     </script>
-    <!-- Method 2: Smart Unique-Session Serverless View Counter -->
+        <!-- Method 2: 24-Hour Unique Device Lock View Counter -->
     <script>
     (async function initViewCounter() {
         const slug = window.location.pathname.split('/').pop().replace('.html', '') || 'blog-post';
         const el = document.getElementById('viewCount');
         if (!el) return;
         
-        const sessionKey = 'tmd_visited_' + slug;
-        const hasVisitedSession = sessionStorage.getItem(sessionKey);
+        const lockKey = 'tmd_read_lock_' + slug;
+        const lastReadTime = localStorage.getItem(lockKey);
         const cachedCount = localStorage.getItem('tmd_views_' + slug);
+        const now = Date.now();
+        const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
         
         // Instant render from cache (Zero lag)
         if (cachedCount) el.textContent = cachedCount;
         
-        // If already visited in this session, do NOT increment on refresh (Prevent fake spam)
-        if (hasVisitedSession) return;
+        // 24-Hour Unique Device Lock: Do NOT increment if read within last 24 hours on this device
+        if (lastReadTime && (now - parseInt(lastReadTime, 10)) < TWENTY_FOUR_HOURS) {
+            return;
+        }
         
         try {
             const apiKey = 'tmd_blog_' + slug.replace(/[^a-zA-Z0-9_-]/g, '_');
@@ -293,7 +297,7 @@
                     const count = match[1];
                     el.textContent = count;
                     localStorage.setItem('tmd_views_' + slug, count);
-                    sessionStorage.setItem(sessionKey, '1'); // Lock session so refresh doesn't inflate count
+                    localStorage.setItem(lockKey, now.toString()); // 24-Hour Device Lock Activated!
                 }
             }
         } catch (e) {
