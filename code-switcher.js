@@ -228,7 +228,7 @@
                 var cur = lineTextSpan.querySelector('.type-cursor');
                 if (cur) cur.remove();
                 streamIdx++;
-                typeTimer = setTimeout(step, 40);
+                typeTimer = setTimeout(step, 18);
                 return;
             }
 
@@ -259,9 +259,9 @@
 
             streamIdx++;
 
-            var delay = Math.floor(Math.random() * 12) + 12; // 12-24ms snappy realistic typing
+            var delay = Math.floor(Math.random() * 6) + 6; // 6-12ms ultra-fast pro IDE typing
             if (item.char === ' ' || item.char === '(' || item.char === '{') {
-                delay += 15;
+                delay += 6;
             }
 
             typeTimer = setTimeout(step, delay);
@@ -286,7 +286,7 @@
             autoCycleTimer = setTimeout(function() {
                 currentLangIdx = (currentLangIdx + 1) % langKeys.length;
                 switchTab(langKeys[currentLangIdx], false);
-            }, 5500);
+            }, 2000);
         });
     }
 
