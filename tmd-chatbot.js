@@ -46,11 +46,11 @@
 '/* Trigger Wrapper & Static Curved Top-Arc Caption */',
 '.tmd-chat-trigger-wrap {',
 '    position: fixed;',
-'    bottom: 145px;',
-'    right: 14px;',
+'    bottom: 140px;',
+'    right: 10px;',
 '    z-index: 9998;',
-'    width: 86px;',
-'    height: 86px;',
+'    width: 94px;',
+'    height: 94px;',
 '    display: flex;',
 '    align-items: center;',
 '    justify-content: center;',
@@ -83,20 +83,20 @@
 '}',
 '',
 '.tmd-chat-trigger {',
-'    width: 50px;',
-'    height: 50px;',
+'    width: 58px;',
+'    height: 58px;',
 '    border-radius: 50%;',
-'    background: linear-gradient(135deg, #0284c7 0%, #2563eb 50%, #7c3aed 100%);',
+'    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #06b6d4 100%);',
 '    background-size: 200% 200%;',
 '    animation: tmd-gradientShift 4s ease infinite, tmd-pulseGlow 2.5s infinite;',
-'    border: 2px solid rgba(255, 255, 255, 0.35);',
+'    border: 2px solid rgba(255, 255, 255, 0.28);',
 '    cursor: pointer;',
 '    display: flex;',
 '    align-items: center;',
 '    justify-content: center;',
-'    box-shadow: 0 8px 25px rgba(2, 132, 199, 0.5), inset 0 0 12px rgba(255,255,255,0.3);',
+'    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.5), inset 0 0 15px rgba(255,255,255,0.3);',
 '    color: #fff;',
-'    font-size: 1.35rem;',
+'    font-size: 1.5rem;',
 '    position: relative;',
 '    z-index: 2;',
 '    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);',
@@ -546,7 +546,7 @@
         wrap.setAttribute('aria-label', 'Ask AI Assistant');
         wrap.innerHTML =
             '<svg class="tmd-static-arc-text" viewBox="0 0 100 100">' +
-                '<path id="tmdTopArc" d="M 12, 50 A 38,38 0 0,1 88, 50" fill="none" />' +
+                '<path id="tmdTopArc" d="M 11, 50 A 39,39 0 0,1 89, 50" fill="none" />' +
                 '<text>' +
                     '<textPath href="#tmdTopArc" startOffset="50%" text-anchor="middle">ASK AI ASSISTANT</textPath>' +
                 '</text>' +
