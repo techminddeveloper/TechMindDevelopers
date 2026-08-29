@@ -286,7 +286,7 @@
             autoCycleTimer = setTimeout(function() {
                 currentLangIdx = (currentLangIdx + 1) % langKeys.length;
                 switchTab(langKeys[currentLangIdx], false);
-            }, 3000);
+            }, 2000);
         });
     }
 
