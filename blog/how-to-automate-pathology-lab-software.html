@@ -268,8 +268,24 @@
     .footer { border-top:1px solid var(--border); padding:36px 0; text-align:center; font-size:0.88rem; color:var(--text-muted); }
     .footer a { color:var(--accent); text-decoration:none; font-weight:600; }
 
+    /* Mobile Screen Adjustments */
     @media (max-width: 680px) {
-        .nav-btn-home span, .nav-link-home span { display:none; }
+        .container, .article-container, .blog-container { padding: 0 16px !important; }
+        .navbar { padding: 10px 0 !important; }
+        .nav-inner { gap: 6px !important; }
+        .nav-logo { font-size: 0.95rem !important; gap: 6px !important; }
+        .nav-logo img { width: 28px !important; height: 28px !important; border-radius: 6px !important; }
+        .nav-actions { gap: 6px !important; }
+        .nav-btn-home span, .nav-link-home span, .nav-cta-btn span { display: none !important; }
+        .nav-btn-home, .nav-link-home { padding: 7px 10px !important; font-size: 0.85rem !important; }
+        .nav-cta-btn { padding: 7px 12px !important; font-size: 0.85rem !important; }
+        .theme-toggle { width: 34px !important; height: 34px !important; }
+        .breadcrumb, .breadcrumbs { padding: 25px 0 15px !important; font-size: 0.82rem !important; }
+        .article-title, .post-title, .blog-title { font-size: clamp(1.6rem, 5.5vw, 2.2rem) !important; word-break: break-word !important; }
+        .article-meta, .post-meta { gap: 10px !important; font-size: 0.82rem !important; }
+        .author-card { flex-direction: column !important; text-align: center !important; padding: 20px 16px !important; }
+        .article-cta, .cta-box { padding: 30px 18px !important; }
+    }
         .nav-btn-home, .nav-link-home { padding:8px 12px; }
         .nav-cta-btn { padding:8px 14px; }
         .author-card { flex-direction:column; text-align:center; }
@@ -406,26 +422,15 @@
         document.getElementById('readingProgressBar').style.width = scrolled + '%';
     });
     </script>
-        <!-- Method 2: 24-Hour Unique Device Lock View Counter -->
+        <!-- Real-Time Auto-Synced View Counter -->
     <script>
     (async function initViewCounter() {
         const slug = window.location.pathname.split('/').pop().replace('.html', '') || 'blog-post';
         const el = document.getElementById('viewCount');
         if (!el) return;
         
-        const lockKey = 'tmd_read_lock_' + slug;
-        const lastReadTime = localStorage.getItem(lockKey);
         const cachedCount = localStorage.getItem('tmd_views_' + slug);
-        const now = Date.now();
-        const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
-        
-        // Instant render from cache (Zero lag)
         if (cachedCount) el.textContent = cachedCount;
-        
-        // 24-Hour Unique Device Lock: Do NOT increment if read within last 24 hours on this device
-        if (lastReadTime && (now - parseInt(lastReadTime, 10)) < TWENTY_FOUR_HOURS) {
-            return;
-        }
         
         try {
             const apiKey = 'tmd_blog_' + slug.replace(/[^a-zA-Z0-9_-]/g, '_');
@@ -437,7 +442,6 @@
                     const count = match[1];
                     el.textContent = count;
                     localStorage.setItem('tmd_views_' + slug, count);
-                    localStorage.setItem(lockKey, now.toString()); // 24-Hour Device Lock Activated!
                 }
             }
         } catch (e) {
