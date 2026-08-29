@@ -1,163 +1,304 @@
-// Interactive Code Switcher for Hero Section
+// Interactive Typewriter Code Switcher for Hero Section - Tech Mind Developers
 (function() {
     var codeSnippets = {
         dotnet: {
             filename: "Program.cs",
             lines: [
-                { num: 1, html: '<span class="code-comment">// ASP.NET Core Web API</span>' },
-                { num: 2, html: '<span class="code-keyword">var</span> b = WebApplication.<span class="code-func">CreateBuilder</span>(args);' },
-                { num: 3, html: 'b.Services.<span class="code-func">AddTechMind</span>(o =&gt; <span class="code-bracket">{</span>' },
-                { num: 4, html: '&nbsp;&nbsp;o.<span class="code-prop">Company</span> = <span class="code-string">"Tech Mind Developers"</span>;' },
-                { num: 5, html: '&nbsp;&nbsp;o.<span class="code-prop">Since</span> = <span class="code-func">2014</span>;' },
-                { num: 6, html: '&nbsp;&nbsp;o.<span class="code-prop">Stack</span> = <span class="code-string">"C# + Azure"</span>;' },
-                { num: 7, html: '&nbsp;&nbsp;o.<span class="code-prop">Status</span> = <span class="code-string">"Enterprise &#128640;"</span>;' },
-                { num: 8, html: '<span class="code-bracket">}</span>);' },
-                { num: 9, html: '<span class="code-keyword">var</span> app = b.<span class="code-func">Build</span>();' },
-                { num: 10, html: 'app.<span class="code-func">MapGet</span>(<span class="code-string">"/"</span>, () =&gt; <span class="code-string">"Live"</span>);' }
+                { num: 1, tokens: [{ c: "code-comment", t: "// ASP.NET Core Web API" }] },
+                { num: 2, tokens: [{ c: "code-keyword", t: "var" }, { c: "", t: " b = WebApplication." }, { c: "code-func", t: "CreateBuilder" }, { c: "", t: "(args);" }] },
+                { num: 3, tokens: [{ c: "", t: "b.Services." }, { c: "code-func", t: "AddTechMind" }, { c: "", t: "(o => " }, { c: "code-bracket", t: "{" }] },
+                { num: 4, tokens: [{ c: "", t: "  o." }, { c: "code-prop", t: "Company" }, { c: "", t: " = " }, { c: "code-string", t: '"Tech Mind Developers"' }, { c: "", t: ";" }] },
+                { num: 5, tokens: [{ c: "", t: "  o." }, { c: "code-prop", t: "Since" }, { c: "", t: " = " }, { c: "code-func", t: "2014" }, { c: "", t: ";" }] },
+                { num: 6, tokens: [{ c: "", t: "  o." }, { c: "code-prop", t: "Stack" }, { c: "", t: " = " }, { c: "code-string", t: '"C# + Azure"' }, { c: "", t: ";" }] },
+                { num: 7, tokens: [{ c: "", t: "  o." }, { c: "code-prop", t: "Status" }, { c: "", t: " = " }, { c: "code-string", t: '"Enterprise \uD83D\uDE80"' }, { c: "", t: ";" }] },
+                { num: 8, tokens: [{ c: "code-bracket", t: "}" }, { c: "", t: ");" }] },
+                { num: 9, tokens: [{ c: "code-keyword", t: "var" }, { c: "", t: " app = b." }, { c: "code-func", t: "Build" }, { c: "", t: "();" }] },
+                { num: 10, tokens: [{ c: "", t: "app." }, { c: "code-func", t: "MapGet" }, { c: "", t: "(" }, { c: "code-string", t: '"/"' }, { c: "", t: ", () => " }, { c: "code-string", t: '"Live"' }, { c: "", t: ");" }] }
             ]
         },
         react: {
             filename: "App.tsx",
             lines: [
-                { num: 1, html: '<span class="code-comment">// React + TypeScript Modern Dashboard</span>' },
-                { num: 2, html: '<span class="code-keyword">import</span> React, <span class="code-bracket">{</span> useState <span class="code-bracket">}</span> <span class="code-keyword">from</span> <span class="code-string">"react"</span>;' },
-                { num: 3, html: '<span class="code-keyword">export const</span> <span class="code-func">TechMindApp</span> = () =&gt; <span class="code-bracket">{</span>' },
-                { num: 4, html: '&nbsp;&nbsp;<span class="code-keyword">const</span> [partner] = <span class="code-func">useState</span>(<span class="code-bracket">{</span>' },
-                { num: 5, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">company</span>: <span class="code-string">"Tech Mind Developers"</span>,' },
-                { num: 6, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">frontend</span>: <span class="code-string">"React 19 + TypeScript"</span>,' },
-                { num: 7, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">design</span>: <span class="code-string">"Responsive UI / UX"</span>,' },
-                { num: 8, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">outcome</span>: <span class="code-string">"High Conversion SaaS &#128640;"</span>' },
-                { num: 9, html: '&nbsp;&nbsp;<span class="code-bracket">}</span>);' },
-                { num: 10, html: '&nbsp;&nbsp;<span class="code-keyword">return</span> &lt;<span class="code-func">DashView</span> partner={partner} /&gt;;' },
-                { num: 11, html: '<span class="code-bracket">}</span>;' }
+                { num: 1, tokens: [{ c: "code-comment", t: "// React 19 + TypeScript Dashboard" }] },
+                { num: 2, tokens: [{ c: "code-keyword", t: "import" }, { c: "", t: " React, " }, { c: "code-bracket", t: "{" }, { c: "", t: " useState " }, { c: "code-bracket", t: "}" }, { c: "code-keyword", t: " from" }, { c: "code-string", t: ' "react"' }, { c: "", t: ";" }] },
+                { num: 3, tokens: [{ c: "code-keyword", t: "export const" }, { c: "code-func", t: " TechMindApp" }, { c: "", t: " = () => " }, { c: "code-bracket", t: "{" }] },
+                { num: 4, tokens: [{ c: "", t: "  " }, { c: "code-keyword", t: "const" }, { c: "", t: " [partner] = " }, { c: "code-func", t: "useState" }, { c: "", t: "(" }, { c: "code-bracket", t: "{" }] },
+                { num: 5, tokens: [{ c: "", t: "    " }, { c: "code-prop", t: "company" }, { c: "", t: ": " }, { c: "code-string", t: '"Tech Mind Developers"' }, { c: "", t: "," }] },
+                { num: 6, tokens: [{ c: "", t: "    " }, { c: "code-prop", t: "frontend" }, { c: "", t: ": " }, { c: "code-string", t: '"React 19 + Next.js"' }, { c: "", t: "," }] },
+                { num: 7, tokens: [{ c: "", t: "    " }, { c: "code-prop", t: "design" }, { c: "", t: ": " }, { c: "code-string", t: '"Glassmorphic UI / UX"' }, { c: "", t: "," }] },
+                { num: 8, tokens: [{ c: "", t: "    " }, { c: "code-prop", t: "outcome" }, { c: "", t: ": " }, { c: "code-string", t: '"High Conversion SaaS \uD83D\uDE80"' }] },
+                { num: 9, tokens: [{ c: "", t: "  " }, { c: "code-bracket", t: "}" }, { c: "", t: ");" }] },
+                { num: 10, tokens: [{ c: "", t: "  " }, { c: "code-keyword", t: "return" }, { c: "", t: " <" }, { c: "code-func", t: "DashView" }, { c: "", t: " partner={partner} />;" }] },
+                { num: 11, tokens: [{ c: "code-bracket", t: "}" }, { c: "", t: ";" }] }
             ]
         },
         python: {
             filename: "main.py",
             lines: [
-                { num: 1, html: '<span class="code-comment"># Python / FastAPI Automation Toolkit</span>' },
-                { num: 2, html: '<span class="code-keyword">from</span> fastapi <span class="code-keyword">import</span> FastAPI' },
-                { num: 3, html: '<span class="code-keyword">from</span> techmind <span class="code-keyword">import</span> AIWorkflowEngine' },
-                { num: 4, html: 'app = <span class="code-func">FastAPI</span>(title=<span class="code-string">"Tech Mind Automation"</span>)' },
-                { num: 5, html: '@app.<span class="code-func">post</span>(<span class="code-string">"/run-pipeline"</span>)' },
-                { num: 6, html: '<span class="code-keyword">async def</span> <span class="code-func">execute</span>(data: dict):' },
-                { num: 7, html: '&nbsp;&nbsp;&nbsp;&nbsp;bot = <span class="code-func">AIWorkflowEngine</span>(since=<span class="code-func">2014</span>)' },
-                { num: 8, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return await</span> bot.<span class="code-func">process</span>(' },
-                { num: 9, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tasks=data[<span class="code-string">"tasks"</span>],' },
-                { num: 10, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result=<span class="code-string">"10x Faster Workflow &#128640;"</span>' },
-                { num: 11, html: '&nbsp;&nbsp;&nbsp;&nbsp;)' }
+                { num: 1, tokens: [{ c: "code-comment", t: "# Python / FastAPI Workflow Engine" }] },
+                { num: 2, tokens: [{ c: "code-keyword", t: "from" }, { c: "", t: " fastapi " }, { c: "code-keyword", t: "import" }, { c: "", t: " FastAPI" }] },
+                { num: 3, tokens: [{ c: "code-keyword", t: "from" }, { c: "", t: " techmind " }, { c: "code-keyword", t: "import" }, { c: "", t: " AIWorkflowEngine" }] },
+                { num: 4, tokens: [{ c: "", t: "app = " }, { c: "code-func", t: "FastAPI" }, { c: "", t: "(title=" }, { c: "code-string", t: '"Tech Mind Automation"' }, { c: "", t: ")" }] },
+                { num: 5, tokens: [{ c: "", t: "@app." }, { c: "code-func", t: "post" }, { c: "", t: "(" }, { c: "code-string", t: '"/run-pipeline"' }, { c: "", t: ")" }] },
+                { num: 6, tokens: [{ c: "code-keyword", t: "async def" }, { c: "code-func", t: " execute" }, { c: "", t: "(data: dict):" }] },
+                { num: 7, tokens: [{ c: "", t: "    bot = " }, { c: "code-func", t: "AIWorkflowEngine" }, { c: "", t: "(since=" }, { c: "code-func", t: "2014" }, { c: "", t: ")" }] },
+                { num: 8, tokens: [{ c: "", t: "    " }, { c: "code-keyword", t: "return await" }, { c: "", t: " bot." }, { c: "code-func", t: "process" }, { c: "", t: "(" }] },
+                { num: 9, tokens: [{ c: "", t: '        tasks=data["tasks"],' }] },
+                { num: 10, tokens: [{ c: "", t: "        result=" }, { c: "code-string", t: '"10x Faster Workflow \uD83D\uDE80"' }] },
+                { num: 11, tokens: [{ c: "", t: "    )" }] }
             ]
         },
         ai: {
             filename: "agent.ts",
             lines: [
-                { num: 1, html: '<span class="code-comment">// Autonomous AI Agent</span>' },
-                { num: 2, html: '<span class="code-keyword">import</span> <span class="code-bracket">{</span> Agent <span class="code-bracket">}</span> <span class="code-keyword">from</span> <span class="code-string">"ai-core"</span>;' },
-                { num: 3, html: '<span class="code-keyword">const</span> bot = <span class="code-keyword">new</span> <span class="code-func">Agent</span>(<span class="code-bracket">{</span>' },
-                { num: 4, html: '&nbsp;&nbsp;<span class="code-prop">models</span>: [<span class="code-string">"Claude 3.5"</span>, <span class="code-string">"GPT-4o"</span>],' },
-                { num: 5, html: '&nbsp;&nbsp;<span class="code-prop">skills</span>: [<span class="code-string">"Code"</span>, <span class="code-string">"Deploy"</span>],' },
-                { num: 6, html: '&nbsp;&nbsp;<span class="code-prop">client</span>: <span class="code-string">"Tech Mind Developers"</span>,' },
-                { num: 7, html: '&nbsp;&nbsp;<span class="code-prop">goal</span>: <span class="code-string">"Zero Manual Tasks &#128640;"</span>' },
-                { num: 8, html: '<span class="code-bracket">}</span>);' },
-                { num: 9, html: '<span class="code-keyword">await</span> bot.<span class="code-func">deploy</span>();' }
+                { num: 1, tokens: [{ c: "code-comment", t: "// Autonomous 24x7 AI Assistant" }] },
+                { num: 2, tokens: [{ c: "code-keyword", t: "import" }, { c: "code-bracket", t: " {" }, { c: "", t: " Agent " }, { c: "code-bracket", t: "}" }, { c: "code-keyword", t: " from" }, { c: "code-string", t: ' "ai-core"' }, { c: "", t: ";" }] },
+                { num: 3, tokens: [{ c: "code-keyword", t: "const" }, { c: "", t: " bot = " }, { c: "code-keyword", t: "new" }, { c: "code-func", t: " Agent" }, { c: "", t: "(" }, { c: "code-bracket", t: "{" }] },
+                { num: 4, tokens: [{ c: "", t: "  " }, { c: "code-prop", t: "models" }, { c: "", t: ': ["Claude 3.5", "GPT-4o"],' }] },
+                { num: 5, tokens: [{ c: "", t: "  " }, { c: "code-prop", t: "channels" }, { c: "", t: ': ["WhatsApp", "Web", "CRM"],' }] },
+                { num: 6, tokens: [{ c: "", t: "  " }, { c: "code-prop", t: "client" }, { c: "", t: ": " }, { c: "code-string", t: '"Tech Mind Developers"' }, { c: "", t: "," }] },
+                { num: 7, tokens: [{ c: "", t: "  " }, { c: "code-prop", t: "goal" }, { c: "", t: ": " }, { c: "code-string", t: '"Zero Manual Effort \uD83D\uDE80"' }] },
+                { num: 8, tokens: [{ c: "code-bracket", t: "}" }, { c: "", t: ");" }] },
+                { num: 9, tokens: [{ c: "code-keyword", t: "await" }, { c: "", t: " bot." }, { c: "code-func", t: "deploy" }, { c: "", t: "();" }] }
             ]
         },
         sql: {
             filename: "schema.sql",
             lines: [
-                { num: 1, html: '<span class="code-comment">-- SQL Server High-Performance Procedure</span>' },
-                { num: 2, html: '<span class="code-keyword">CREATE PROCEDURE</span> <span class="code-func">sp_DeploySystem</span>' },
-                { num: 3, html: '&nbsp;&nbsp;&nbsp;&nbsp;@Company <span class="code-keyword">NVARCHAR</span>(100),' },
-                { num: 4, html: '&nbsp;&nbsp;&nbsp;&nbsp;@Founded <span class="code-keyword">INT</span> = <span class="code-func">2014</span>' },
-                { num: 5, html: '<span class="code-keyword">AS</span>' },
-                { num: 6, html: '<span class="code-keyword">BEGIN</span>' },
-                { num: 7, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">SELECT</span> Status = <span class="code-string">&#39;Optimized&#39;</span>,' },
-                { num: 8, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arch = <span class="code-string">&#39;HA Cluster&#39;</span>,' },
-                { num: 9, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result = <span class="code-string">&#39;Sub-ms &#128640;&#39;</span>;' },
-                { num: 10, html: '<span class="code-keyword">END</span>;' }
+                { num: 1, tokens: [{ c: "code-comment", t: "-- SQL Server High-Performance DB" }] },
+                { num: 2, tokens: [{ c: "code-keyword", t: "CREATE PROCEDURE" }, { c: "code-func", t: " sp_DeploySystem" }] },
+                { num: 3, tokens: [{ c: "", t: "    @Company " }, { c: "code-keyword", t: "NVARCHAR" }, { c: "", t: "(100)," }] },
+                { num: 4, tokens: [{ c: "", t: "    @Founded " }, { c: "code-keyword", t: "INT" }, { c: "", t: " = " }, { c: "code-func", t: "2014" }] },
+                { num: 5, tokens: [{ c: "code-keyword", t: "AS" }] },
+                { num: 6, tokens: [{ c: "code-keyword", t: "BEGIN" }] },
+                { num: 7, tokens: [{ c: "", t: "    " }, { c: "code-keyword", t: "SELECT" }, { c: "", t: " Status = " }, { c: "code-string", t: "'Optimized'" }, { c: "", t: "," }] },
+                { num: 8, tokens: [{ c: "", t: "           Arch = " }, { c: "code-string", t: "'HA Cluster'" }, { c: "", t: "," }] },
+                { num: 9, tokens: [{ c: "", t: "           Result = " }, { c: "code-string", t: "'Sub-ms Latency \uD83D\uDE80'" }, { c: "", t: ";" }] },
+                { num: 10, tokens: [{ c: "code-keyword", t: "END" }, { c: "", t: ";" }] }
             ]
         },
         azure: {
             filename: "pipeline.yml",
             lines: [
-                { num: 1, html: '<span class="code-comment"># Azure DevOps CI/CD Pipeline</span>' },
-                { num: 2, html: '<span class="code-prop">trigger</span>: [ <span class="code-string">main</span> ]' },
-                { num: 3, html: '<span class="code-prop">stages</span>:' },
-                { num: 4, html: '&nbsp;&nbsp;- <span class="code-prop">stage</span>: <span class="code-string">DeployToAzure</span>' },
-                { num: 5, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">jobs</span>:' },
-                { num: 6, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <span class="code-prop">deployment</span>: <span class="code-string">TechMindCloud</span>' },
-                { num: 7, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">environment</span>: <span class="code-string">"Production"</span>' },
-                { num: 8, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">strategy</span>:' },
-                { num: 9, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">runOnce</span>:' },
-                { num: 10, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">deploy</span>: [ <span class="code-func">ZeroDowntime</span> ]' }
+                { num: 1, tokens: [{ c: "code-comment", t: "# Azure Cloud CI/CD Automation" }] },
+                { num: 2, tokens: [{ c: "code-prop", t: "trigger" }, { c: "", t: ": [ " }, { c: "code-string", t: "main" }, { c: "", t: " ]" }] },
+                { num: 3, tokens: [{ c: "code-prop", t: "stages" }, { c: "", t: ":" }] },
+                { num: 4, tokens: [{ c: "", t: "  - " }, { c: "code-prop", t: "stage" }, { c: "", t: ": " }, { c: "code-string", t: "DeployToCloud" }] },
+                { num: 5, tokens: [{ c: "", t: "    " }, { c: "code-prop", t: "jobs" }, { c: "", t: ":" }] },
+                { num: 6, tokens: [{ c: "", t: "      - " }, { c: "code-prop", t: "deployment" }, { c: "", t: ": " }, { c: "code-string", t: "TechMindProduction" }] },
+                { num: 7, tokens: [{ c: "", t: "        " }, { c: "code-prop", t: "environment" }, { c: "", t: ': "Production"' }] },
+                { num: 8, tokens: [{ c: "", t: "        " }, { c: "code-prop", t: "strategy" }, { c: "", t: ":" }] },
+                { num: 9, tokens: [{ c: "", t: "          " }, { c: "code-prop", t: "runOnce" }, { c: "", t: ":" }] },
+                { num: 10, tokens: [{ c: "", t: "            " }, { c: "code-prop", t: "deploy" }, { c: "", t: ": [ " }, { c: "code-func", t: "ZeroDowntime \uD83D\uDE80" }, { c: "", t: " ]" }] }
             ]
         },
         node: {
             filename: "server.js",
             lines: [
-                { num: 1, html: '<span class="code-comment">// Node.js Microservices Architecture</span>' },
-                { num: 2, html: '<span class="code-keyword">import</span> express <span class="code-keyword">from</span> <span class="code-string">"express"</span>;' },
-                { num: 3, html: '<span class="code-keyword">const</span> app = <span class="code-func">express</span>();' },
-                { num: 4, html: 'app.<span class="code-func">get</span>(<span class="code-string">"/api/grow"</span>, (req, res) =&gt; <span class="code-bracket">{</span>' },
-                { num: 5, html: '&nbsp;&nbsp;res.<span class="code-func">json</span>(<span class="code-bracket">{</span>' },
-                { num: 6, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">partner</span>: <span class="code-string">"Tech Mind Developers"</span>,' },
-                { num: 7, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">experience</span>: <span class="code-string">"Since 2014"</span>,' },
-                { num: 8, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">backend</span>: <span class="code-string">"REST + GraphQL APIs"</span>,' },
-                { num: 9, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-prop">performance</span>: <span class="code-string">"Ultra Fast &#128640;"</span>' },
-                { num: 10, html: '&nbsp;&nbsp;<span class="code-bracket">}</span>);' },
-                { num: 11, html: '<span class="code-bracket">}</span>);' },
-                { num: 12, html: 'app.<span class="code-func">listen</span>(<span class="code-func">8080</span>);' }
+                { num: 1, tokens: [{ c: "code-comment", t: "// Node.js Microservices Server" }] },
+                { num: 2, tokens: [{ c: "code-keyword", t: "import" }, { c: "", t: " express " }, { c: "code-keyword", t: "from" }, { c: "code-string", t: ' "express"' }, { c: "", t: ";" }] },
+                { num: 3, tokens: [{ c: "code-keyword", t: "const" }, { c: "", t: " app = " }, { c: "code-func", t: "express" }, { c: "", t: "();" }] },
+                { num: 4, tokens: [{ c: "", t: 'app.' }, { c: "code-func", t: "get" }, { c: "", t: '("/api/grow", (req, res) => ' }, { c: "code-bracket", t: "{" }] },
+                { num: 5, tokens: [{ c: "", t: "  res." }, { c: "code-func", t: "json" }, { c: "", t: "(" }, { c: "code-bracket", t: "{" }] },
+                { num: 6, tokens: [{ c: "", t: "    " }, { c: "code-prop", t: "partner" }, { c: "", t: ": " }, { c: "code-string", t: '"Tech Mind Developers"' }, { c: "", t: "," }] },
+                { num: 7, tokens: [{ c: "", t: "    " }, { c: "code-prop", t: "backend" }, { c: "", t: ": " }, { c: "code-string", t: '"REST + GraphQL APIs"' }, { c: "", t: "," }] },
+                { num: 8, tokens: [{ c: "", t: "    " }, { c: "code-prop", t: "performance" }, { c: "", t: ": " }, { c: "code-string", t: '"Sub-second Speed \uD83D\uDE80"' }] },
+                { num: 9, tokens: [{ c: "", t: "  " }, { c: "code-bracket", t: "}" }, { c: "", t: ");" }] },
+                { num: 10, tokens: [{ c: "code-bracket", t: "}" }, { c: "", t: ");" }] },
+                { num: 11, tokens: [{ c: "", t: "app." }, { c: "code-func", t: "listen" }, { c: "", t: "(" }, { c: "code-func", t: "8080" }, { c: "", t: ");" }] }
             ]
         },
         mobile: {
             filename: "App.dart",
             lines: [
-                { num: 1, html: '<span class="code-comment">// Flutter Cross-Platform App</span>' },
-                { num: 2, html: '<span class="code-keyword">class</span> <span class="code-func">TechMindApp</span> <span class="code-keyword">extends</span> <span class="code-func">StatelessWidget</span> <span class="code-bracket">{</span>' },
-                { num: 3, html: '&nbsp;&nbsp;@override' },
-                { num: 4, html: '&nbsp;&nbsp;<span class="code-keyword">Widget</span> <span class="code-func">build</span>(BuildContext ctx) <span class="code-bracket">{</span>' },
-                { num: 5, html: '&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-func">MaterialApp</span>(' },
-                { num: 6, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: <span class="code-string">"iOS &amp; Android"</span>,' },
-                { num: 7, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;theme: TechMind.<span class="code-prop">DarkAI</span>,' },
-                { num: 8, html: '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;home: <span class="code-func">DeployScreen</span>(),' },
-                { num: 9, html: '&nbsp;&nbsp;&nbsp;&nbsp;);' },
-                { num: 10, html: '&nbsp;&nbsp;<span class="code-bracket">}</span>' },
-                { num: 11, html: '<span class="code-bracket">}</span>' }
+                { num: 1, tokens: [{ c: "code-comment", t: "// Flutter Native iOS & Android App" }] },
+                { num: 2, tokens: [{ c: "code-keyword", t: "class" }, { c: "code-func", t: " TechMindApp" }, { c: "code-keyword", t: " extends" }, { c: "code-func", t: " StatelessWidget" }, { c: "code-bracket", t: " {" }] },
+                { num: 3, tokens: [{ c: "", t: "  @override" }] },
+                { num: 4, tokens: [{ c: "", t: "  " }, { c: "code-keyword", t: "Widget" }, { c: "code-func", t: " build" }, { c: "", t: "(BuildContext ctx) " }, { c: "code-bracket", t: "{" }] },
+                { num: 5, tokens: [{ c: "", t: "    " }, { c: "code-keyword", t: "return" }, { c: "code-func", t: " MaterialApp" }, { c: "", t: "(" }] },
+                { num: 6, tokens: [{ c: "", t: "      title: " }, { c: "code-string", t: '"iOS & Android Native"' }, { c: "", t: "," }] },
+                { num: 7, tokens: [{ c: "", t: "      theme: TechMind." }, { c: "code-prop", t: "DarkAI" }, { c: "", t: "," }] },
+                { num: 8, tokens: [{ c: "", t: "      home: " }, { c: "code-func", t: "DeployScreen" }, { c: "", t: "()," }] },
+                { num: 9, tokens: [{ c: "", t: "    );" }] },
+                { num: 10, tokens: [{ c: "", t: "  " }, { c: "code-bracket", t: "}" }] },
+                { num: 11, tokens: [{ c: "code-bracket", t: "}" }] }
             ]
         }
     };
 
-    function renderCodeSnippet(langKey) {
+    var langKeys = Object.keys(codeSnippets);
+    var currentLangIdx = 0;
+    var typeTimer = null;
+    var autoCycleTimer = null;
+    var isTyping = false;
+
+    // Inject cursor styles if not present
+    if (!document.getElementById("typewriter-cursor-style")) {
+        var styleEl = document.createElement("style");
+        styleEl.id = "typewriter-cursor-style";
+        styleEl.textContent = `
+            .type-cursor {
+                display: inline-block;
+                width: 7px;
+                height: 15px;
+                background: #38bdf8;
+                margin-left: 3px;
+                vertical-align: middle;
+                border-radius: 1px;
+                box-shadow: 0 0 8px #38bdf8;
+                animation: cursorBlink 0.8s infinite;
+            }
+            @keyframes cursorBlink {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0; }
+            }
+            .code-line {
+                min-height: 22px;
+                line-height: 1.5;
+            }
+        `;
+        document.head.appendChild(styleEl);
+    }
+
+    function typeCodeSnippet(langKey, onComplete) {
+        if (typeTimer) clearTimeout(typeTimer);
+        isTyping = true;
+
         var snippet = codeSnippets[langKey] || codeSnippets.dotnet;
         var codeDisplay = document.getElementById("codeDisplay");
         var fileNameEl = document.getElementById("codeFileName");
 
         if (fileNameEl) {
-            fileNameEl.innerHTML = "<i class=\"fas fa-file-code\"></i> " + snippet.filename;
+            fileNameEl.innerHTML = '<i class="fas fa-file-code"></i> ' + snippet.filename;
         }
 
-        if (codeDisplay) {
-            var h = "";
-            for (var i = 0; i < snippet.lines.length; i++) {
-                h += "<div class=\"code-line\"><span class=\"code-num\">" + snippet.lines[i].num + "</span>" + snippet.lines[i].html + "</div>";
+        if (!codeDisplay) return;
+
+        // Flatten all characters to stream
+        var stream = [];
+        for (var l = 0; l < snippet.lines.length; l++) {
+            var lineObj = snippet.lines[l];
+            for (var t = 0; t < lineObj.tokens.length; t++) {
+                var token = lineObj.tokens[t];
+                for (var c = 0; c < token.t.length; c++) {
+                    stream.push({
+                        lineIdx: l,
+                        lineNum: lineObj.num,
+                        tokenIdx: t,
+                        charIdx: c,
+                        char: token.t[c],
+                        className: token.c
+                    });
+                }
             }
-            codeDisplay.innerHTML = h;
+            // End of line mark
+            stream.push({ lineIdx: l, lineNum: lineObj.num, isEol: true });
         }
+
+        // Build container with empty lines
+        var linesHtml = "";
+        for (var i = 0; i < snippet.lines.length; i++) {
+            linesHtml += '<div class="code-line" id="tline-' + i + '"><span class="code-num">' + snippet.lines[i].num + '</span><span class="line-text"></span></div>';
+        }
+        codeDisplay.innerHTML = linesHtml;
+
+        var streamIdx = 0;
+
+        function step() {
+            if (streamIdx >= stream.length) {
+                // Done typing snippet
+                isTyping = false;
+                var cursors = codeDisplay.querySelectorAll(".type-cursor");
+                cursors.forEach(function(c) { c.remove(); });
+                
+                if (onComplete) onComplete();
+                return;
+            }
+
+            var item = stream[streamIdx];
+            var lineTextSpan = document.querySelector('#tline-' + item.lineIdx + ' .line-text');
+            
+            if (!lineTextSpan) {
+                streamIdx++;
+                step();
+                return;
+            }
+
+            if (item.isEol) {
+                var cur = lineTextSpan.querySelector('.type-cursor');
+                if (cur) cur.remove();
+                streamIdx++;
+                typeTimer = setTimeout(step, 40);
+                return;
+            }
+
+            var oldCursor = codeDisplay.querySelector('.type-cursor');
+            if (oldCursor) oldCursor.remove();
+
+            var charHtml = item.char === ' ' ? '&nbsp;' : (item.char === '<' ? '&lt;' : (item.char === '>' ? '&gt;' : item.char));
+            
+            if (item.className) {
+                var lastChild = lineTextSpan.lastElementChild;
+                if (lastChild && lastChild.classList.contains(item.className) && !lastChild.classList.contains('type-cursor')) {
+                    lastChild.innerHTML += charHtml;
+                } else {
+                    var newSpan = document.createElement('span');
+                    newSpan.className = item.className;
+                    newSpan.innerHTML = charHtml;
+                    lineTextSpan.appendChild(newSpan);
+                }
+            } else {
+                var textNode = document.createElement('span');
+                textNode.innerHTML = charHtml;
+                lineTextSpan.appendChild(textNode);
+            }
+
+            var cursorNode = document.createElement('span');
+            cursorNode.className = 'type-cursor';
+            lineTextSpan.appendChild(cursorNode);
+
+            streamIdx++;
+
+            var delay = Math.floor(Math.random() * 12) + 12; // 12-24ms snappy realistic typing
+            if (item.char === ' ' || item.char === '(' || item.char === '{') {
+                delay += 15;
+            }
+
+            typeTimer = setTimeout(step, delay);
+        }
+
+        step();
     }
 
-    // Tab click listeners
-    var techTabs = document.querySelectorAll(".tech-tab");
-    // Handle Tab Clicks
-    for (var i = 0; i < techTabs.length; i++) {
-        techTabs[i].addEventListener("click", function() {
-            for (var j = 0; j < techTabs.length; j++) {
-                techTabs[j].classList.remove("active");
+    function switchTab(langKey, isManual) {
+        var techTabs = document.querySelectorAll(".tech-tab");
+        techTabs.forEach(function(tab) {
+            if (tab.getAttribute("data-lang") === langKey) {
+                tab.classList.add("active");
+            } else {
+                tab.classList.remove("active");
             }
-            this.classList.add("active");
-            var lang = this.getAttribute("data-lang");
-            renderCodeSnippet(lang);
+        });
+
+        if (autoCycleTimer) clearTimeout(autoCycleTimer);
+
+        typeCodeSnippet(langKey, function() {
+            autoCycleTimer = setTimeout(function() {
+                currentLangIdx = (currentLangIdx + 1) % langKeys.length;
+                switchTab(langKeys[currentLangIdx], false);
+            }, 5500);
         });
     }
+
+    // Tab Click Listeners
+    var techTabs = document.querySelectorAll(".tech-tab");
+    techTabs.forEach(function(tab) {
+        tab.addEventListener("click", function() {
+            var lang = this.getAttribute("data-lang");
+            currentLangIdx = langKeys.indexOf(lang);
+            switchTab(lang, true);
+        });
+    });
 
     // Copy Code Button
     var copyBtn = document.getElementById("copyCodeBtn");
@@ -168,20 +309,23 @@
             var snippet = codeSnippets[langKey];
             if (!snippet) return;
 
-            var tempDiv = document.createElement("div");
-            var lines = [];
-            for (var k = 0; k < snippet.lines.length; k++) {
-                tempDiv.innerHTML = snippet.lines[k].html;
-                lines.push(tempDiv.innerText || tempDiv.textContent || "");
-            }
-            var rawText = lines.join("\n");
+            var rawLines = snippet.lines.map(function(l) {
+                return l.tokens.map(function(t) { return t.t; }).join("");
+            });
+            var rawText = rawLines.join("\n");
 
             navigator.clipboard.writeText(rawText).then(function() {
-                copyBtn.innerHTML = "<i class=\"fas fa-check\" style=\"color:#10b981\"></i>";
+                copyBtn.innerHTML = '<i class="fas fa-check" style="color:#10b981"></i>';
                 setTimeout(function() {
-                    copyBtn.innerHTML = "<i class=\"fas fa-copy\"></i>";
+                    copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
                 }, 2000);
             });
         });
     }
+
+    // Start Typewriter on page load
+    setTimeout(function() {
+        switchTab("dotnet", false);
+    }, 600);
+
 })();
