@@ -287,6 +287,9 @@
         .nav-cta-btn { padding:8px 14px; }
         .author-card { flex-direction:column; text-align:center; }
     }
+    
+    
+
     </style>
 </head>
 <body>
@@ -321,13 +324,13 @@
             <div class="article-meta">
                 <span><i class="far fa-calendar-alt"></i> August 21, 2026</span>
                 <span><i class="far fa-clock"></i> 5 min read</span>
-                <span><i class="far fa-eye"></i> <span id="viewCount">...</span> views</span>
+                <span><i class="far fa-eye"></i> <span id="viewCount">1</span> views</span>
                 <span><i class="far fa-user"></i> Tech Mind Developers Team</span>
             </div>
         </header>
 
         <div class="hero-img-wrap">
-            <img src="assets/images/how-sports-goods-manufacturers-build-high-speed-online-stores.webp" alt="How Sports Goods Manufacturers and Exporters Can Build High-Speed Online Stores" class="hero-img">
+            <img src="assets/images/how-sports-goods-manufacturers-build-high-speed-online-stores.webp" alt="How Sports Goods Manufacturers and Exporters Can Build High-Speed Online Stores" class="hero-img" loading="eager">
         </div>
 
         <article class="article-content">
@@ -410,16 +413,21 @@
         const el = document.getElementById('viewCount');
         if (!el) return;
         
-        const lockKey = 'tmd_read_lock_' + slug;
-        const cacheKey = 'tmd_views_' + slug;
+        const lockKey = 'tmd_v_lock_' + slug;
+        const cacheKey = 'tmd_v_cnt_' + slug;
         const lastReadTime = localStorage.getItem(lockKey);
-        const cachedCount = localStorage.getItem(cacheKey);
+        const cachedCount = localStorage.getItem(cacheKey) || localStorage.getItem('tmd_views_' + slug) || localStorage.getItem('tmd_view_count_' + slug);
         const now = Date.now();
         const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
         
-        if (cachedCount) el.textContent = cachedCount;
+        if (cachedCount && cachedCount !== '...') {
+            el.textContent = cachedCount;
+        } else {
+            el.textContent = '1';
+        }
         
-        if (lastReadTime && (now - parseInt(lastReadTime, 10)) < TWENTY_FOUR_HOURS) {
+        // If locked within 24h and valid cache exists, don't re-hit API
+        if (lastReadTime && cachedCount && (now - parseInt(lastReadTime, 10)) < TWENTY_FOUR_HOURS) {
             return;
         }
         
@@ -437,7 +445,9 @@
                 }
             }
         } catch (e) {
-            if (!cachedCount) el.textContent = '1';
+            if (!cachedCount || cachedCount === '...') {
+                el.textContent = '1';
+            }
         }
     })();
     </script>

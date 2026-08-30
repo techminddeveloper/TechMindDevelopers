@@ -290,6 +290,9 @@
         .nav-cta-btn { padding:8px 14px; }
         .author-card { flex-direction:column; text-align:center; }
     }
+    
+    
+
     </style>
 </head>
 <body>
@@ -326,10 +329,15 @@
             <div class="article-meta">
                 <span><i class="far fa-calendar-alt"></i> July 26, 2026</span>
                 <span><i class="far fa-clock"></i> 5 min read</span>
-                <span><i class="far fa-eye"></i> <span id="viewCount">...</span> views</span>
+                <span><i class="far fa-eye"></i> <span id="viewCount">1</span> views</span>
                 <span><i class="far fa-user"></i> Tech Mind Developers Team</span>
             </div>
         </header>
+
+        <div class="hero-img-wrap">
+            <img src="assets/images/why-restaurants-need-a-custom-website-2025.webp" alt="Why Every Restaurant and Cafe Needs Its Own Direct Ordering Website" class="hero-img" loading="eager">
+        </div>
+
 
         <article class="article-body">
             <p>If you own a restaurant, cafe, or bakery, you know how hard it is to maintain high profit margins. While food delivery apps like Zomato and Swiggy bring new customers, they also take <strong>25% to 30% commission on every single order</strong>. Over a year, this commission can cost a restaurant lakhs of rupees in lost profit.</p>
@@ -415,16 +423,21 @@
         const el = document.getElementById('viewCount');
         if (!el) return;
         
-        const lockKey = 'tmd_read_lock_' + slug;
-        const cacheKey = 'tmd_views_' + slug;
+        const lockKey = 'tmd_v_lock_' + slug;
+        const cacheKey = 'tmd_v_cnt_' + slug;
         const lastReadTime = localStorage.getItem(lockKey);
-        const cachedCount = localStorage.getItem(cacheKey);
+        const cachedCount = localStorage.getItem(cacheKey) || localStorage.getItem('tmd_views_' + slug) || localStorage.getItem('tmd_view_count_' + slug);
         const now = Date.now();
         const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
         
-        if (cachedCount) el.textContent = cachedCount;
+        if (cachedCount && cachedCount !== '...') {
+            el.textContent = cachedCount;
+        } else {
+            el.textContent = '1';
+        }
         
-        if (lastReadTime && (now - parseInt(lastReadTime, 10)) < TWENTY_FOUR_HOURS) {
+        // If locked within 24h and valid cache exists, don't re-hit API
+        if (lastReadTime && cachedCount && (now - parseInt(lastReadTime, 10)) < TWENTY_FOUR_HOURS) {
             return;
         }
         
@@ -442,7 +455,9 @@
                 }
             }
         } catch (e) {
-            if (!cachedCount) el.textContent = '1';
+            if (!cachedCount || cachedCount === '...') {
+                el.textContent = '1';
+            }
         }
     })();
     </script>
