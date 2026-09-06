@@ -172,6 +172,19 @@
     .float-call { background:#0284c7 !important; }
     .float-btn:hover { transform:scale(1.12); color:#fff !important; }
 
+    /* Last-Read Card Return Highlight (5-Second Gentle Breathing Pulse) */
+    @keyframes lastReadPulse {
+        0% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7); border-color: #38bdf8; }
+        25% { box-shadow: 0 0 35px 8px rgba(56, 189, 248, 0.5); border-color: #38bdf8; transform: translateY(-5px); }
+        50% { box-shadow: 0 0 15px 3px rgba(56, 189, 248, 0.3); border-color: #38bdf8; transform: translateY(-1px); }
+        75% { box-shadow: 0 0 30px 6px rgba(56, 189, 248, 0.45); border-color: #38bdf8; transform: translateY(-4px); }
+        100% { box-shadow: var(--shadow); border-color: var(--border); transform: translateY(0); }
+    }
+    .blog-card.last-read-highlight {
+        animation: lastReadPulse 5s cubic-bezier(0.4, 0, 0.2, 1);
+        border-color: #38bdf8 !important;
+    }
+
     </style>
 </head>
 <body>
@@ -938,6 +951,45 @@
             filterCards();
         });
     });
+
+    // Auto-Scroll to Last Read Blog Card on Return
+    (function initScrollRestoration() {
+        // Track card click
+        cards.forEach(card => {
+            const link = card.querySelector('.card-inner-link');
+            if (link) {
+                link.addEventListener('click', () => {
+                    const href = link.getAttribute('href');
+                    if (href) {
+                        sessionStorage.setItem('tmd_last_read_slug', href);
+                    }
+                });
+            }
+        });
+
+        // Restore scroll position if returning from a blog
+        const lastSlug = sessionStorage.getItem('tmd_last_read_slug');
+        if (lastSlug) {
+            const cleanSlug = lastSlug.split('#')[0].split('?')[0].trim();
+            const targetLink = document.querySelector(`.blog-card a[href*="${cleanSlug}"]`);
+            if (targetLink) {
+                const targetCard = targetLink.closest('.blog-card');
+                if (targetCard) {
+                    if ('scrollRestoration' in history) {
+                        history.scrollRestoration = 'manual';
+                    }
+                    setTimeout(() => {
+                        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        targetCard.classList.add('last-read-highlight');
+                        setTimeout(() => {
+                            targetCard.classList.remove('last-read-highlight');
+                        }, 5200);
+                    }, 280);
+                }
+            }
+            sessionStorage.removeItem('tmd_last_read_slug');
+        }
+    })();
     </script>
 
     <!-- Floating Quick Contact -->
