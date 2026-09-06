@@ -830,12 +830,12 @@
                 botReply("Is there anything else I can help you with?", function() {
                     state.step = 'done';
                     addQuickReplies([
-                        { label: '🔄 I have another project', icon: '', action: function() {
-                            addUserMsg('I have another project');
+                        { label: '🔄 I have another query', icon: '', action: function() {
+                            addUserMsg('I have another query');
                             state.step = 'service';
                             state.userGoal = '';
                             state.userFeatures = '';
-                            botReply("Sure! What other service do you need?", showServiceOptions);
+                            botReply("Sure! What other service or query do you have?", showServiceOptions);
                         }},
                         { label: '✅ That\'s all, thank you!', icon: '', action: function() {
                             addUserMsg("That's all, thank you!");
