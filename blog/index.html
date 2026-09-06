@@ -185,6 +185,65 @@
         border-color: #38bdf8 !important;
     }
 
+    /* Back to Top Button (Bottom-Left) */
+    .back-to-top {
+        position: fixed;
+        bottom: 24px;
+        left: 24px;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(15, 23, 42, 0.88);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(56, 189, 248, 0.35);
+        color: #38bdf8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.15rem;
+        cursor: pointer;
+        z-index: 10000 !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(56, 189, 248, 0.15);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(16px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .back-to-top.visible {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+    }
+    .back-to-top:hover {
+        background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+        color: #ffffff;
+        border-color: #38bdf8;
+        transform: translateY(-4px) scale(1.08);
+        box-shadow: 0 12px 30px rgba(14, 165, 233, 0.5);
+    }
+    [data-theme="light"] .back-to-top {
+        background: rgba(255, 255, 255, 0.9);
+        border-color: rgba(56, 189, 248, 0.4);
+        color: #0284c7;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+    [data-theme="light"] .back-to-top:hover {
+        background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+        color: #ffffff;
+    }
+    @media (max-width: 768px) {
+        .back-to-top {
+            bottom: 20px;
+            left: 18px;
+            width: 44px;
+            height: 44px;
+            font-size: 1.05rem;
+        }
+    }
+
     </style>
 </head>
 <body>
@@ -989,6 +1048,53 @@
             }
             sessionStorage.removeItem('tmd_last_read_slug');
         }
+    })();
+    </script>
+
+    <!-- Back to Top Button (Bottom-Left) -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+    // Robust Back to Top Scroll Logic
+    (function initBackToTop() {
+        const btn = document.getElementById('backToTop');
+        if (!btn) return;
+
+        function handleScroll() {
+            // Check position of 5th blog card (index 4) so it triggers after 4-5 blogs on BOTH mobile & desktop
+            const refCard = cards[4] || cards[cards.length - 1];
+            if (refCard && refCard.style.display !== 'none') {
+                const rect = refCard.getBoundingClientRect();
+                if (rect.top <= window.innerHeight * 0.6) {
+                    btn.classList.add('visible');
+                } else {
+                    btn.classList.remove('visible');
+                }
+            } else {
+                // Fallback for search / filtered states
+                const scrollPos = window.scrollY || document.documentElement.scrollTop || 0;
+                const threshold = window.innerWidth <= 768 ? 2000 : 1200;
+                if (scrollPos > threshold) {
+                    btn.classList.add('visible');
+                } else {
+                    btn.classList.remove('visible');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('load', handleScroll);
+        handleScroll();
+
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     })();
     </script>
 
