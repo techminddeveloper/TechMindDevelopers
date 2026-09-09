@@ -685,6 +685,8 @@ section { padding:70px 0; position:relative }
     .stats-grid { grid-template-columns:repeat(2,1fr); gap:24px }
 }
 @media(max-width:768px) {
+    .nav-logo { font-size:1.05rem !important; gap:8px !important; white-space:nowrap !important; }
+    .nav-logo .logo-img { width:28px !important; height:28px !important; }
     .nav-links { position:fixed; top:0; right:-100%; width:280px; height:100vh; background:var(--bg-secondary); border-left:1px solid var(--glass-border); flex-direction:column; padding:80px 24px 32px; gap:12px; transition:right 0.3s ease; z-index:999; margin:0; border-radius:0; border:none; border-left:1px solid var(--glass-border); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); }
     .nav-links.active { right:0 }
     .nav-links li { width:100%; }
@@ -754,6 +756,8 @@ section { padding:70px 0; position:relative }
     }
 }
 @media(max-width:480px) {
+    .nav-logo { font-size:0.95rem !important; gap:6px !important; white-space:nowrap !important; }
+    .nav-logo .logo-img { width:26px !important; height:26px !important; }
     .hero h1 { font-size:1.55rem; line-height:1.25 }
     .hero h1 .dynamic-line { min-height:2.6em }
     .hero p { font-size:0.95rem }
@@ -1243,10 +1247,10 @@ section { padding:70px 0; position:relative }
     navOverlay.addEventListener('click',closeMenu);
     function closeMenu(){hamburger.classList.remove('active');navLinks.classList.remove('active');navOverlay.classList.remove('active');document.body.style.overflow=''}
 
-    // Theme toggle
+    // Theme toggle (Windows Standard: Dark = Moon, Light = Sun; synced across site & blog)
     const themeToggle=document.getElementById('themeToggle');
     const html=document.documentElement;
-    const savedTheme=localStorage.getItem('theme')||'dark';
+    const savedTheme=localStorage.getItem('theme')||localStorage.getItem('tmd-theme')||'dark';
     html.setAttribute('data-theme',savedTheme);
     updateIcon(savedTheme);
     themeToggle.addEventListener('click',()=>{
@@ -1254,10 +1258,11 @@ section { padding:70px 0; position:relative }
         const next=current==='dark'?'light':'dark';
         html.setAttribute('data-theme',next);
         localStorage.setItem('theme',next);
+        localStorage.setItem('tmd-theme',next);
         updateIcon(next);
     });
     function updateIcon(theme){
-        themeToggle.innerHTML=theme==='dark'?'<i class="fas fa-sun"></i>':'<i class="fas fa-moon"></i>';
+        themeToggle.innerHTML=theme==='dark'?'<i class="fas fa-moon"></i>':'<i class="fas fa-sun"></i>';
     }
 
     // Scroll reveal

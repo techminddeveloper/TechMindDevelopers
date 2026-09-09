@@ -489,7 +489,7 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
     // Theme Switcher
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;
-    const savedTheme = localStorage.getItem('tmd-theme') || 'dark';
+    const savedTheme = localStorage.getItem('tmd-theme') || localStorage.getItem('theme') || 'dark';
     html.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
 
@@ -497,7 +497,7 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         html.setAttribute('data-theme', newTheme);
-        localStorage.setItem('tmd-theme', newTheme);
+        localStorage.setItem('tmd-theme', newTheme); localStorage.setItem('theme', newTheme);
         updateThemeIcon(newTheme);
     });
 
