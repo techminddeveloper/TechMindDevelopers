@@ -12,7 +12,12 @@
 </url>
 <url>
   <loc>https://techminddevelopers.in/blog/index.html</loc>
-  <lastmod>2026-08-29T00:00:00+00:00</lastmod>
+  <lastmod>2026-09-09T00:00:00+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://techminddevelopers.in/blog/chatgpt-6-astra-vs-claude-fable-5-1-software-engineering.html</loc>
+  <lastmod>2026-09-09T00:00:00+00:00</lastmod>
   <priority>0.90</priority>
 </url>
 <url>
