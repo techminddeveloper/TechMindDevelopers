@@ -283,6 +283,7 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
     .article-title { word-break: break-word !important; overflow-wrap: break-word !important; }
     pre, code { max-width: 100% !important; overflow-x: auto !important; }
 }
+    .navbar .container, .navbar .nav-container { max-width: 1160px !important; width: 100% !important; }
 </style>
 </head>
 <body>
@@ -462,11 +463,19 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
 
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;
+    const savedTheme = localStorage.getItem('tmd-theme') || localStorage.getItem('theme') || 'dark';
+    html.setAttribute('data-theme', savedTheme);
+    function updateThemeIcon(t) {
+        const icon = themeToggle ? themeToggle.querySelector('i') : null;
+        if (icon) icon.className = t === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+    updateThemeIcon(savedTheme);
     themeToggle.addEventListener('click', () => {
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         html.setAttribute('data-theme', newTheme);
-        themeToggle.querySelector('i').className = newTheme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+        localStorage.setItem('tmd-theme', newTheme); localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
     });
     </script>
     
