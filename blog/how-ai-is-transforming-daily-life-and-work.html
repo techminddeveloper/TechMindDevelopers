@@ -70,7 +70,37 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
       "mainEntityOfPage": "https://techminddevelopers.in/blog/how-ai-is-transforming-daily-life-and-work.html"
     }
     </script>
-    <style>:root {
+    <style>
+/* Sleek Theme-Responsive Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #07090e; }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #2563eb, #7c3aed);
+    border-radius: 999px;
+    border: 2px solid #07090e;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #3b82f6, #9333ea);
+}
+[data-theme="light"]::-webkit-scrollbar-track,
+body.light-theme::-webkit-scrollbar-track { background: #f8fafc; }
+[data-theme="light"]::-webkit-scrollbar-thumb,
+body.light-theme::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 999px;
+    border: 2px solid #f8fafc;
+}
+[data-theme="light"]::-webkit-scrollbar-thumb:hover,
+body.light-theme::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #3b82f6 #07090e;
+}
+[data-theme="light"], body.light-theme {
+    scrollbar-color: #94a3b8 #f8fafc;
+}
+:root {
         --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
         --bg: #07090e;
         --bg-card: rgba(15, 23, 42, 0.65);

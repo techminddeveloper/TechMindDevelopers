@@ -43,6 +43,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+/* Sleek Theme-Responsive Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #07090e; }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #2563eb, #7c3aed);
+    border-radius: 999px;
+    border: 2px solid #07090e;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #3b82f6, #9333ea);
+}
+[data-theme="light"]::-webkit-scrollbar-track,
+body.light-theme::-webkit-scrollbar-track { background: #f8fafc; }
+[data-theme="light"]::-webkit-scrollbar-thumb,
+body.light-theme::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 999px;
+    border: 2px solid #f8fafc;
+}
+[data-theme="light"]::-webkit-scrollbar-thumb:hover,
+body.light-theme::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #3b82f6 #07090e;
+}
+[data-theme="light"], body.light-theme {
+    scrollbar-color: #94a3b8 #f8fafc;
+}
+
     :root {
         --font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
         --bg: #07090e;

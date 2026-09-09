@@ -179,6 +179,36 @@
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box }
 html { scroll-behavior:smooth; scroll-padding-top:80px }
+/* Sleek Theme-Responsive Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #07090e; }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #2563eb, #7c3aed);
+    border-radius: 999px;
+    border: 2px solid #07090e;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #3b82f6, #9333ea);
+}
+[data-theme="light"]::-webkit-scrollbar-track,
+body.light-theme::-webkit-scrollbar-track { background: #f1f5f9; }
+[data-theme="light"]::-webkit-scrollbar-thumb,
+body.light-theme::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 999px;
+    border: 2px solid #f1f5f9;
+}
+[data-theme="light"]::-webkit-scrollbar-thumb:hover,
+body.light-theme::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #3b82f6 #07090e;
+}
+[data-theme="light"], body.light-theme {
+    scrollbar-color: #94a3b8 #f1f5f9;
+}
+
 body { font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; background:var(--bg-primary); color:var(--text-primary); line-height:1.72; letter-spacing:-0.01em; overflow-x:hidden; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; text-rendering:optimizeLegibility; transition: background 0.4s ease, color 0.4s ease }
 a { text-decoration:none; color:inherit }
 img { max-width:100%; display:block }
