@@ -299,7 +299,22 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
     
     
 
-    </style>
+    /* Header Language Switcher */
+.nav-lang-switcher{display:inline-flex;align-items:center;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:3px;gap:3px;transition:var(--transition);}
+.nav-lang-switcher:hover{border-color:var(--border-glow);}
+.nav-lang-btn{border:none;outline:none;background:transparent;color:var(--text-muted);font-size:0.82rem;font-weight:700;padding:6px 13px;border-radius:9px;cursor:pointer;transition:var(--transition);font-family:var(--font-primary);white-space:nowrap;}
+.nav-lang-btn:hover{color:var(--text-heading);}
+.nav-lang-btn.active{background:linear-gradient(135deg,#0284c7 0%,#0369a1 100%);color:#ffffff!important;box-shadow:0 2px 10px rgba(14,165,233,0.35);}
+.lang-short{display:none;}
+.lang-full{display:inline;}
+.lang-content{animation:langFadeIn 0.3s ease;}
+@keyframes langFadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:680px){
+    .lang-full{display:none!important;}
+    .lang-short{display:inline!important;}
+    .nav-lang-btn{padding:5px 9px!important;font-size:0.78rem!important;font-weight:800!important;}
+}
+</style>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -317,7 +332,7 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
                     <img src="../logo-icon.png" alt="Tech Mind Developers">
                     <span>Tech Mind <span class="gradient-text">Developers</span></span>
                 </a>
-                <div class="nav-actions">
+                <div class="nav-actions"><div class="nav-lang-switcher" role="tablist" aria-label="Select Language"><button type="button" class="nav-lang-btn active" data-lang="en" aria-selected="true"><span class="lang-full">English</span><span class="lang-short">EN</span></button><button type="button" class="nav-lang-btn" data-lang="hi-en" aria-selected="false"><span class="lang-full">Hinglish</span><span class="lang-short">HI</span></button></div>
                     <a href="index.html" class="nav-btn-home"><i class="fas fa-home"></i> <span>Blog Home</span></a>
                     <a href="https://techminddevelopers.in/#contact" class="nav-cta-btn"><i class="fas fa-paper-plane"></i> <span>Get a Quote</span></a>
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
@@ -331,7 +346,10 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
 
         <header class="article-header">
             <div class="article-tag"><i class="fas fa-graduation-cap"></i> Education</div>
-            <h1 class="article-title">Why Modern Schools Need a Website and Online Management Portal</h1>
+            <h1 class="article-title">
+            <span class="lang-text-en">Why Modern Schools Need a Website and Online Management Portal</span>
+            <span class="lang-text-hien" style="display:none;">Modern Schools Ko Website Aur Online Management Portal Kyun Chahiye</span>
+        </h1>
             <div class="article-meta">
                 <span><i class="far fa-calendar-alt"></i> December 18, 2025</span>
                 <span><i class="far fa-clock"></i> 5 min read</span>
@@ -346,6 +364,7 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
 
 
         <article class="article-body">
+        <div class="lang-content lang-content-en">
             <p>Running a modern school involves hundreds of daily tasks - managing student admissions, tracking fee payments, sending attendance alerts, and sharing report cards. Doing this on physical registers creates immense stress for teachers and office staff.</p>
 
 <p>Today, parents expect schools to be modern and digital. A professional school website and online management portal changes everything.</p>
@@ -380,7 +399,48 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
                 <p>We engineer reliable, custom software systems that save hours of manual work and double your customer inquiries. Let's discuss your project today.</p>
                 <a href="https://techminddevelopers.in/#contact" class="cta-btn"><i class="fas fa-paper-plane"></i> Get a Free Consultation</a>
             </div>
-        </article>
+                </div>
+        <div class="lang-content lang-content-hien" style="display:none;">
+
+<p>Ek modern school chalane me rozana sekdon administrative tasks sambhalne padte hain - jaise student attendance, fees collection, report cards taiyar karna, parents se coordination aur admission inquiries handle karna. Paper registers aur manual cash counters par rely karne se school management ka bohot saara time aur resource waste hota hai.</p>
+<p>Aaj ke modern parents digital transparency expect karte hain. Ek professional school management website aur portal school ke administrative load ko 70% tak kam kar deta hai aur school ki reputation ko top-class banata hai.</p>
+
+<h2>School Management Portal Kaise Sab Kuch Aasan Banata Hai</h2>
+
+<h3>1. Online Fees Payment (Cash Counters Ki Lambi Lines Se Chhutkara)</h3>
+<p>Parents ko fees jama karne ke liye bank ya school ke chakkar lagane ki zaroorat nahi padti. Wo ghar baithe UPI, debit card ya net-banking se fees pay kar sakte hain. System automatically instant digital receipt generate karta hai aur WhatsApp par fee payment confirmation bhej deta hai.</p>
+
+<h3>2. Paperless Online Admissions</h3>
+<p>Parents website par jakar admission application form bhar sakte hain, student birth certificate aur aadhar card upload kar sakte hain aur online entrance test dates schedule kar sakte hain bina kisi physical paper form ke.</p>
+
+<h3>3. Digital Report Cards & Instant Notice Board</h3>
+<p>Exam marks, term report cards, holiday calendars aur annual function announcements ek tap me portal par publish ho jaate hain. Parents apne phone par login karke bache ki academic progress live check kar sakte hain.</p>
+
+<h3>4. Daily Attendance & Homework Alerts</h3>
+<p>Class teacher jaise hi phone par student attendance mark karti hai, absent student ke parents ko automated WhatsApp ya SMS alert mil jata hai. Saath hi daily homework upload hone se parents updated rehte hain.</p>
+
+<div class="highlight-box">
+<h4>Har Size Ke Schools Ke Liye Built</h4>
+<p>Tech Mind Developers private schools, inter colleges aur coaching institutes ke liye secure, easy-to-use school management ERPs design karta hai - student, teacher aur parent ke dedicated dashboards ke saath, aur sabse badi baat: zero recurring monthly licensing charges!</p>
+</div>
+
+<div class="author-card">
+<img alt="Tech Mind Developers" class="author-avatar" src="../logo-icon.png"/>
+<div class="author-info">
+<h4>Written by Tech Mind Developers Team</h4>
+<div class="author-role">School ERP & Education Portal Team</div>
+<p>Hum schools, colleges aur coaching institutions ke liye customized school ERP aur parent-student portals engineer karte hain.</p>
+</div>
+</div>
+
+<div class="article-cta">
+<h3>Apne School Ya Institute Ke Liye Portal Build Karna Chahte Hain?</h3>
+<p>Hum reliable school management software engineer karte hain jo administrative jhanjhat khatam karte hain aur parents me trust badhate hain.</p>
+<a class="article-cta-btn" href="https://techminddevelopers.in/#contact"><i class="fas fa-paper-plane"></i> Free School Consultation Book Karein</a>
+</div>
+        
+        </div>
+    </article>
     </div>
 
     <footer class="footer">
@@ -422,7 +482,46 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
         document.getElementById('readingProgressBar').style.width = scrolled + '%';
     });
     </script>
-            <!-- 24-Hour Unique Device Anti-Spam View Counter -->
+                <script>
+    // Language Switcher Logic (Header Toggle: English / Hinglish)
+    function setBlogLanguage(lang){
+        const isHi = lang === 'hi-en';
+        try{localStorage.setItem('tmd_blog_lang', lang);}catch(e){}
+        document.querySelectorAll('.nav-lang-btn').forEach(btn => {
+            const active = btn.getAttribute('data-lang') === lang;
+            btn.classList.toggle('active', active);
+            btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        const enContent = document.querySelector('.lang-content-en');
+        const hienContent = document.querySelector('.lang-content-hien');
+        if(enContent && hienContent){
+            if(isHi){
+                enContent.style.display = 'none';
+                hienContent.style.display = 'block';
+            } else {
+                hienContent.style.display = 'none';
+                enContent.style.display = 'block';
+            }
+        }
+        document.querySelectorAll('.lang-text-en').forEach(el => el.style.display = isHi ? 'none' : 'inline');
+        document.querySelectorAll('.lang-text-hien').forEach(el => el.style.display = isHi ? 'inline' : 'none');
+    }
+
+    document.querySelectorAll('.nav-lang-btn').forEach(btn => {
+        btn.addEventListener('click', function(){
+            const lang = this.getAttribute('data-lang');
+            setBlogLanguage(lang);
+        });
+    });
+
+    try{
+        const savedLang = localStorage.getItem('tmd_blog_lang') || 'en';
+        if(savedLang === 'hi-en'){
+            setBlogLanguage('hi-en');
+        }
+    }catch(e){}
+    </script>
+    <!-- 24-Hour Unique Device Anti-Spam View Counter -->
     <script>
     (async function initViewCounter() {
         const slug = window.location.pathname.split('/').pop().replace('.html', '') || 'blog-post';

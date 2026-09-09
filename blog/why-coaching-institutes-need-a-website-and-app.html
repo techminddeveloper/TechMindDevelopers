@@ -299,7 +299,22 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
     
     
 
-    </style>
+    /* Header Language Switcher */
+.nav-lang-switcher{display:inline-flex;align-items:center;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:3px;gap:3px;transition:var(--transition);}
+.nav-lang-switcher:hover{border-color:var(--border-glow);}
+.nav-lang-btn{border:none;outline:none;background:transparent;color:var(--text-muted);font-size:0.82rem;font-weight:700;padding:6px 13px;border-radius:9px;cursor:pointer;transition:var(--transition);font-family:var(--font-primary);white-space:nowrap;}
+.nav-lang-btn:hover{color:var(--text-heading);}
+.nav-lang-btn.active{background:linear-gradient(135deg,#0284c7 0%,#0369a1 100%);color:#ffffff!important;box-shadow:0 2px 10px rgba(14,165,233,0.35);}
+.lang-short{display:none;}
+.lang-full{display:inline;}
+.lang-content{animation:langFadeIn 0.3s ease;}
+@keyframes langFadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:680px){
+    .lang-full{display:none!important;}
+    .lang-short{display:inline!important;}
+    .nav-lang-btn{padding:5px 9px!important;font-size:0.78rem!important;font-weight:800!important;}
+}
+</style>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -317,7 +332,7 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
                     <img src="../logo-icon.png" alt="Tech Mind Developers">
                     <span>Tech Mind <span class="gradient-text">Developers</span></span>
                 </a>
-                <div class="nav-actions">
+                <div class="nav-actions"><div class="nav-lang-switcher" role="tablist" aria-label="Select Language"><button type="button" class="nav-lang-btn active" data-lang="en" aria-selected="true"><span class="lang-full">English</span><span class="lang-short">EN</span></button><button type="button" class="nav-lang-btn" data-lang="hi-en" aria-selected="false"><span class="lang-full">Hinglish</span><span class="lang-short">HI</span></button></div>
                     <a href="index.html" class="nav-btn-home"><i class="fas fa-home"></i> <span>Blog Home</span></a>
                     <a href="https://techminddevelopers.in/#contact" class="nav-cta-btn"><i class="fas fa-paper-plane"></i> <span>Get a Quote</span></a>
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
@@ -331,7 +346,10 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
 
         <header class="article-header">
             <div class="article-tag"><i class="fas fa-chalkboard-teacher"></i> Coaching & Tutors</div>
-            <h1 class="article-title">How a Website Helps Coaching Institutes and Tutors Get More Students</h1>
+            <h1 class="article-title">
+            <span class="lang-text-en">How a Website Helps Coaching Institutes and Tutors Get More Students</span>
+            <span class="lang-text-hien" style="display:none;">Website Aur App Se Coaching Institutes Aur Tutors Ko Zyada Students Kaise Milte Hain</span>
+        </h1>
             <div class="article-meta">
                 <span><i class="far fa-calendar-alt"></i> October 22, 2025</span>
                 <span><i class="far fa-clock"></i> 5 min read</span>
@@ -346,6 +364,7 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
 
 
         <article class="article-body">
+        <div class="lang-content lang-content-en">
             <p>Whether you teach CBSE/ICSE school subjects, IIT-JEE, NEET, UPSC, or English speaking, competition among coaching institutes is higher than ever. Word of mouth is great, but modern students and parents search on Google and YouTube before joining any tuition center.</p>
 
 <p>A professional coaching website helps you stand out as a top-tier institute and fills your batches with new students.</p>
@@ -383,7 +402,48 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
                 <p>We engineer reliable, custom software systems that save hours of manual work and double your customer inquiries. Let's discuss your project today.</p>
                 <a href="https://techminddevelopers.in/#contact" class="cta-btn"><i class="fas fa-paper-plane"></i> Get a Free Consultation</a>
             </div>
-        </article>
+                </div>
+        <div class="lang-content lang-content-hien" style="display:none;">
+
+<p>Chahe aap CBSE/ICSE school coaching chalate hon, IIT-JEE, NEET, UPSC ki preparation karwate hon ya Spoken English sikhate hon - education sector me competition bohot badh chuka hai. Sirf local pamphlets baantne se batches full nahi hote.</p>
+<p>Ek professional coaching website aapke institute ko top-tier brand ke roop me present karti hai, parents me trust banati hai aur aapke batches me naye students ke admissions double kar deti hai.</p>
+
+<h2>Website Kaise Student Enrollments Ko Double Karti Hai</h2>
+
+<h3>1. Free Demo Class Booking</h3>
+<p>Students aur parents aapka detailed syllabus dekh sakte hain, experienced faculty profiles check kar sakte hain aur website ke form se 1-click me free demo class book kar sakte hain.</p>
+
+<h3>2. Online Mock Test Series Aur Instant Result</h3>
+<p>Apne students ko MCQs, automated timer aur instant scorecard ke saath online mock tests provide karein. Students ko turant apni ranking aur subject-wise performance samajh aati hai.</p>
+
+<h3>3. Downloadable Study Notes & Video Lectures</h3>
+<p>Secure student login portal me PDF revision notes, formula sheets aur recorded video lectures upload karein. Isse aapke coaching institute ki value students ki nazar me kaafi badh jaati hai.</p>
+
+<h3>4. Previous Results Aur Toppers Ka Showcase</h3>
+<p>Apne pichle saalon ke top-ranking students ki photos, unke scores aur parents ke video reviews showcase karein. Ye social proof naye parents ko bina kisi jhijhak ke admission lene ke liye encourage karta hai.</p>
+
+<div class="tip-box">
+<h4>Tutors & Academies Ke Liye Custom Portals</h4>
+<p>Tech Mind Developers coaching institutes ke liye interactive websites aur student apps build karta hai jisme online fees collection, attendance tracking, test series aur recorded video player shamil hota hai - zero monthly subscription charges ke saath.</p>
+</div>
+
+<div class="author-card">
+<img alt="Tech Mind Developers" class="author-avatar" src="../logo-icon.png"/>
+<div class="author-info">
+<h4>Written by Tech Mind Developers Team</h4>
+<div class="author-role">Education & Coaching Portal Team</div>
+<p>Hum tuition centers, test prep academies aur coaching institutes ke liye interactive websites aur management portals develop karte hain.</p>
+</div>
+</div>
+
+<div class="article-cta">
+<h3>Kya Aap Apne Institute Ke Liye Website Build Karna Chahte Hain?</h3>
+<p>Hum reliable coaching management systems aur student portals engineer karte hain jo administrative kaam bachaate hain aur student admissions grow karte hain.</p>
+<a class="article-cta-btn" href="https://techminddevelopers.in/#contact"><i class="fas fa-paper-plane"></i> Free Coaching Consultation Book Karein</a>
+</div>
+        
+        </div>
+    </article>
     </div>
 
     <footer class="footer">
@@ -425,7 +485,46 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
         document.getElementById('readingProgressBar').style.width = scrolled + '%';
     });
     </script>
-            <!-- 24-Hour Unique Device Anti-Spam View Counter -->
+                <script>
+    // Language Switcher Logic (Header Toggle: English / Hinglish)
+    function setBlogLanguage(lang){
+        const isHi = lang === 'hi-en';
+        try{localStorage.setItem('tmd_blog_lang', lang);}catch(e){}
+        document.querySelectorAll('.nav-lang-btn').forEach(btn => {
+            const active = btn.getAttribute('data-lang') === lang;
+            btn.classList.toggle('active', active);
+            btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        const enContent = document.querySelector('.lang-content-en');
+        const hienContent = document.querySelector('.lang-content-hien');
+        if(enContent && hienContent){
+            if(isHi){
+                enContent.style.display = 'none';
+                hienContent.style.display = 'block';
+            } else {
+                hienContent.style.display = 'none';
+                enContent.style.display = 'block';
+            }
+        }
+        document.querySelectorAll('.lang-text-en').forEach(el => el.style.display = isHi ? 'none' : 'inline');
+        document.querySelectorAll('.lang-text-hien').forEach(el => el.style.display = isHi ? 'inline' : 'none');
+    }
+
+    document.querySelectorAll('.nav-lang-btn').forEach(btn => {
+        btn.addEventListener('click', function(){
+            const lang = this.getAttribute('data-lang');
+            setBlogLanguage(lang);
+        });
+    });
+
+    try{
+        const savedLang = localStorage.getItem('tmd_blog_lang') || 'en';
+        if(savedLang === 'hi-en'){
+            setBlogLanguage('hi-en');
+        }
+    }catch(e){}
+    </script>
+    <!-- 24-Hour Unique Device Anti-Spam View Counter -->
     <script>
     (async function initViewCounter() {
         const slug = window.location.pathname.split('/').pop().replace('.html', '') || 'blog-post';

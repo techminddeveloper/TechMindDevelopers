@@ -299,7 +299,22 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
     
     
 
-    </style>
+    /* Header Language Switcher */
+.nav-lang-switcher{display:inline-flex;align-items:center;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:3px;gap:3px;transition:var(--transition);}
+.nav-lang-switcher:hover{border-color:var(--border-glow);}
+.nav-lang-btn{border:none;outline:none;background:transparent;color:var(--text-muted);font-size:0.82rem;font-weight:700;padding:6px 13px;border-radius:9px;cursor:pointer;transition:var(--transition);font-family:var(--font-primary);white-space:nowrap;}
+.nav-lang-btn:hover{color:var(--text-heading);}
+.nav-lang-btn.active{background:linear-gradient(135deg,#0284c7 0%,#0369a1 100%);color:#ffffff!important;box-shadow:0 2px 10px rgba(14,165,233,0.35);}
+.lang-short{display:none;}
+.lang-full{display:inline;}
+.lang-content{animation:langFadeIn 0.3s ease;}
+@keyframes langFadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:680px){
+    .lang-full{display:none!important;}
+    .lang-short{display:inline!important;}
+    .nav-lang-btn{padding:5px 9px!important;font-size:0.78rem!important;font-weight:800!important;}
+}
+</style>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -317,7 +332,7 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
                     <img src="../logo-icon.png" alt="Tech Mind Developers">
                     <span>Tech Mind <span class="gradient-text">Developers</span></span>
                 </a>
-                <div class="nav-actions">
+                <div class="nav-actions"><div class="nav-lang-switcher" role="tablist" aria-label="Select Language"><button type="button" class="nav-lang-btn active" data-lang="en" aria-selected="true"><span class="lang-full">English</span><span class="lang-short">EN</span></button><button type="button" class="nav-lang-btn" data-lang="hi-en" aria-selected="false"><span class="lang-full">Hinglish</span><span class="lang-short">HI</span></button></div>
                     <a href="index.html" class="nav-btn-home"><i class="fas fa-home"></i> <span>Blog Home</span></a>
                     <a href="https://techminddevelopers.in/#contact" class="nav-cta-btn"><i class="fas fa-paper-plane"></i> <span>Get a Quote</span></a>
                     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
@@ -331,7 +346,10 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
 
         <header class="article-header">
             <div class="article-tag"><i class="fas fa-dumbbell"></i> Fitness & Gyms</div>
-            <h1 class="article-title">How a Modern Website Helps Gyms and Fitness Studios Get More Members</h1>
+            <h1 class="article-title">
+            <span class="lang-text-en">How a Modern Website Helps Gyms and Fitness Studios Get More Members</span>
+            <span class="lang-text-hien" style="display:none;">Modern Website Se Gyms Aur Fitness Studios Ko Zyada Members Kaise Milte Hain</span>
+        </h1>
             <div class="article-meta">
                 <span><i class="far fa-calendar-alt"></i> May 12, 2025</span>
                 <span><i class="far fa-clock"></i> 4 min read</span>
@@ -346,6 +364,7 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
 
 
         <article class="article-body">
+        <div class="lang-content lang-content-en">
             <p>When someone decides to start working out, the first thing they do is search on Google: <em>"Best gym near me"</em> or <em>"Gym with personal trainer in my area"</em>. If your fitness center only has an old social media page without clear pricing and facility photos, potential members will visit a competitor instead.</p>
 
 <p>A modern gym website acts as your 24/7 sales representative, converting local fitness enthusiasts into paying members.</p>
@@ -377,7 +396,42 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
                 <p>We engineer reliable, custom software systems that save hours of manual work and double your customer inquiries. Let's discuss your project today.</p>
                 <a href="https://techminddevelopers.in/#contact" class="cta-btn"><i class="fas fa-paper-plane"></i> Get a Free Consultation</a>
             </div>
-        </article>
+                </div>
+        <div class="lang-content lang-content-hien" style="display:none;">
+
+<p>Jab koi vyakti fitness journey shuru karne ka sochna shuru karta hai, toh sabse pehle wo Google par search karta hai: "Best gym near me" ya "Gym with personal trainer in my area". Agar aapke gym ki professional website Google par nahi dikhti, toh wo customer seedha doosre fitness center chala jata hai.</p>
+<p>Ek modern gym website aapke 24/7 sales representative ki tarah kaam karti hai, jo local fitness lovers ko regular paying members me convert karti hai.</p>
+
+<h2>Ek Shandar Gym Website Aapke Liye Kya Karti Hai</h2>
+<ul>
+<li><strong>1-Day Free Trial Pass:</strong> Interested log apna naam aur phone number enter karke WhatsApp par instant trial pass receive karte hain. Isse aapke gym ko verified local leads milti hain.</li>
+<li><strong>Transparent Membership Plans & Instant UPI:</strong> Monthly, quarterly aur annual membership plans clear showcase karein jahan members direct PhonePe, Google Pay ya Paytm se renew kar sakein.</li>
+<li><strong>Real Member Transformation Showcase:</strong> Apne members ke Before/After photos aur video testimonials showcase karein jo naye logon ko gym join karne ke liye 100% convince kar sakein.</li>
+<li><strong>Class Schedules & Trainer Profiles:</strong> Crossfit, yoga, zumba aur weight training ke daily time-slots aur certified trainers ke experience ko easily display karein.</li>
+</ul>
+
+<div class="highlight-box">
+<h4>Modern Fitness Web Solutions</h4>
+<p>Tech Mind Developers gym, yoga studios aur CrossFit centers ke liye energetic, fast-loading websites aur member management portals design karta hai - automated WhatsApp expiry alerts aur direct UPI payments ke saath.</p>
+</div>
+
+<div class="author-card">
+<img alt="Tech Mind Developers" class="author-avatar" src="../logo-icon.png"/>
+<div class="author-info">
+<h4>Written by Tech Mind Developers Team</h4>
+<div class="author-role">Fitness & Gym Website Team</div>
+<p>Hum gyms, yoga studios aur fitness clubs ke liye high-energy websites aur automated membership portals build karte hain.</p>
+</div>
+</div>
+
+<div class="article-cta">
+<h3>Apne Gym Ya Fitness Studio Ke Liye Website Build Karna Chahte Hain?</h3>
+<p>Hamare web architects se direct baat karein aur member booking aur direct UPI payments ke saath apna custom fitness portal launch karein.</p>
+<a class="article-cta-btn" href="https://techminddevelopers.in/#contact"><i class="fas fa-paper-plane"></i> Free Fitness Strategy Call Book Karein</a>
+</div>
+        
+        </div>
+    </article>
     </div>
 
     <footer class="footer">
@@ -419,7 +473,46 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
         document.getElementById('readingProgressBar').style.width = scrolled + '%';
     });
     </script>
-            <!-- 24-Hour Unique Device Anti-Spam View Counter -->
+                <script>
+    // Language Switcher Logic (Header Toggle: English / Hinglish)
+    function setBlogLanguage(lang){
+        const isHi = lang === 'hi-en';
+        try{localStorage.setItem('tmd_blog_lang', lang);}catch(e){}
+        document.querySelectorAll('.nav-lang-btn').forEach(btn => {
+            const active = btn.getAttribute('data-lang') === lang;
+            btn.classList.toggle('active', active);
+            btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        const enContent = document.querySelector('.lang-content-en');
+        const hienContent = document.querySelector('.lang-content-hien');
+        if(enContent && hienContent){
+            if(isHi){
+                enContent.style.display = 'none';
+                hienContent.style.display = 'block';
+            } else {
+                hienContent.style.display = 'none';
+                enContent.style.display = 'block';
+            }
+        }
+        document.querySelectorAll('.lang-text-en').forEach(el => el.style.display = isHi ? 'none' : 'inline');
+        document.querySelectorAll('.lang-text-hien').forEach(el => el.style.display = isHi ? 'inline' : 'none');
+    }
+
+    document.querySelectorAll('.nav-lang-btn').forEach(btn => {
+        btn.addEventListener('click', function(){
+            const lang = this.getAttribute('data-lang');
+            setBlogLanguage(lang);
+        });
+    });
+
+    try{
+        const savedLang = localStorage.getItem('tmd_blog_lang') || 'en';
+        if(savedLang === 'hi-en'){
+            setBlogLanguage('hi-en');
+        }
+    }catch(e){}
+    </script>
+    <!-- 24-Hour Unique Device Anti-Spam View Counter -->
     <script>
     (async function initViewCounter() {
         const slug = window.location.pathname.split('/').pop().replace('.html', '') || 'blog-post';
