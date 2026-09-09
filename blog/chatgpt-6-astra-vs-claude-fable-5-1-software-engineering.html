@@ -248,8 +248,8 @@ html {
         backdrop-filter: blur(12px);
     }
     .feature-card:hover { border-color:var(--accent); transform:translateY(-4px); box-shadow:0 12px 35px rgba(56,189,248,0.15); }
-    .feature-card h4 { color:var(--text-heading); font-size:1.12rem; margin-bottom:10px; display:flex; align-items:center; gap:8px; font-weight:800; }
-    .feature-card h4 i { color:var(--accent); font-size:1.2rem; }
+    .feature-card h4 { color:var(--text-heading); font-size:1.12rem; margin-bottom:10px; display:flex; align-items:flex-start; gap:8px; font-weight:800; }
+    .feature-card h4 i { color:var(--accent); font-size:1.2rem; margin-top:3px; flex-shrink:0; }
     .feature-card p { font-size:0.96rem; margin:0; line-height:1.7; color:var(--text); }
 
     /* Author Card */
@@ -595,11 +595,11 @@ html {
 
             <div class="feature-grid">
                 <div class="feature-card">
-                    <h4><i class="fas fa-sitemap"></i> 1. Full Codebase Context (Poore Codebase Ki Samajh)</h4>
+                    <h4><i class="fas fa-sitemap"></i> 1. Full Codebase Context</h4>
                     <p><strong>Winner: Claude Fable 5.1</strong><br>Fable 5.1 saikdon interrelated modules wale monolithic repositories ko effortlessly handle karta hai. Ye dependency trees ko map karta hai aur classes ko drop kiye bina existing typing conventions ko preserve rakhta hai.</p>
                 </div>
                 <div class="feature-card">
-                    <h4><i class="fas fa-robot"></i> 2. Autonomous Task Execution (Aap-Se-Aap Kaam Karna)</h4>
+                    <h4><i class="fas fa-robot"></i> 2. Autonomous Task Execution</h4>
                     <p><strong>Winner: ChatGPT 6 Astra</strong><br>Astra tab excel karta hai jab use koi high-level goal diya jaye jaise Dockerized microservice setup karna, tests run karna, error logs read karna aur builds pass hone tak self-correct karna.</p>
                 </div>
                 <div class="feature-card">
@@ -615,7 +615,7 @@ html {
                     <p><strong>Winner: ChatGPT 6 Astra</strong><br>Astra animations, responsive CSS aur intuitive component breakdowns ke sath out-of-the-box zyada visually engaging aur dynamic frontend UI prototypes deliver karta hai.</p>
                 </div>
                 <div class="feature-card">
-                    <h4><i class="fas fa-wrench"></i> 6. Surgical Code Edits (Sateek Badlav)</h4>
+                    <h4><i class="fas fa-wrench"></i> 6. Surgical Code Edits</h4>
                     <p><strong>Winner: Claude Fable 5.1</strong><br>2,000-line ki production file me single bug fix karte waqt, Fable 5.1 sirf affected lines ko cleanly replace karta hai. Astra broader chunks ko rewrite karne ki tendency rakhta hai jisse unintended regressions ka risk rehta hai.</p>
                 </div>
             </div>
