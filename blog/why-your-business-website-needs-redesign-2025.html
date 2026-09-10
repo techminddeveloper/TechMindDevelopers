@@ -35,7 +35,10 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
     <meta name="keywords" content="website redesign kab karwana chahiye, purani website ko modern kaise banaye, slow website ko fast kaise karein, business website revamp cost india, mobile friendly website redesign, Design & UI, Custom Software, Tech Mind Developers, Website design in Aligarh, Website Development company, AI assistance, Automation, Best Website Development Company in India, Custom Software Development Company Aligarh, AI Web Development Delhi NCR, Custom ERP Software Noida Gurgaon, Mobile App Development Lucknow Agra Meerut, Software Agency Worldwide, it services companies near me, it service company near me, website companies near me, website company near me, website development companies near me, website development company near me, software companies near me, software company near me, software development companies near me, software development company near me, web development companies near me, best IT company near me, top software company near me">
     <meta name="author" content="Tech Mind Developers Engineering Team">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://techminddevelopers.in/blog/why-your-business-website-needs-redesign-Modern.html">
+    <link rel="canonical" href="https://techminddevelopers.in/blog/why-your-business-website-needs-redesign-2025.html">
+    <link rel="alternate" hreflang="en" href="https://techminddevelopers.in/blog/why-your-business-website-needs-redesign-2025.html">
+    <link rel="alternate" hreflang="hi-Latn" href="https://techminddevelopers.in/blog/why-your-business-website-needs-redesign-2025.html?lang=hi">
+    <link rel="alternate" hreflang="x-default" href="https://techminddevelopers.in/blog/why-your-business-website-needs-redesign-2025.html">
     <meta property="og:title" content="5 Clear Signs Your Business Website Needs a Modern Redesign">
     <meta property="og:description" content="If your website takes longer than 3 seconds to load or looks messy on mobile phones, discover how a modern redesign doubles your customer inquiries.">
     <meta property="og:type" content="article">
@@ -524,7 +527,15 @@ html {
     // Language Switcher Logic (Header Toggle: English / Hinglish)
     function setBlogLanguage(lang){
         const isHi = lang === 'hi-en';
-        try{localStorage.setItem('tmd_blog_lang', lang);}catch(e){}
+        try{
+            localStorage.setItem('tmd_blog_lang', lang);
+            if (window.history && window.history.replaceState) {
+                const u = new URL(window.location.href);
+                if (isHi) { u.searchParams.set('lang', 'hi'); }
+                else { u.searchParams.delete('lang'); }
+                window.history.replaceState({}, '', u);
+            }
+        }catch(e){}
         document.querySelectorAll('.nav-lang-btn').forEach(btn => {
             const active = btn.getAttribute('data-lang') === lang;
             btn.classList.toggle('active', active);
@@ -553,8 +564,19 @@ html {
     });
 
     try{
-        const savedLang = localStorage.getItem('tmd_blog_lang') || 'en';
-        if(savedLang === 'hi-en'){
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get('lang');
+        const hash = window.location.hash.toLowerCase();
+        let targetLang = 'en';
+        if (langParam === 'hi' || langParam === 'hi-en' || langParam === 'hinglish' || hash === '#hi' || hash === '#hinglish') {
+            targetLang = 'hi-en';
+        } else {
+            const savedLang = localStorage.getItem('tmd_blog_lang');
+            if (savedLang === 'hi-en') {
+                targetLang = 'hi-en';
+            }
+        }
+        if (targetLang === 'hi-en') {
             setBlogLanguage('hi-en');
         }
     }catch(e){}

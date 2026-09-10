@@ -36,6 +36,9 @@ try{const pSlug=window.location.pathname.split('/').pop();if(pSlug&&pSlug!=='ind
     <meta name="author" content="Tech Mind Developers Engineering Team">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://techminddevelopers.in/blog/chatgpt-6-astra-vs-claude-fable-5-1-software-engineering.html">
+    <link rel="alternate" hreflang="en" href="https://techminddevelopers.in/blog/chatgpt-6-astra-vs-claude-fable-5-1-software-engineering.html">
+    <link rel="alternate" hreflang="hi-Latn" href="https://techminddevelopers.in/blog/chatgpt-6-astra-vs-claude-fable-5-1-software-engineering.html?lang=hi">
+    <link rel="alternate" hreflang="x-default" href="https://techminddevelopers.in/blog/chatgpt-6-astra-vs-claude-fable-5-1-software-engineering.html">
     <meta property="og:title" content="ChatGPT 6 Astra vs Claude Fable 5.1: Which AI Model is Best for Real-World Software Engineering in 2026?">
     <meta property="og:description" content="An honest, benchmark-backed comparison of OpenAI ChatGPT 6 Astra and Anthropic Claude Fable 5.1 for full-stack developers, software engineers, and modern tech businesses.">
     <meta property="og:type" content="article">
@@ -731,7 +734,15 @@ html {
     // Language Switcher Logic (Header Toggle: English / Hinglish)
     function setBlogLanguage(lang){
         const isHi = lang === 'hi-en';
-        try{localStorage.setItem('tmd_blog_lang', lang);}catch(e){}
+        try{
+            localStorage.setItem('tmd_blog_lang', lang);
+            if (window.history && window.history.replaceState) {
+                const u = new URL(window.location.href);
+                if (isHi) { u.searchParams.set('lang', 'hi'); }
+                else { u.searchParams.delete('lang'); }
+                window.history.replaceState({}, '', u);
+            }
+        }catch(e){}
         document.querySelectorAll('.nav-lang-btn').forEach(btn => {
             const active = btn.getAttribute('data-lang') === lang;
             btn.classList.toggle('active', active);
@@ -760,8 +771,19 @@ html {
     });
 
     try{
-        const savedLang = localStorage.getItem('tmd_blog_lang') || 'en';
-        if(savedLang === 'hi-en'){
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get('lang');
+        const hash = window.location.hash.toLowerCase();
+        let targetLang = 'en';
+        if (langParam === 'hi' || langParam === 'hi-en' || langParam === 'hinglish' || hash === '#hi' || hash === '#hinglish') {
+            targetLang = 'hi-en';
+        } else {
+            const savedLang = localStorage.getItem('tmd_blog_lang');
+            if (savedLang === 'hi-en') {
+                targetLang = 'hi-en';
+            }
+        }
+        if (targetLang === 'hi-en') {
             setBlogLanguage('hi-en');
         }
     }catch(e){}

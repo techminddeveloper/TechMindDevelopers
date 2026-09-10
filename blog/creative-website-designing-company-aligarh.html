@@ -34,6 +34,9 @@
     <meta name="author" content="Tech Mind Developers Engineering Team">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://techminddevelopers.in/blog/creative-website-designing-company-aligarh.html">
+    <link rel="alternate" hreflang="en" href="https://techminddevelopers.in/blog/creative-website-designing-company-aligarh.html">
+    <link rel="alternate" hreflang="hi-Latn" href="https://techminddevelopers.in/blog/creative-website-designing-company-aligarh.html?lang=hi">
+    <link rel="alternate" hreflang="x-default" href="https://techminddevelopers.in/blog/creative-website-designing-company-aligarh.html">
     <meta property="og:title" content="Creative Website Designing Company in Aligarh - Tech Mind Developers">
     <meta property="og:description" content="Tech Mind Developers is the leading creative website designing company in Aligarh. We craft visually stunning, conversion-optimised websites for businesses in Aligarh, UP.">
     <meta property="og:type" content="article">
@@ -433,7 +436,15 @@ window.addEventListener('scroll',()=>{const ws=document.documentElement.scrollTo
 // Language Switcher Logic (Header Toggle: English / Hinglish)
 function setBlogLanguage(lang){
     const isHi = lang === 'hi-en';
-    try{localStorage.setItem('tmd_blog_lang', lang);}catch(e){}
+    try{
+            localStorage.setItem('tmd_blog_lang', lang);
+            if (window.history && window.history.replaceState) {
+                const u = new URL(window.location.href);
+                if (isHi) { u.searchParams.set('lang', 'hi'); }
+                else { u.searchParams.delete('lang'); }
+                window.history.replaceState({}, '', u);
+            }
+        }catch(e){}
     document.querySelectorAll('.nav-lang-btn').forEach(btn => {
         const active = btn.getAttribute('data-lang') === lang;
         btn.classList.toggle('active', active);
@@ -462,11 +473,22 @@ document.querySelectorAll('.nav-lang-btn').forEach(btn => {
 });
 
 try{
-    const savedLang = localStorage.getItem('tmd_blog_lang') || 'en';
-    if(savedLang === 'hi-en'){
-        setBlogLanguage('hi-en');
-    }
-}catch(e){}
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get('lang');
+        const hash = window.location.hash.toLowerCase();
+        let targetLang = 'en';
+        if (langParam === 'hi' || langParam === 'hi-en' || langParam === 'hinglish' || hash === '#hi' || hash === '#hinglish') {
+            targetLang = 'hi-en';
+        } else {
+            const savedLang = localStorage.getItem('tmd_blog_lang');
+            if (savedLang === 'hi-en') {
+                targetLang = 'hi-en';
+            }
+        }
+        if (targetLang === 'hi-en') {
+            setBlogLanguage('hi-en');
+        }
+    }catch(e){}
 </script>
 <script>(async function initViewCounter(){const slug=window.location.pathname.split('/').pop().replace('.html','')||'blog-post';const el=document.getElementById('viewCount');if(!el)return;const lk='tmd_v_lock_'+slug;const ck='tmd_v_cnt_'+slug;const lr=localStorage.getItem(lk);const cc=localStorage.getItem(ck)||'1';const now=Date.now();const H24=24*60*60*1000;el.textContent=cc;if(lr&&cc&&(now-parseInt(lr,10))<H24)return;try{const k='tmd_blog_'+slug.replace(/[^a-zA-Z0-9_-]/g,'_');const r=await fetch('https://api.visitorbadge.io/api/visitors?path='+k,{cache:'no-cache'});if(r.ok){const t=await r.text();const m=t.match(/aria-label="VISITORS:\s*([0-9,kM\.\+]+)"/i)||t.match(/>([0-9,kM\.\+]+)</);if(m&&m[1]){el.textContent=m[1];localStorage.setItem(ck,m[1]);localStorage.setItem(lk,now.toString());}}}catch(e){el.textContent=cc||'1';}})();</script>
 <div class="floating-contact-pill"><a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20need%20a%20website%20for%20my%20Aligarh%20business." target="_blank" rel="noopener noreferrer" class="float-btn float-wa" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a><a href="tel:+917835019421" class="float-btn float-call" aria-label="Call Tech Mind Developers"><i class="fas fa-phone-alt"></i></a></div>
