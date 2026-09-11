@@ -18,13 +18,74 @@
     };
 
     var SERVICES = {
-        'website':   { label: '🌐 Website / Web App',      icon: 'fas fa-globe' },
-        'ecommerce': { label: '🛒 E-Commerce Store',       icon: 'fas fa-shopping-cart' },
-        'mobile':    { label: '📱 Mobile App',              icon: 'fas fa-mobile-alt' },
-        'erp':       { label: '🏢 ERP / CRM Software',     icon: 'fas fa-building' },
-        'ai':        { label: '🤖 AI / Automation',         icon: 'fas fa-robot' },
-        'seo':       { label: '📈 SEO / Digital Marketing', icon: 'fas fa-chart-line' },
-        'other':     { label: '💡 Something Else',          icon: 'fas fa-lightbulb' }
+        'website':   { label: 'Website',                icon: 'fas fa-globe' },
+        'ecommerce': { label: 'Online Store / E-Commerce', icon: 'fas fa-shopping-cart' },
+        'mobile':    { label: 'Mobile App',              icon: 'fas fa-mobile-alt' },
+        'erp':       { label: 'Business Software / ERP', icon: 'fas fa-building' },
+        'ai':        { label: 'AI & Automation',         icon: 'fas fa-robot' },
+        'seo':       { label: 'Google Ranking & SEO',    icon: 'fas fa-chart-line' },
+        'other':     { label: 'Other / Custom Project',  icon: 'fas fa-pen' }
+    };
+
+    var SERVICE_QUESTIONS = {
+        'website': {
+            q: "What kind of website are you looking for?",
+            placeholder: "E.g. Real estate portal, Hospital, Custom site...",
+            options: [
+                { label: 'Business Profile / Company Website' },
+                { label: 'Single Page / Landing Page' },
+                { label: 'Product / Portfolio Showcase' },
+                { label: 'Blog / News Portal' }
+            ]
+        },
+        'ecommerce': {
+            q: "What would you like to sell in your online store?",
+            placeholder: "E.g. Jewellery, Furniture, Books, Cosmetics...",
+            options: [
+                { label: 'Clothing & Fashion' },
+                { label: 'Grocery & Daily Needs' },
+                { label: 'Electronics & General Products' },
+                { label: 'Multi-category Store' }
+            ]
+        },
+        'mobile': {
+            q: "Which platform is your Mobile App for?",
+            placeholder: "E.g. Tablet app, Custom App requirement...",
+            options: [
+                { label: 'Both Android & iPhone (Both)' },
+                { label: 'Only Android' },
+                { label: 'Only iPhone' }
+            ]
+        },
+        'erp': {
+            q: "What type of business do you need software for?",
+            placeholder: "E.g. Hospital ERP, Hotel Management, Real Estate CRM...",
+            options: [
+                { label: 'Pathology Lab / Diagnostic Center' },
+                { label: 'Factory / Inventory & Stock' },
+                { label: 'Billing, GST & Accounts' },
+                { label: 'School / Institute Management' },
+                { label: 'Office / Custom Business' }
+            ]
+        },
+        'ai': {
+            q: "How would you like AI or Automation to help you?",
+            placeholder: "E.g. Document parsing, Voice AI, Custom Automation...",
+            options: [
+                { label: 'WhatsApp Customer Auto-Reply' },
+                { label: 'Website Chatbot for Inquiries' },
+                { label: 'Work & Data Automation' }
+            ]
+        },
+        'seo': {
+            q: "What is your main digital marketing goal?",
+            placeholder: "E.g. YouTube marketing, Lead generation ads...",
+            options: [
+                { label: 'Rank #1 on Google Maps (Local)' },
+                { label: 'Get More Clients from Google Search' },
+                { label: 'Social Media & Online Ads' }
+            ]
+        }
     };
 
     var state = {
@@ -744,26 +805,81 @@
     }
 
     function showServiceOptions() {
-        addQuickReplies(Object.keys(SERVICES).map(function(key) {
-            return { label: SERVICES[key].label, icon: SERVICES[key].icon, action: function() { selectService(key); } };
-        }));
+        var options = [
+            { label: 'Website', icon: 'fas fa-globe', action: function() { selectService('website'); } },
+            { label: 'Online Store / E-Commerce', icon: 'fas fa-shopping-cart', action: function() { selectService('ecommerce'); } },
+            { label: 'Mobile App', icon: 'fas fa-mobile-alt', action: function() { selectService('mobile'); } },
+            { label: 'Business Software / ERP', icon: 'fas fa-building', action: function() { selectService('erp'); } },
+            { label: 'AI & Automation', icon: 'fas fa-robot', action: function() { selectService('ai'); } },
+            { label: 'Google Ranking & SEO', icon: 'fas fa-chart-line', action: function() { selectService('seo'); } },
+            { label: 'Other / Custom Project', icon: 'fas fa-pen', action: function() { selectService('other'); } },
+            { label: 'Talk on WhatsApp', icon: 'fab fa-whatsapp', action: function() { openWhatsAppDirect(); } }
+        ];
+        addQuickReplies(options);
+        showInput('Choose a service above or type here...');
     }
 
     function selectService(key) {
         state.selectedService = key;
-        addUserMsg(SERVICES[key].label);
+        state.userGoal = '';
+        state.userFeatures = '';
+        addUserMsg(SERVICES[key] ? SERVICES[key].label : key);
 
-        if (key === 'seo' || key === 'other') {
-            botReply("Can you tell me a little bit about your current business goals or challenges?", function() {
-                state.step = 'goal';
-                showInput('Type your goals here...');
+        if (SERVICE_QUESTIONS[key]) {
+            state.step = 'question';
+            var qData = SERVICE_QUESTIONS[key];
+            botReply("<strong>" + qData.q + "</strong>", function() {
+                var options = qData.options.map(function(opt) {
+                    return {
+                        label: opt.label,
+                        icon: '',
+                        action: function() {
+                            handleQuestionAnswer(opt.label);
+                        }
+                    };
+                });
+                options.push({
+                    label: 'Other (Type your own)',
+                    icon: 'fas fa-pen',
+                    action: function() {
+                        handleQuestionOther(qData.placeholder);
+                    }
+                });
+                addQuickReplies(options);
+                showInput(qData.placeholder || 'Choose an option above or type here...');
             });
         } else {
             botReply("Can you tell me a little bit about your project or business idea?", function() {
-                state.step = 'goal';
-                showInput('Type your idea here...');
+                state.step = 'question';
+                showInput('Type your idea or requirement here...');
             });
         }
+    }
+
+    function handleQuestionOther(placeholder) {
+        addUserMsg("Other");
+        botReply("Please type your requirement below: ✍️", function() {
+            state.step = 'question';
+            showInput(placeholder || 'Type your requirement here...');
+        });
+    }
+
+    function handleQuestionAnswer(answerLabel) {
+        state.userGoal = answerLabel;
+        state.userFeatures = 'Requirement: ' + answerLabel;
+        addUserMsg(answerLabel);
+
+        botReply("To share the complete details and proposal, <strong>may I know your name?</strong>", function() {
+            state.step = 'name';
+            showInput('Enter your name...');
+        });
+    }
+
+    function openWhatsAppDirect(customText) {
+        var text = encodeURIComponent(customText || "Hi Tech Mind Developers! I was chatting with your AI Assistant on techminddevelopers.in and would like to discuss my project.");
+        window.open(CONFIG.whatsappUrl + '?text=' + text, '_blank');
+        addUserMsg("Chat on WhatsApp");
+        botReply("Opened WhatsApp for you! Our team is ready to discuss your project. 😊");
     }
 
     function handleGoal(text) {
@@ -771,17 +887,10 @@
         addUserMsg(text);
         hideInput();
 
-        if (state.selectedService === 'seo' || state.selectedService === 'other') {
-            botReply("To help us prepare the best strategy, do you have any target audience or specific requirements in mind?", function() {
-                state.step = 'features';
-                showInput('Type requirements or target audience...');
-            });
-        } else {
-            botReply("What features do you want to include? (If you have any reference website, please paste the link here).", function() {
-                state.step = 'features';
-                showInput('Type features or paste link...');
-            });
-        }
+        botReply("To share the complete details and proposal, <strong>may I know your name?</strong>", function() {
+            state.step = 'name';
+            showInput('Enter your name...');
+        });
     }
 
     function handleFeatures(text) {
@@ -789,7 +898,7 @@
         addUserMsg(text);
         hideInput();
 
-        botReply("Our team can definitely help you with this. To share the complete details and timeline, <strong>may I know your name?</strong>", function() {
+        botReply("To share the complete details and proposal, <strong>may I know your name?</strong>", function() {
             state.step = 'name';
             showInput('Enter your name...');
         });
@@ -799,11 +908,9 @@
         state.userName = text;
         addUserMsg(text);
         hideInput();
-        botReply("Nice to meet you, <strong>" + text + "</strong>! 🙌", function() {
-            botReply("What is your <strong>Mobile or WhatsApp number</strong> (with country code) so our expert can contact you?", function() {
-                state.step = 'phone';
-                showInput('E.g. +91 9876543210...');
-            });
+        botReply("What is your <strong>Mobile or WhatsApp number</strong> so our technical team can reach out to you?", function() {
+            state.step = 'phone';
+            showInput('E.g. +91 9876543210...');
         });
     }
 
@@ -811,7 +918,7 @@
         state.userPhone = text;
         addUserMsg(text);
         hideInput();
-        botReply("Got it! And your <strong>Email ID</strong> so we can send you the project details?", function() {
+        botReply("And your <strong>Email ID</strong> so we can send you the detailed proposal?", function() {
             state.step = 'email';
             showInput('Enter your email address...');
         });
@@ -852,12 +959,11 @@
         if (!text.trim()) return;
         text = text.trim();
 
-        if ((state.step === 'goal' || state.step === 'features') && text.length < 4) {
+        if ((state.step === 'goal' || state.step === 'features' || state.step === 'question' || state.step === 'service') && text.length < 2) {
             addUserMsg(text);
             hideInput();
             botReply("Could you please provide a few more details so our team can understand better? 😊", function() {
-                if (state.step === 'goal') showInput('Type your idea here...');
-                else showInput('Type features or paste link...');
+                showInput('Type your requirement here...');
             });
             return;
         }
@@ -893,7 +999,68 @@
             }
         }
 
+        // Natural Keyword Intent Detection
+        var priceKeywords = /(price|pricing|cost|kharcha|rate|budget|charges|fees|kitna|kitne|paisa|rupaye|estimate|calculator)/i;
+        if (priceKeywords.test(text) && state.step !== 'name' && state.step !== 'phone' && state.step !== 'email') {
+            addUserMsg(text);
+            hideInput();
+            botReply("Every business project has unique needs. Tell us what you need and our expert team will prepare the best, fair proposal for you! 💡", function() {
+                botReply("Which service are you looking for?", showServiceOptions);
+            });
+            return;
+        }
+
+        var contactKeywords = /(whatsapp|call|phone|contact|number|talk|milna|baat)/i;
+        if (contactKeywords.test(text) && state.step !== 'name' && state.step !== 'phone' && state.step !== 'email') {
+            addUserMsg(text);
+            hideInput();
+            botReply("You can connect directly with our founder & senior technical team right away! 🚀", function() {
+                addQuickReplies([
+                    { label: '🟢 WhatsApp Us (+91-7835019421)', icon: 'fab fa-whatsapp', action: function() { openWhatsAppDirect("Hi Tech Mind Developers! I would like to discuss my project with you."); } },
+                    { label: '📞 Call Now (+91-7835019421)', icon: 'fas fa-phone', action: function() { window.location.href = 'tel:+' + CONFIG.phone; } },
+                    { label: '📝 Share Details Here', icon: 'fas fa-pen', action: function() {
+                        state.step = 'service';
+                        showServiceOptions();
+                    }}
+                ]);
+            });
+            return;
+        }
+
+        var greetingKeywords = /^(hi|hello|hey|namaste|salam|hola|good morning|good evening|kaise ho)/i;
+        if (greetingKeywords.test(text) && state.step !== 'name' && state.step !== 'phone' && state.step !== 'email') {
+            addUserMsg(text);
+            hideInput();
+            botReply("Hello! 👋 Great to connect with you. How can Tech Mind Developers help your business today?", function() {
+                showServiceOptions();
+            });
+            return;
+        }
+
         switch(state.step) {
+            case 'service':
+                state.selectedService = 'other';
+                state.userGoal = text;
+                state.userFeatures = 'Requirement: ' + text;
+                addUserMsg(text);
+                hideInput();
+                botReply("To share the complete details and proposal, <strong>may I know your name?</strong>", function() {
+                    state.step = 'name';
+                    showInput('Enter your name...');
+                });
+                break;
+            case 'question':
+            case 'goal':
+            case 'features':
+                state.userGoal = text;
+                state.userFeatures = 'Requirement: ' + text;
+                addUserMsg(text);
+                hideInput();
+                botReply("To share the complete details and proposal, <strong>may I know your name?</strong>", function() {
+                    state.step = 'name';
+                    showInput('Enter your name...');
+                });
+                break;
             case 'goal':            handleGoal(text);       break;
             case 'features':        handleFeatures(text);   break;
             case 'name':            handleName(text);       break;
