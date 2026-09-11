@@ -724,7 +724,7 @@ html {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (isMobile()) {
-                if (entry.intersectionRatio >= 0.8) {
+                if (entry.intersectionRatio >= 0.98) {
                     banner.classList.add('mobile-scrolled');
                 } else if (entry.intersectionRatio < 0.2) {
                     banner.classList.remove('mobile-scrolled');
@@ -734,7 +734,7 @@ html {
             }
         });
     }, {
-        threshold: [0.15, 0.8]
+        threshold: [0.15, 0.98, 1.0]
     });
     
     observer.observe(banner);
