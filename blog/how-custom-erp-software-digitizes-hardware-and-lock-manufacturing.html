@@ -375,6 +375,10 @@ html {
     .nav-btn-home, .nav-link-home, .nav-cta-btn { padding: 5px 7px !important; font-size: 0.78rem !important; }
     .theme-toggle { width: 28px !important; height: 28px !important; font-size: 0.75rem !important; }
 }
+@media (max-width: 768px) {
+    .hero-img { transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) !important; }
+    .hero-img-wrap.mobile-scrolled .hero-img { transform: scale(1.04) !important; }
+}
 </style>
 </head>
 <body>
@@ -647,5 +651,33 @@ html {
         <a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20need%20assistance." target="_blank" rel="noopener noreferrer" class="float-btn float-wa" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
         <a href="tel:+917835019421" class="float-btn float-call" aria-label="Call Tech Mind Developers"><i class="fas fa-phone-alt"></i></a>
     </div>
+<script>
+// Mobile Scroll-Triggered Banner Zoom Effect
+(function initMobileBannerZoom() {
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
+    const banner = document.querySelector('.hero-img-wrap');
+    if (!banner) return;
+    
+    const isMobile = () => window.innerWidth <= 768;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (isMobile()) {
+                if (entry.isIntersecting) {
+                    banner.classList.add('mobile-scrolled');
+                } else {
+                    banner.classList.remove('mobile-scrolled');
+                }
+            } else {
+                banner.classList.remove('mobile-scrolled');
+            }
+        });
+    }, {
+        threshold: 0.25,
+        rootMargin: '0px 0px -10% 0px'
+    });
+    
+    observer.observe(banner);
+})();
+</script>
 </body>
 </html>

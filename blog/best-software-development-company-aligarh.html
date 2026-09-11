@@ -192,6 +192,10 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
     .nav-btn-home, .nav-link-home, .nav-cta-btn { padding: 5px 7px !important; font-size: 0.78rem !important; }
     .theme-toggle { width: 28px !important; height: 28px !important; font-size: 0.75rem !important; }
 }
+@media (max-width: 768px) {
+    .hero-img { transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) !important; }
+    .hero-img-wrap.mobile-scrolled .hero-img { transform: scale(1.04) !important; }
+}
 </style>
 </head>
 <body>
@@ -453,5 +457,33 @@ try{
 </script>
 <script>(async function initViewCounter(){const slug=window.location.pathname.split('/').pop().replace('.html','')||'blog-post';const el=document.getElementById('viewCount');if(!el)return;const lk='tmd_v_lock_'+slug;const ck='tmd_v_cnt_'+slug;const lr=localStorage.getItem(lk);const cc=localStorage.getItem(ck)||'1';const now=Date.now();const H24=24*60*60*1000;el.textContent=cc;if(lr&&cc&&(now-parseInt(lr,10))<H24)return;try{const k='tmd_blog_'+slug.replace(/[^a-zA-Z0-9_-]/g,'_');const r=await fetch('https://api.visitorbadge.io/api/visitors?path='+k,{cache:'no-cache'});if(r.ok){const t=await r.text();const m=t.match(/aria-label="VISITORS:\s*([0-9,kM\.\+]+)"/i)||t.match(/>([0-9,kM\.\+]+)</);if(m&&m[1]){el.textContent=m[1];localStorage.setItem(ck,m[1]);localStorage.setItem(lk,now.toString());}}}catch(e){el.textContent=cc||'1';}})();</script>
 <div class="floating-contact-pill"><a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20want%20to%20discuss%20custom%20software%20development%20for%20my%20business%20in%20Aligarh." target="_blank" rel="noopener noreferrer" class="float-btn float-wa" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a><a href="tel:+917835019421" class="float-btn float-call" aria-label="Call Tech Mind Developers"><i class="fas fa-phone-alt"></i></a></div>
+<script>
+// Mobile Scroll-Triggered Banner Zoom Effect
+(function initMobileBannerZoom() {
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
+    const banner = document.querySelector('.hero-img-wrap');
+    if (!banner) return;
+    
+    const isMobile = () => window.innerWidth <= 768;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (isMobile()) {
+                if (entry.isIntersecting) {
+                    banner.classList.add('mobile-scrolled');
+                } else {
+                    banner.classList.remove('mobile-scrolled');
+                }
+            } else {
+                banner.classList.remove('mobile-scrolled');
+            }
+        });
+    }, {
+        threshold: 0.25,
+        rootMargin: '0px 0px -10% 0px'
+    });
+    
+    observer.observe(banner);
+})();
+</script>
 </body>
 </html>
