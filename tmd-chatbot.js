@@ -93,6 +93,7 @@
         selectedService: null,
         userGoal: '',
         userFeatures: '',
+        userWebsiteUrl: '',
         userName: '',
         userPhone: '',
         userEmail: '',
@@ -737,6 +738,7 @@
             phone_whatsapp: state.userPhone,
             email_address: state.userEmail, 
             service_needed: svc,
+            current_website_url: state.userWebsiteUrl || 'N/A',
             project_idea: state.userGoal,
             reference_website: state.userFeatures,
             submitted_at: new Date().toLocaleString('en-IN')
@@ -762,6 +764,7 @@
         var prefilledWa = encodeURIComponent(
             'Hi Tech Mind Developers! I am ' + state.userName + '.\n\n' +
             '*Service:* ' + svc + '\n' +
+            (state.userWebsiteUrl && state.userWebsiteUrl !== 'Not provided' ? '*Current Website:* ' + state.userWebsiteUrl + '\n' : '') +
             '*Details:* ' + state.userGoal + '\n' +
             '*Phone:* ' + state.userPhone + '\n' +
             '*Email:* ' + state.userEmail + '\n\n' +
@@ -778,6 +781,7 @@
             '<p>Thank you <strong>' + state.userName + '</strong>! We have received your details. Our team will call you on <strong>' + state.userPhone + '</strong> very soon.</p>' +
             '<div class="tmd-lead-summary">' +
                 '<div class="tmd-lead-row"><strong>Service:</strong> <span>' + svc + '</span></div>' +
+                (state.userWebsiteUrl && state.userWebsiteUrl !== 'Not provided' ? '<div class="tmd-lead-row"><strong>Current Site:</strong> <span>' + state.userWebsiteUrl + '</span></div>' : '') +
                 '<div class="tmd-lead-row"><strong>Details:</strong> <span>' + goalSnippet + '</span></div>' +
                 '<div class="tmd-lead-row"><strong>Email:</strong> <span>' + state.userEmail + '</span></div>' +
             '</div>' +
@@ -823,7 +827,22 @@
         state.selectedService = key;
         state.userGoal = '';
         state.userFeatures = '';
+        state.userWebsiteUrl = '';
         addUserMsg(SERVICES[key] ? SERVICES[key].label : key);
+
+        if (key === 'website') {
+            state.step = 'website_choice';
+            botReply("Are you looking to build a <strong>Brand New Website</strong> or <strong>Redesign / Upgrade an Existing Website</strong>?", function() {
+                var options = [
+                    { label: 'Brand New Website', icon: 'fas fa-rocket', action: function() { startNewWebsiteFlow(); } },
+                    { label: 'Redesign / Upgrade Existing', icon: 'fas fa-sync-alt', action: function() { startUpgradeWebsiteFlow(); } },
+                    { label: 'Other (Type your own)', icon: 'fas fa-pen', action: function() { handleQuestionOther('E.g. Web portal, Custom web application...', 'website_choice'); } }
+                ];
+                addQuickReplies(options);
+                showInput('Choose an option above or type here...');
+            });
+            return;
+        }
 
         if (SERVICE_QUESTIONS[key]) {
             state.step = 'question';
@@ -856,11 +875,93 @@
         }
     }
 
-    function handleQuestionOther(placeholder) {
+    function handleQuestionOther(placeholder, step) {
         addUserMsg("Other");
         botReply("Please type your requirement below: ✍️", function() {
-            state.step = 'question';
+            if (step) state.step = step;
             showInput(placeholder || 'Type your requirement here...');
+        });
+    }
+
+    function startNewWebsiteFlow(userText) {
+        if (!userText) {
+            addUserMsg("Brand New Website");
+        }
+        state.step = 'question';
+        var qData = SERVICE_QUESTIONS['website'];
+        botReply("<strong>" + qData.q + "</strong>", function() {
+            var options = qData.options.map(function(opt) {
+                return {
+                    label: opt.label,
+                    icon: '',
+                    action: function() {
+                        handleQuestionAnswer(opt.label);
+                    }
+                };
+            });
+            options.push({
+                label: 'Other (Type your own)',
+                icon: 'fas fa-pen',
+                action: function() {
+                    handleQuestionOther(qData.placeholder);
+                }
+            });
+            addQuickReplies(options);
+            showInput(qData.placeholder || 'Choose an option above or type here...');
+        });
+    }
+
+    function startUpgradeWebsiteFlow(userText) {
+        if (!userText) {
+            addUserMsg("Redesign / Upgrade Existing");
+        }
+        state.step = 'upgrade_url';
+        botReply("Please share your <strong>current website link (URL)</strong> so our technical team can review it:", function() {
+            var options = [
+                { label: "Don't have link / Skip", icon: 'fas fa-forward', action: function() { skipUpgradeUrl(); } }
+            ];
+            addQuickReplies(options);
+            showInput('E.g. www.yourcompany.com...');
+        });
+    }
+
+    function skipUpgradeUrl() {
+        state.userWebsiteUrl = 'Not provided';
+        addUserMsg("Don't have link / Skip");
+        askUpgradeReason();
+    }
+
+    function handleUpgradeUrl(urlText) {
+        state.userWebsiteUrl = urlText;
+        addUserMsg(urlText);
+        hideInput();
+        askUpgradeReason();
+    }
+
+    function askUpgradeReason() {
+        state.step = 'upgrade_reason';
+        botReply("What is the <strong>main reason</strong> you want to upgrade or redesign it?", function() {
+            var options = [
+                { label: 'Modern Design & Mobile Friendly', icon: 'fas fa-mobile-alt', action: function() { handleUpgradeReason('Modern Design & Mobile Friendly'); } },
+                { label: 'Faster Speed & Performance', icon: 'fas fa-bolt', action: function() { handleUpgradeReason('Faster Speed & Performance'); } },
+                { label: 'Add New Features & Pages', icon: 'fas fa-plus-circle', action: function() { handleUpgradeReason('Add New Features & Pages'); } },
+                { label: 'Get More Leads & Google Ranking', icon: 'fas fa-chart-line', action: function() { handleUpgradeReason('Get More Leads & Google Ranking'); } },
+                { label: 'Other (Type your reason)', icon: 'fas fa-pen', action: function() { handleQuestionOther('E.g. Slow speed, Outdated design, Not mobile friendly...', 'upgrade_reason'); } }
+            ];
+            addQuickReplies(options);
+            showInput('Choose a reason above or type here...');
+        });
+    }
+
+    function handleUpgradeReason(reason) {
+        state.userGoal = 'Upgrade: ' + reason + (state.userWebsiteUrl && state.userWebsiteUrl !== 'Not provided' ? ' (Current URL: ' + state.userWebsiteUrl + ')' : '');
+        state.userFeatures = 'Website Redesign / Upgrade. Current URL: ' + state.userWebsiteUrl + '. Reason: ' + reason;
+        addUserMsg(reason);
+        hideInput();
+
+        botReply("To share the complete details and proposal, <strong>may I know your name?</strong>", function() {
+            state.step = 'name';
+            showInput('Enter your name...');
         });
     }
 
@@ -959,7 +1060,7 @@
         if (!text.trim()) return;
         text = text.trim();
 
-        if ((state.step === 'goal' || state.step === 'features' || state.step === 'question' || state.step === 'service') && text.length < 2) {
+        if ((state.step === 'goal' || state.step === 'features' || state.step === 'question' || state.step === 'service' || state.step === 'website_choice' || state.step === 'upgrade_reason') && text.length < 2) {
             addUserMsg(text);
             hideInput();
             botReply("Could you please provide a few more details so our team can understand better? 😊", function() {
@@ -1049,6 +1150,30 @@
                     showInput('Enter your name...');
                 });
                 break;
+            case 'website_choice':
+                var lower = text.toLowerCase();
+                if (/new|fresh|create|build/i.test(lower) && !/upgrade|redesign|old|existing|update/i.test(lower)) {
+                    addUserMsg(text);
+                    hideInput();
+                    startNewWebsiteFlow(text);
+                } else if (/upgrade|redesign|old|existing|update/i.test(lower)) {
+                    addUserMsg(text);
+                    hideInput();
+                    startUpgradeWebsiteFlow(text);
+                } else {
+                    handleQuestionAnswer(text);
+                }
+                break;
+            case 'upgrade_url':
+                if (/^(no|none|skip|na|n\/a|nahi|don't have|dont have)/i.test(text.trim())) {
+                    skipUpgradeUrl();
+                } else {
+                    handleUpgradeUrl(text);
+                }
+                break;
+            case 'upgrade_reason':
+                handleUpgradeReason(text);
+                break;
             case 'question':
             case 'goal':
             case 'features':
@@ -1061,8 +1186,6 @@
                     showInput('Enter your name...');
                 });
                 break;
-            case 'goal':            handleGoal(text);       break;
-            case 'features':        handleFeatures(text);   break;
             case 'name':            handleName(text);       break;
             case 'phone':           handlePhone(text);      break;
             case 'email':           handleEmail(text);      break;
