@@ -375,7 +375,7 @@ html {
     .theme-toggle { width: 28px !important; height: 28px !important; font-size: 0.75rem !important; }
 }
 @media (max-width: 768px) {
-    .hero-img { transition: transform 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important; will-change: transform; }
+    .hero-img { transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) !important; will-change: transform; }
     .hero-img-wrap.mobile-scrolled .hero-img { transform: scale(1.08) !important; }
 }
 </style>
@@ -724,9 +724,9 @@ html {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (isMobile()) {
-                if (entry.isIntersecting) {
+                if (entry.intersectionRatio >= 0.8) {
                     banner.classList.add('mobile-scrolled');
-                } else {
+                } else if (entry.intersectionRatio < 0.2) {
                     banner.classList.remove('mobile-scrolled');
                 }
             } else {
@@ -734,8 +734,7 @@ html {
             }
         });
     }, {
-        threshold: 0.3,
-        rootMargin: '-8% 0px -12% 0px'
+        threshold: [0.15, 0.8]
     });
     
     observer.observe(banner);
