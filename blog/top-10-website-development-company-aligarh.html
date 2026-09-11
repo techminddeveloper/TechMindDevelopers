@@ -222,8 +222,8 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
     .theme-toggle { width: 28px !important; height: 28px !important; font-size: 0.75rem !important; }
 }
 @media (max-width: 768px) {
-    .hero-img { transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1) !important; }
-    .hero-img-wrap.mobile-scrolled .hero-img { transform: scale(1.04) !important; }
+    .hero-img { transition: transform 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important; will-change: transform; }
+    .hero-img-wrap.mobile-scrolled .hero-img { transform: scale(1.08) !important; }
 }
 </style>
 </head>
@@ -534,8 +534,8 @@ try{
             }
         });
     }, {
-        threshold: 0.25,
-        rootMargin: '0px 0px -10% 0px'
+        threshold: 0.3,
+        rootMargin: '-8% 0px -12% 0px'
     });
     
     observer.observe(banner);
