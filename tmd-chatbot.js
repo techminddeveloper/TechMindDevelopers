@@ -727,32 +727,80 @@
 
     function hideInput() { document.getElementById('tmdInputWrap').style.display = 'none'; }
 
-    // Silent Background Dispatch to Serverless Email API
+    // Instant Background Dispatch to Serverless Email API
     function dispatchLeadDataSilently() {
         var svc = SERVICES[state.selectedService] ? SERVICES[state.selectedService].label : 'General Inquiry';
-        var payload = {
+        var currentUrl = (state.userWebsiteUrl && state.userWebsiteUrl !== 'Not provided') ? state.userWebsiteUrl : 'N/A';
+
+        var fields = {
             _subject: '🚀 New Client Lead from AI Chatbot: ' + state.userName + ' (' + state.userPhone + ')',
             _template: 'table',
             _captcha: 'false',
-            client_name: state.userName,
-            phone_whatsapp: state.userPhone,
-            email_address: state.userEmail, 
+            _autoresponse: 'Thank you ' + state.userName + ' for contacting Tech Mind Developers! We have received your inquiry for ' + svc + '. Our technical team will reach out to you on ' + state.userPhone + ' shortly. For urgent assistance, reach us on WhatsApp: ' + CONFIG.whatsappUrl,
+            name: state.userName,
+            email: state.userEmail,
+            _replyto: state.userEmail,
+            phone: state.userPhone,
             service_needed: svc,
-            current_website_url: state.userWebsiteUrl || 'N/A',
-            project_idea: state.userGoal,
+            current_website_url: currentUrl,
+            project_requirement: state.userGoal,
             reference_website: state.userFeatures,
             submitted_at: new Date().toLocaleString('en-IN')
         };
 
+        // 1. Primary Dispatch: FormData via AJAX (No preflight CORS issues)
+        var fd = new FormData();
+        for (var key in fields) {
+            if (fields.hasOwnProperty(key)) {
+                fd.append(key, fields[key]);
+            }
+        }
+
         fetch('https://formsubmit.co/ajax/' + CONFIG.leadEmail, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify(payload)
+            body: fd
+        }).then(function(res) {
+            return res.json();
+        }).then(function(data) {
+            console.log('[TMD Lead Dispatch Success]', data);
         }).catch(function(err) {
-            console.log('[TMD Lead Dispatch Cached]', err);
+            console.log('[TMD Lead Dispatch AJAX fallback triggered]', err);
+            // 2. Guaranteed Fallback: Hidden iframe submission (Bypasses ad-blockers / CORS completely)
+            try {
+                var iframeName = 'tmd_lead_frame_' + Date.now();
+                var iframe = document.createElement('iframe');
+                iframe.name = iframeName;
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+
+                var form = document.createElement('form');
+                form.method = 'POST';
+                form.action = 'https://formsubmit.co/' + CONFIG.leadEmail;
+                form.target = iframeName;
+                form.style.display = 'none';
+
+                for (var f in fields) {
+                    if (fields.hasOwnProperty(f)) {
+                        var inp = document.createElement('input');
+                        inp.type = 'hidden';
+                        inp.name = f;
+                        inp.value = fields[f];
+                        form.appendChild(inp);
+                    }
+                }
+                document.body.appendChild(form);
+                form.submit();
+
+                setTimeout(function() {
+                    if (form.parentNode) form.parentNode.removeChild(form);
+                    if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+                }, 4000);
+            } catch(e) {
+                console.error('[TMD Fallback Dispatch Error]', e);
+            }
         });
     }
 
