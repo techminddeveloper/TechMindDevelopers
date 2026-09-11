@@ -1102,29 +1102,67 @@ body.menu-open .floating-contact-pill {
 [data-theme="light"] .process-card:nth-child(3) .process-deliverables span { color:#065f46; }
 [data-theme="light"] .process-card:nth-child(4) { background:linear-gradient(180deg, rgba(6,182,212,0.06) 0%, #ffffff 100%); border-color:rgba(6,182,212,0.25); }
 [data-theme="light"] .process-card:nth-child(4) h3 { color:#0e7490; }
-/* FAQ SECTION */
-.faq-section { padding: 45px 0 35px; position: relative; }
-.faq-section .section-header { margin-bottom: 36px; }
-.faq-container { max-width: 860px; margin: 0 auto; }
+/* ============================================================
+   ENHANCED MODERN FAQ SECTION (CYBER-GLASS DESIGN)
+   ============================================================ */
+.faq-section {
+    padding: 65px 0 55px;
+    position: relative;
+    background: radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.07) 0%, transparent 60%);
+}
+.faq-section .section-header { margin-bottom: 40px; }
+.faq-container {
+    max-width: 880px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
 .faq-item {
-    background: var(--bg-card);
-    border: 1px solid var(--glass-border);
-    border-radius: 14px;
-    margin-bottom: 14px;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(20, 29, 50, 0.7) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
     overflow: hidden;
-    transition: var(--transition);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
+
 .faq-item:hover {
-    border-color: rgba(59, 130, 246, 0.35);
+    border-color: rgba(56, 189, 248, 0.45);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px -8px rgba(56, 189, 248, 0.22), inset 0 0 20px rgba(56, 189, 248, 0.04);
 }
+
 .faq-item.active {
-    border-color: var(--accent-blue);
-    background: rgba(59, 130, 246, 0.04);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.1);
+    border-color: rgba(56, 189, 248, 0.75);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(26, 38, 64, 0.85) 100%);
+    box-shadow: 0 16px 45px -10px rgba(56, 189, 248, 0.35), 0 0 0 1px rgba(56, 189, 248, 0.4);
 }
+
+/* Left Gradient Neon Glow Accent Line */
+.faq-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #38bdf8 0%, #818cf8 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.faq-item.active::before,
+.faq-item:hover::before {
+    opacity: 1;
+}
+
 .faq-question {
     width: 100%;
-    padding: 18px 22px;
+    padding: 20px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1133,68 +1171,303 @@ body.menu-open .floating-contact-pill {
     border: none;
     cursor: pointer;
     text-align: left;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--text-primary);
     font-family: inherit;
-    transition: var(--transition);
 }
-.faq-question:hover {
-    color: var(--accent-blue);
+
+.faq-q-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    min-width: 0;
 }
-.faq-icon {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
+
+/* Sleek Tech Number Badge */
+.faq-num-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+    font-size: 0.88rem;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover .faq-num-badge {
+    border-color: rgba(56, 189, 248, 0.5);
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+}
+
+.faq-item.active .faq-num-badge {
+    background: linear-gradient(135deg, #38bdf8, #6366f1);
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.5);
+}
+
+.faq-q-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+/* Category Chip */
+.faq-category-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 9px;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+.pill-cyan { background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+.pill-emerald { background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+.pill-purple { background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+.pill-amber { background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+.pill-rose { background: rgba(244, 63, 94, 0.12); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+
+.faq-q-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    line-height: 1.45;
+    transition: color 0.3s ease;
+}
+
+.faq-item:hover .faq-q-title,
+.faq-item.active .faq-q-title {
+    color: #38bdf8;
+}
+
+/* Interactive Floating Toggle Button */
+.faq-toggle-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 0.88rem;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     flex-shrink: 0;
 }
-.faq-item.active .faq-icon {
-    transform: rotate(180deg);
-    background: var(--accent-blue);
-    color: #ffffff;
+
+.faq-item:hover .faq-toggle-btn {
+    background: rgba(56, 189, 248, 0.15);
+    border-color: rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
 }
+
+.faq-item.active .faq-toggle-btn {
+    transform: rotate(45deg);
+    background: linear-gradient(135deg, #38bdf8, #6366f1);
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.6);
+}
+
+/* Interior Answer Area */
 .faq-answer {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .faq-answer-inner {
-    padding: 0 22px 20px;
+    padding: 4px 24px 22px 78px;
+    color: #cbd5e1;
     font-size: 0.96rem;
-    line-height: 1.75;
-    color: var(--text-secondary);
+    line-height: 1.8;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    margin-top: 4px;
+    padding-top: 16px;
+}
+
+.faq-answer-inner strong {
+    color: #38bdf8;
+    font-weight: 700;
+}
+
+/* Bottom "Still Have Questions?" Mini-Card */
+.faq-help-box {
+    margin-top: 32px;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border: 1px dashed rgba(56, 189, 248, 0.35);
+    border-radius: 18px;
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.faq-help-info h4 {
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin: 0 0 4px;
+}
+
+.faq-help-info p {
+    color: #94a3b8;
+    font-size: 0.88rem;
+    margin: 0;
+}
+
+.faq-help-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.faq-btn-ask {
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    transition: all 0.25s;
+}
+
+.faq-btn-ask:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+    color: #fff;
+}
+
+.faq-btn-wa {
+    background: rgba(37, 211, 102, 0.15);
+    color: #25d366;
+    border: 1px solid rgba(37, 211, 102, 0.35);
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.25s;
+}
+
+.faq-btn-wa:hover {
+    background: #25d366;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* Light Theme Support */
+[data-theme="light"] .faq-section {
+    background: radial-gradient(circle at 50% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 60%);
 }
 
 [data-theme="light"] .faq-item {
     background: #ffffff;
     border-color: rgba(0, 0, 0, 0.08);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
+
 [data-theme="light"] .faq-item:hover {
-    border-color: rgba(59, 130, 246, 0.4);
+    border-color: rgba(37, 99, 235, 0.4);
+    box-shadow: 0 12px 30px -8px rgba(37, 99, 235, 0.15);
 }
+
 [data-theme="light"] .faq-item.active {
-    border-color: var(--accent-blue);
-    background: linear-gradient(180deg, rgba(59, 130, 246, 0.04) 0%, #ffffff 100%);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.08);
+    border-color: #2563eb;
+    background: linear-gradient(135deg, #ffffff 0%, rgba(239, 246, 255, 0.8) 100%);
+    box-shadow: 0 14px 35px -8px rgba(37, 99, 235, 0.2);
 }
-[data-theme="light"] .faq-icon {
-    background: rgba(0, 0, 0, 0.05);
-    color: #475569;
+
+[data-theme="light"] .faq-num-badge {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    color: #64748b;
 }
-[data-theme="light"] .faq-item.active .faq-icon {
-    background: var(--accent-blue);
+
+[data-theme="light"] .faq-item.active .faq-num-badge {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
     color: #ffffff;
 }
+
+[data-theme="light"] .faq-q-title {
+    color: #0f172a;
+}
+
+[data-theme="light"] .faq-item:hover .faq-q-title,
+[data-theme="light"] .faq-item.active .faq-q-title {
+    color: #2563eb;
+}
+
+[data-theme="light"] .faq-toggle-btn {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    color: #64748b;
+}
+
+[data-theme="light"] .faq-item.active .faq-toggle-btn {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: #ffffff;
+}
+
 [data-theme="light"] .faq-answer-inner {
     color: #334155;
+    border-top-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .faq-answer-inner strong {
+    color: #2563eb;
+}
+
+[data-theme="light"] .faq-help-box {
+    background: #ffffff;
+    border-color: rgba(37, 99, 235, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .faq-help-info h4 {
+    color: #0f172a;
+}
+
+[data-theme="light"] .faq-help-info p {
+    color: #64748b;
+}
+
+/* Mobile Screens */
+@media (max-width: 640px) {
+    .faq-q-left { gap: 12px; }
+    .faq-num-badge { width: 32px; height: 32px; font-size: 0.78rem; border-radius: 9px; }
+    .faq-question { padding: 16px 14px; gap: 10px; }
+    .faq-q-title { font-size: 0.95rem; }
+    .faq-category-pill { font-size: 0.68rem; padding: 2px 7px; }
+    .faq-toggle-btn { width: 30px; height: 30px; font-size: 0.78rem; }
+    .faq-answer-inner { padding: 4px 14px 18px 58px; font-size: 0.9rem; }
+    .faq-help-box { flex-direction: column; text-align: center; padding: 20px 16px; }
+    .faq-help-actions { width: 100%; justify-content: center; }
 }
 
     </style>
@@ -1452,63 +1725,105 @@ body.menu-open .floating-contact-pill {
                 <p class="section-desc">Everything you need to know about our software engineering process, pricing clarity, timelines, and ongoing maintenance.</p>
             </div>
             <div class="faq-container">
-                <div class="faq-item fade-in">
-                    <button class="faq-question" type="button" aria-expanded="false">
-                        <span>What kind of software and web solutions does Tech Mind Developers build?</span>
-                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                <div class="faq-item fade-in active">
+                    <button class="faq-question" type="button" aria-expanded="true">
+                        <div class="faq-q-left">
+                            <div class="faq-num-badge">01</div>
+                            <div class="faq-q-content">
+                                <span class="faq-category-pill pill-cyan"><i class="fas fa-cubes"></i> Core Solutions</span>
+                                <div class="faq-q-title">What kind of software and web solutions does Tech Mind Developers build?</div>
+                            </div>
+                        </div>
+                        <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
-                    <div class="faq-answer">
+                    <div class="faq-answer" style="max-height: 250px;">
                         <div class="faq-answer-inner">
-                            We engineer custom web applications, SaaS portals, enterprise ERP and CRM systems, native and cross-platform mobile apps (Flutter &amp; React Native), automated business workflows, AI chatbots, pathology lab software, and modern corporate websites. Every solution is custom-coded to your exact operational workflow.
+                            We engineer <strong>custom web applications</strong>, SaaS portals, enterprise ERP and CRM systems, native and cross-platform mobile apps (Flutter &amp; React Native), automated business workflows, AI chatbots, pathology lab software, and modern corporate websites. Every solution is <strong>custom-coded to your exact operational workflow</strong>.
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item fade-in">
                     <button class="faq-question" type="button" aria-expanded="false">
-                        <span>How much does custom software or website development cost in India?</span>
-                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        <div class="faq-q-left">
+                            <div class="faq-num-badge">02</div>
+                            <div class="faq-q-content">
+                                <span class="faq-category-pill pill-emerald"><i class="fas fa-coins"></i> Transparent Pricing</span>
+                                <div class="faq-q-title">How much does custom software or website development cost in India?</div>
+                            </div>
+                        </div>
+                        <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Project cost depends on your scope, features, and complexity. A modern corporate website or landing page typically starts at affordable business tiers, while full-scale custom ERP, CRM, or mobile apps are estimated based on module requirements. We provide transparent, milestone-based pricing with zero hidden charges after our initial technical discovery call.
+                            Project cost depends on your scope, features, and complexity. A modern corporate website or landing page typically starts at affordable business tiers, while full-scale custom ERP, CRM, or mobile apps are estimated based on module requirements. We provide <strong>transparent, milestone-based pricing with zero hidden charges</strong> after our initial technical discovery call.
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item fade-in">
                     <button class="faq-question" type="button" aria-expanded="false">
-                        <span>How long does it take to develop and launch a business project?</span>
-                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        <div class="faq-q-left">
+                            <div class="faq-num-badge">03</div>
+                            <div class="faq-q-content">
+                                <span class="faq-category-pill pill-purple"><i class="fas fa-bolt"></i> Delivery Sprints</span>
+                                <div class="faq-q-title">How long does it take to develop and launch a business project?</div>
+                            </div>
+                        </div>
+                        <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Standard business websites are usually completed in 7 to 14 days. Custom software applications, ERP systems, and mobile apps typically require 3 to 8 weeks depending on database architecture, third-party integrations (like Razorpay or WhatsApp API), and testing cycles. We work in agile sprints so you review progress every week.
+                            Standard business websites are usually completed in <strong>7 to 14 days</strong>. Custom software applications, ERP systems, and mobile apps typically require <strong>3 to 8 weeks</strong> depending on database architecture, third-party integrations (like Razorpay or WhatsApp API), and testing cycles. We work in <strong>agile sprints</strong> so you review progress every week.
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item fade-in">
                     <button class="faq-question" type="button" aria-expanded="false">
-                        <span>Do you provide post-launch maintenance, server management, and technical support?</span>
-                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        <div class="faq-q-left">
+                            <div class="faq-num-badge">04</div>
+                            <div class="faq-q-content">
+                                <span class="faq-category-pill pill-cyan"><i class="fas fa-shield-alt"></i> 24/7 SLA &amp; Warranty</span>
+                                <div class="faq-q-title">Do you provide post-launch maintenance, server management, and technical support?</div>
+                            </div>
+                        </div>
+                        <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Yes, 100%. Every project includes dedicated warranty and support after deployment. We handle cloud server setups (Azure, AWS, VPS), database backups, security patches, bug fixes, and continuous feature enhancements so your business software runs smoothly 24/7 without downtime.
+                            <strong>Yes, 100%.</strong> Every project includes <strong>dedicated warranty and support</strong> after deployment. We handle cloud server setups (Azure, AWS, VPS), database backups, security patches, bug fixes, and continuous feature enhancements so your business software runs smoothly 24/7 without downtime.
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item fade-in">
                     <button class="faq-question" type="button" aria-expanded="false">
-                        <span>Can we consult in person or work with you remotely across Delhi NCR and Aligarh?</span>
-                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        <div class="faq-q-left">
+                            <div class="faq-num-badge">05</div>
+                            <div class="faq-q-content">
+                                <span class="faq-category-pill pill-rose"><i class="fas fa-map-marker-alt"></i> Delivery Locations</span>
+                                <div class="faq-q-title">Can we consult in person or work with you remotely across Delhi NCR and Aligarh?</div>
+                            </div>
+                        </div>
+                        <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            We serve clients both in-person and remotely. We have active operational presence in Delhi NCR (Okhla, South Delhi, Noida, Gurgaon) and Aligarh, UP. For clients across Pan-India and global B2B markets (US, UK, Gulf), we collaborate seamlessly via Google Meet, WhatsApp, and project dashboards.
+                            We serve clients both in-person and remotely. We have active operational presence in <strong>Delhi NCR (Okhla, South Delhi, Noida, Gurgaon) and Aligarh, UP</strong>. For clients across Pan-India and global B2B markets (US, UK, Gulf), we collaborate seamlessly via Google Meet, WhatsApp, and project dashboards.
                         </div>
+                    </div>
+                </div>
+
+                <!-- Still Have Questions Help Box -->
+                <div class="faq-help-box fade-in">
+                    <div class="faq-help-info">
+                        <h4>Have a specific question about your project?</h4>
+                        <p>Ask our AI Consultant right now or speak directly with our engineering team.</p>
+                    </div>
+                    <div class="faq-help-actions">
+                        <a href="javascript:void(0)" class="faq-btn-ask" onclick="if(window.TMD_Chatbot){window.TMD_Chatbot.open();}else{document.getElementById('tmdChatTrigger')?.click();}"><i class="fas fa-robot"></i> Ask AI Assistant</a>
+                        <a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20have%20a%20question%20regarding%20custom%20software%20development." target="_blank" rel="noopener noreferrer" class="faq-btn-wa"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
                     </div>
                 </div>
             </div>
