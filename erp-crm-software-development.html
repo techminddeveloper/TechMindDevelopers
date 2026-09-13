@@ -2227,7 +2227,7 @@ body.menu-open .floating-contact-pill {
                         </div>
                         <div class="form-group"><label for="message">What is taking up too much time or causing headaches?</label><textarea id="message" name="message" placeholder="e.g. We want to stop manual Excel stock tracking, automate leads from IndiaMART, or track factory job-work..." required></textarea></div>
                         <div id="formStatusMsg" style="display: none; padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; font-size: 0.92rem; text-align: center;"></div>
-                        <button type="submit" id="submitBtn" class="btn-primary" style="width:100%;justify-content:center"><i class="fas fa-paper-plane"></i> Send Me a Free Estimate</button>
+                        <button type="submit" id="submitBtn" class="btn-primary" style="width:100%;justify-content:center"><i class="fas fa-paper-plane"></i> Send Me an Estimate</button>
                     </form>
                 </div>
             </div>
@@ -2491,7 +2491,7 @@ body.menu-open .floating-contact-pill {
                 statusMsg.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! We have received your inquiry. We will review it and get back to you within 24 hours.';
                 
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Me a Free Estimate';
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Me an Estimate';
                 contactForm.reset();
             })
             .catch(err => {
@@ -2502,7 +2502,7 @@ body.menu-open .floating-contact-pill {
                 statusMsg.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Oops! Something went wrong. Please try again or email us directly.';
                 
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Me a Free Estimate';
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Me an Estimate';
             });
         });
     }
