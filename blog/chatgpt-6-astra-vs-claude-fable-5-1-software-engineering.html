@@ -185,12 +185,57 @@ html {
     .article-body code { background:rgba(56,189,248,0.1); color:#38bdf8; padding:2px 7px; border-radius:6px; font-size:0.9em; font-family:Consolas, Monaco, monospace; border:1px solid rgba(56,189,248,0.2); }
 
     /* Comparison Table */
-    .table-wrapper { overflow-x:auto; margin:32px 0 42px; border-radius:16px; border:1px solid var(--border); background:var(--bg-card); backdrop-filter:blur(10px); }
-    table { width:100%; border-collapse:collapse; text-align:left; font-size:0.98rem; }
-    th { background:rgba(56,189,248,0.12); color:var(--text-heading); font-weight:800; padding:16px 20px; border-bottom:1px solid var(--border); white-space:nowrap; }
-    td { padding:15px 20px; border-bottom:1px solid var(--border); color:var(--text); line-height:1.6; }
-    tr:last-child td { border-bottom:none; }
-    tr:hover td { background:rgba(255,255,255,0.03); }
+    .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 32px 0 42px;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: var(--bg-card);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 10px 32px rgba(0, 0, 0, 0.2);
+    }
+    table {
+        width: 100%;
+        min-width: 600px;
+        border-collapse: collapse;
+        text-align: left;
+        font-size: 0.98rem;
+    }
+    th {
+        background: rgba(56, 189, 248, 0.12);
+        color: var(--text-heading);
+        font-weight: 800;
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--border);
+        white-space: nowrap;
+        letter-spacing: 0.3px;
+        font-size: 0.96rem;
+    }
+    td {
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--border);
+        color: var(--text);
+        line-height: 1.65;
+        vertical-align: middle;
+    }
+    tr:last-child td {
+        border-bottom: none;
+    }
+    tr:hover td {
+        background: rgba(56, 189, 248, 0.04);
+        transition: background 0.2s ease;
+    }
+    [data-theme="light"] .table-wrapper {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    }
+    [data-theme="light"] th {
+        background: rgba(2, 132, 199, 0.08);
+    }
+    [data-theme="light"] tr:hover td {
+        background: rgba(2, 132, 199, 0.03);
+    }
 
     /* Callout Boxes */
     .highlight-box, .pro-tip, .tip-box {
