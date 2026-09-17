@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Mind Developers — Executive Portfolio & Capabilities Deck</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-base: #06080d;
+            --bg-card: rgba(14, 19, 31, 0.85);
+            --border-glass: rgba(255, 255, 255, 0.09);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --brand-blue: #3b82f6;
+            --brand-cyan: #06b6d4;
+            --brand-purple: #8b5cf6;
+            --brand-emerald: #10b981;
+            --gradient-hero: linear-gradient(135deg, #38bdf8 0%, #3b82f6 50%, #8b5cf6 100%);
+            --gradient-emerald: linear-gradient(135deg, #34d399 0%, #059669 100%);
+            --gradient-cyan: linear-gradient(135deg, #22d3ee 0%, #0284c7 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* Top Action Bar for Browser View */
+        .action-bar {
+            position: fixed;
+            top: 16px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.9);
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+        }
+
+        .action-btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .action-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Slide Container */
+        .deck-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+            padding: 32px 16px;
+            background: #020408;
+        }
+
+        .slide {
+            width: 1200px;
+            height: 675px; /* 16:9 Aspect Ratio */
+            background: radial-gradient(circle at 85% 15%, rgba(59, 130, 246, 0.1) 0%, transparent 45%),
+                        radial-gradient(circle at 15% 85%, rgba(139, 92, 246, 0.1) 0%, transparent 45%),
+                        #080c14;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 40px 48px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            page-break-after: always;
+            break-after: page;
+        }
+
+        /* Slide 1: Cover Page */
+        .slide-cover {
+            padding: 0;
+            background: #04060a;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+        }
+
+        .cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Slide Header */
+        .slide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 14px;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #38bdf8;
+            font-size: 1rem;
+        }
+
+        .brand-name {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+        }
+
+        .brand-name span {
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slide-category-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 5px 12px;
+            border-radius: 999px;
+        }
+
+        /* Slide Titles */
+        .slide-title-group {
+            margin-top: 10px;
+            margin-bottom: 16px;
+        }
+
+        .slide-tagline {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            color: #38bdf8;
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .slide-tagline i {
+            font-size: 0.7rem;
+        }
+
+        .slide-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .gradient-text {
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Two-Column Grid for Projects */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            flex: 1;
+            margin-bottom: 12px;
+        }
+
+        /* Project Card */
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 20px 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), transparent);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .client-type {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-title {
+            font-size: 1.18rem;
+            font-weight: 800;
+            color: #f8fafc;
+            line-height: 1.25;
+        }
+
+        .live-tag {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            color: #34d399;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .live-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 8px #10b981;
+        }
+
+        .project-desc {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.45;
+            margin-bottom: 12px;
+        }
+
+        .features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .features-list li {
+            font-size: 0.78rem;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .features-list li i {
+            color: #38bdf8;
+            font-size: 0.7rem;
+            flex-shrink: 0;
+        }
+
+        /* Metric Banner */
+        .metric-banner {
+            background: rgba(56, 189, 248, 0.06);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 10px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .metric-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metric-value {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #38bdf8;
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-size: 0.65rem;
+            color: #94a3b8;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        /* Tech Chips */
+        .tech-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .chip {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.65rem;
+            font-weight: 600;
+            padding: 2px 7px;
+            border-radius: 5px;
+        }
+
+        /* Slide Footer */
+        .slide-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 10px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-item i {
+            color: #38bdf8;
+            font-size: 0.7rem;
+        }
+
+        .footer-page-num {
+            font-weight: 700;
+            color: #64748b;
+        }
+
+        /* Slide 5: Closing Pillars & CTA */
+        .closing-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 22px;
+            flex: 1;
+            margin-bottom: 12px;
+        }
+
+        .pillars-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pillars-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .pillar-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .pillar-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #38bdf8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .pillar-content h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 1px;
+        }
+
+        .pillar-content p {
+            font-size: 0.78rem;
+            color: #94a3b8;
+            line-height: 1.35;
+        }
+
+        /* CTA Card */
+        .cta-card {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.18) 0%, rgba(124, 58, 237, 0.18) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            border-radius: 16px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(37, 99, 235, 0.2);
+        }
+
+        .cta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #34d399;
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            width: fit-content;
+            margin-bottom: 8px;
+        }
+
+        .cta-heading {
+            font-size: 1.35rem;
+            font-weight: 800;
+            line-height: 1.25;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .cta-subtext {
+            font-size: 0.8rem;
+            color: #cbd5e1;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+
+        .contact-details-box {
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+            color: #f8fafc;
+        }
+
+        .contact-row i {
+            color: #38bdf8;
+            width: 16px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .contact-row a {
+            color: #f8fafc;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cta-action-btn {
+            background: var(--gradient-hero);
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 18px rgba(59, 130, 246, 0.5);
+        }
+
+        /* PRINT MEDIA QUERIES FOR FLAWLESS PDF EXPORT */
+        @media print {
+            body {
+                background: #06080d !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .action-bar {
+                display: none !important;
+            }
+
+            .deck-container {
+                padding: 0 !important;
+                gap: 0 !important;
+                background: transparent !important;
+            }
+
+            .slide {
+                width: 100vw !important;
+                height: 100vh !important;
+                max-width: none !important;
+                max-height: none !important;
+                border-radius: 0 !important;
+                border: none !important;
+                box-shadow: none !important;
+                page-break-after: always !important;
+                break-after: page !important;
+                box-sizing: border-box !important;
+                padding: 40px 48px !important;
+            }
+
+            .slide-cover {
+                padding: 0 !important;
+            }
+
+            @page {
+                size: 16in 9in; /* 16:9 Widescreen Presentation PDF */
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Action Controls for Viewing / Exporting -->
+    <div class="action-bar">
+        <span style="font-size:0.8rem; color:#94a3b8; font-weight:600;"><i class="fas fa-file-pdf" style="color:#ef4444; margin-right:4px;"></i> Executive Deck</span>
+        <button class="action-btn" onclick="window.print()"><i class="fas fa-download"></i> Save as PDF</button>
+        <a href="https://techminddevelopers.in" target="_blank" class="action-btn action-btn-secondary"><i class="fas fa-globe"></i> Visit Website</a>
+        <a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20reviewed%20your%20company%20portfolio%20deck%20and%20want%20to%20discuss%20a%20project." target="_blank" class="action-btn" style="background:#10b981;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+
+    <div class="deck-container">
+
+        <!-- SLIDE 1: COVER PAGE (The User's Graphic) -->
+        <div class="slide slide-cover">
+            <img src="portfolio-cover.jpg" alt="Tech Mind Developers - Custom Software, AI Automation & Enterprise Web Systems" class="cover-img">
+        </div>
+
+        <!-- SLIDE 2: ENTERPRISE WEB & E-COMMERCE SYSTEMS -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="header-brand">
+                    <div class="brand-logo-icon"><i class="fas fa-brain"></i></div>
+                    <div class="brand-name">Tech Mind <span>Developers</span></div>
+                </div>
+                <div class="slide-category-badge">Practice Area 01 &bull; Web &amp; E-Commerce</div>
+            </div>
+
+            <div class="slide-title-group">
+                <div class="slide-tagline"><i class="fas fa-bolt"></i> High-Performance Digital Flagships</div>
+                <h2 class="slide-title">Enterprise Web &amp; <span class="gradient-text">E-Commerce Platforms</span></h2>
+            </div>
+
+            <div class="showcase-grid">
+                <!-- Case 1: B2B Export & Manufacturer Portal -->
+                <div class="project-card">
+                    <div>
+                        <div class="card-top">
+                            <div class="project-meta">
+                                <span class="client-type">Manufacturing &bull; Global B2B Export</span>
+                                <h3 class="project-title">Tala Nagari Hardware Export Hub</h3>
+                            </div>
+                            <span class="live-tag"><span class="live-dot"></span> Production Live</span>
+                        </div>
+                        <p class="project-desc">Digital transformation of a premier lock &amp; hardware manufacturer transitioning from paper catalogs to an automated global RFQ portal.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Interactive 3D Product Catalog:</strong> 1,200+ precision SKU specifications.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Automated RFQ Engine:</strong> Instant custom quote calculation for overseas buyers.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>WhatsApp Cloud Sync:</strong> Real-time alerts to sales leadership upon inquiry.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="metric-banner">
+                            <div class="metric-item">
+                                <span class="metric-value">+240%</span>
+                                <span class="metric-label">Export Leads</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">0.48s</span>
+                                <span class="metric-label">Page Speed</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">99/100</span>
+                                <span class="metric-label">Core Web Vitals</span>
+                            </div>
+                        </div>
+                        <div class="tech-chips">
+                            <span class="chip">Next.js</span>
+                            <span class="chip">Tailwind CSS</span>
+                            <span class="chip">Node.js API</span>
+                            <span class="chip">PostgreSQL</span>
+                            <span class="chip">AWS CloudFront</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2: D2C High-Conversion E-Commerce -->
+                <div class="project-card">
+                    <div>
+                        <div class="card-top">
+                            <div class="project-meta">
+                                <span class="client-type">Retail &bull; Direct-to-Consumer (D2C)</span>
+                                <h3 class="project-title">AuraLuxe Fast-Checkout Store</h3>
+                            </div>
+                            <span class="live-tag"><span class="live-dot"></span> Production Live</span>
+                        </div>
+                        <p class="project-desc">A sub-second load e-commerce architecture engineered for high ad-traffic volumes, eliminating checkout friction and reducing abandoned carts.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>1-Click Seamless Checkout:</strong> Integrated Razorpay PG with UPI Intent.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Automated Cart Recovery:</strong> WhatsApp triggers recovering 28% drop-offs.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Logistics API:</strong> Shiprocket automated AWB generation &amp; tracking.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="metric-banner">
+                            <div class="metric-item">
+                                <span class="metric-value">+44%</span>
+                                <span class="metric-label">Conversion Rate</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">-32%</span>
+                                <span class="metric-label">Cart Abandonment</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">100%</span>
+                                <span class="metric-label">Mobile Responsive</span>
+                            </div>
+                        </div>
+                        <div class="tech-chips">
+                            <span class="chip">React</span>
+                            <span class="chip">ASP.NET Core</span>
+                            <span class="chip">Razorpay</span>
+                            <span class="chip">Redis Cache</span>
+                            <span class="chip">Shiprocket API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <div class="footer-left">
+                    <div class="footer-item"><i class="fas fa-globe"></i> techminddevelopers.in</div>
+                    <div class="footer-item"><i class="fas fa-phone-alt"></i> +91-7835019421</div>
+                    <div class="footer-item"><i class="fas fa-shield-alt"></i> Clean Architecture &bull; Full Source Code Handover</div>
+                </div>
+                <div class="footer-page-num">Slide 02 / 05</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: CUSTOM SOFTWARE & ERP/CRM SYSTEMS -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="header-brand">
+                    <div class="brand-logo-icon"><i class="fas fa-brain"></i></div>
+                    <div class="brand-name">Tech Mind <span>Developers</span></div>
+                </div>
+                <div class="slide-category-badge">Practice Area 02 &bull; Enterprise Software</div>
+            </div>
+
+            <div class="slide-title-group">
+                <div class="slide-tagline"><i class="fas fa-cogs"></i> Mission-Critical Business Operations</div>
+                <h2 class="slide-title">Custom Software, <span class="gradient-text">Manufacturing ERP &amp; CRM</span></h2>
+            </div>
+
+            <div class="showcase-grid">
+                <!-- Case 3: FactorySync Manufacturing ERP -->
+                <div class="project-card">
+                    <div>
+                        <div class="card-top">
+                            <div class="project-meta">
+                                <span class="client-type">Manufacturing &bull; Factory Operations</span>
+                                <h3 class="project-title">FactorySync &mdash; Multi-Stage ERP</h3>
+                            </div>
+                            <span class="live-tag"><span class="live-dot"></span> Enterprise Deploy</span>
+                        </div>
+                        <p class="project-desc">Complete digitization of a 150-worker lock and hardware manufacturing plant replacing error-prone paper registers with real-time tracking.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Multi-Stage Production:</strong> Die-casting, Polishing, Plating, Assembly.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Raw Material &amp; Scrap Accounting:</strong> Exact brass weight tracking.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Worker Piece-Rate Billing:</strong> Daily job-card wage automation.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="metric-banner">
+                            <div class="metric-item">
+                                <span class="metric-value">95%</span>
+                                <span class="metric-label">Paperwork Cut</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">0%</span>
+                                <span class="metric-label">Material Leakage</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">Real-Time</span>
+                                <span class="metric-label">P&amp;L Reports</span>
+                            </div>
+                        </div>
+                        <div class="tech-chips">
+                            <span class="chip">ASP.NET Core 8</span>
+                            <span class="chip">C#</span>
+                            <span class="chip">MS SQL Server</span>
+                            <span class="chip">Angular</span>
+                            <span class="chip">GST E-Invoice API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 4: OmniCRM Sales & Service Pipeline -->
+                <div class="project-card">
+                    <div>
+                        <div class="card-top">
+                            <div class="project-meta">
+                                <span class="client-type">Distribution &bull; B2B Wholesale</span>
+                                <h3 class="project-title">OmniCRM &mdash; Automated Lead Engine</h3>
+                            </div>
+                            <span class="live-tag"><span class="live-dot"></span> Enterprise Deploy</span>
+                        </div>
+                        <p class="project-desc">Centralized sales management platform unifying inquiries from IndiaMART, TradeIndia, Google Ads, and walk-in dealers into a single dashboard.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Multi-Channel Lead Sync:</strong> Instant auto-assignment to sales reps.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>30-Second PDF Quotation Maker:</strong> Auto-calculates dealer GST &amp; margins.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Automated Follow-up Reminders:</strong> Eliminates lead drops.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="metric-banner">
+                            <div class="metric-item">
+                                <span class="metric-value">3.5x</span>
+                                <span class="metric-label">Faster Quotes</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">0%</span>
+                                <span class="metric-label">Lead Leakage</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">100%</span>
+                                <span class="metric-label">Team Tracking</span>
+                            </div>
+                        </div>
+                        <div class="tech-chips">
+                            <span class="chip">Python FastAPI</span>
+                            <span class="chip">React</span>
+                            <span class="chip">PostgreSQL</span>
+                            <span class="chip">Docker</span>
+                            <span class="chip">AWS Cloud</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <div class="footer-left">
+                    <div class="footer-item"><i class="fas fa-globe"></i> techminddevelopers.in</div>
+                    <div class="footer-item"><i class="fas fa-phone-alt"></i> +91-7835019421</div>
+                    <div class="footer-item"><i class="fas fa-database"></i> High-Security Database &bull; Automated Daily Backups</div>
+                </div>
+                <div class="footer-page-num">Slide 03 / 05</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: AI AUTOMATION, CHATBOTS & MOBILE APPS -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="header-brand">
+                    <div class="brand-logo-icon"><i class="fas fa-brain"></i></div>
+                    <div class="brand-name">Tech Mind <span>Developers</span></div>
+                </div>
+                <div class="slide-category-badge">Practice Area 03 &bull; AI &amp; Mobile Ecosystem</div>
+            </div>
+
+            <div class="slide-title-group">
+                <div class="slide-tagline"><i class="fas fa-robot"></i> Next-Gen Intelligence</div>
+                <h2 class="slide-title">AI WhatsApp Bots &amp; <span class="gradient-text">Cross-Platform Mobile Apps</span></h2>
+            </div>
+
+            <div class="showcase-grid">
+                <!-- Case 5: AI WhatsApp Business Automation -->
+                <div class="project-card">
+                    <div>
+                        <div class="card-top">
+                            <div class="project-meta">
+                                <span class="client-type">Automated Intelligence &bull; WhatsApp CRM</span>
+                                <h3 class="project-title">IntelliAgent &mdash; 24/7 AI Business Bot</h3>
+                            </div>
+                            <span class="live-tag"><span class="live-dot"></span> Production Live</span>
+                        </div>
+                        <p class="project-desc">A custom LLM-powered AI sales assistant trained on business catalogs and rate cards, engaging prospects instantly on WhatsApp at zero human cost.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Natural Language Understanding:</strong> Answers English &amp; Hinglish queries.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Lead Qualification &amp; Booking:</strong> Captures requirements &amp; schedules calls.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Order Status Inquiries:</strong> Integrates directly with warehouse database.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="metric-banner">
+                            <div class="metric-item">
+                                <span class="metric-value">68%</span>
+                                <span class="metric-label">Auto Resolved</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">15 Sec</span>
+                                <span class="metric-label">Response Time</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">24/7/365</span>
+                                <span class="metric-label">Always Online</span>
+                            </div>
+                        </div>
+                        <div class="tech-chips">
+                            <span class="chip">OpenAI / DeepSeek</span>
+                            <span class="chip">WhatsApp Cloud API</span>
+                            <span class="chip">LangChain</span>
+                            <span class="chip">Vector DB</span>
+                            <span class="chip">FastAPI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 6: Cross-Platform Enterprise Mobile App -->
+                <div class="project-card">
+                    <div>
+                        <div class="card-top">
+                            <div class="project-meta">
+                                <span class="client-type">Field Operations &bull; iOS &amp; Android</span>
+                                <h3 class="project-title">FieldForce &mdash; Mobile Enterprise App</h3>
+                            </div>
+                            <span class="live-tag"><span class="live-dot"></span> App Store &bull; Play Store</span>
+                        </div>
+                        <p class="project-desc">A unified iOS and Android application built for field executives, factory inspectors, and sales representatives with zero-latency offline operation.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Offline-First Architecture:</strong> Works seamlessly in low-network factory floors.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>GPS Geo-Fenced Check-In:</strong> Verified site visit reporting.</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Barcode &amp; QR Scanner:</strong> Instant inventory stock count.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="metric-banner">
+                            <div class="metric-item">
+                                <span class="metric-value">1 Codebase</span>
+                                <span class="metric-label">iOS + Android</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">60 FPS</span>
+                                <span class="metric-label">Smooth UI</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-value">Offline</span>
+                                <span class="metric-label">Local SQLite Sync</span>
+                            </div>
+                        </div>
+                        <div class="tech-chips">
+                            <span class="chip">Flutter</span>
+                            <span class="chip">Dart</span>
+                            <span class="chip">Firebase</span>
+                            <span class="chip">SQLite</span>
+                            <span class="chip">REST Microservices</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <div class="footer-left">
+                    <div class="footer-item"><i class="fas fa-globe"></i> techminddevelopers.in</div>
+                    <div class="footer-item"><i class="fas fa-phone-alt"></i> +91-7835019421</div>
+                    <div class="footer-item"><i class="fas fa-lock"></i> GDPR Compliant &bull; End-to-End Encrypted</div>
+                </div>
+                <div class="footer-page-num">Slide 04 / 05</div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: WHY PARTNER WITH US & SCHEDULE FREE DEMO -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="header-brand">
+                    <div class="brand-logo-icon"><i class="fas fa-brain"></i></div>
+                    <div class="brand-name">Tech Mind <span>Developers</span></div>
+                </div>
+                <div class="slide-category-badge">Executive Summary &bull; Next Steps</div>
+            </div>
+
+            <div class="slide-title-group">
+                <div class="slide-tagline"><i class="fas fa-handshake"></i> Engineering Excellence &bull; Proven Reliability</div>
+                <h2 class="slide-title">Why Industry Leaders <span class="gradient-text">Build With Tech Mind</span></h2>
+            </div>
+
+            <div class="closing-grid">
+                <!-- Value Pillars -->
+                <div class="pillars-card">
+                    <div class="pillars-list">
+                        <div class="pillar-item">
+                            <div class="pillar-icon"><i class="fas fa-award"></i></div>
+                            <div class="pillar-content">
+                                <h4>10+ Years in Engineering (Est. 2014)</h4>
+                                <p>Over a decade of enterprise experience building robust, high-traffic systems that don't crash under pressure.</p>
+                            </div>
+                        </div>
+                        <div class="pillar-item">
+                            <div class="pillar-icon"><i class="fas fa-code-branch"></i></div>
+                            <div class="pillar-content">
+                                <h4>100% Bespoke Code &amp; Full IP Ownership</h4>
+                                <p>No generic templates or vendor lock-in. Full source code, database architecture, and IP transferred cleanly to you.</p>
+                            </div>
+                        </div>
+                        <div class="pillar-item">
+                            <div class="pillar-icon"><i class="fas fa-user-shield"></i></div>
+                            <div class="pillar-content">
+                                <h4>1-Year Dedicated Maintenance &amp; SLA</h4>
+                                <p>We don't abandon you after launch. Comprehensive bug fixes, security audits, and continuous performance tuning.</p>
+                            </div>
+                        </div>
+                        <div class="pillar-item">
+                            <div class="pillar-icon"><i class="fas fa-laptop-code"></i></div>
+                            <div class="pillar-content">
+                                <h4>Zero-Risk Free Live Demonstration</h4>
+                                <p>See working prototypes and architecture blueprints customized for your business before making any financial commitment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Action Card -->
+                <div class="cta-card">
+                    <div>
+                        <div class="cta-badge"><i class="fas fa-star"></i> Schedule Free Demo</div>
+                        <h3 class="cta-heading">Let's Build Your Project With Precision</h3>
+                        <p class="cta-subtext">Book a 15-minute 1:1 strategy call or live demo with our technical architecture team. No sales pressure &mdash; just clear engineering insights.</p>
+                    </div>
+
+                    <div>
+                        <div class="contact-details-box">
+                            <div class="contact-row">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>Direct Call: <a href="tel:+917835019421">+91-7835019421</a></span>
+                            </div>
+                            <div class="contact-row">
+                                <i class="fab fa-whatsapp" style="color:#25d366;"></i>
+                                <span>WhatsApp: <a href="https://wa.me/917835019421" target="_blank">+91-7835019421</a></span>
+                            </div>
+                            <div class="contact-row">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email: <a href="mailto:contact@techminddevelopers.in">contact@techminddevelopers.in</a></span>
+                            </div>
+                            <div class="contact-row">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Offices: Delhi NCR (Okhla) &bull; Aligarh, UP</span>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20reviewed%20your%20portfolio%20deck%20and%20would%20like%20to%20book%20a%20Free%20Live%20Demo." target="_blank" class="cta-action-btn">
+                            <i class="fab fa-whatsapp"></i> Chat on WhatsApp for Free Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-footer">
+                <div class="footer-left">
+                    <div class="footer-item"><i class="fas fa-globe"></i> techminddevelopers.in</div>
+                    <div class="footer-item"><i class="fas fa-clock"></i> Since 2014 &bull; Delivering Worldwide</div>
+                    <div class="footer-item"><i class="fas fa-check-double"></i> 40+ Enterprise Projects Completed</div>
+                </div>
+                <div class="footer-page-num">Slide 05 / 05</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
