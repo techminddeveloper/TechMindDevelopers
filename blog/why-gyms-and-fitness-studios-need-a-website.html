@@ -309,31 +309,31 @@ html {
     
     
 
-    /* Header Language Switcher (Refined Slim & Non-Intrusive Ambient Glow) */
-@keyframes langBorderBreathe {
+    /* Header Language Switcher (Balanced Sleek Glow & Clear Visibility) */
+@keyframes langBorderGlow {
     0%, 100% {
-        border-color: rgba(255, 255, 255, 0.12);
-        box-shadow: 0 0 0 0 transparent;
+        border-color: rgba(56, 189, 248, 0.35);
+        box-shadow: 0 0 4px rgba(56, 189, 248, 0.2);
     }
     50% {
-        border-color: rgba(56, 189, 248, 0.65);
-        box-shadow: 0 0 8px 1px rgba(56, 189, 248, 0.3);
+        border-color: #38bdf8;
+        box-shadow: 0 0 11px 1.5px rgba(56, 189, 248, 0.75);
     }
 }
 .nav-lang-switcher {
     display: inline-flex;
     align-items: center;
     background: var(--bg-card);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.35);
     border-radius: 12px;
     padding: 3px;
     gap: 3px;
     transition: var(--transition);
-    animation: langBorderBreathe 3.5s infinite ease-in-out;
+    animation: langBorderGlow 2s infinite ease-in-out;
 }
 .nav-lang-switcher:hover {
-    border-color: rgba(56, 189, 248, 0.8);
-    box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+    border-color: #38bdf8;
+    box-shadow: 0 0 14px 2px rgba(56, 189, 248, 0.85);
 }
 .nav-lang-btn{border:none;outline:none;background:transparent;color:var(--text-muted);font-size:0.82rem;font-weight:700;padding:6px 13px;border-radius:9px;cursor:pointer;transition:var(--transition);font-family:var(--font-primary);white-space:nowrap;}
 .nav-lang-btn:hover{color:var(--text-heading);}
@@ -371,9 +371,9 @@ html {
         flex-direction: column !important;
         padding: 2px !important;
         gap: 1px !important;
-        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        border: 1px solid rgba(56, 189, 248, 0.35) !important;
         border-radius: 7px !important;
-        animation: langBorderBreathe 3.5s infinite ease-in-out !important;
+        animation: langBorderGlow 2s infinite ease-in-out !important;
     }
     .nav-lang-btn {
         display: flex !important;
