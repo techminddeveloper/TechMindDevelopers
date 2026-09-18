@@ -83,7 +83,7 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
 .theme-toggle{background:var(--bg-card);border:1px solid var(--border);color:var(--text-heading);width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:var(--transition);}
 .theme-toggle:hover{border-color:var(--accent);color:var(--accent);} .theme-toggle svg { display:block; transition:transform 0.3s ease } .theme-toggle:hover svg { transform:rotate(30deg) }
 
-/* Header Language Switcher (Balanced Sleek Glow & Clear Visibility) */
+/* Header Language Switcher (Clean & Static on Desktop, Animated on Mobile) */
 @keyframes langBorderGlow {
     0%, 100% {
         border-color: rgba(56, 189, 248, 0.35);
@@ -98,16 +98,14 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
     display: inline-flex;
     align-items: center;
     background: var(--bg-card);
-    border: 1px solid rgba(56, 189, 248, 0.35);
+    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 3px;
     gap: 3px;
     transition: var(--transition);
-    animation: langBorderGlow 2s infinite ease-in-out;
 }
 .nav-lang-switcher:hover {
-    border-color: #38bdf8;
-    box-shadow: 0 0 14px 2px rgba(56, 189, 248, 0.85);
+    border-color: var(--border-glow);
 }
 .nav-lang-btn{border:none;outline:none;background:transparent;color:var(--text-muted);font-size:0.82rem;font-weight:700;padding:6px 13px;border-radius:9px;cursor:pointer;transition:var(--transition);font-family:var(--font-primary);white-space:nowrap;}
 .nav-lang-btn:hover{color:var(--text-heading);}
