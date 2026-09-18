@@ -7,3 +7,6 @@ obj/
 .vs/
 .user.ini
 .well-known/
+~$*
+*.tmp
+*.bak
