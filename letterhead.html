@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Mind Developers — Official Company Letterhead</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --paper-bg: #ffffff;
+            --paper-text: #1e293b;
+            --paper-text-muted: #64748b;
+            --paper-text-light: #94a3b8;
+            --primary-blue: #2563eb;
+            --primary-cyan: #0284c7;
+            --primary-navy: #0f172a;
+            --accent-gradient: linear-gradient(90deg, #0284c7 0%, #2563eb 50%, #7c3aed 100%);
+            --border-light: #e2e8f0;
+        }
+
+        /* Dark mode variant for digital distribution */
+        body.theme-dark {
+            --paper-bg: #0b0f19;
+            --paper-text: #f1f5f9;
+            --paper-text-muted: #94a3b8;
+            --paper-text-light: #64748b;
+            --primary-navy: #f8fafc;
+            --border-light: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #05070c;
+            color: #334155;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 16px;
+        }
+
+        /* Top Controls Bar (hidden during print) */
+        .controls-bar {
+            position: fixed;
+            top: 16px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 8px 18px;
+            border-radius: 999px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+        }
+
+        .controls-title {
+            font-size: 0.82rem;
+            color: #94a3b8;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-action {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: #ffffff;
+            border: none;
+            padding: 7px 15px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-action:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        /* Standard A4 Paper Sheet */
+        .letterhead-sheet {
+            width: 210mm;
+            min-height: 297mm;
+            height: 297mm;
+            background: var(--paper-bg);
+            color: var(--paper-text);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            border-radius: 4px;
+            padding: 18mm 20mm 16mm 20mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            margin-top: 30px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Watermark in background */
+        .sheet-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            height: 320px;
+            opacity: 0.032;
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+            background-image: url('official-logo.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+
+        body.theme-dark .sheet-watermark {
+            opacity: 0.055;
+            filter: brightness(1.4);
+        }
+
+        /* Header Layout */
+        .letterhead-header {
+            position: relative;
+            z-index: 1;
+            padding-bottom: 14px;
+            border-bottom: 2px solid transparent;
+            border-image: var(--accent-gradient) 1;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-logo-img {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.3));
+        }
+
+        .brand-text-block {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .company-name {
+            font-size: 1.55rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            color: var(--primary-navy);
+            line-height: 1.1;
+        }
+
+        .company-name span {
+            color: var(--primary-blue);
+            background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .company-tagline {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--paper-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-top: 3px;
+        }
+
+        .header-meta {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .meta-pill {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.08);
+            color: var(--primary-blue);
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 3px 10px;
+            border-radius: 999px;
+            margin-bottom: 4px;
+            width: fit-content;
+            margin-left: auto;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        body.theme-dark .meta-pill {
+            background: rgba(37, 99, 235, 0.2);
+            color: #38bdf8;
+            border-color: rgba(56, 189, 248, 0.35);
+        }
+
+        .meta-row {
+            font-size: 0.76rem;
+            color: var(--paper-text-muted);
+            font-weight: 600;
+        }
+
+        .meta-row strong {
+            color: var(--paper-text);
+        }
+
+        /* Letter Body Content Area */
+        .letterhead-body {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            padding: 24px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            font-size: 0.88rem;
+            line-height: 1.62;
+            outline: none;
+        }
+
+        .recipient-block {
+            margin-bottom: 18px;
+            font-size: 0.86rem;
+            line-height: 1.45;
+        }
+
+        .recipient-block .to-label {
+            font-weight: 700;
+            color: var(--paper-text-muted);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .recipient-name {
+            font-weight: 800;
+            color: var(--primary-navy);
+            font-size: 0.96rem;
+        }
+
+        .subject-line {
+            margin-bottom: 16px;
+            padding: 8px 12px;
+            background: rgba(37, 99, 235, 0.04);
+            border-left: 3px solid var(--primary-blue);
+            font-weight: 700;
+            color: var(--primary-navy);
+            font-size: 0.9rem;
+            border-radius: 0 6px 6px 0;
+        }
+
+        body.theme-dark .subject-line {
+            background: rgba(37, 99, 235, 0.12);
+        }
+
+        .letter-para {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        .deliverables-box {
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 12px 0 16px 0;
+        }
+
+        body.theme-dark .deliverables-box {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .deliverables-box h4 {
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--primary-blue);
+            margin-bottom: 6px;
+        }
+
+        .deliverables-box ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .deliverables-box li {
+            font-size: 0.82rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .deliverables-box li i {
+            color: #10b981;
+            font-size: 0.75rem;
+        }
+
+        /* Signature Block */
+        .sign-block {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-top: 18px;
+        }
+
+        .sign-left {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .sign-salutation {
+            font-weight: 600;
+            color: var(--paper-text-muted);
+            margin-bottom: 24px;
+        }
+
+        .sign-name {
+            font-weight: 800;
+            color: var(--primary-navy);
+            font-size: 0.92rem;
+        }
+
+        .sign-designation {
+            font-size: 0.78rem;
+            color: var(--paper-text-muted);
+            font-weight: 600;
+        }
+
+        .sign-stamp-box {
+            width: 140px;
+            height: 70px;
+            border: 1px dashed var(--border-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.68rem;
+            color: var(--paper-text-light);
+            text-align: center;
+            padding: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Footer Layout (Explicit User Requirements) */
+        .letterhead-footer {
+            position: relative;
+            z-index: 1;
+            padding-top: 12px;
+            border-top: 2px solid transparent;
+            border-image: var(--accent-gradient) 1;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .footer-col {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.76rem;
+            color: var(--paper-text-muted);
+        }
+
+        .footer-col i {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            background: rgba(37, 99, 235, 0.08);
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            flex-shrink: 0;
+        }
+
+        body.theme-dark .footer-col i {
+            background: rgba(37, 99, 235, 0.2);
+            color: #38bdf8;
+        }
+
+        .footer-col a {
+            color: var(--paper-text);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-blue);
+        }
+
+        .footer-bottom-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.68rem;
+            color: var(--paper-text-light);
+            border-top: 1px solid var(--border-light);
+            padding-top: 6px;
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            body {
+                background: transparent !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .controls-bar {
+                display: none !important;
+            }
+
+            .letterhead-sheet {
+                width: 210mm !important;
+                height: 297mm !important;
+                max-height: 297mm !important;
+                box-shadow: none !important;
+                margin: 0 !important;
+                border: none !important;
+                border-radius: 0 !important;
+                page-break-after: avoid !important;
+                padding: 16mm 18mm 14mm 18mm !important;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Action Toolbar for Easy Customization & Saving -->
+    <div class="controls-bar">
+        <div class="controls-title"><i class="fas fa-file-invoice" style="color:#38bdf8;"></i> Letterhead Suite</div>
+        <button class="btn-action" onclick="window.print()"><i class="fas fa-print"></i> Print / Save as PDF</button>
+        <button class="btn-action btn-secondary" onclick="toggleTheme()"><i class="fas fa-circle-half-stroke"></i> Theme</button>
+        <a href="TechMindDevelopers_Official_Letterhead.docx" download class="btn-action btn-secondary"><i class="fas fa-file-word" style="color:#60a5fa;"></i> Download Word (.docx)</a>
+        <a href="https://techminddevelopers.in" target="_blank" class="btn-action btn-secondary"><i class="fas fa-globe"></i> Website</a>
+    </div>
+
+    <!-- Official A4 Letterhead Sheet -->
+    <div class="letterhead-sheet">
+
+        <!-- Background Watermark -->
+        <div class="sheet-watermark"></div>
+
+        <!-- HEADER (Official Icon + Tech Mind Developers + Ref/Date) -->
+        <header class="letterhead-header">
+            <div class="header-top">
+                <div class="brand-container">
+                    <img src="official-logo.png" alt="Tech Mind Developers" class="brand-logo-img">
+                    <div class="brand-text-block">
+                        <h1 class="company-name">TECH MIND <span>DEVELOPERS</span></h1>
+                        <p class="company-tagline">Custom Software &bull; AI Automation &bull; Web &amp; Mobile Architecture</p>
+                    </div>
+                </div>
+                <div class="header-meta">
+                    <span class="meta-pill">Official Correspondence</span>
+                    <div class="meta-row"><strong>Ref No:</strong> TMD/2026/PRO-104</div>
+                    <div class="meta-row"><strong>Date:</strong> September 18, 2026</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- EDITABLE BODY (Click anywhere on the text to customize directly) -->
+        <main class="letterhead-body" contenteditable="true" spellcheck="false">
+            
+            <div class="recipient-block">
+                <div class="to-label">Issued To:</div>
+                <div class="recipient-name">M/s. Premier Industrial Enterprises</div>
+                <div>Attn: Operations &amp; Technology Director</div>
+                <div>New Delhi / Aligarh Industrial Area, India</div>
+            </div>
+
+            <div class="subject-line">
+                Subject: Technical Proposal &amp; Engineering Plan for Enterprise Software &amp; Digital Infrastructure
+            </div>
+
+            <p class="letter-para">
+                Dear Sir/Madam,
+            </p>
+
+            <p class="letter-para">
+                We thank you for considering <strong>Tech Mind Developers</strong> as your digital engineering partner. With over a decade of industry track record since 2014, our engineering team specializes in architecting high-performance custom ERP systems, AI-driven automation workflows, and scalable web and mobile applications tailored precisely to client operational requirements.
+            </p>
+
+            <p class="letter-para">
+                Following our initial technical assessment, we have formulated a comprehensive scope of work designed to eliminate workflow bottlenecks, automate operational reporting, and deliver full commercial intellectual property ownership to your organization.
+            </p>
+
+            <div class="deliverables-box">
+                <h4>Core Project Deliverables &amp; Scope of Engagement:</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>Bespoke Architecture:</strong> 100% custom-engineered code with zero vendor lock-in and complete source code handover.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Automated Workflows:</strong> Real-time inventory tracking, multi-stage job card processing, and WhatsApp Cloud integration.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Enterprise Security:</strong> Role-based access control (RBAC), end-to-end data encryption, and automated cloud backups.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Dedicated SLA &amp; Support:</strong> 12 months comprehensive technical maintenance, security patches, and server uptime monitoring.</li>
+                </ul>
+            </div>
+
+            <p class="letter-para">
+                Our team is prepared to initiate the sprint milestones upon agreement execution. Should you have any technical inquiries or require interactive demonstration walkthroughs, our lead architects remain readily accessible for a consultation.
+            </p>
+
+            <!-- Signature Block -->
+            <div class="sign-block">
+                <div class="sign-left">
+                    <div class="sign-salutation">Sincerely, For Tech Mind Developers,</div>
+                    <div class="sign-name">Authorized Signatory</div>
+                    <div class="sign-designation">Lead Solutions Architect &bull; Tech Mind Developers</div>
+                </div>
+                <div class="sign-stamp-box">
+                    Company Seal &amp;<br>Signature Verified
+                </div>
+            </div>
+
+        </main>
+
+        <!-- FOOTER (Email, Website, Phone, Locations) -->
+        <footer class="letterhead-footer">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <span style="font-size:0.68rem;display:block;color:var(--paper-text-light);">Phone / WhatsApp:</span>
+                        <a href="tel:+917835019421">+91-7835019421</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <span style="font-size:0.68rem;display:block;color:var(--paper-text-light);">Official Email:</span>
+                        <a href="mailto:contact@techminddevelopers.in">contact@techminddevelopers.in</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <i class="fas fa-globe"></i>
+                    <div>
+                        <span style="font-size:0.68rem;display:block;color:var(--paper-text-light);">Official Website:</span>
+                        <a href="https://techminddevelopers.in" target="_blank">techminddevelopers.in</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-line">
+                <div><i class="fas fa-map-marker-alt" style="color:var(--primary-blue);margin-right:4px;"></i> <strong>Offices:</strong> Okhla Industrial Area, South Delhi &bull; Civil Lines / Tala Nagari, Aligarh (UP)</div>
+                <div>Since 2014 &bull; Confidential &amp; Proprietary</div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('theme-dark');
+        }
+    </script>
+</body>
+</html>
