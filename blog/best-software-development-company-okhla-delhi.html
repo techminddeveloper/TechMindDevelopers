@@ -82,31 +82,31 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
 .theme-toggle{background:var(--bg-card);border:1px solid var(--border);color:var(--text-heading);width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:var(--transition);}
 .theme-toggle:hover{border-color:var(--accent);color:var(--accent);} .theme-toggle svg { display:block; transition:transform 0.3s ease } .theme-toggle:hover svg { transform:rotate(30deg) }
 
-/* Header Language Switcher (High Visibility Blinking Border) */
-@keyframes langBorderBlink {
+/* Header Language Switcher (Refined Slim & Non-Intrusive Ambient Glow) */
+@keyframes langBorderBreathe {
     0%, 100% {
-        border-color: rgba(56, 189, 248, 0.25);
+        border-color: rgba(255, 255, 255, 0.12);
         box-shadow: 0 0 0 0 transparent;
     }
     50% {
-        border-color: #38bdf8;
-        box-shadow: 0 0 14px 2px rgba(56, 189, 248, 0.85), inset 0 0 5px rgba(56, 189, 248, 0.35);
+        border-color: rgba(56, 189, 248, 0.65);
+        box-shadow: 0 0 8px 1px rgba(56, 189, 248, 0.3);
     }
 }
 .nav-lang-switcher {
     display: inline-flex;
     align-items: center;
     background: var(--bg-card);
-    border: 1.5px solid rgba(56, 189, 248, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 12px;
     padding: 3px;
     gap: 3px;
     transition: var(--transition);
-    animation: langBorderBlink 1.8s infinite ease-in-out;
+    animation: langBorderBreathe 3.5s infinite ease-in-out;
 }
 .nav-lang-switcher:hover {
-    border-color: #38bdf8;
-    box-shadow: 0 0 16px rgba(56, 189, 248, 0.9);
+    border-color: rgba(56, 189, 248, 0.8);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
 }
 .nav-lang-btn{border:none;outline:none;background:transparent;color:var(--text-muted);font-size:0.82rem;font-weight:700;padding:6px 13px;border-radius:9px;cursor:pointer;transition:var(--transition);font-family:var(--font-primary);white-space:nowrap;}
 .nav-lang-btn:hover{color:var(--text-heading);}
@@ -190,9 +190,9 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
         flex-direction: column !important;
         padding: 2px !important;
         gap: 1px !important;
-        border: 1.5px solid rgba(56, 189, 248, 0.3) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
         border-radius: 7px !important;
-        animation: langBorderBlink 1.8s infinite ease-in-out !important;
+        animation: langBorderBreathe 3.5s infinite ease-in-out !important;
     }
     .nav-lang-btn {
         display: flex !important;
