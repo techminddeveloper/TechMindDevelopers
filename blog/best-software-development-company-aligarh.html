@@ -82,9 +82,19 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
 .theme-toggle{background:var(--bg-card);border:1px solid var(--border);color:var(--text-heading);width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:var(--transition);}
 .theme-toggle:hover{border-color:var(--accent);color:var(--accent);} .theme-toggle svg { display:block; transition:transform 0.3s ease } .theme-toggle:hover svg { transform:rotate(30deg) }
 
-/* Header Language Switcher (Official TMD Standard) */
-.nav-lang-switcher{display:inline-flex;align-items:center;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:3px;gap:3px;transition:var(--transition);}
-.nav-lang-switcher:hover{border-color:var(--border-glow);}
+/* Header Language Switcher (Matching Original TMD Standards) */
+@keyframes langBorderPulse {
+    0%, 100% {
+        border-color: rgba(56,189,248,0.35);
+        box-shadow: 0 0 0 0 rgba(56,189,248,0.2);
+    }
+    50% {
+        border-color: #38bdf8;
+        box-shadow: 0 0 10px 2px rgba(56,189,248,0.65), inset 0 0 4px rgba(56,189,248,0.25);
+    }
+}
+.nav-lang-switcher{display:inline-flex;align-items:center;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:3px;gap:3px;transition:var(--transition);animation:langBorderPulse 2.2s infinite ease-in-out;}
+.nav-lang-switcher:hover{border-color:var(--border-glow);box-shadow:0 0 12px rgba(56,189,248,0.6);}
 .nav-lang-btn{border:none;outline:none;background:transparent;color:var(--text-muted);font-size:0.82rem;font-weight:700;padding:6px 13px;border-radius:9px;cursor:pointer;transition:var(--transition);font-family:var(--font-primary);white-space:nowrap;}
 .nav-lang-btn:hover{color:var(--text-heading);}
 .nav-lang-btn.active{background:linear-gradient(135deg,#0284c7 0%,#0369a1 100%);color:#ffffff!important;box-shadow:0 2px 10px rgba(14,165,233,0.35);}
@@ -168,6 +178,7 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
         padding: 2px !important;
         gap: 1px !important;
         border-radius: 7px !important;
+        animation: langBorderPulse 2s infinite ease-in-out !important;
     }
     .nav-lang-btn {
         display: flex !important;
@@ -204,7 +215,7 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
     <div class="bg-grid"></div>
     <nav class="navbar"><div class="container"><div class="nav-inner">
 <a href="https://techminddevelopers.in/" class="nav-logo"><img src="../logo-icon.png" alt="Tech Mind Developers"><span>Tech Mind <span class="gradient-text">Developers</span></span></a>
-<div class="nav-actions"><div class="nav-lang-switcher" role="tablist" aria-label="Select Language"><button type="button" class="nav-lang-btn active" data-lang="en" aria-selected="true"><span class="lang-full">English</span><span class="lang-short">EN</span></button><button type="button" class="nav-lang-btn" data-lang="hi-en" aria-selected="false"><span class="lang-full">Hinglish</span><span class="lang-short">HI</span></button></div><a href="index.html" class="nav-btn-home"><i class="fas fa-home"></i> <span>Blog Home</span></a><a href="https://techminddevelopers.in/#contact" class="nav-cta-btn"><i class="fas fa-paper-plane"></i> <span>Get a Free Demo</span></a><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button></div>
+<div class="nav-actions"><div class="nav-lang-switcher" role="tablist" aria-label="Select Language"><button type="button" class="nav-lang-btn active" data-lang="en" aria-selected="true"><span class="lang-full">English</span><span class="lang-short">EN</span></button><button type="button" class="nav-lang-btn" data-lang="hi-en" aria-selected="false"><span class="lang-full">Hinglish</span><span class="lang-short">HN</span></button></div><a href="index.html" class="nav-btn-home"><i class="fas fa-home"></i> <span>Blog Home</span></a><a href="https://techminddevelopers.in/#contact" class="nav-cta-btn"><i class="fas fa-paper-plane"></i> <span>Get a Free Demo</span></a><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button></div>
 </div></div></nav>
     <div class="article-container">
     <div class="breadcrumbs"><a href="index.html"><i class="fas fa-arrow-left"></i> Blog Home</a> <i class="fas fa-chevron-right"></i> <span>Software Company Aligarh</span></div>
