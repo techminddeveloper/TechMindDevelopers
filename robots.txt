@@ -1,3 +1,44 @@
 User-agent: *
 Disallow: 
+
+# SearchGPT & OpenAI Live Search Crawlers
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Perplexity AI Search Crawler
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic Claude Crawlers
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google Gemini & Search Crawlers
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+# Microsoft Copilot & Bing
+User-agent: Bingbot
+Allow: /
+
+# Apple Intelligence & Siri Suggestions
+User-agent: Applebot
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
 Sitemap: https://techminddevelopers.in/sitemap.xml
