@@ -28,15 +28,15 @@
     <!-- End Google Analytics -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gym &amp; Fitness Management Software Developers | Tech Mind Developers</title>
-    <meta name="description" content="Stop member fee leakage and manual registers. Tech Mind Developers builds custom gym management software with biometric turnstile auto-lock on expiry, automated WhatsApp renewal alerts with UPI QR, trainer PT commission tracking, and zero monthly software rent.">
-    <meta name="keywords" content="gym management software development delhi ncr, gym software with biometric turnstile gate integration, gym management software developers india, custom gym software development, fitness center management software india, gym biometric attendance machine software, gym turnstile access control software, gym membership auto lock on expiry software, gym software with whatsapp renewal reminder, personal trainer pt commission tracking software, gym workout and diet plan sharing software, crossfit box management software india, yoga studio management software india, mma academy management software, gym billing software with upi qr code, gym software without monthly rent, gym software one time purchase lifetime license, multi branch gym chain software, gym member mobile app ios android, biometric face recognition gym software, rfid card gym entry gate software, gym locker management software, gym supplement inventory software, gym management software in okhla, gym software developers in south delhi, gym management software in aligarh, gym software in noida, gym software in gurgaon, gym software in faridabad, fitness club software uttar pradesh, gym attendance software with biometric machine, gym fee collection software whatsapp link, gym lead management and inquiry crm, gym member check in turnstile barrier software, zkteco biometric integration gym software, essl biometric turnstile gym software, gym financial accounting with gst software, gym trainer payroll and attendance software, body measurement and bmi tracking software gym, gym trial pass and guest registration software, offline gym management software with cloud sync, best gym management software for private clubs india, paperless gym management software india, gym membership expiry alert whatsapp bot, multi studio fitness scheduling software, pilates and aerobics studio booking software, gym equipment maintenance tracking software, custom fitness app developers india, gym daily walk in visitor entry software, gym batch time slot booking software, smart gym automation system developers, automated gym gate barrier access system, Tech Mind Developers">
+    <title>Gym Website &amp; Member Management Portal Developers | Tech Mind Developers</title>
+    <meta name="description" content="Custom gym website and member portal development. Showcase membership packages, share personalized diet charts, automate fee renewals via WhatsApp with UPI QR, and sell supplements online with zero monthly software rent.">
+    <meta name="keywords" content="gym website development company, gym management portal development india, custom fitness center website, gym membership plans portal, gym diet and workout plan sharing software, gym fee renewal whatsapp reminder, gym supplement store website, gym management software without monthly rent, personal trainer website developer, gym landing page design, fitness club portal uttar pradesh, gym software in okhla delhi, gym website developers aligarh noida, Tech Mind Developers">
     <meta name="author" content="Tech Mind Developers">
     <meta name="robots" content="index, follow">
 
     <!-- OpenGraph / Social Meta -->
-    <meta property="og:title" content="Custom Gym &amp; Fitness Center Management Software with Biometric Turnstile | Tech Mind Developers">
-    <meta property="og:description" content="Auto-lock turnstile gates on membership expiry, trigger instant WhatsApp fee renewal links, and track trainer PT commissions with zero monthly software rent.">
+    <meta property="og:title" content="Custom Gym Website &amp; Member Management Portal | Tech Mind Developers">
+    <meta property="og:description" content="Showcase membership plans, share personalized diet charts, automate fee renewals with WhatsApp UPI QR, and sell supplements online with zero monthly rent.">
     <meta property="og:image" content="https://techminddevelopers.in/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -45,8 +45,8 @@
     <meta property="og:site_name" content="Tech Mind Developers">
     <meta property="og:url" content="https://techminddevelopers.in/gym-fitness-management-software.html">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Custom Gym Management Software Developers | Tech Mind Developers">
-    <meta name="twitter:description" content="Turnstile gate auto-lock, automated WhatsApp renewals, trainer PT commission tracking, and lifetime ownership.">
+    <meta name="twitter:title" content="Custom Gym Website &amp; Member Management Portal | Tech Mind Developers">
+    <meta name="twitter:description" content="Showcase membership plans, share personalized diet charts, automate fee renewals with WhatsApp UPI QR, and sell supplements online with zero monthly rent.">
     <meta name="twitter:image" content="https://techminddevelopers.in/og-image.jpg">
     <link rel="canonical" href="https://techminddevelopers.in/gym-fitness-management-software.html">
 
@@ -1848,288 +1848,6 @@ body.menu-open .floating-contact-pill {
 }
 
 
-/* ============================================================
-   INTERACTIVE BIOMETRIC TURNSTILE SIMULATOR STYLING (SCOPED)
-   ============================================================ */
-.turnstile-section {
-    padding: 60px 0 50px;
-    position: relative;
-    background: radial-gradient(circle at 50% 30%, rgba(245, 158, 11, 0.05) 0%, transparent 70%);
-}
-.turnstile-container {
-    max-width: 1080px;
-    margin: 0 auto;
-    background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(10, 15, 25, 0.98) 100%);
-    border: 1px solid rgba(245, 158, 11, 0.25);
-    border-radius: 24px;
-    padding: 32px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(245, 158, 11, 0.04);
-    backdrop-filter: blur(20px);
-    overflow: hidden;
-    min-width: 0;
-}
-[data-theme="light"] .turnstile-container {
-    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-    border-color: rgba(245, 158, 11, 0.3);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-}
-.turnstile-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding-bottom: 20px;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-[data-theme="light"] .turnstile-header {
-    border-bottom-color: rgba(0, 0, 0, 0.08);
-}
-.turnstile-title-area h3 {
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.turnstile-title-area p {
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-    margin-top: 4px;
-}
-.turnstile-badges {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-.sim-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.76rem;
-    font-weight: 600;
-    padding: 6px 12px;
-    border-radius: 9999px;
-    background: rgba(245, 158, 11, 0.12);
-    color: #f59e0b;
-    border: 1px solid rgba(245, 158, 11, 0.25);
-}
-
-.simulator-grid {
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 24px;
-    align-items: stretch;
-}
-@media (max-width: 860px) {
-    .simulator-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.member-list-pane {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-.member-list-title {
-    font-size: 0.86rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--text-secondary);
-    margin-bottom: 4px;
-}
-.member-sim-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 18px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 14px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    user-select: none;
-}
-[data-theme="light"] .member-sim-card {
-    background: #f8fafc;
-    border-color: rgba(0, 0, 0, 0.08);
-}
-.member-sim-card:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(245, 158, 11, 0.4);
-    transform: translateX(4px);
-}
-[data-theme="light"] .member-sim-card:hover {
-    background: #f1f5f9;
-}
-.member-sim-card.active {
-    background: rgba(245, 158, 11, 0.12);
-    border-color: #f59e0b;
-    box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
-}
-
-.member-card-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-.member-avatar {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    color: var(--text-primary);
-}
-[data-theme="light"] .member-avatar {
-    background: #e2e8f0;
-}
-.member-name-area {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-.member-name-area strong {
-    font-size: 0.95rem;
-    color: var(--text-primary);
-}
-.member-name-area span {
-    font-size: 0.78rem;
-    color: var(--text-secondary);
-}
-
-.status-pill {
-    font-size: 0.74rem;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 9999px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-}
-.status-active {
-    background: rgba(16, 185, 129, 0.15);
-    color: #10b981;
-    border: 1px solid rgba(16, 185, 129, 0.3);
-}
-.status-expired {
-    background: rgba(239, 68, 68, 0.15);
-    color: #ef4444;
-    border: 1px solid rgba(239, 68, 68, 0.3);
-}
-.status-pt {
-    background: rgba(168, 85, 247, 0.15);
-    color: #a855f7;
-    border: 1px solid rgba(168, 85, 247, 0.3);
-}
-
-.turnstile-display-pane {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 18px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-[data-theme="light"] .turnstile-display-pane {
-    background: #f1f5f9;
-    border-color: rgba(0, 0, 0, 0.08);
-}
-
-.gate-visual-area {
-    text-align: center;
-    padding: 20px 0;
-}
-.turnstile-icon-wrap {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 16px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.2rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
-    background: rgba(16, 185, 129, 0.15);
-    color: #10b981;
-    border: 2px solid #10b981;
-}
-.turnstile-icon-wrap.locked {
-    box-shadow: 0 0 30px rgba(239, 68, 68, 0.4);
-    background: rgba(239, 68, 68, 0.15);
-    color: #ef4444;
-    border-color: #ef4444;
-}
-.gate-status-text {
-    font-size: 1.25rem;
-    font-weight: 800;
-    font-family: 'JetBrains Mono', monospace;
-    letter-spacing: 0.05em;
-    margin-bottom: 6px;
-}
-.gate-sub-msg {
-    font-size: 0.86rem;
-    color: var(--text-secondary);
-}
-
-.screen-info-box {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    padding: 14px 18px;
-    margin-top: 18px;
-}
-[data-theme="light"] .screen-info-box {
-    background: #ffffff;
-    border-color: rgba(0, 0, 0, 0.06);
-}
-.info-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.84rem;
-    padding: 6px 0;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
-}
-[data-theme="light"] .info-row {
-    border-bottom-color: rgba(0, 0, 0, 0.06);
-}
-.info-row:last-child {
-    border-bottom: none;
-}
-.info-label {
-    color: var(--text-secondary);
-}
-.info-val {
-    font-weight: 700;
-    color: var(--text-primary);
-}
-
-.sim-wa-alert {
-    background: rgba(37, 211, 102, 0.1);
-    border: 1px solid rgba(37, 211, 102, 0.3);
-    border-radius: 12px;
-    padding: 12px 16px;
-    margin-top: 14px;
-    font-size: 0.82rem;
-    color: var(--text-primary);
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-}
-.sim-wa-alert i {
-    color: #25d366;
-    font-size: 1.1rem;
-    margin-top: 2px;
-    flex-shrink: 0;
-}
 
     </style>
 </head>
@@ -2171,28 +1889,28 @@ body.menu-open .floating-contact-pill {
     <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge"><span class="pulse"></span>Smart Gym &amp; Fitness Management Software</div>
+                <div class="hero-badge"><span class="pulse"></span>Smart Gym &amp; Fitness Web Portal</div>
                 <h1>
-                    <span class="static-line">Gym Management Software Development.</span>
-                    <span class="dynamic-line"><span class="gradient-text">Biometric Turnstiles &amp; Fee Auto-Lock.</span></span>
+                    <span class="static-line">Gym Website &amp; Portal Development.</span>
+                    <span class="dynamic-line"><span class="gradient-text">Plans, Diet, Renewals &amp; Store.</span></span>
                 </h1>
                 <p>
-                    Custom <strong>gym management software development</strong> with smart <strong>biometric turnstile gate integration</strong>. Automatically lock gate barriers on membership expiry, trigger WhatsApp renewal alerts with UPI QR codes, and track trainer PT commissions. You get 100% lifetime ownership with <strong>zero monthly software rent</strong>.
+                    Custom websites and member portals for gyms, fitness clubs, and yoga studios. Showcase membership plans, deliver personalized diet charts, automate fee renewals with WhatsApp UPI reminders, and sell supplements online with <strong>100% lifetime ownership and zero monthly rent</strong>.
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn-primary">Tell Us What You Need <i class="fas fa-arrow-right"></i></a>
-                    <a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20want%20to%20discuss%20gym%20management%20software." class="btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chat with Us on WhatsApp</a>
+                    <a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20want%20to%20discuss%20a%20website%20and%20portal%20for%20my%20gym." class="btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chat with Us on WhatsApp</a>
                 </div>
             </div>
             <div class="hero-visual">
-                <!-- Live Gym Reception Dashboard Preview Box -->
+                <!-- Live Gym Member Portal & Reception Preview Box -->
                 <div class="preview-card-box">
                     <div class="preview-bar">
                         <div style="display:flex;align-items:center;gap:8px">
                             <i class="fas fa-dumbbell" style="color:var(--accent-blue)"></i>
-                            <span>Live Gym Reception Dashboard</span>
+                            <span>Live Gym Member Portal &amp; Reception</span>
                         </div>
-                        <span class="preview-live-tag"><i class="fas fa-circle" style="font-size:6px"></i> Gate Active</span>
+                        <span class="preview-live-tag"><i class="fas fa-circle" style="font-size:6px"></i> Portal Live</span>
                     </div>
 
                     <div class="preview-metric-row">
@@ -2201,43 +1919,43 @@ body.menu-open .floating-contact-pill {
                             <span>No Monthly Rent</span>
                         </div>
                         <div class="preview-metric">
-                            <h5>&lt;0.4s</h5>
-                            <span>Turnstile Response</span>
+                            <h5>240+</h5>
+                            <span>Active Members</span>
                         </div>
                         <div class="preview-metric">
                             <h5>100%</h5>
-                            <span>Fee Protected</span>
+                            <span>Lifetime Ownership</span>
                         </div>
                     </div>
 
                     <div class="preview-activity-list">
                         <div class="preview-activity-item">
                             <div class="preview-act-left">
-                                <i class="fas fa-fingerprint" style="color:#10b981"></i>
-                                <span>Rahul Verma (Annual VIP #1042)</span>
+                                <i class="fas fa-id-card" style="color:#10b981"></i>
+                                <span>Rahul Verma (Annual Gold Plan)</span>
                             </div>
-                            <span class="preview-status-pill status-done">Access Granted</span>
-                        </div>
-                        <div class="preview-activity-item">
-                            <div class="preview-act-left">
-                                <i class="fas fa-ban" style="color:#ef4444"></i>
-                                <span>Priya Sharma (Expired 2 Days #1089)</span>
-                            </div>
-                            <span class="preview-status-pill status-done" style="background:rgba(239,68,68,0.15);color:#ef4444">Gate Locked</span>
+                            <span class="preview-status-pill status-done">Plan Active</span>
                         </div>
                         <div class="preview-activity-item">
                             <div class="preview-act-left">
                                 <i class="fab fa-whatsapp" style="color:#25d366"></i>
-                                <span>Auto WhatsApp Renewal Alert + UPI QR</span>
+                                <span>WhatsApp Fee Renewal (UPI QR Sent)</span>
                             </div>
-                            <span class="preview-status-pill status-done" style="background:rgba(37,211,102,0.15);color:#25d366">Delivered</span>
+                            <span class="preview-status-pill status-done" style="background:rgba(37,211,102,0.15);color:#25d366">Auto-Delivered</span>
                         </div>
                         <div class="preview-activity-item">
                             <div class="preview-act-left">
-                                <i class="fas fa-dumbbell" style="color:#a855f7"></i>
-                                <span>PT Session: Amit Patel with Coach Vikram</span>
+                                <i class="fas fa-apple-whole" style="color:#38bdf8"></i>
+                                <span>Muscle Gain Diet &amp; Routine Updated</span>
                             </div>
-                            <span class="preview-status-pill status-done" style="background:rgba(168,85,247,0.15);color:#c084fc">PT Logged</span>
+                            <span class="preview-status-pill status-done" style="background:rgba(56,189,248,0.15);color:#38bdf8">Diet Shared</span>
+                        </div>
+                        <div class="preview-activity-item">
+                            <div class="preview-act-left">
+                                <i class="fas fa-bottle-water" style="color:#f59e0b"></i>
+                                <span>Whey Protein 2kg Order Received</span>
+                            </div>
+                            <span class="preview-status-pill status-done" style="background:rgba(245,158,11,0.15);color:#f59e0b">Store Order</span>
                         </div>
                     </div>
                 </div>
@@ -2251,150 +1969,44 @@ body.menu-open .floating-contact-pill {
             <div class="section-header fade-in">
                 <span class="section-label">Daily Frustrations</span>
                 <h2 class="section-title">Why Paper Registers &amp; Monthly Software Rent <span class="gradient-text">Hurt Gym Growth</span></h2>
-                <p class="section-desc">Running a busy fitness center with manual registers leads to unpaid entries, awkward front-desk conversations, and hours lost on fee reconciliation.</p>
+                <p class="section-desc">Running a busy fitness center with manual registers leads to overdue fees, lost member records, and hours wasted on manual phone calls.</p>
             </div>
             <div class="services-grid">
                 <!-- Bottleneck 1 -->
                 <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-door-closed"></i></div>
-                    <h3>Expired Members Walking In Freely</h3>
-                    <p>Front-desk staff often feel awkward stopping regular members whose fees are past due. Our software links directly with your biometric turnstile gates, so the moment a plan expires, the barrier automatically stays locked until fees are cleared.</p>
+                    <div class="service-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h3>Chasing Renewals Over Phone Calls</h3>
+                    <p>Calling dozens of members every week takes hours and feels awkward. Our automated WhatsApp bot sends polite payment reminders with a direct UPI payment QR code 3 days before membership ends.</p>
                 </div>
                 <!-- Bottleneck 2 -->
                 <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-qrcode"></i></div>
-                    <h3>Manual UPI Screenshots &amp; Cash Chaos</h3>
-                    <p>Members pay across different phone numbers, staff takes random UPI screenshots, and cash receipts get lost. Our system reconciles every payment directly against the member's profile and generates instant digital GST bills.</p>
+                    <div class="service-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Losing Prospective Members to Competitors</h3>
+                    <p>Fitness enthusiasts search Google for the best gym in their area. Without a clean website showcasing your equipment, amenities, and pricing plans, they simply join another fitness center.</p>
                 </div>
                 <!-- Bottleneck 3 -->
                 <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fab fa-whatsapp"></i></div>
-                    <h3>Chasing Renewals Over Phone Calls</h3>
-                    <p>Calling hundreds of members every month takes hours. Our automated WhatsApp bot sends polite payment reminders with a 1-click UPI pay link 7 days, 3 days, and 1 day before their plan expires.</p>
+                    <div class="service-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <h3>Lost Paper Diet &amp; Workout Charts</h3>
+                    <p>Members lose printed diet charts and workout slips within days. Trainers can create custom nutrition guidelines and workout routines inside the web portal and send them directly to the member's phone.</p>
                 </div>
                 <!-- Bottleneck 4 -->
                 <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-handshake"></i></div>
-                    <h3>Personal Trainer Commission Disputes</h3>
-                    <p>Tracking PT sessions in paper diaries leads to end-of-month misunderstandings between management and trainers. The software logs biometric check-ins for every session, keeping payouts 100% clear and dispute-free.</p>
+                    <div class="service-icon"><i class="fas fa-bottle-water"></i></div>
+                    <h3>Missing Out on Supplement Sales</h3>
+                    <p>Members often buy whey protein, multivitamins, and gear from third-party apps instead of your counter. An online gym shop on your website lets members browse supplements and order directly with 1 tap.</p>
                 </div>
                 <!-- Bottleneck 5 -->
                 <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-clipboard-list"></i></div>
-                    <h3>Lost Paper Diet &amp; Workout Charts</h3>
-                    <p>Members lose printed diet charts and workout slips within days. Trainers can create custom workout routines and nutrition guidelines inside the software and send them directly to the member's phone.</p>
+                    <div class="service-icon"><i class="fas fa-qrcode"></i></div>
+                    <h3>Manual UPI Screenshots &amp; Cash Chaos</h3>
+                    <p>Members pay across different personal UPI numbers, staff takes random screenshots, and receipts get misplaced. Our system records every payment clearly under the member's profile with instant digital bills.</p>
                 </div>
                 <!-- Bottleneck 6 -->
                 <div class="service-card fade-in">
                     <div class="service-icon"><i class="fas fa-receipt"></i></div>
                     <h3>Paying Endless Monthly Software Rent</h3>
-                    <p>Generic cloud software charges ₹2,000 to ₹5,000 every month and holds your member contact list hostage. We build custom software on a one-time development fee, giving you complete database ownership with zero recurring rent.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 2: INTERACTIVE BIOMETRIC TURNSTILE & ACCESS SIMULATOR -->
-    <section class="turnstile-section">
-        <div class="container">
-            <div class="turnstile-container fade-in">
-                <div class="turnstile-header">
-                    <div class="turnstile-title-area">
-                        <h3><i class="fas fa-microchip" style="color:#f59e0b;"></i> Biometric Turnstile &amp; Member Auto-Lock Simulator</h3>
-                        <p>Click any member card to test how the turnstile gate barrier responds in real time upon biometric scan.</p>
-                    </div>
-                    <div class="turnstile-badges">
-                        <span class="sim-badge"><i class="fas fa-shield-halved"></i> Zero Fee Default</span>
-                        <span class="sim-badge"><i class="fas fa-bolt"></i> Instant Gate Trip</span>
-                    </div>
-                </div>
-
-                <div class="simulator-grid">
-                    <!-- Left: Member Cards -->
-                    <div class="member-list-pane">
-                        <div class="member-list-title">Select Gym Member Check-In Test</div>
-                        
-                        <div class="member-sim-card active" data-name="Rahul Verma" data-plan="Annual Platinum VIP" data-expiry="Valid (Exp: Dec 2026)" data-status="active" data-gate="unlocked" data-sub="Annual plan in good standing. Barrier unlocks in 0.35 seconds." data-wa="Welcome back Rahul! Have an intense workout session today. Your BMI progress log has been updated.">
-                            <div class="member-card-left">
-                                <div class="member-avatar"><i class="fas fa-user-check"></i></div>
-                                <div class="member-name-area">
-                                    <strong>Rahul Verma</strong>
-                                    <span>Annual VIP &bull; Biometric ID #1042</span>
-                                </div>
-                            </div>
-                            <span class="status-pill status-active">Active</span>
-                        </div>
-
-                        <div class="member-sim-card" data-name="Priya Sharma" data-plan="Quarterly Cardio &amp; Weights" data-expiry="Expired (2 Days Ago)" data-status="expired" data-gate="locked" data-sub="Membership expired on Sept 17. Barrier remains locked until fee clearance." data-wa="Hello Priya! Your gym membership expired 2 days ago. Please tap here to renew via UPI [₹3,500] and reactivate your biometric gate pass instantly.">
-                            <div class="member-card-left">
-                                <div class="member-avatar"><i class="fas fa-user-xmark" style="color:#ef4444;"></i></div>
-                                <div class="member-name-area">
-                                    <strong>Priya Sharma</strong>
-                                    <span>Quarterly Plan &bull; Biometric ID #1089</span>
-                                </div>
-                            </div>
-                            <span class="status-pill status-expired">Expired</span>
-                        </div>
-
-                        <div class="member-sim-card" data-name="Amit Patel" data-plan="Personal Training (Coach Vikram)" data-expiry="Valid &bull; 8 Sessions Remaining" data-status="pt" data-gate="unlocked" data-sub="PT session verified. Biometric entry logged to Coach Vikram's commission ledger." data-wa="Hi Amit! Your PT session with Coach Vikram is verified. 8 sessions remaining this month.">
-                            <div class="member-card-left">
-                                <div class="member-avatar"><i class="fas fa-dumbbell" style="color:#a855f7;"></i></div>
-                                <div class="member-name-area">
-                                    <strong>Amit Patel</strong>
-                                    <span>PT Member &bull; Biometric ID #1114</span>
-                                </div>
-                            </div>
-                            <span class="status-pill status-pt">PT Active</span>
-                        </div>
-
-                        <div class="member-sim-card" data-name="Simran Kaur" data-plan="Monthly Fitness Batch" data-expiry="Expires Today (Sept 19)" data-status="expired" data-gate="locked" data-sub="Final day of membership. Auto-reminder sent via WhatsApp bot with renewal UPI QR." data-wa="Hello Simran! Your gym plan expires today. Pay ₹1,800 via UPI before 9 PM to avoid gate lock tomorrow morning.">
-                            <div class="member-card-left">
-                                <div class="member-avatar"><i class="fas fa-clock-rotate-left" style="color:#ef4444;"></i></div>
-                                <div class="member-name-area">
-                                    <strong>Simran Kaur</strong>
-                                    <span>Monthly Batch &bull; Biometric ID #1160</span>
-                                </div>
-                            </div>
-                            <span class="status-pill status-expired">Renewal Due</span>
-                        </div>
-                    </div>
-
-                    <!-- Right: Live Turnstile Display -->
-                    <div class="turnstile-display-pane" id="turnstileDisplay">
-                        <div class="gate-visual-area">
-                            <div class="turnstile-icon-wrap" id="gateIcon">
-                                <i class="fas fa-lock-open"></i>
-                            </div>
-                            <div class="gate-status-text" id="gateStatusTitle">ACCESS GRANTED</div>
-                            <div class="gate-sub-msg" id="gateSubMsg">Annual plan in good standing. Barrier unlocks in 0.35 seconds.</div>
-                        </div>
-
-                        <div class="screen-info-box">
-                            <div class="info-row">
-                                <span class="info-label">Member Name</span>
-                                <span class="info-val" id="dispMemberName">Rahul Verma</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="info-label">Current Plan</span>
-                                <span class="info-val" id="dispMemberPlan">Annual Platinum VIP</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="info-label">Plan Status</span>
-                                <span class="info-val" id="dispMemberExpiry" style="color:#10b981;">Valid (Exp: Dec 2026)</span>
-                            </div>
-                            <div class="info-row">
-                                <span class="info-label">Turnstile Barrier Status</span>
-                                <span class="info-val" id="dispGateState" style="color:#10b981;">UNLOCKED (Trip Pulse Active)</span>
-                            </div>
-                        </div>
-
-                        <div class="sim-wa-alert">
-                            <i class="fab fa-whatsapp"></i>
-                            <div id="dispWaMessage">
-                                Welcome back Rahul! Have an intense workout session today. Your BMI progress log has been updated.
-                            </div>
-                        </div>
-                    </div>
+                    <p>Generic cloud apps charge ₹2,000 to ₹5,000 every single month for rigid templates. We build your custom gym website and portal for an affordable one-time cost with 100% lifetime ownership and zero recurring rent.</p>
                 </div>
             </div>
         </div>
@@ -2411,129 +2023,122 @@ body.menu-open .floating-contact-pill {
             <div class="modules-grid">
                 <!-- Module 1: Blue -->
                 <div class="module-card module-blue fade-in">
-                    <div class="module-icon"><i class="fas fa-fingerprint"></i></div>
-                    <h3>Turnstile &amp; Biometric Integration</h3>
-                    <p>Connects seamlessly with ZKTeco, eSSL, Realtime, and facial recognition machines over LAN or cloud with instant sub-second gate response.</p>
+                    <div class="module-icon"><i class="fas fa-id-card"></i></div>
+                    <h3>Membership Plans &amp; Online Joining</h3>
+                    <p>Attract new members with clear pricing plans, online registration, and free trial pass booking directly on your website.</p>
                     <ul class="module-features">
-                        <li><i class="fas fa-check"></i> Auto-locks tripod gates the second a membership runs out</li>
-                        <li><i class="fas fa-check"></i> Supports fingerprint, facial recognition, and RFID cards</li>
-                        <li><i class="fas fa-check"></i> Operates offline over local network with automatic cloud sync</li>
+                        <li><i class="fas fa-check"></i> Monthly, quarterly, and annual plan showcase with transparent pricing</li>
+                        <li><i class="fas fa-check"></i> 1-Day Free Trial Pass lead form delivering instant WhatsApp alerts</li>
+                        <li><i class="fas fa-check"></i> Clean digital member profile cards with quick QR identification</li>
                     </ul>
                 </div>
 
                 <!-- Module 2: Emerald -->
                 <div class="module-card module-emerald fade-in">
                     <div class="module-icon"><i class="fab fa-whatsapp"></i></div>
-                    <h3>Automated WhatsApp Renewal Bot</h3>
+                    <h3>Automated WhatsApp Fee Renewals</h3>
                     <p>Save hours of follow-up calls every week with automated WhatsApp payment notices and receipts sent through official APIs.</p>
                     <ul class="module-features">
-                        <li><i class="fas fa-check"></i> Scheduled renewal reminders with dynamic UPI QR codes</li>
-                        <li><i class="fas fa-check"></i> Instant automated fee receipts sent right to WhatsApp</li>
-                        <li><i class="fas fa-check"></i> Broadcast holiday schedules, offers, and fitness tips</li>
+                        <li><i class="fas fa-check"></i> Friendly renewal reminders sent 3 days before membership ends</li>
+                        <li><i class="fas fa-check"></i> Instant dynamic UPI QR code for 1-tap payment from any UPI app</li>
+                        <li><i class="fas fa-check"></i> Auto-generated digital fee receipts delivered directly on WhatsApp</li>
                     </ul>
                 </div>
 
-                <!-- Module 3: Purple -->
-                <div class="module-card module-purple fade-in">
-                    <div class="module-icon"><i class="fas fa-user-tie"></i></div>
-                    <h3>Trainer PT Commission &amp; Payroll</h3>
-                    <p>Maintain complete transparency with floor trainers and fitness coaches without messy paper logs.</p>
-                    <ul class="module-features">
-                        <li><i class="fas fa-check"></i> Biometric verification for every completed PT session</li>
-                        <li><i class="fas fa-check"></i> Configurable commission splits (percentage or flat rate)</li>
-                        <li><i class="fas fa-check"></i> Clean monthly trainer attendance and payout summaries</li>
-                    </ul>
-                </div>
-
-                <!-- Module 4: Amber -->
+                <!-- Module 3: Amber -->
                 <div class="module-card module-amber fade-in">
                     <div class="module-icon"><i class="fas fa-apple-whole"></i></div>
-                    <h3>Diet, Workout &amp; BMI Tracking</h3>
-                    <p>Help members reach their body transformation goals with easy-to-use digital progress tracking.</p>
+                    <h3>Personalized Diet &amp; Workout Plans</h3>
+                    <p>Keep members motivated and satisfied with customized diet plans and daily workout splits delivered to their phones.</p>
                     <ul class="module-features">
-                        <li><i class="fas fa-check"></i> Record body measurements, weight, and BMI logs</li>
-                        <li><i class="fas fa-check"></i> Custom workout templates for strength, fat loss, and cardio</li>
-                        <li><i class="fas fa-check"></i> 1-Click routine sharing directly to the member's WhatsApp</li>
+                        <li><i class="fas fa-check"></i> Custom meal plans for muscle gain, fat loss, and special diets</li>
+                        <li><i class="fas fa-check"></i> Daily workout split routines with exercise guides, sets, and reps</li>
+                        <li><i class="fas fa-check"></i> Member BMI logs, weight tracking, and body transformation records</li>
                     </ul>
                 </div>
 
-                <!-- Module 5: Pink -->
-                <div class="module-card module-pink fade-in">
-                    <div class="module-icon"><i class="fas fa-mobile-screen-button"></i></div>
-                    <h3>Member Mobile App &amp; Slot Booking</h3>
-                    <p>Provide members with a modern branded mobile app for class bookings and account management.</p>
-                    <ul class="module-features">
-                        <li><i class="fas fa-check"></i> Batch time slot booking for CrossFit, yoga, Zumba, and spinning</li>
-                        <li><i class="fas fa-check"></i> Digital 1-day free trial passes and guest check-ins</li>
-                        <li><i class="fas fa-check"></i> In-app digital member ID card and renewal reminders</li>
-                    </ul>
-                </div>
-
-                <!-- Module 6: Cyan -->
+                <!-- Module 4: Cyan -->
                 <div class="module-card module-cyan fade-in">
-                    <div class="module-icon"><i class="fas fa-boxes-stacked"></i></div>
-                    <h3>Counter Billing, Inventory &amp; Multi-Branch Hub</h3>
-                    <p>Complete reception desk billing, protein supplement sales, locker assignments, and multi-club monitoring.</p>
+                    <div class="module-icon"><i class="fas fa-bottle-water"></i></div>
+                    <h3>Gym Products &amp; Supplements Store</h3>
+                    <p>Boost your gym's revenue by selling whey protein, pre-workouts, and fitness merchandise directly through your website.</p>
                     <ul class="module-features">
-                        <li><i class="fas fa-check"></i> Fast counter POS billing for memberships and locker rentals</li>
-                        <li><i class="fas fa-check"></i> Supplement stock management with barcode scanning</li>
-                        <li><i class="fas fa-check"></i> Centralized multi-branch dashboard with member cross-access</li>
+                        <li><i class="fas fa-check"></i> Online store for whey protein, creatine, BCAAs, and multivitamins</li>
+                        <li><i class="fas fa-check"></i> Sell gym gear: shaker bottles, lifting belts, wrist wraps, and tees</li>
+                        <li><i class="fas fa-check"></i> 1-Click WhatsApp checkout with instant order alert to front desk</li>
+                    </ul>
+                </div>
+
+                <!-- Module 5: Purple -->
+                <div class="module-card module-purple fade-in">
+                    <div class="module-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3>Trainer Profiles &amp; PT Booking</h3>
+                    <p>Showcase your certified fitness coaches and manage personal training (PT) sessions without paper confusion.</p>
+                    <ul class="module-features">
+                        <li><i class="fas fa-check"></i> Trainer showcase with certified credentials, bios, and specializations</li>
+                        <li><i class="fas fa-check"></i> Before and After transformation photo gallery to build member trust</li>
+                        <li><i class="fas fa-check"></i> Simple booking and schedule management for personal training slots</li>
+                    </ul>
+                </div>
+
+                <!-- Module 6: Pink -->
+                <div class="module-card module-pink fade-in">
+                    <div class="module-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Owner Dashboard &amp; Zero Monthly Rent</h3>
+                    <p>Complete control over your gym business with real-time analytics, member dues, and zero recurring software fees.</p>
+                    <ul class="module-features">
+                        <li><i class="fas fa-check"></i> Central overview of active members, pending renewals, and store orders</li>
+                        <li><i class="fas fa-check"></i> Clear payment ledger with cash and UPI reconciliation in one place</li>
+                        <li><i class="fas fa-check"></i> 100% full source code ownership with zero monthly software rent</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 4: 6-CARD DELIVERY ROADMAP (#delivery) -->
+    <!-- SECTION 4: DELIVERY ROADMAP (#delivery) -->
     <section class="process-section" id="delivery">
         <div class="container">
             <div class="section-header fade-in">
-                <span class="section-label">Seamless Deployment</span>
-                <h2 class="section-title">How We Build &amp; Deploy Your <span class="gradient-text">Custom Gym Management System</span></h2>
-                <p class="section-desc">A structured, 5-week engineering delivery roadmap with zero gym downtime.</p>
+                <span class="section-label">Smooth Rollout</span>
+                <h2 class="section-title">How We Build &amp; Launch Your <span class="gradient-text">Gym Website &amp; Portal</span></h2>
+                <p class="section-desc">A straightforward 5-step process designed for gym owners with zero disruption to your daily gym operations.</p>
             </div>
 
             <div class="roadmap-grid">
                 <!-- Step 1 -->
                 <div class="roadmap-card fade-in">
-                    <span class="roadmap-step-pill">Step 01 &bull; Days 1-3</span>
-                    <h3>Hardware &amp; Network Assessment</h3>
-                    <p>We inspect your turnstile barriers, network cabling, and biometric scanners to design a fast, reliable access control architecture.</p>
+                    <span class="roadmap-step-pill">Step 01 &bull; Days 1-2</span>
+                    <h3>Requirement &amp; Photos Gathering</h3>
+                    <p>We collect your membership plan pricing, gym equipment photos, certified trainer profiles, and the supplement products you wish to showcase.</p>
                 </div>
 
                 <!-- Step 2 -->
                 <div class="roadmap-card fade-in">
-                    <span class="roadmap-step-pill">Step 02 &bull; Week 1</span>
-                    <h3>Member Data Migration &amp; Plan Setup</h3>
-                    <p>We import your existing member list from Excel or paper registers and configure your admission fees, packages, and locker rentals.</p>
+                    <span class="roadmap-step-pill">Step 02 &bull; Days 3-5</span>
+                    <h3>Website &amp; Member Portal Design</h3>
+                    <p>We design a high-energy, mobile-friendly website tailored to your gym's brand colors that loads fast on every member's smartphone.</p>
                 </div>
 
                 <!-- Step 3 -->
                 <div class="roadmap-card fade-in">
                     <span class="roadmap-step-pill">Step 03 &bull; Week 2</span>
-                    <h3>Turnstile Controller &amp; Biometric Link</h3>
-                    <p>We connect your gate controller with the software so member fingerprint or face scans unlock the gate in under 0.4 seconds.</p>
+                    <h3>Diet Plans &amp; Supplement Store Setup</h3>
+                    <p>We configure diet chart templates, workout routines, and set up your online supplement store catalog with 1-click WhatsApp checkout.</p>
                 </div>
 
                 <!-- Step 4 -->
                 <div class="roadmap-card fade-in">
                     <span class="roadmap-step-pill">Step 04 &bull; Week 3</span>
-                    <h3>WhatsApp Bot &amp; UPI Payment Integration</h3>
-                    <p>We activate automated WhatsApp renewal reminders and embed dynamic UPI QR codes that update memberships upon payment.</p>
+                    <h3>WhatsApp Alerts &amp; Direct UPI Linking</h3>
+                    <p>We activate automated WhatsApp fee renewal alerts and link your direct UPI QR code so member fees go straight into your bank account.</p>
                 </div>
 
                 <!-- Step 5 -->
                 <div class="roadmap-card fade-in">
-                    <span class="roadmap-step-pill">Step 05 &bull; Week 4</span>
-                    <h3>Trainer PT Logs &amp; Workout Module</h3>
-                    <p>We set up trainer commission slabs, session counters, and digital diet plans so your coaches can start using them immediately.</p>
-                </div>
-
-                <!-- Step 6 -->
-                <div class="roadmap-card fade-in">
-                    <span class="roadmap-step-pill">Step 06 &bull; Week 5 Onward</span>
-                    <h3>Staff Training &amp; Smooth Go-Live</h3>
-                    <p>We train receptionists, managers, and accountants on the system, delivering lifetime software ownership with ongoing technical support.</p>
+                    <span class="roadmap-step-pill">Step 05 &bull; Week 4 Onward</span>
+                    <h3>Staff Walkthrough &amp; Smooth Go-Live</h3>
+                    <p>We provide a simple 15-minute walkthrough for your front desk staff, hand over 100% lifetime code ownership, and launch your portal.</p>
                 </div>
             </div>
         </div>
@@ -2545,7 +2150,7 @@ body.menu-open .floating-contact-pill {
             <div class="section-header fade-in">
                 <span class="section-label">Honest Answers</span>
                 <h2 class="section-title">Frequently Asked Questions <span class="gradient-text">By Gym Owners</span></h2>
-                <p class="section-desc">Clear, direct answers about turnstile gates, WhatsApp renewals, pricing, and lifetime ownership.</p>
+                <p class="section-desc">Clear, direct answers about gym websites, membership plans, WhatsApp fee renewals, and lifetime ownership.</p>
             </div>
 
             <div class="faq-container">
@@ -2563,7 +2168,7 @@ body.menu-open .floating-contact-pill {
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Yes, 100%. Unlike monthly rental apps that charge ₹2,000–₹5,000 every month, we provide a one-time setup fee with 100% lifetime ownership. Your data stays on your own server and you never pay monthly rent. Check out our guide on <a href="blog/why-gyms-and-fitness-studios-need-a-website.html" style="color:var(--accent); text-decoration:underline; font-weight:700;">how a modern website helps gyms get more members</a>, and read <a href="blog/why-custom-software-beats-off-the-shelf-tools.html" style="color:var(--accent); text-decoration:underline;">why custom software beats monthly subscriptions</a>.
+                            Yes, 100%. Unlike subscription platforms that charge ₹2,000 to ₹5,000 every month, we build custom gym websites and member portals for an affordable one-time development fee with 100% lifetime code ownership. Your data stays on your private server and you never pay recurring monthly software rent. Check out our guide on <a href="blog/why-gyms-and-fitness-studios-need-a-website.html" style="color:var(--accent); text-decoration:underline; font-weight:700;">how a modern website helps gyms get more members</a>, and read <a href="blog/why-custom-software-beats-off-the-shelf-tools.html" style="color:var(--accent); text-decoration:underline;">why custom software beats monthly subscriptions</a>.
                         </div>
                     </div>
                 </div>
@@ -2574,15 +2179,15 @@ body.menu-open .floating-contact-pill {
                         <div class="faq-q-left">
                             <div class="faq-num-badge">02</div>
                             <div class="faq-q-content">
-                                <span class="faq-category-pill pill-purple"><i class="fas fa-door-closed"></i> Biometric Turnstiles</span>
-                                <div class="faq-q-title">How does the biometric turnstile gate automatically lock on membership expiry?</div>
+                                <span class="faq-category-pill pill-purple"><i class="fas fa-globe"></i> Member Growth</span>
+                                <div class="faq-q-title">How does a modern gym website help attract more walk-in members?</div>
                             </div>
                         </div>
                         <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            The software connects directly with your biometric device (ZKTeco, eSSL, Realtime). When a member scans their finger, face, or card, the system validates their plan in under 0.4 seconds. If their plan has expired, the barrier stays locked and alerts the front desk politely.
+                            When people in your area search Google for "best gym near me", a fast, professional website showcasing your gym equipment, clean locker rooms, certified coaches, and transparent membership packages builds instant trust. Our 1-day free trial pass form captures high-intent local inquiries straight to your reception WhatsApp.
                         </div>
                     </div>
                 </div>
@@ -2594,14 +2199,14 @@ body.menu-open .floating-contact-pill {
                             <div class="faq-num-badge">03</div>
                             <div class="faq-q-content">
                                 <span class="faq-category-pill pill-emerald"><i class="fab fa-whatsapp"></i> WhatsApp Renewals</span>
-                                <div class="faq-q-title">How do automated WhatsApp fee renewal alerts and dynamic UPI links work?</div>
+                                <div class="faq-q-title">How do automated WhatsApp fee renewal alerts and UPI QR payments work?</div>
                             </div>
                         </div>
                         <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Members receive friendly WhatsApp reminders 7 days, 3 days, and 1 day before their plan ends. The message includes an instant UPI QR code. Once paid, their gate access is renewed automatically.
+                            Members receive friendly WhatsApp reminders 3 days before their plan expires. The message includes an instant UPI QR code so members can pay in seconds from Google Pay, PhonePe, or Paytm. Once paid, the payment is logged in your dashboard and a digital invoice receipt is sent automatically.
                         </div>
                     </div>
                 </div>
@@ -2612,15 +2217,15 @@ body.menu-open .floating-contact-pill {
                         <div class="faq-q-left">
                             <div class="faq-num-badge">04</div>
                             <div class="faq-q-content">
-                                <span class="faq-category-pill pill-amber"><i class="fas fa-user-tie"></i> Trainer PT Payouts</span>
-                                <div class="faq-q-title">Can the software track personal trainer (PT) sessions and calculate commissions?</div>
+                                <span class="faq-category-pill pill-amber"><i class="fas fa-apple-whole"></i> Diet &amp; Workouts</span>
+                                <div class="faq-q-title">Can personal trainers upload and share custom diet and workout plans?</div>
                             </div>
                         </div>
                         <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Yes. The software logs each PT session when the member checks in. You can set percentage splits (such as 60/40) or fixed fees per session, and trainers can see their verified session totals on their own screen.
+                            Yes, absolutely. Trainers can select from pre-made meal templates (muscle gain, fat loss, keto, vegetarian) or create customized daily workout split routines for individual members, delivering them directly to their phones without messy paper charts.
                         </div>
                     </div>
                 </div>
@@ -2631,15 +2236,15 @@ body.menu-open .floating-contact-pill {
                         <div class="faq-q-left">
                             <div class="faq-num-badge">05</div>
                             <div class="faq-q-content">
-                                <span class="faq-category-pill pill-pink"><i class="fas fa-wifi"></i> Offline Functionality</span>
-                                <div class="faq-q-title">Will the turnstile barrier and member check-in work if the internet goes down?</div>
+                                <span class="faq-category-pill pill-cyan"><i class="fas fa-bottle-water"></i> Supplements Store</span>
+                                <div class="faq-q-title">Can we sell supplements and gym accessories directly through the website?</div>
                             </div>
                         </div>
                         <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Yes. The system runs locally on your gym PC via LAN, so members can check in and turnstiles will operate even during internet outages. When connection returns, records sync automatically.
+                            Yes! We integrate an in-house online store where members can browse whey protein, pre-workouts, creatine, multivitamins, shaker bottles, and gym wear. Orders can be placed directly with 1-click WhatsApp checkout for counter pickup or delivery.
                         </div>
                     </div>
                 </div>
@@ -2650,15 +2255,15 @@ body.menu-open .floating-contact-pill {
                         <div class="faq-q-left">
                             <div class="faq-num-badge">06</div>
                             <div class="faq-q-content">
-                                <span class="faq-category-pill pill-blue"><i class="fas fa-dumbbell"></i> Fitness Formats</span>
-                                <div class="faq-q-title">Is this software suitable for CrossFit, Yoga, MMA academies, and Pilates studios?</div>
+                                <span class="faq-category-pill pill-purple"><i class="fas fa-user-tie"></i> Trainer PT Payouts</span>
+                                <div class="faq-q-title">Can the software track personal trainer (PT) sessions and calculate commissions?</div>
                             </div>
                         </div>
                         <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Yes. Along with traditional gyms, we configure batch slot booking and capacity limits for CrossFit boxes, yoga studios, MMA academies, and Pilates centers.
+                            Yes. The portal allows trainers and front desk staff to log completed PT sessions digitally. You can configure percentage splits (such as 60/40) or fixed fees per session, with transparent monthly payout summaries that eliminate disputes completely.
                         </div>
                     </div>
                 </div>
@@ -2689,7 +2294,7 @@ body.menu-open .floating-contact-pill {
                             <div class="faq-num-badge">08</div>
                             <div class="faq-q-content">
                                 <span class="faq-category-pill pill-purple"><i class="fas fa-location-dot"></i> Delhi NCR Support</span>
-                                <div class="faq-q-title">Do you provide gym management software development in Delhi NCR and Okhla?</div>
+                                <div class="faq-q-title">Do you provide gym website and software development in Delhi NCR and Okhla?</div>
                             </div>
                         </div>
                         <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
@@ -2708,7 +2313,7 @@ body.menu-open .floating-contact-pill {
                             <div class="faq-num-badge">09</div>
                             <div class="faq-q-content">
                                 <span class="faq-category-pill pill-emerald"><i class="fas fa-map-pin"></i> Aligarh &amp; UP Support</span>
-                                <div class="faq-q-title">Do you develop fitness club software in Aligarh and across Uttar Pradesh?</div>
+                                <div class="faq-q-title">Do you develop gym websites and portals in Aligarh and across Uttar Pradesh?</div>
                             </div>
                         </div>
                         <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
@@ -2716,25 +2321,6 @@ body.menu-open .floating-contact-pill {
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
                             Yes! We provide on-ground installation and technical support in Aligarh (Centre Point, Ramghat Road, Civil Lines) as well as Lucknow, Agra, and Meerut.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 10 -->
-                <div class="faq-item fade-in">
-                    <button class="faq-question" type="button" aria-expanded="false">
-                        <div class="faq-q-left">
-                            <div class="faq-num-badge">10</div>
-                            <div class="faq-q-content">
-                                <span class="faq-category-pill pill-amber"><i class="fas fa-boxes-packing"></i> Hardware Compatibility</span>
-                                <div class="faq-q-title">Can your software connect with our existing biometric machine or turnstile?</div>
-                            </div>
-                        </div>
-                        <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            Yes. We support all standard hardware brands including ZKTeco, eSSL, Realtime, BioMax, and Hikvision. You do not need to buy new biometric scanners.
                         </div>
                     </div>
                 </div>
@@ -2764,11 +2350,11 @@ body.menu-open .floating-contact-pill {
     <section class="cta-section">
         <div class="container">
             <div class="cta-box fade-in">
-                <h2>Ready to Automate Your Gym &amp; Stop Fee Leakage?</h2>
-                <p>Get a custom-engineered gym management system with biometric turnstile control, automated WhatsApp alerts, and lifetime ownership.</p>
+                <h2>Ready to Grow Your Gym with a Modern Website &amp; Portal?</h2>
+                <p>Get a custom gym website with online membership packages, personalized diet charts, automated WhatsApp fee renewals, and an in-house supplement store with zero monthly software rent.</p>
                 <div class="cta-buttons">
-                    <a href="#contact" class="btn-primary">Book Your Free Software Demo <i class="fas fa-arrow-right"></i></a>
-                    <a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20want%20to%20automate%20my%20gym%20with%20biometric%20turnstile." class="btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp Us Directly</a>
+                    <a href="#contact" class="btn-primary">Book Your Free Consultation <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20want%20to%20discuss%20a%20website%20and%20portal%20for%20my%20gym." class="btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp Us Directly</a>
                 </div>
             </div>
         </div>
@@ -2823,7 +2409,7 @@ body.menu-open .floating-contact-pill {
                 <div class="contact-form fade-in">
                     <form action="https://formsubmit.co/contact@techminddevelopers.in" method="POST" id="contactForm">
                         <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_subject" value="New Gym &amp; Fitness Management Software Inquiry!">
+                        <input type="hidden" name="_subject" value="New Gym &amp; Fitness Website Inquiry!">
                         <input type="hidden" name="_next" value="https://techminddevelopers.in/gym-fitness-management-software.html">
                         <div class="form-row">
                             <div class="form-group">
@@ -2846,8 +2432,8 @@ body.menu-open .floating-contact-pill {
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="message">What challenges are taking up too much time or causing headaches?</label>
-                            <textarea id="message" name="message" placeholder="e.g. Members enter after plan expiry, manual attendance register is messy, tracking trainer PT commission is hard, or paying high monthly software rent..." required></textarea>
+                            <label for="message">What features do you need for your gym?</label>
+                            <textarea id="message" name="message" placeholder="e.g. Show membership plans, online registration, diet and workout plans, WhatsApp fee renewal reminders, supplement store, or avoiding monthly software rent..." required></textarea>
                         </div>
                         <div id="formStatusMsg" style="display: none; padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; font-size: 0.92rem; text-align: center;"></div>
                         <button type="submit" class="btn-primary" id="submitBtn" style="width:100%;justify-content:center">
@@ -2861,7 +2447,7 @@ body.menu-open .floating-contact-pill {
 
     <!-- FLOATING ACTIONS (Identical Template) -->
     <div class="floating-contact-pill" id="floatingContact">
-        <a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20want%20to%20inquire%20about%20Gym%20Management%20Software." target="_blank" rel="noopener noreferrer" class="float-btn float-wa" aria-label="Chat on WhatsApp" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20want%20to%20inquire%20about%20Gym%20Website%20and%20Member%20Portal." target="_blank" rel="noopener noreferrer" class="float-btn float-wa" aria-label="Chat on WhatsApp" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
         <a href="tel:+917835019421" class="float-btn float-call" aria-label="Call Us Now" title="Call Us: +91-7835019421"><i class="fas fa-phone"></i></a>
     </div>
 
@@ -2904,7 +2490,7 @@ body.menu-open .floating-contact-pill {
         },
         {
           "@type": "SoftwareApplication",
-          "name": "Tech Mind Gym & Fitness Management Solution India",
+          "name": "Tech Mind Gym & Fitness Website & Management Portal India",
           "operatingSystem": "Web, Windows, Linux, Android, iOS",
           "applicationCategory": "BusinessApplication",
           "offers": {
@@ -2914,17 +2500,17 @@ body.menu-open .floating-contact-pill {
             "description": "Custom one-time lifetime license with no recurring monthly software rent."
           },
           "featureList": [
-            "Biometric turnstile gate auto-lock on membership expiry",
-            "ZKTeco and eSSL TCP/IP hardware integration",
+            "Membership package showcase and 1-day free trial pass lead capture",
+            "Personalized diet charts and workout routine sharing",
             "Automated WhatsApp fee renewal reminders with UPI QR code",
-            "Personal trainer PT session and commission tracking",
-            "Diet and workout routine sharing via WhatsApp",
-            "Multi-branch gym central administration"
+            "In-house supplement and gym merchandise online store",
+            "Certified personal trainer profile showcase and PT session tracking",
+            "Complete lifetime code ownership with zero monthly software rent"
           ]
         },
         {
           "@type": "ExerciseGym",
-          "name": "Tech Mind Developers - Gym Management Software Developers India",
+          "name": "Tech Mind Developers - Gym Website & Portal Developers India",
           "url": "https://techminddevelopers.in/gym-fitness-management-software.html",
           "telephone": "+917835019421",
           "address": {
@@ -2944,23 +2530,31 @@ body.menu-open .floating-contact-pill {
               "name": "Do we get complete lifetime ownership without paying monthly software rent?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, 100%. We provide gym software without monthly rent for an affordable one-time development fee with lifetime ownership and private database control."
+                "text": "Yes, 100%. We build custom gym websites and member portals for an affordable one-time development fee with lifetime code ownership and zero recurring monthly software rent."
               }
             },
             {
               "@type": "Question",
-              "name": "How does the biometric turnstile gate automatically lock on membership expiry?",
+              "name": "How does a modern gym website help attract more walk-in members?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Our software links with your biometric machine (ZKTeco, eSSL, Realtime). When a member scans their finger, face, or card, the system validates their plan status in under 0.4 seconds. If their plan has expired, the gate stays locked and alerts the front desk."
+                "text": "A fast, professional website showcasing your gym equipment, clean facilities, certified trainers, and transparent membership packages builds instant trust. Our 1-day free trial pass form captures high-intent local inquiries straight to your reception WhatsApp."
               }
             },
             {
               "@type": "Question",
-              "name": "How do automated WhatsApp fee renewal alerts and dynamic UPI links work?",
+              "name": "How do automated WhatsApp fee renewal alerts and UPI QR payments work?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Members receive automated WhatsApp reminders with an instant dynamic UPI QR code. Once paid, the system verifies the payment and reactivates their turnstile entry immediately."
+                "text": "Members receive friendly WhatsApp reminders 3 days before their plan ends, complete with an instant UPI QR code. Once paid, the payment is recorded in your dashboard and a digital invoice receipt is sent automatically."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can we sell supplements and gym accessories directly through the website?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! We integrate an in-house online store where members can browse whey protein, pre-workouts, shaker bottles, and gym apparel with instant 1-click WhatsApp order checkout."
               }
             }
           ]
@@ -3120,55 +2714,6 @@ body.menu-open .floating-contact-pill {
         });
     });
 
-    // Interactive Biometric Turnstile Simulator
-    const memberCards = document.querySelectorAll('.member-sim-card');
-    const gateIcon = document.getElementById('gateIcon');
-    const gateStatusTitle = document.getElementById('gateStatusTitle');
-    const gateSubMsg = document.getElementById('gateSubMsg');
-    const dispMemberName = document.getElementById('dispMemberName');
-    const dispMemberPlan = document.getElementById('dispMemberPlan');
-    const dispMemberExpiry = document.getElementById('dispMemberExpiry');
-    const dispGateState = document.getElementById('dispGateState');
-    const dispWaMessage = document.getElementById('dispWaMessage');
-
-    memberCards.forEach(card => {
-        card.addEventListener('click', () => {
-            memberCards.forEach(c => c.classList.remove('active'));
-            card.classList.add('active');
-
-            const name = card.getAttribute('data-name');
-            const plan = card.getAttribute('data-plan');
-            const expiry = card.getAttribute('data-expiry');
-            const status = card.getAttribute('data-status');
-            const gate = card.getAttribute('data-gate');
-            const sub = card.getAttribute('data-sub');
-            const wa = card.getAttribute('data-wa');
-
-            dispMemberName.textContent = name;
-            dispMemberPlan.textContent = plan;
-            dispMemberExpiry.textContent = expiry;
-            gateSubMsg.textContent = sub;
-            dispWaMessage.textContent = wa;
-
-            if (status === 'active' || status === 'pt') {
-                gateIcon.className = 'turnstile-icon-wrap';
-                gateIcon.innerHTML = '<i class="fas fa-lock-open"></i>';
-                gateStatusTitle.textContent = 'ACCESS GRANTED';
-                gateStatusTitle.style.color = '#10b981';
-                dispMemberExpiry.style.color = '#10b981';
-                dispGateState.textContent = 'UNLOCKED (Trip Pulse Active)';
-                dispGateState.style.color = '#10b981';
-            } else {
-                gateIcon.className = 'turnstile-icon-wrap locked';
-                gateIcon.innerHTML = '<i class="fas fa-lock"></i>';
-                gateStatusTitle.textContent = 'ACCESS DENIED - EXPIRED';
-                gateStatusTitle.style.color = '#ef4444';
-                dispMemberExpiry.style.color = '#ef4444';
-                dispGateState.textContent = 'LOCKED (Auto-Trip Suppressed)';
-                dispGateState.style.color = '#ef4444';
-            }
-        });
-    });
 
     // AJAX Form Submission
     const contactForm = document.getElementById('contactForm');
