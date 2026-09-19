@@ -82,6 +82,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
+
 /* ===== DARK THEME (default) ===== */
 :root, [data-theme="dark"] {
     --bg-primary: #0a0a0f;
@@ -1404,92 +1405,372 @@ body.menu-open .floating-contact-pill {
 }
 
     
-/* Pathology Interactive Simulator inside Preview Card Box */
-.sim-param-row {
+
+/* ==================== ADDITIONAL SERVICE STYLES ==================== */
+
+
+/* Simple, Human-Centric Service Page Styles */
+
+/* Real-Life Business Problems Grid */
+.pain-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 36px;
+}
+.pain-card {
+    background: linear-gradient(180deg, rgba(239, 68, 68, 0.05) 0%, rgba(15, 23, 42, 0.7) 100%);
+    border: 1px solid rgba(239, 68, 68, 0.22);
+    border-radius: var(--radius);
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+.pain-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(239, 68, 68, 0.45);
+    box-shadow: 0 12px 30px rgba(239, 68, 68, 0.12);
+}
+.pain-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    font-size: 0.84rem;
+    justify-content: center;
+    font-size: 1.15rem;
+    margin-bottom: 16px;
 }
-[data-theme="light"] .sim-param-row {
-    border-bottom-color: rgba(0,0,0,0.06);
-}
-.sim-param-name {
-    color: var(--text-primary);
-    font-weight: 600;
-}
-.sim-param-ref {
-    font-size: 0.74rem;
-    color: var(--text-muted);
-    margin-top: 1px;
-}
-.sim-param-val {
+.pain-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f87171;
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
     gap: 8px;
 }
-.sim-input {
-    width: 65px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 4px 8px;
-    color: var(--text-primary);
-    font-size: 0.82rem;
-    text-align: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 600;
+.pain-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 14px;
+}
+.pain-solution {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.86rem;
+    font-weight: 500;
+    color: #e2e8f0;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.28);
+    padding: 12px 14px;
+    border-radius: 10px;
+    line-height: 1.55;
+}
+.pain-solution strong {
+    color: #34d399;
+    display: block;
+    margin-bottom: 2px;
+}
+.pain-solution i {
+    margin-top: 3px;
+    color: #10b981;
+    font-size: 0.95rem;
+}
+
+[data-theme="light"] .pain-card {
+    background: #ffffff;
+    border-color: rgba(239, 68, 68, 0.2);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+[data-theme="light"] .pain-solution {
+    background: rgba(16, 185, 129, 0.08);
+    color: #1e293b;
+}
+
+/* What We Build (Modules) Grid */
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 36px;
+}
+.module-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 30px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+}
+.module-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+}
+.module-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 18px;
     transition: var(--transition);
 }
-[data-theme="light"] .sim-input {
-    background: #f1f5f9;
-    border-color: #cbd5e1;
-}
-.sim-input:focus {
-    outline: none;
-    border-color: var(--accent-cyan);
-}
-.sim-badge {
-    font-size: 0.72rem;
+.module-card h3 {
+    font-size: 1.1rem;
     font-weight: 700;
-    padding: 3px 8px;
-    border-radius: 4px;
-    min-width: 80px;
-    text-align: center;
+    margin-bottom: 10px;
 }
-.sim-badge.normal {
+.module-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+.module-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.84rem;
+}
+.module-features li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+}
+.module-features li i {
+    font-size: 0.75rem;
+}
+
+/* Module Color Themes */
+.module-blue { border-color: rgba(59,130,246,0.22); background: linear-gradient(180deg, rgba(59,130,246,0.06) 0%, rgba(15,23,42,0.7) 100%); }
+.module-blue::before { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+.module-blue .module-icon { background: rgba(59,130,246,0.15); color: #60a5fa; border: 1px solid rgba(59,130,246,0.3); }
+.module-blue .module-features li i { color: #60a5fa; }
+.module-blue:hover { transform: translateY(-5px); border-color: rgba(59,130,246,0.55); box-shadow: 0 14px 35px rgba(59,130,246,0.18); }
+
+.module-pink { border-color: rgba(236,72,153,0.22); background: linear-gradient(180deg, rgba(236,72,153,0.06) 0%, rgba(15,23,42,0.7) 100%); }
+.module-pink::before { background: linear-gradient(90deg, #ec4899, #f472b6); }
+.module-pink .module-icon { background: rgba(236,72,153,0.15); color: #f472b6; border: 1px solid rgba(236,72,153,0.3); }
+.module-pink .module-features li i { color: #f472b6; }
+.module-pink:hover { transform: translateY(-5px); border-color: rgba(236,72,153,0.55); box-shadow: 0 14px 35px rgba(236,72,153,0.18); }
+
+.module-emerald { border-color: rgba(16,185,129,0.22); background: linear-gradient(180deg, rgba(16,185,129,0.06) 0%, rgba(15,23,42,0.7) 100%); }
+.module-emerald::before { background: linear-gradient(90deg, #10b981, #34d399); }
+.module-emerald .module-icon { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
+.module-emerald .module-features li i { color: #34d399; }
+.module-emerald:hover { transform: translateY(-5px); border-color: rgba(16,185,129,0.55); box-shadow: 0 14px 35px rgba(16,185,129,0.18); }
+
+.module-cyan { border-color: rgba(6,182,212,0.22); background: linear-gradient(180deg, rgba(6,182,212,0.06) 0%, rgba(15,23,42,0.7) 100%); }
+.module-cyan::before { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+.module-cyan .module-icon { background: rgba(6,182,212,0.15); color: #22d3ee; border: 1px solid rgba(6,182,212,0.3); }
+.module-cyan .module-features li i { color: #22d3ee; }
+.module-cyan:hover { transform: translateY(-5px); border-color: rgba(6,182,212,0.55); box-shadow: 0 14px 35px rgba(6,182,212,0.18); }
+
+.module-amber { border-color: rgba(245,158,11,0.22); background: linear-gradient(180deg, rgba(245,158,11,0.06) 0%, rgba(15,23,42,0.7) 100%); }
+.module-amber::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.module-amber .module-icon { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
+.module-amber .module-features li i { color: #fbbf24; }
+.module-amber:hover { transform: translateY(-5px); border-color: rgba(245,158,11,0.55); box-shadow: 0 14px 35px rgba(245,158,11,0.18); }
+
+.module-purple { border-color: rgba(139,92,246,0.22); background: linear-gradient(180deg, rgba(139,92,246,0.06) 0%, rgba(15,23,42,0.7) 100%); }
+.module-purple::before { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+.module-purple .module-icon { background: rgba(139,92,246,0.15); color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
+.module-purple .module-features li i { color: #a78bfa; }
+.module-purple:hover { transform: translateY(-5px); border-color: rgba(139,92,246,0.55); box-shadow: 0 14px 35px rgba(139,92,246,0.18); }
+
+[data-theme="light"] .module-card { background: #ffffff; }
+
+/* Friendly Hero Preview Box */
+.preview-card-box {
+    background: var(--bg-card);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    backdrop-filter: blur(12px);
+    position: relative;
+    overflow: hidden;
+}
+.preview-card-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+}
+.preview-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--glass-border);
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+.preview-live-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
     background: rgba(16, 185, 129, 0.15);
     color: #10b981;
-    border: 1px solid rgba(16, 185, 129, 0.35);
+    font-size: 0.74rem;
 }
-.sim-badge.abnormal {
-    background: rgba(239, 68, 68, 0.15);
-    color: #ef4444;
-    border: 1px solid rgba(239, 68, 68, 0.35);
+.preview-metric-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
 }
-.sim-wa-bubble {
-    display: none;
-    margin-top: 14px;
-    background: #054740;
-    color: #e9edef;
-    border-radius: 12px;
-    padding: 12px 14px;
+.preview-metric {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+}
+.preview-metric h5 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--accent-blue);
+}
+.preview-metric span {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+}
+.preview-activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     font-size: 0.82rem;
-    line-height: 1.45;
-    border-left: 4px solid #25d366;
-    animation: simPop 0.3s ease;
 }
-[data-theme="light"] .sim-wa-bubble {
-    background: #dcf8c6;
-    color: #0f172a;
+.preview-activity-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 10px 12px;
+    border-radius: 8px;
 }
-@keyframes simPop {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
+.preview-act-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
 }
-</style>
+.preview-act-left i { font-size: 0.9rem; }
+.preview-status-pill {
+    font-size: 0.72rem;
+    padding: 3px 9px;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+}
+.status-done { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+.status-sync { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+
+/* 3-Step Simple Roadmap */
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 36px;
+}
+.roadmap-card {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 28px 22px;
+    position: relative;
+    transition: var(--transition);
+}
+.roadmap-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-blue);
+    box-shadow: 0 12px 30px rgba(56, 189, 248, 0.12);
+}
+.roadmap-step-pill {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-size: 0.74rem;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--accent-blue);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    margin-bottom: 14px;
+}
+.roadmap-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.roadmap-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+    .modules-grid { grid-template-columns: repeat(2, 1fr); }
+    .roadmap-grid { grid-template-columns: 1fr; }
+    .pain-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+    .modules-grid { grid-template-columns: 1fr; }
+    .preview-metric-row {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    .preview-metric {
+        padding: 10px 4px;
+    }
+    .preview-metric h5 {
+        font-size: 0.98rem;
+        margin-bottom: 2px;
+    }
+    .preview-metric span {
+        font-size: 0.66rem;
+        line-height: 1.25;
+        display: block;
+    }
+}
+@media (max-width: 380px) {
+    .preview-metric-row {
+        gap: 6px;
+    }
+    .preview-metric {
+        padding: 8px 2px;
+    }
+    .preview-metric h5 {
+        font-size: 0.88rem;
+    }
+    .preview-metric span {
+        font-size: 0.60rem;
+    }
+}
+
+    </style>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -1503,7 +1784,7 @@ body.menu-open .floating-contact-pill {
     <div class="bg-glow bg-glow-2"></div>
     <div class="bg-glow bg-glow-3"></div>
 
-    <!-- NAVBAR (Identical Uniform Template) -->
+    <!-- NAVBAR (Identical to Core Service Pages) -->
     <nav class="navbar" id="navbar">
         <div class="container">
             <a href="index.html" class="nav-logo">
@@ -1516,7 +1797,7 @@ body.menu-open .floating-contact-pill {
                 <li><a href="#delivery" onclick="closeMenu()"><span class="nav-link-main"><i class="fas fa-timeline nav-icon nav-icon-cyan"></i><span class="nav-label">How It Works</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
                 <li><a href="#faq" onclick="closeMenu()"><span class="nav-link-main"><i class="fas fa-circle-question nav-icon nav-icon-purple"></i><span class="nav-label">FAQ</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
                 <li><a href="#contact" onclick="closeMenu()"><span class="nav-link-main"><i class="fas fa-envelope nav-icon nav-icon-amber"></i><span class="nav-label">Contact</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
-                <li class="nav-cta-item"><a href="#contact" class="nav-cta" onclick="closeMenu()"><span>Book a Live Demo</span><i class="fas fa-arrow-right nav-cta-arrow"></i></a></li>
+                <li class="nav-cta-item"><a href="#contact" class="nav-cta" onclick="closeMenu()"><span>Get a Free Demo</span><i class="fas fa-arrow-right nav-cta-arrow"></i></a></li>
             </ul>
             <div class="nav-right">
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
@@ -1526,30 +1807,30 @@ body.menu-open .floating-contact-pill {
     </nav>
     <div class="nav-overlay" id="navOverlay"></div>
 
-    <!-- HERO SECTION (Identical 2-Column Template with Interactive Preview Card) -->
+    <!-- HERO SECTION (Identical 2-Column Grid with Native Preview Card) -->
     <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge"><span class="pulse"></span>Custom Pathology Lab Software (LIMS)</div>
                 <h1>
                     <span class="static-line">Automate Your Diagnostic Lab.</span>
-                    <span class="dynamic-line"><span class="gradient-text">Deliver Accurate Reports on WhatsApp in 1-Click.</span></span>
+                    <span class="dynamic-line"><span class="gradient-text">Deliver Reports on WhatsApp in 1-Click.</span></span>
                 </h1>
                 <p>Looking for a reliable <strong>pathology lab management software (LIMS)</strong> to replace slow manual Word report typing and evening counter queues? We engineer high-speed diagnostic lab software featuring barcode vacutainer tracking, auto-highlighted normal/abnormal ranges, doctor referral commission ledgers, and instant WhatsApp PDF delivery. 100% source code ownership with <strong>zero monthly software rent</strong>.</p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn-primary">Book a Live Lab Demo <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn-primary">Tell Us What You Need <i class="fas fa-arrow-right"></i></a>
                     <a href="#modules" class="btn-secondary"><i class="fas fa-cubes"></i> See What We Build</a>
                 </div>
             </div>
             <div class="hero-visual">
-                <!-- What Your LIMS Actually Looks Like (Interactive Simulator) -->
+                <!-- What Your LIMS Actually Looks Like (Native Signature Card) -->
                 <div class="preview-card-box">
                     <div class="preview-bar">
                         <div style="display:flex;align-items:center;gap:8px">
-                            <i class="fas fa-flask" style="color:var(--accent-cyan)"></i>
-                            <span>Live LIMS Test &amp; WhatsApp Simulator</span>
+                            <i class="fas fa-flask" style="color:var(--accent-blue)"></i>
+                            <span>What Your Lab Dashboard Looks Like</span>
                         </div>
-                        <span class="preview-live-tag"><i class="fas fa-circle" style="font-size:6px"></i> Interactive</span>
+                        <span class="preview-live-tag"><i class="fas fa-circle" style="font-size:6px"></i> 100% Automated</span>
                     </div>
 
                     <div class="preview-metric-row">
@@ -1558,80 +1839,49 @@ body.menu-open .floating-contact-pill {
                             <span>No Monthly Rent</span>
                         </div>
                         <div class="preview-metric">
-                            <h5>100%</h5>
-                            <span>Barcode Safe</span>
-                        </div>
-                        <div class="preview-metric">
                             <h5>1-Click</h5>
                             <span>WhatsApp Delivery</span>
                         </div>
-                    </div>
-
-                    <!-- Live Interactive Lab Parameter Inputs -->
-                    <div style="margin-top:14px;">
-                        <div style="font-size:0.78rem;color:var(--accent-cyan);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">
-                            <i class="fas fa-sliders"></i> Test Parameters (Try Changing Numbers):
-                        </div>
-
-                        <div class="sim-param-row">
-                            <div>
-                                <div class="sim-param-name">Hemoglobin (Hb)</div>
-                                <div class="sim-param-ref">Ref: 13.0 – 17.0 g/dL</div>
-                            </div>
-                            <div class="sim-param-val">
-                                <input type="number" id="simHb" class="sim-input" value="11.4" step="0.1" oninput="updateLabFlags()">
-                                <span id="badgeHb" class="sim-badge abnormal">Low (Abnormal)</span>
-                            </div>
-                        </div>
-
-                        <div class="sim-param-row">
-                            <div>
-                                <div class="sim-param-name">Fasting Blood Sugar</div>
-                                <div class="sim-param-ref">Ref: 70 – 100 mg/dL</div>
-                            </div>
-                            <div class="sim-param-val">
-                                <input type="number" id="simSugar" class="sim-input" value="94" step="1" oninput="updateLabFlags()">
-                                <span id="badgeSugar" class="sim-badge normal">Normal</span>
-                            </div>
-                        </div>
-
-                        <div class="sim-param-row">
-                            <div>
-                                <div class="sim-param-name">Serum Creatinine</div>
-                                <div class="sim-param-ref">Ref: 0.7 – 1.3 mg/dL</div>
-                            </div>
-                            <div class="sim-param-val">
-                                <input type="number" id="simCreat" class="sim-input" value="1.8" step="0.1" oninput="updateLabFlags()">
-                                <span id="badgeCreat" class="sim-badge abnormal">High (Abnormal)</span>
-                            </div>
+                        <div class="preview-metric">
+                            <h5>100%</h5>
+                            <span>Barcode Accurate</span>
                         </div>
                     </div>
 
-                    <!-- WhatsApp Dispatch Simulator Button -->
-                    <button type="button" class="btn-primary" id="simDispatchBtn" onclick="triggerSimWhatsApp()" style="width:100%;margin-top:14px;padding:9px;font-size:0.84rem;justify-content:center;">
-                        <i class="fab fa-whatsapp" style="color:#25d366;"></i> Deliver Report PDF to WhatsApp
-                    </button>
-
-                    <!-- Animated WhatsApp Delivery Bubble -->
-                    <div class="sim-wa-bubble" id="simWaBubble">
-                        <div style="font-weight:700;display:flex;align-items:center;gap:6px;margin-bottom:4px;">
-                            <i class="fab fa-whatsapp"></i> WhatsApp Delivery (Sent Instantly):
+                    <div class="preview-activity-list">
+                        <div class="preview-activity-item">
+                            <div class="preview-act-left">
+                                <i class="fas fa-barcode" style="color:#60a5fa"></i>
+                                <span>Barcode Vial Scanned: EDTA Tube #ED-8841</span>
+                            </div>
+                            <span class="preview-status-pill status-done">Verified</span>
                         </div>
-                        <div>
-                            "Dear Rajesh Kumar, your Blood Test Report (Lab ID: <strong>#TMD-9821</strong>) is approved by Pathologist. Click to view certified PDF: 📄 <strong>Diagnostic_Report.pdf</strong> (142 KB)"
+                        <div class="preview-activity-item">
+                            <div class="preview-act-left">
+                                <i class="fas fa-heart-pulse" style="color:#34d399"></i>
+                                <span>Auto-Flag: Fasting Glucose 94 mg/dL (Normal)</span>
+                            </div>
+                            <span class="preview-status-pill status-done">Checked</span>
+                        </div>
+                        <div class="preview-activity-item">
+                            <div class="preview-act-left">
+                                <i class="fab fa-whatsapp" style="color:#25d366"></i>
+                                <span>WhatsApp Delivery: Certified PDF Sent to Patient</span>
+                            </div>
+                            <span class="preview-status-pill status-done">Delivered</span>
                         </div>
                     </div>
 
-                    <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--glass-border);display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--text-muted)">
-                        <span><i class="fas fa-lock" style="color:var(--accent-emerald)"></i> 100% private patient health records on your private server</span>
-                        <span style="color:var(--accent-cyan);font-weight:600">NABL Ready</span>
+                    <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--glass-border);display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:var(--text-muted)">
+                        <span><i class="fas fa-shield-halved" style="color:var(--accent-emerald)"></i> Confidential patient health records stay on your private server</span>
+                        <span style="color:var(--accent-blue);font-weight:600">NABL Ready</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 1: SOUNDS FAMILIAR? PROBLEMS WE SOLVE (Identical Template) -->
+    <!-- SECTION 1: SOUNDS FAMILIAR? PROBLEMS WE SOLVE -->
     <section class="services" id="problems" style="padding-top:20px">
         <div class="container">
             <div class="section-header fade-in">
@@ -1704,7 +1954,7 @@ body.menu-open .floating-contact-pill {
         </div>
     </section>
 
-    <!-- SECTION 2: WHAT WE BUILD (Modules Grid - Identical Template) -->
+    <!-- SECTION 2: WHAT WE BUILD (Exact Modules Grid) -->
     <section class="services" id="modules">
         <div class="container">
             <div class="section-header fade-in">
@@ -1789,7 +2039,7 @@ body.menu-open .floating-contact-pill {
         </div>
     </section>
 
-    <!-- SECTION 3: HOW IT WORKS (Roadmap Grid - Identical Template) -->
+    <!-- SECTION 3: HOW IT WORKS (Roadmap Grid) -->
     <section class="process-section" id="delivery">
         <div class="container">
             <div class="section-header fade-in">
@@ -1820,7 +2070,7 @@ body.menu-open .floating-contact-pill {
         </div>
     </section>
 
-    <!-- SECTION 4: STRAIGHTFORWARD FAQ (Identical Accordion Template) -->
+    <!-- SECTION 4: STRAIGHTFORWARD FAQ (Accordion) -->
     <section class="faq-section" id="faq">
         <div class="container">
             <div class="section-header fade-in">
@@ -1941,52 +2191,99 @@ body.menu-open .floating-contact-pill {
         </div>
     </section>
 
-    <!-- SECTION 5: CALL TO ACTION (Identical Template) -->
+    <!-- SECTION 5: CALL TO ACTION (Identical to Core Landing Pages) -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-box fade-in">
-                <h2>Ready to Automate Your Pathology Lab &amp; Cut Report Delays?</h2>
-                <p>Tell us your daily test volume and current challenges. We will walk you through a live software demo and provide a clear, one-time investment estimate with zero monthly software rent.</p>
+                <h2>Have a Diagnostic Lab You Want to Modernize?</h2>
+                <p>Tell us your daily test volume and current challenges. We will give you an honest opinion on how custom software can fix it, along with a clear price and timeline.</p>
                 <div class="cta-buttons">
-                    <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Book a Live Lab Demo</a>
+                    <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Tell Us What You Need</a>
                     <a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20want%20to%20discuss%20pathology%20lab%20software." target="_blank" rel="noopener noreferrer" class="btn-secondary"><i class="fab fa-whatsapp"></i> Chat with Us on WhatsApp</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 6: INQUIRY FORM (Identical 2-Column Template) -->
+    <!-- SECTION 6: INQUIRY FORM (100% EXACT MATCH TO CORE LANDING PAGES) -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header fade-in">
-                <span class="section-label">Diagnostic Consultation</span>
-                <h2 class="section-title">Tell Us About <span class="gradient-text">Your Diagnostic Center</span></h2>
-                <p class="section-desc">No pushy sales calls. Tell us your test volume and requirements, and our healthcare software engineers will get back to you within 24 hours.</p>
+                <span class="section-label">Friendly Chat</span>
+                <h2 class="section-title">Tell Us About <span class="gradient-text">Your Project</span></h2>
+                <p class="section-desc">No pushy sales calls. Just tell us what you are trying to solve, and we will get back to you within 24 hours with an honest plan.</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-info fade-in">
-                    <div class="contact-item"><div class="icon"><i class="fas fa-envelope"></i></div><div><h4>Email Us</h4><a href="mailto:contact@techminddevelopers.in">contact@techminddevelopers.in</a></div></div>
-                    <div class="contact-item"><div class="icon"><i class="fas fa-phone"></i></div><div><h4>Call Us Directly</h4><a href="tel:+917835019421">+91-7835019421</a></div></div>
-                    <div class="contact-item"><div class="icon"><i class="fas fa-location-dot"></i></div><div><h4>Our Locations</h4><p>Delhi NCR (Okhla) &bull; Aligarh, UP</p></div></div>
-                    <div class="contact-item"><div class="icon"><i class="fab fa-whatsapp"></i></div><div><h4>WhatsApp Chat</h4><a href="https://wa.me/917835019421" target="_blank">+91-7835019421</a></div></div>
-                    <div class="contact-item"><div class="icon"><i class="fas fa-shield-halved"></i></div><div><h4>Our Promise</h4><p>100% code ownership &bull; Zero monthly software rent</p></div></div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <a href="mailto:contact@techminddevelopers.in">contact@techminddevelopers.in</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Call Us Directly</h4>
+                            <a href="tel:+917835019421">+91-7835019421</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-location-dot"></i></div>
+                        <div>
+                            <h4>Our Locations</h4>
+                            <p>Delhi NCR (Okhla) &bull; Aligarh, UP</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fab fa-whatsapp"></i></div>
+                        <div>
+                            <h4>WhatsApp Chat</h4>
+                            <a href="https://wa.me/917835019421" target="_blank" rel="noopener noreferrer">+91-7835019421</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-shield-halved"></i></div>
+                        <div>
+                            <h4>Our Promise</h4>
+                            <p>100% code ownership &bull; Zero monthly software rent</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="contact-form fade-in">
-                    <form id="contactForm" action="https://formsubmit.co/contact@techminddevelopers.in" method="POST">
+                    <form action="https://formsubmit.co/contact@techminddevelopers.in" method="POST" id="contactForm">
                         <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_subject" value="New Pathology Lab Software Consultation Inquiry!">
+                        <input type="hidden" name="_subject" value="New Pathology Lab Software Inquiry!">
                         <input type="hidden" name="_next" value="https://techminddevelopers.in/pathology-lab-software.html">
                         <div class="form-row">
-                            <div class="form-group"><label for="name">Your Name &amp; Designation</label><input type="text" id="name" name="name" placeholder="Dr. Rajesh Kumar (MD Pathologist)" required></div>
-                            <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="doctor@labname.com" required></div>
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="Tech Mind" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="tech@example.com" required>
+                            </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group"><label for="phone">Phone / WhatsApp Number</label><input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required></div>
-                            <div class="form-group"><label for="subject">Diagnostic Center Name</label><input type="text" id="subject" name="subject" placeholder="e.g. City Diagnostic &amp; Pathology Lab"></div>
+                            <div class="form-group">
+                                <label for="phone">Phone / WhatsApp Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+917835019421" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">What kind of business do you run?</label>
+                                <input type="text" id="subject" name="subject" placeholder="e.g. Manufacturing, Wholesale, Clinic, Retail">
+                            </div>
                         </div>
-                        <div class="form-group"><label for="message">Approx Daily Test Volume &amp; Specific Needs (Machine Interfacing, WhatsApp, Home Collection)</label><textarea id="message" name="message" placeholder="e.g. We test around 150 samples daily, have a Mindray 3-part cell counter, and need WhatsApp PDF report delivery..." required></textarea></div>
+                        <div class="form-group">
+                            <label for="message">What is taking up too much time or causing headaches?</label>
+                            <textarea id="message" name="message" placeholder="e.g. We have too many Excel sheets, stock is hard to track, or our billing takes too long..." required></textarea>
+                        </div>
                         <div id="formStatusMsg" style="display: none; padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; font-size: 0.92rem; text-align: center;"></div>
-                        <button type="submit" id="submitBtn" class="btn-primary" style="width:100%;justify-content:center"><i class="fas fa-paper-plane"></i> Book Live Lab Software Demo</button>
+                        <button type="submit" class="btn-primary" id="submitBtn" style="width:100%;justify-content:center">
+                            <i class="fas fa-paper-plane"></i> Send Me an Estimate
+                        </button>
                     </form>
                 </div>
             </div>
@@ -2130,7 +2427,7 @@ body.menu-open .floating-contact-pill {
     }
     </script>
 
-    <!-- SCRIPTS (Identical Uniform Template + Interactive Lab Simulator) -->
+    <!-- SCRIPTS (Identical to Core Landing Pages) -->
     <script>
     // FAQ Accordion
     document.querySelectorAll('.faq-question').forEach(btn => {
@@ -2217,14 +2514,16 @@ body.menu-open .floating-contact-pill {
             const statusMsg = document.getElementById('formStatusMsg');
             
             btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting Request...';
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             statusMsg.style.display = 'none';
 
             const formData = new FormData(contactForm);
 
             fetch('https://formsubmit.co/ajax/contact@techminddevelopers.in', {
                 method: 'POST',
-                headers: { 'Accept': 'application/json' },
+                headers: {
+                    'Accept': 'application/json'
+                },
                 body: formData
             })
             .then(res => res.json())
@@ -2233,9 +2532,10 @@ body.menu-open .floating-contact-pill {
                 statusMsg.style.background = 'rgba(16, 185, 129, 0.15)';
                 statusMsg.style.border = '1px solid #10b981';
                 statusMsg.style.color = '#10b981';
-                statusMsg.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! We received your lab software inquiry. Our healthcare tech team will contact you within 24 hours.';
+                statusMsg.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! We have received your inquiry. We will review it and get back to you within 24 hours.';
+                
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Book Live Lab Software Demo';
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Me an Estimate';
                 contactForm.reset();
             })
             .catch(err => {
@@ -2243,9 +2543,10 @@ body.menu-open .floating-contact-pill {
                 statusMsg.style.background = 'rgba(239, 68, 68, 0.15)';
                 statusMsg.style.border = '1px solid #ef4444';
                 statusMsg.style.color = '#ef4444';
-                statusMsg.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Something went wrong. Please reach out on WhatsApp directly.';
+                statusMsg.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Oops! Something went wrong. Please try again or email us directly.';
+                
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Book Live Lab Software Demo';
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Me an Estimate';
             });
         });
     }
@@ -2284,85 +2585,24 @@ body.menu-open .floating-contact-pill {
                 });
             }
 
-            sections.forEach(item => {
-                if (activeItem && item.link === activeItem.link) {
-                    item.link.classList.add('active');
-                } else {
-                    item.link.classList.remove('active');
-                }
-            });
-
+            if (activeItem) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                activeItem.link.classList.add('active');
+            } else {
+                navLinks.forEach(l => l.classList.remove('active'));
+            }
             ticking = false;
         }
 
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', function() {
             if (!ticking) {
                 window.requestAnimationFrame(updateScrollSpy);
                 ticking = true;
             }
         }, { passive: true });
 
-        window.requestAnimationFrame(updateScrollSpy);
+        updateScrollSpy();
     })();
-
-    // Interactive Lab Simulator Logic
-    function updateLabFlags() {
-        const hb = parseFloat(document.getElementById('simHb').value) || 0;
-        const sugar = parseFloat(document.getElementById('simSugar').value) || 0;
-        const creat = parseFloat(document.getElementById('simCreat').value) || 0;
-
-        const badgeHb = document.getElementById('badgeHb');
-        if (hb < 13.0) {
-            badgeHb.className = 'sim-badge abnormal';
-            badgeHb.innerText = 'Low (Abnormal)';
-        } else if (hb > 17.0) {
-            badgeHb.className = 'sim-badge abnormal';
-            badgeHb.innerText = 'High (Abnormal)';
-        } else {
-            badgeHb.className = 'sim-badge normal';
-            badgeHb.innerText = 'Normal';
-        }
-
-        const badgeSugar = document.getElementById('badgeSugar');
-        if (sugar > 100) {
-            badgeSugar.className = 'sim-badge abnormal';
-            badgeSugar.innerText = 'High (Abnormal)';
-        } else if (sugar < 70) {
-            badgeSugar.className = 'sim-badge abnormal';
-            badgeSugar.innerText = 'Low (Abnormal)';
-        } else {
-            badgeSugar.className = 'sim-badge normal';
-            badgeSugar.innerText = 'Normal';
-        }
-
-        const badgeCreat = document.getElementById('badgeCreat');
-        if (creat > 1.3) {
-            badgeCreat.className = 'sim-badge abnormal';
-            badgeCreat.innerText = 'High (Abnormal)';
-        } else if (creat < 0.7) {
-            badgeCreat.className = 'sim-badge abnormal';
-            badgeCreat.innerText = 'Low (Abnormal)';
-        } else {
-            badgeCreat.className = 'sim-badge normal';
-            badgeCreat.innerText = 'Normal';
-        }
-    }
-
-    function triggerSimWhatsApp() {
-        const bubble = document.getElementById('simWaBubble');
-        const btn = document.getElementById('simDispatchBtn');
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF &amp; Sending...';
-        btn.disabled = true;
-
-        setTimeout(() => {
-            btn.innerHTML = '<i class="fas fa-check-circle" style="color:#10b981;"></i> Report Sent to WhatsApp!';
-            bubble.style.display = 'block';
-            setTimeout(() => {
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fab fa-whatsapp" style="color:#25d366;"></i> Re-send Report to WhatsApp';
-            }, 2500);
-        }, 600);
-    }
     </script>
 
     <!-- CHATBOT SCRIPT -->
