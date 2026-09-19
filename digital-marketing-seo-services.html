@@ -1856,27 +1856,31 @@ body.menu-open .floating-contact-pill {
 
     <!-- Ambient Grid & Glows -->
     <div class="bg-grid"></div>
-    <div class="bg-glow bg-glow-1"></div>
-    <div class="bg-glow bg-glow-2"></div>
-    <div class="bg-glow bg-glow-3"></div>
+    <div class="glow-orb glow-blue"></div>
+    <div class="glow-orb glow-purple"></div>
 
-    <!-- NAVIGATION BAR -->
+    <!-- SITE NAVBAR -->
     <nav class="navbar" id="navbar">
-        <div class="container nav-container">
-            <a href="https://techminddevelopers.in/" class="nav-logo" aria-label="Tech Mind Developers Home">
-                <img src="logo-icon.png" alt="Tech Mind Developers Logo" width="36" height="36">
-                <span>Tech Mind <span class="gradient-text">Developers</span></span>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="favicon.svg" alt="Tech Mind Developers" class="logo-img">
+                <span class="logo-text">Tech Mind <span class="gradient-text">Developers</span></span>
             </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#problems" onclick="closeMenu()"><span class="nav-link-content"><i class="fas fa-triangle-exclamation nav-icon nav-icon-pink"></i><span class="nav-label">Why Agencies Fail</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
-                <li><a href="#modules" onclick="closeMenu()"><span class="nav-link-content"><i class="fas fa-cubes nav-icon nav-icon-emerald"></i><span class="nav-label">Growth Pillars</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
-                <li><a href="#delivery" onclick="closeMenu()"><span class="nav-link-content"><i class="fas fa-list-check nav-icon nav-icon-cyan"></i><span class="nav-label">How It Works</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
-                <li><a href="#faq" onclick="closeMenu()"><span class="nav-link-content"><i class="fas fa-circle-question nav-icon nav-icon-purple"></i><span class="nav-label">FAQ</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
-                <li><a href="#contact" onclick="closeMenu()"><span class="nav-link-content"><i class="fas fa-paper-plane nav-icon nav-icon-amber"></i><span class="nav-label">Contact</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
-                <li class="nav-cta-item"><a href="#contact" class="nav-cta" onclick="closeMenu()"><span>Free SEO Audit</span> <i class="fas fa-arrow-right nav-cta-arrow"></i></a></li>
-            </ul>
-            <div class="nav-right">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#solutions">Solutions</a>
+                <a href="#problems">Why TMD</a>
+                <a href="#modules">Pillars</a>
+                <a href="#delivery">Roadmap</a>
+                <a href="#faq">FAQ</a>
+                <a href="blog/">Blog</a>
+                <a href="#contact" class="btn-primary" style="padding:8px 18px;font-size:0.85rem">Contact Us</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
                 <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
             </div>
         </div>
@@ -1887,13 +1891,13 @@ body.menu-open .floating-contact-pill {
     <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge"><span class="pulse"></span>Engineering-Led Digital Marketing &amp; Technical SEO</div>
+                <div class="hero-badge"><span class="pulse"></span>Digital Marketing &amp; Technical SEO</div>
                 <h1>
-                    <span class="static-line">Engineering-Led Technical SEO.</span>
-                    <span class="dynamic-line"><span class="gradient-text">Real Organic Leads, Zero Fluff.</span></span>
+                    <span class="static-line">Stop Wasting Money on Empty Clicks.</span>
+                    <span class="dynamic-line"><span class="gradient-text">Get Real Inquiries and Paying Clients.</span></span>
                 </h1>
                 <p>
-                    Stop burning cash on generic social media posts and vanity impression reports that never ring your phone. We build <strong>sub-second technical SEO foundations</strong>, dominate <strong>Google Maps 3-Pack rankings</strong> across Delhi NCR, and position your brand for <strong>AI Search Engines (ChatGPT &amp; Perplexity)</strong> with 100% transparent reporting and <strong>zero monthly lock-in contracts</strong>.
+                    Most agencies send pretty PDF reports that never make your phone ring. We speed up your website, rank your business at the top of <strong>Google and Google Maps</strong>, and deliver real inquiries directly to your <strong>WhatsApp</strong>. No long contracts, ever.
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn-primary">Claim Your Free Technical Audit <i class="fas fa-arrow-right"></i></a>
@@ -1923,7 +1927,7 @@ body.menu-open .floating-contact-pill {
                         </div>
                         <div class="preview-metric">
                             <h5>100%</h5>
-                            <span>AI Search Grounded</span>
+                            <span>AI Search Ready</span>
                         </div>
                     </div>
 
@@ -1933,7 +1937,7 @@ body.menu-open .floating-contact-pill {
                                 <i class="fas fa-bolt" style="color:#60a5fa"></i>
                                 <span>Core Web Vitals: 98/100 Mobile Score achieved for B2B Client</span>
                             </div>
-                            <span class="preview-status-pill status-done">LCP 0.8s</span>
+                            <span class="preview-status-pill status-done">Fast Speed</span>
                         </div>
                         <div class="preview-activity-item">
                             <div class="preview-act-left">
@@ -1945,14 +1949,14 @@ body.menu-open .floating-contact-pill {
                         <div class="preview-activity-item">
                             <div class="preview-act-left">
                                 <i class="fas fa-brain" style="color:#10b981"></i>
-                                <span>AI Search Engine Optimization: Knowledge Graph cited by Perplexity</span>
+                                <span>AI Search Engine Optimization: Recommended by ChatGPT &amp; Perplexity</span>
                             </div>
-                            <span class="preview-status-pill status-done" style="background:rgba(16,185,129,0.15);color:#10b981">GEO Grounded</span>
+                            <span class="preview-status-pill status-done" style="background:rgba(16,185,129,0.15);color:#10b981">AI Grounded</span>
                         </div>
                         <div class="preview-activity-item">
                             <div class="preview-act-left">
                                 <i class="fas fa-comments-dollar" style="color:#f59e0b"></i>
-                                <span>High-Intent Lead Ingestion: 48 Verified Sales Inquiries routed</span>
+                                <span>High-Intent Leads: 48 Verified Sales Inquiries routed this month</span>
                             </div>
                             <span class="preview-status-pill status-done" style="background:rgba(245,158,11,0.15);color:#f59e0b">WhatsApp Leads</span>
                         </div>
@@ -1966,52 +1970,52 @@ body.menu-open .floating-contact-pill {
     <section class="services" id="problems">
         <div class="container">
             <div class="section-header fade-in">
-                <span class="section-label">The Brutal Truth</span>
-                <h2 class="section-title">Why Most Traditional Marketing Agencies <span class="gradient-text">Fail Your Business</span></h2>
-                <p class="section-desc">If you have hired a digital marketing agency before, you probably lived through this exact frustrating playbook. Here is why vanity metrics cost you money and how engineering fixes it.</p>
+                <span class="section-label">The Honest Reality</span>
+                <h2 class="section-title">Why Most Marketing Agencies <span class="gradient-text">Fail Your Business</span></h2>
+                <p class="section-desc">If you have hired an agency before, you probably got useless reports and zero sales calls. Here is what actually went wrong.</p>
             </div>
             
             <div class="services-grid">
                 <!-- Problem 1 -->
                 <div class="service-card fade-in">
                     <div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-                    <h3>Vanity Reports Instead of Real Bank Deposits</h3>
-                    <p>Traditional agencies send 30-page PDF reports filled with useless metrics like impressions, post reach, and hollow website hits. None of that pays your staff or rent. What matters is how many qualified phone calls and WhatsApp inquiries your website generates every week.</p>
+                    <h3>Useless Reports Instead of Real Sales</h3>
+                    <p>Agencies send monthly PDF reports filled with clicks and impressions that never make you money. We focus only on what matters: real calls and WhatsApp inquiries from genuine buyers.</p>
                 </div>
 
-                <!-- Problem 2 -->
+                <!-- Problem 2 (Fixed icon: fa-gauge-high) -->
                 <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-gauge-simple-low"></i></div>
-                    <h3>Slow, Bloated Websites That Google Refuses to Rank</h3>
-                    <p>Most marketers do not know how to code. They install 40 plugins on a bloated theme that takes 6 seconds to open on mobile phones. Google immediately downranks slow websites, and 50% of your potential customers bounce before the page even loads.</p>
+                    <div class="service-icon"><i class="fas fa-gauge-high"></i></div>
+                    <h3>Slow Websites That Google Refuses to Rank</h3>
+                    <p>Most agencies build heavy websites that take 6 seconds to load on phones. Visitors leave right away, and Google pushes your site down to pages where nobody ever looks.</p>
                 </div>
 
                 <!-- Problem 3 -->
                 <div class="service-card fade-in">
                     <div class="service-icon"><i class="fas fa-robot"></i></div>
-                    <h3>Completely Invisible on Modern AI Search (GEO)</h3>
-                    <p>In 2026, millions of high-ticket buyers ask ChatGPT, Perplexity, and Google Gemini for vendor recommendations. Without structured knowledge graphs and machine-readable data, AI bots have no idea what your company does and will recommend competitors instead.</p>
+                    <h3>Invisible on ChatGPT &amp; AI Search</h3>
+                    <p>Buyers now ask AI tools like ChatGPT and Perplexity for vendor recommendations. Without clean machine-readable data, AI skips your website and recommends your competitors instead.</p>
                 </div>
 
                 <!-- Problem 4 -->
                 <div class="service-card fade-in">
                     <div class="service-icon"><i class="fas fa-handcuffs"></i></div>
-                    <h3>Rigid 6 to 12 Month Lock-in Contracts</h3>
-                    <p>Agencies trap you in long contracts, assign your account to an intern who just copy-pastes generic templates, and make excuses when leads dry up. You deserve a technical partner who earns your trust through continuous monthly performance, not legal lock-ins.</p>
+                    <h3>Long Lock-in Contracts with No Results</h3>
+                    <p>Agencies trap you in 6 or 12 month contracts, hand your project to a beginner, and make excuses. We believe in earning your trust every month without legal traps.</p>
                 </div>
 
                 <!-- Problem 5 -->
                 <div class="service-card fade-in">
                     <div class="service-icon"><i class="fas fa-fire"></i></div>
-                    <h3>Wasteful Ad Spend on Irrelevant Tire-Kickers</h3>
-                    <p>Amateur PPC managers run broad-match Google Ads that burn through your budget in 3 days, bringing job seekers and irrelevant clicks instead of high-budget corporate buyers. Without negative keyword shields, your money evaporates into thin air.</p>
+                    <h3>Ad Budgets Wasted on Irrelevant Clicks</h3>
+                    <p>Inexperienced ad managers run broad Google Ads that burn your budget on job seekers and accidental clicks. We block wasted clicks so every rupee targets real buyers.</p>
                 </div>
 
                 <!-- Problem 6 -->
                 <div class="service-card fade-in">
                     <div class="service-icon"><i class="fas fa-lock"></i></div>
-                    <h3>Hostage Data &amp; No Asset Ownership</h3>
-                    <p>When you leave a generic agency, they often hold your ad accounts, landing page files, and analytics hostage. At Tech Mind Developers, you get 100% full administrative ownership of every single account, pixel, and code asset from day one.</p>
+                    <h3>Holding Your Accounts Hostage</h3>
+                    <p>Many agencies lock you out of your ad accounts, website files, and data if you try to leave. With us, you get 100% full ownership of all accounts and code from day one.</p>
                 </div>
             </div>
         </div>
@@ -2021,9 +2025,9 @@ body.menu-open .floating-contact-pill {
     <section class="services" id="modules">
         <div class="container">
             <div class="section-header fade-in">
-                <span class="section-label">Core Modules</span>
-                <h2 class="section-title">Our 6 High-Performance <span class="gradient-text">Growth Pillars</span></h2>
-                <p class="section-desc">We combine software engineering, semantic search science, and high-converting funnel design to bring you high-intent clients who are ready to buy.</p>
+                <span class="section-label">What We Do</span>
+                <h2 class="section-title">6 Ways We Bring <span class="gradient-text">Real Customers to You</span></h2>
+                <p class="section-desc">We fix your website speed, rank you high on Google, and make it easy for serious buyers to call or WhatsApp you.</p>
             </div>
 
             <div class="modules-grid">
@@ -2032,16 +2036,16 @@ body.menu-open .floating-contact-pill {
                     <div class="module-header">
                         <div class="module-icon"><i class="fas fa-code"></i></div>
                         <div>
-                            <span class="module-tag">Code-Level Architecture</span>
-                            <h3>Technical SEO &amp; Core Web Vitals Engineering</h3>
+                            <span class="module-tag">Lightning Fast Speed</span>
+                            <h3>Fast Website Speed &amp; Technical Google Setup</h3>
                         </div>
                     </div>
-                    <p>We fix what normal agencies cannot touch: server response time (TTFB), Largest Contentful Paint (LCP), Cumulative Layout Shift (CLS), broken crawl budgets, and deep JSON-LD Knowledge Graph schemas so Google indexes every page flawlessly.</p>
+                    <p>We clean up your website so it loads in under 1 second on mobile phones. When your site is fast, Google ranks it higher and visitors stay on the page.</p>
                     <ul class="module-feature-list">
-                        <li><i class="fas fa-check"></i> Sub-second page load speeds (&lt;1s target on mobile)</li>
-                        <li><i class="fas fa-check"></i> Complete JSON-LD Organization &amp; Service schema injection</li>
-                        <li><i class="fas fa-check"></i> Canonicalization, XML sitemaps, and robots.txt optimization</li>
-                        <li><i class="fas fa-check"></i> Server-side caching and clean HTML5/CSS3 refactoring</li>
+                        <li><i class="fas fa-check"></i> Sub-second loading speed on all smartphones</li>
+                        <li><i class="fas fa-check"></i> Complete Google Search Console and sitemap setup</li>
+                        <li><i class="fas fa-check"></i> Zero broken links, crawl errors, or slow scripts</li>
+                        <li><i class="fas fa-check"></i> Clean code that Google search bots read easily</li>
                     </ul>
                 </div>
 
@@ -2050,16 +2054,16 @@ body.menu-open .floating-contact-pill {
                     <div class="module-header">
                         <div class="module-icon"><i class="fas fa-brain"></i></div>
                         <div>
-                            <span class="module-tag">Next-Gen Search</span>
-                            <h3>Generative Engine Optimization (GEO) &amp; AI Search</h3>
+                            <span class="module-tag">AI Search Visibility</span>
+                            <h3>Ranking on ChatGPT, Gemini &amp; AI Search</h3>
                         </div>
                     </div>
-                    <p>We prepare your brand for modern AI search. By building interconnected entity graphs, Wikidata disambiguation, and machine-readable context files (llms.txt), we ensure ChatGPT, Perplexity, and Google Gemini cite your company as the top recommended solution.</p>
+                    <p>People are asking AI tools for recommended companies. We organize your business details so ChatGPT, Google Gemini, and Perplexity suggest your brand to buyers.</p>
                     <ul class="module-feature-list">
-                        <li><i class="fas fa-check"></i> Standardized llms.txt &amp; llms-full.txt machine context files</li>
-                        <li><i class="fas fa-check"></i> Wikidata entity disambiguation and Knowledge Graph sync</li>
-                        <li><i class="fas fa-check"></i> High-authority citations optimized for AI RAG pipelines</li>
-                        <li><i class="fas fa-check"></i> Optimization for ChatGPT Search, Perplexity AI &amp; Gemini</li>
+                        <li><i class="fas fa-check"></i> Standard machine-readable business profiles (llms.txt)</li>
+                        <li><i class="fas fa-check"></i> Direct recommendations when buyers ask AI for vendors</li>
+                        <li><i class="fas fa-check"></i> Verified brand presence across trusted online sources</li>
+                        <li><i class="fas fa-check"></i> Ready for modern AI search engines and voice queries</li>
                     </ul>
                 </div>
 
@@ -2068,16 +2072,16 @@ body.menu-open .floating-contact-pill {
                     <div class="module-header">
                         <div class="module-icon"><i class="fas fa-map-location-dot"></i></div>
                         <div>
-                            <span class="module-tag">Local Maps Dominance</span>
-                            <h3>Hyper-Local Google Business Profile &amp; 3-Pack Ranking</h3>
+                            <span class="module-tag">Google Maps 3-Pack</span>
+                            <h3>Top 3 Google Maps Ranking for Local Searches</h3>
                         </div>
                     </div>
-                    <p>When nearby customers search for your services in Okhla, South Delhi, Noida, Gurgaon, or Aligarh, we make your Google Business Profile (GBP) appear in the top 3 map results with verified geo-signals, review management, and local citation authority.</p>
+                    <p>When customers search nearby in Delhi NCR, Okhla, Noida, or Aligarh, we place your business in the top 3 Google Maps results where 70% of phone calls happen.</p>
                     <ul class="module-feature-list">
-                        <li><i class="fas fa-check"></i> Google Maps Local 3-Pack ranking across target hubs</li>
-                        <li><i class="fas fa-check"></i> Exact NAP (Name, Address, Phone) consistency across directories</li>
-                        <li><i class="fas fa-check"></i> Geo-tagged local image optimization and category tuning</li>
-                        <li><i class="fas fa-check"></i> Automated review collection funnels for 5-star reputation</li>
+                        <li><i class="fas fa-check"></i> Top 3 Google Maps ranking for high-intent searches</li>
+                        <li><i class="fas fa-check"></i> Complete profile setup with photos, hours, and services</li>
+                        <li><i class="fas fa-check"></i> Simple system to collect 5-star customer reviews</li>
+                        <li><i class="fas fa-check"></i> Accurate address and phone consistency across maps</li>
                     </ul>
                 </div>
 
@@ -2086,16 +2090,16 @@ body.menu-open .floating-contact-pill {
                     <div class="module-header">
                         <div class="module-icon"><i class="fas fa-bullseye"></i></div>
                         <div>
-                            <span class="module-tag">Topical Authority</span>
-                            <h3>High-Intent Topical Authority Content Clusters</h3>
+                            <span class="module-tag">Buyer-Focused Content</span>
+                            <h3>Google Ranking Content That Serious Buyers Read</h3>
                         </div>
                     </div>
-                    <p>Instead of publishing useless filler blogs that nobody reads, we build targeted content clusters around exact transactional keywords. We target buyers who have urgent problems and money in hand, turning organic readers into booked inquiries.</p>
+                    <p>No useless blog articles that nobody cares about. We create clear, helpful pages that answer the exact questions buyers search when they are ready to purchase.</p>
                     <ul class="module-feature-list">
-                        <li><i class="fas fa-check"></i> Commercial &amp; transactional intent keyword mapping</li>
-                        <li><i class="fas fa-check"></i> Multi-tier pillar and cluster article architecture</li>
-                        <li><i class="fas fa-check"></i> Semantic internal linking that multiplies PageRank authority</li>
-                        <li><i class="fas fa-check"></i> Human-written, authentic content that keeps dwell time high</li>
+                        <li><i class="fas fa-check"></i> Targeted to high-value buyers with budget in hand</li>
+                        <li><i class="fas fa-check"></i> Simple, human language that builds immediate trust</li>
+                        <li><i class="fas fa-check"></i> Pages designed to keep readers interested and reading</li>
+                        <li><i class="fas fa-check"></i> Top Google positions that bring steady daily traffic</li>
                     </ul>
                 </div>
 
@@ -2104,16 +2108,16 @@ body.menu-open .floating-contact-pill {
                     <div class="module-header">
                         <div class="module-icon"><i class="fas fa-filter-circle-dollar"></i></div>
                         <div>
-                            <span class="module-tag">Conversion Rate Optimization</span>
-                            <h3>Conversion Rate Optimization (CRO) &amp; Sales Funnels</h3>
+                            <span class="module-tag">Direct Leads</span>
+                            <h3>High-Converting Pages with WhatsApp &amp; Call Buttons</h3>
                         </div>
                     </div>
-                    <p>Getting visitors to your website is only half the battle. We redesign landing pages with clear psychological cues, friction-free forms, and instant WhatsApp click-to-chat triggers that convert ordinary browsers into paying clients.</p>
+                    <p>Traffic means nothing if visitors leave without contacting you. We design pages with instant one-tap WhatsApp and phone buttons that convert visitors into inquiries.</p>
                     <ul class="module-feature-list">
-                        <li><i class="fas fa-check"></i> High-converting landing page layouts and visual hierarchy</li>
-                        <li><i class="fas fa-check"></i> One-click WhatsApp pre-filled consultation CTAs</li>
-                        <li><i class="fas fa-check"></i> Google Tag Manager custom event and goal tracking</li>
-                        <li><i class="fas fa-check"></i> Instant lead routing to sales team email and CRM</li>
+                        <li><i class="fas fa-check"></i> One-tap WhatsApp chat buttons with pre-filled messages</li>
+                        <li><i class="fas fa-check"></i> Simple inquiry forms that take under 15 seconds to fill</li>
+                        <li><i class="fas fa-check"></i> Instant lead alerts sent straight to your phone and email</li>
+                        <li><i class="fas fa-check"></i> Mobile layout optimized for easy tap-to-call dialing</li>
                     </ul>
                 </div>
 
@@ -2122,16 +2126,16 @@ body.menu-open .floating-contact-pill {
                     <div class="module-header">
                         <div class="module-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
                         <div>
-                            <span class="module-tag">High-Precision PPC</span>
-                            <h3>Performance Marketing &amp; Google Search Ads</h3>
+                            <span class="module-tag">Laser-Targeted Ads</span>
+                            <h3>Google Search Ads That Only Target Ready Buyers</h3>
                         </div>
                     </div>
-                    <p>When you need instant leads tomorrow, our performance marketing campaigns target exact search keywords with laser-focused negative keyword lists. You never waste budget on tire-kickers or irrelevant search clicks.</p>
+                    <p>Need inquiries right now? We run focused Google Ads that only show up when people search to buy, blocking junk clicks so your daily budget is never wasted.</p>
                     <ul class="module-feature-list">
-                        <li><i class="fas fa-check"></i> Negative keyword shields preventing wasteful spend</li>
-                        <li><i class="fas fa-check"></i> High Quality Scores that lower your cost-per-click (CPC)</li>
-                        <li><i class="fas fa-check"></i> Custom high-converting landing pages matched to ad copy</li>
-                        <li><i class="fas fa-check"></i> Daily bid adjustments and ROAS conversion optimization</li>
+                        <li><i class="fas fa-check"></i> Strict negative keyword shields to block job seekers</li>
+                        <li><i class="fas fa-check"></i> Custom landing pages matched to what people search</li>
+                        <li><i class="fas fa-check"></i> Lower cost per click through high-quality ad setup</li>
+                        <li><i class="fas fa-check"></i> Transparent daily ad spending with zero hidden fees</li>
                     </ul>
                 </div>
             </div>
@@ -2142,46 +2146,46 @@ body.menu-open .floating-contact-pill {
     <section class="roadmap-section" id="delivery">
         <div class="container">
             <div class="section-header fade-in">
-                <span class="section-label">The Roadmap</span>
-                <h2 class="section-title">Our Proven 6-Step <span class="gradient-text">Organic Ranking Roadmap</span></h2>
-                <p class="section-desc">A transparent, engineering-driven process that systematically lifts your business to Google's first page.</p>
+                <span class="section-label">Simple Roadmap</span>
+                <h2 class="section-title">Our 6-Step Plan to <span class="gradient-text">Top Google Rankings</span></h2>
+                <p class="section-desc">A clear, week-by-week plan that gets your website ranking and your phone ringing.</p>
             </div>
 
             <div class="roadmap-grid">
                 <div class="roadmap-card fade-in">
                     <span class="roadmap-step-pill">Step 01 &bull; Week 1</span>
-                    <h3>Deep Code, Speed &amp; Search Audit</h3>
-                    <p>We analyze your server performance, mobile Core Web Vitals, indexing errors, schema gaps, and competitor keyword positioning to uncover exact quick-win opportunities.</p>
+                    <h3>Website &amp; Competitor Review</h3>
+                    <p>We check your website speed, find what is holding you back, and identify the easiest keywords to target for fast ranking wins.</p>
                 </div>
 
                 <div class="roadmap-card fade-in">
                     <span class="roadmap-step-pill">Step 02 &bull; Week 2</span>
-                    <h3>Code Refactoring &amp; Schema Injection</h3>
-                    <p>Our developers clean up website bloat, compress media, eliminate slow render-blocking scripts, and install Google-validated JSON-LD Organization and Service schemas.</p>
+                    <h3>Speed Cleanup &amp; Technical Fixes</h3>
+                    <p>We clean up heavy code so your site opens in under 1 second on phones, making sure Google indexes all your pages without errors.</p>
                 </div>
 
                 <div class="roadmap-card fade-in">
                     <span class="roadmap-step-pill">Step 03 &bull; Week 3</span>
-                    <h3>Google Business Profile &amp; Geo-Citations</h3>
-                    <p>We optimize your Google Maps listing, align NAP consistency across high-authority regional directories, and seed hyper-local signals for Delhi NCR and UP.</p>
+                    <h3>Google Maps &amp; Local Business Profile</h3>
+                    <p>We update your Google Maps listing, fix local directory details, and add local signals to push you into the top 3 map spots.</p>
                 </div>
 
                 <div class="roadmap-card fade-in">
                     <span class="roadmap-step-pill">Step 04 &bull; Week 4</span>
-                    <h3>High-Intent Keyword Cluster Architecture</h3>
-                    <p>We architect dedicated landing pages and authoritative articles specifically mapped to high-ticket search queries where prospective customers have immediate intent to buy.</p>
+                    <h3>Buyer Content &amp; Service Pages</h3>
+                    <p>We write and publish simple, clear pages targeting search terms that commercial buyers use when searching for your services.</p>
                 </div>
 
                 <div class="roadmap-card fade-in">
                     <span class="roadmap-step-pill">Step 05 &bull; Week 5</span>
-                    <h3>AI Grounding (GEO) &amp; Conversion Funnels</h3>
-                    <p>We deploy standardized llms.txt context files, connect Wikidata knowledge entities, and configure instant WhatsApp lead capture funnels on high-traffic pages.</p>
+                    <h3>WhatsApp Leads &amp; AI Search Setup</h3>
+                    <p>We add direct WhatsApp chat buttons to turn visitors into leads and structure your info so ChatGPT and AI tools recommend you.</p>
                 </div>
 
                 <div class="roadmap-card fade-in">
                     <span class="roadmap-step-pill">Step 06 &bull; Week 6 Onward</span>
-                    <h3>Continuous Scaling with Zero Lock-in Traps</h3>
-                    <p>You receive transparent live tracking dashboards with zero monthly lock-in contracts. We continuously optimize keyword rankings, review health, and lead conversion rates.</p>
+                    <h3>Weekly Growth with Zero Lock-in</h3>
+                    <p>We monitor your rankings, calls, and leads every week. You stay because of real results, with complete freedom to cancel anytime.</p>
                 </div>
             </div>
         </div>
@@ -2192,8 +2196,8 @@ body.menu-open .floating-contact-pill {
         <div class="container">
             <div class="section-header fade-in">
                 <span class="section-label">Honest Answers</span>
-                <h2 class="section-title">Frequently Asked Questions <span class="gradient-text">About SEO &amp; Marketing</span></h2>
-                <p class="section-desc">Clear answers about technical SEO, Google Maps rankings, AI search readiness, timelines, and contract freedom.</p>
+                <h2 class="section-title">Frequently Asked Questions <span class="gradient-text">About SEO &amp; Growth</span></h2>
+                <p class="section-desc">Straightforward answers about our process, timelines, results, and contract freedom.</p>
             </div>
 
             <div class="faq-container">
@@ -2204,14 +2208,14 @@ body.menu-open .floating-contact-pill {
                             <div class="faq-num-badge">01</div>
                             <div class="faq-q-content">
                                 <span class="faq-category-pill pill-cyan"><i class="fas fa-tag"></i> Zero Lock-in Contracts</span>
-                                <div class="faq-q-title">Do you require long-term 6 or 12 month lock-in contracts?</div>
+                                <div class="faq-q-title">Do you require long-term lock-in contracts?</div>
                             </div>
                         </div>
                         <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            No. We believe in earning your partnership every single month. We do not lock you into rigid long-term contracts. You retain 100% full admin ownership of all your analytics, ad accounts, and creative assets, and you are free to cancel or pause at any time without penalty.
+                            No. We believe in earning your business every single month. There are no 6 or 12 month lock-in contracts. You can pause or stop anytime, and you always own 100% of your accounts and data.
                         </div>
                     </div>
                 </div>
@@ -2222,15 +2226,15 @@ body.menu-open .floating-contact-pill {
                         <div class="faq-q-left">
                             <div class="faq-num-badge">02</div>
                             <div class="faq-q-content">
-                                <span class="faq-category-pill pill-emerald"><i class="fas fa-code"></i> Technical vs Normal SEO</span>
-                                <div class="faq-q-title">How is technical SEO different from normal SEO services?</div>
+                                <span class="faq-category-pill pill-emerald"><i class="fas fa-code"></i> Technical vs Regular SEO</span>
+                                <div class="faq-q-title">How is technical SEO different from regular SEO?</div>
                             </div>
                         </div>
                         <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Normal SEO usually means writing generic blog posts and hoping Google notices. Technical SEO is the foundation: it fixes your website code, server speed, mobile responsiveness, XML sitemaps, crawl budget efficiency, and JSON-LD structured schemas. Without a solid technical foundation, even the best content in the world will struggle to rank on Google.
+                            Regular SEO usually means writing generic blog posts and hoping for the best. Technical SEO fixes the engine: making your website load in under 1 second, fixing errors, and making it super easy for Google to understand and rank your pages.
                         </div>
                     </div>
                 </div>
@@ -2242,14 +2246,14 @@ body.menu-open .floating-contact-pill {
                             <div class="faq-num-badge">03</div>
                             <div class="faq-q-content">
                                 <span class="faq-category-pill pill-purple"><i class="fas fa-hourglass-half"></i> Ranking Timelines</span>
-                                <div class="faq-q-title">How long does it take to see real organic rankings and inquiries?</div>
+                                <div class="faq-q-title">How soon will I see real rankings and customer inquiries?</div>
                             </div>
                         </div>
                         <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Technical fixes (speed, schema, indexing errors) and local Google Business Profile improvements typically show measurable movement within 3 to 6 weeks. High-competition organic keywords usually take 2 to 4 months of systematic topical authority building. If you need immediate sales inquiries tomorrow, we combine SEO with laser-targeted Google Search Ads.
+                            Website speed fixes and Google Maps improvements often show results within 3 to 6 weeks. Higher competition keywords usually take 2 to 4 months of steady ranking work. If you need inquiries immediately, we can start targeted Google Ads right away.
                         </div>
                     </div>
                 </div>
@@ -2260,15 +2264,15 @@ body.menu-open .floating-contact-pill {
                         <div class="faq-q-left">
                             <div class="faq-num-badge">04</div>
                             <div class="faq-q-content">
-                                <span class="faq-category-pill pill-pink"><i class="fas fa-brain"></i> AI Search Optimization</span>
-                                <div class="faq-q-title">What is Generative Engine Optimization (GEO) and why do I need it?</div>
+                                <span class="faq-category-pill pill-pink"><i class="fas fa-brain"></i> AI Search Visibility</span>
+                                <div class="faq-q-title">What is AI Search Optimization and why do I need it?</div>
                             </div>
                         </div>
                         <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            GEO is the process of optimizing your website so AI platforms like ChatGPT, Perplexity, and Google Gemini Overviews cite your company when users ask for recommendations. By implementing machine-readable entity files (llms.txt) and Wikidata knowledge graphs, we ensure AI bots recognize your authority and suggest your services to potential clients.
+                            Millions of people now use ChatGPT, Google Gemini, and Perplexity to find services. We structure your business information so these AI tools can read it easily and recommend your company when people ask for solutions.
                         </div>
                     </div>
                 </div>
@@ -2287,7 +2291,7 @@ body.menu-open .floating-contact-pill {
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Yes! We specialize in multi-location geo-targeting across the Delhi NCR corridor (Okhla, South Delhi, Noida, Gurgaon, Faridabad) and Uttar Pradesh hubs (Aligarh, Lucknow, Agra). We create dedicated local landing pages and hyper-local citation signals that allow you to capture high-intent inquiries from multiple commercial hubs. Read our case studies in <a href="blog/best-seo-company-okhla-delhi.html" style="color:var(--accent-blue); text-decoration:underline;">Okhla SEO</a> and <a href="blog/best-seo-company-aligarh.html" style="color:var(--accent-blue); text-decoration:underline;">Aligarh SEO</a>.
+                            Yes. We specialize in ranking businesses across the Delhi NCR corridor (Okhla, South Delhi, Noida, Gurgaon) and Uttar Pradesh hubs like Aligarh. We create dedicated city pages and local map signals for each target area. Read our case studies in <a href="blog/best-seo-company-okhla-delhi.html" style="color:var(--accent-blue); text-decoration:underline;">Okhla SEO</a> and <a href="blog/best-seo-company-aligarh.html" style="color:var(--accent-blue); text-decoration:underline;">Aligarh SEO</a>.
                         </div>
                     </div>
                 </div>
@@ -2298,15 +2302,15 @@ body.menu-open .floating-contact-pill {
                         <div class="faq-q-left">
                             <div class="faq-num-badge">06</div>
                             <div class="faq-q-content">
-                                <span class="faq-category-pill pill-amber"><i class="fas fa-chart-pie"></i> ROI &amp; Attribution</span>
-                                <div class="faq-q-title">How do we track whether the marketing campaign is actually working?</div>
+                                <span class="faq-category-pill pill-amber"><i class="fas fa-chart-pie"></i> Tracking Results</span>
+                                <div class="faq-q-title">How will I know if the marketing is actually working?</div>
                             </div>
                         </div>
                         <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            We measure success in actual phone calls, WhatsApp messages, and verified customer inquiries. We set up Google Tag Manager conversion tracking on every button and form, giving you a live transparent dashboard showing exactly where your leads originated and how much revenue they produced.
+                            We measure real business results: phone calls, WhatsApp inquiries, and contact form submissions. We provide a simple live dashboard showing exactly where every lead came from.
                         </div>
                     </div>
                 </div>
@@ -2317,15 +2321,15 @@ body.menu-open .floating-contact-pill {
                         <div class="faq-q-left">
                             <div class="faq-num-badge">07</div>
                             <div class="faq-q-content">
-                                <span class="faq-category-pill pill-emerald"><i class="fas fa-bolt"></i> Core Web Vitals</span>
-                                <div class="faq-q-title">Will you fix our website speed and mobile Core Web Vitals?</div>
+                                <span class="faq-category-pill pill-emerald"><i class="fas fa-bolt"></i> Speed Optimization</span>
+                                <div class="faq-q-title">Will you make our website load faster on mobile phones?</div>
                             </div>
                         </div>
                         <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Yes, absolutely. Because our team is composed of seasoned software engineers and systems architects, we optimize your codebase directly. We optimize images, defer render-blocking JavaScript, implement server-side caching, and eliminate CSS bloat until your website achieves sub-second load times on mobile.
+                            Yes. Since our background is software development, we fix website code directly. We compress images, remove unnecessary scripts, and tune performance until your site opens in under 1 second on mobile phones.
                         </div>
                     </div>
                 </div>
@@ -2336,15 +2340,15 @@ body.menu-open .floating-contact-pill {
                         <div class="faq-q-left">
                             <div class="faq-num-badge">08</div>
                             <div class="faq-q-content">
-                                <span class="faq-category-pill pill-purple"><i class="fas fa-ad"></i> Google Ads &amp; PPC</span>
-                                <div class="faq-q-title">How do you prevent wasted ad spend on Google Ads?</div>
+                                <span class="faq-category-pill pill-purple"><i class="fas fa-ad"></i> Google Ads Waste</span>
+                                <div class="faq-q-title">How do you stop Google Ads from wasting my money?</div>
                             </div>
                         </div>
                         <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            We use exact match and phrase match bidding structures paired with extensive negative keyword lists (thousands of blocked terms including jobs, salary, free, cracked, etc.). This guarantees that only commercial buyers with purchasing intent click on your ads.
+                            We use negative keyword lists to block unwanted searches like job seekers, free downloads, and competitors. Your ads only appear when someone searches with real intent to buy.
                         </div>
                     </div>
                 </div>
@@ -2356,14 +2360,14 @@ body.menu-open .floating-contact-pill {
                             <div class="faq-num-badge">09</div>
                             <div class="faq-q-content">
                                 <span class="faq-category-pill pill-pink"><i class="fas fa-user-shield"></i> Account Ownership</span>
-                                <div class="faq-q-title">Do I retain full ownership of our Google Analytics, Search Console, and ad accounts?</div>
+                                <div class="faq-q-title">Do I own my Google Ads account and analytics?</div>
                             </div>
                         </div>
                         <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            100% yes. We build all campaigns directly inside your own Google Ads, GA4, and Search Console properties. You have master administrative access at all times, and your data is never held hostage.
+                            Yes, 100%. Everything is set up inside your own accounts. You have full administrative access from day one, and we never hold your data or accounts hostage.
                         </div>
                     </div>
                 </div>
@@ -2374,15 +2378,15 @@ body.menu-open .floating-contact-pill {
                         <div class="faq-q-left">
                             <div class="faq-num-badge">10</div>
                             <div class="faq-q-content">
-                                <span class="faq-category-pill pill-cyan"><i class="fas fa-map-pin"></i> Delhi NCR &amp; Noida Support</span>
-                                <div class="faq-q-title">Do you provide in-person meetings and support across Delhi NCR and Uttar Pradesh?</div>
+                                <span class="faq-category-pill pill-cyan"><i class="fas fa-map-pin"></i> In-Person Meetings</span>
+                                <div class="faq-q-title">Can we meet in person to discuss our project?</div>
                             </div>
                         </div>
                         <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            Yes! With our engineering headquarters in Okhla, New Delhi, and delivery hubs in Aligarh, UP, we provide face-to-face strategy sessions across South Delhi, Noida, Gurgaon, and Aligarh commercial corridors.
+                            Yes. Our main office is in Okhla, New Delhi, and we have team members in Aligarh, UP. We are always happy to meet in person or over a quick video call.
                         </div>
                     </div>
                 </div>
@@ -2398,8 +2402,8 @@ body.menu-open .floating-contact-pill {
                     <i class="fas fa-book-open-reader"></i>
                 </div>
                 <div>
-                    <h4 style="margin: 0 0 4px; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Helpful SEO Case Studies &amp; Local Ranking Guides</h4>
-                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">Read our deep architectural breakdowns on how local businesses in Okhla and Aligarh dominate Google search rankings.</p>
+                    <h4 style="margin: 0 0 4px; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Helpful SEO Guides &amp; Real Case Studies</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">Read our simple breakdowns on how local businesses in Okhla and Aligarh rank on Google's first page.</p>
                 </div>
             </div>
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
@@ -2417,8 +2421,8 @@ body.menu-open .floating-contact-pill {
     <section class="cta-section">
         <div class="container">
             <div class="cta-box fade-in">
-                <h2>Ready to Outrank Your Competitors with Real Technical SEO?</h2>
-                <p>Request a complimentary code and search visibility audit. We will analyze your website speed, ranking gaps, and schema health with zero sales pressure.</p>
+                <h2>Ready to Rank Higher and Get More Inquiries?</h2>
+                <p>Get a free website review. We will check your speed, Google rankings, and competitor gaps with zero sales pressure.</p>
                 <div class="cta-buttons">
                     <a href="#contact" class="btn-primary">Claim Your Free Technical Audit <i class="fas fa-arrow-right"></i></a>
                     <a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20want%20to%20discuss%20Digital%20Marketing%20and%20SEO%20services." class="btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chat with Us on WhatsApp</a>
@@ -2432,8 +2436,8 @@ body.menu-open .floating-contact-pill {
         <div class="container">
             <div class="section-header fade-in">
                 <span class="section-label">Friendly Chat</span>
-                <h2 class="section-title">Schedule a Strategy Session for Your <span class="gradient-text">Business Growth</span></h2>
-                <p class="section-desc">No pushy sales calls. Just tell us your business goals and current bottlenecks, and we will reply within 24 hours with an honest technical estimate.</p>
+                <h2 class="section-title">Schedule a Strategy Call for Your <span class="gradient-text">Business Growth</span></h2>
+                <p class="section-desc">No annoying sales pitches. Tell us what you need, and we will send you a clear, honest plan within 24 hours.</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-info fade-in">
@@ -2499,12 +2503,12 @@ body.menu-open .floating-contact-pill {
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="message">What search or marketing bottlenecks are costing you leads right now?</label>
+                            <label for="message">What marketing bottlenecks are costing you sales right now?</label>
                             <textarea id="message" name="message" placeholder="e.g. Want to rank top 3 on Google Maps in Okhla/Noida, website is slow, tired of agency lock-in contracts..." required></textarea>
                         </div>
                         <div id="formStatusMsg" style="display: none; padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; font-size: 0.92rem; text-align: center;"></div>
                         <button type="submit" class="btn-primary" id="submitBtn" style="width:100%;justify-content:center">
-                            <i class="fas fa-paper-plane"></i> Send Me a Growth Roadmap
+                            <i class="fas fa-paper-plane"></i> Send Me a Free Growth Plan
                         </button>
                     </form>
                 </div>
@@ -2518,18 +2522,67 @@ body.menu-open .floating-contact-pill {
         <a href="tel:+917835019421" class="float-btn float-call" aria-label="Call Us Now" title="Call Us: +91-7835019421"><i class="fas fa-phone"></i></a>
     </div>
 
-    <!-- FOOTER (Exact Site Standard) -->
+    <!-- SITE FOOTER -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-socials">
-                <a href="https://www.google.co.in/search?q=Tech+Mind+Developers" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Google"><i class="fab fa-google"></i></a>
-                <a href="https://www.facebook.com/TechMindDeveloper/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/techminddevelopers/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com/techminddevelop" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
-                <a href="https://www.linkedin.com/company/tech-mind-developers/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="mailto:contact@techminddevelopers.in" class="footer-social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="favicon.svg" alt="Tech Mind Developers" class="logo-img">
+                        <span class="logo-text">Tech Mind <span class="gradient-text">Developers</span></span>
+                    </div>
+                    <p>Engineering-led digital marketing, technical SEO, and generative engine optimization across Delhi NCR and globally. Real business results with zero long-term lock-in contracts.</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Core Services</h4>
+                    <ul>
+                        <li><a href="digital-marketing-seo-services.html">Technical SEO &amp; Marketing</a></li>
+                        <li><a href="manufacturing-hardware-erp.html">Manufacturing ERP Systems</a></li>
+                        <li><a href="hospital-management-software.html">Hospital Management (HMIS)</a></li>
+                        <li><a href="school-management-software.html">School Management Systems</a></li>
+                        <li><a href="real-estate-crm-software.html">Real Estate CRM Platforms</a></li>
+                        <li><a href="ecommerce-web-development.html">Custom E-Commerce Stores</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Target Locations</h4>
+                    <ul>
+                        <li><a href="blog/best-seo-company-okhla-delhi.html">Okhla Industrial Hub SEO</a></li>
+                        <li><a href="blog/best-seo-company-aligarh.html">Aligarh Manufacturing SEO</a></li>
+                        <li><a href="digital-marketing-seo-services.html#modules">Delhi NCR Google 3-Pack</a></li>
+                        <li><a href="digital-marketing-seo-services.html#modules">Noida Tech Corridors</a></li>
+                        <li><a href="digital-marketing-seo-services.html#modules">Gurgaon Cyber City Search</a></li>
+                        <li><a href="digital-marketing-seo-services.html#modules">Global B2B SEO Export</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Direct Contact</h4>
+                    <ul>
+                        <li><a href="tel:+917835019421"><i class="fas fa-phone"></i> +91-7835019421</a></li>
+                        <li><a href="mailto:contact@techminddevelopers.in"><i class="fas fa-envelope"></i> contact@techminddevelopers.in</a></li>
+                        <li><a href="https://wa.me/917835019421" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp Live Chat</a></li>
+                        <li><a href="#contact"><i class="fas fa-shield-halved"></i> Zero Lock-in Guarantee</a></li>
+                    </ul>
+                </div>
             </div>
-            <p class="footer-copy">&copy; 2014 - 2026 <a href="https://techminddevelopers.in/">Tech Mind Developers</a>. All rights reserved.</p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Tech Mind Developers. All rights reserved. &bull; Engineered for sub-second performance &amp; verified organic rankings.</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="sitemap.xml">XML Sitemap</a>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -2588,11 +2641,11 @@ body.menu-open .floating-contact-pill {
             "description": "Transparent milestone performance marketing with zero long-term lock-in contracts."
           },
           "featureList": [
-            "Sub-second Core Web Vitals and technical code-level SEO audits",
-            "Generative Engine Optimization (GEO) for ChatGPT and Perplexity citations",
-            "Hyper-local Google Business Profile (GBP) and Maps 3-Pack optimization",
-            "High-intent transactional keyword clustering and content architecture",
-            "Conversion rate optimization (CRO) with direct WhatsApp lead routing",
+            "Sub-second website speed and technical SEO cleanup",
+            "Generative Engine Optimization (GEO) for ChatGPT and AI search visibility",
+            "Hyper-local Google Business Profile (GBP) and Maps 3-Pack ranking",
+            "Buyer-focused content targeting high-intent commercial queries",
+            "High-converting landing pages with direct WhatsApp lead routing",
             "Laser-targeted Google Search Ads (PPC) with negative keyword shields"
           ]
         },
@@ -2601,34 +2654,34 @@ body.menu-open .floating-contact-pill {
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Do you require long-term 6 or 12 month lock-in contracts?",
+              "name": "Do you require long-term lock-in contracts?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "No. We believe in earning your partnership every single month. We do not lock you into rigid long-term contracts. You retain 100% full admin ownership of all your analytics, ad accounts, and creative assets."
+                "text": "No. We believe in earning your business every single month. There are no 6 or 12 month lock-in contracts. You can pause or stop anytime, and you always own 100% of your accounts and data."
               }
             },
             {
               "@type": "Question",
-              "name": "How is technical SEO different from normal SEO services?",
+              "name": "How is technical SEO different from regular SEO?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Normal SEO usually means writing generic blog posts and hoping Google notices. Technical SEO is the foundation: it fixes your website code, server speed, mobile responsiveness, XML sitemaps, crawl budget efficiency, and JSON-LD structured schemas."
+                "text": "Regular SEO usually means writing generic blog posts and hoping for the best. Technical SEO fixes the engine: making your website load in under 1 second, fixing errors, and making it super easy for Google to understand and rank your pages."
               }
             },
             {
               "@type": "Question",
-              "name": "How long does it take to see real organic rankings and inquiries?",
+              "name": "How soon will I see real rankings and customer inquiries?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Technical fixes (speed, schema, indexing errors) and local Google Business Profile improvements typically show measurable movement within 3 to 6 weeks. High-competition organic keywords usually take 2 to 4 months of systematic topical authority building."
+                "text": "Website speed fixes and Google Maps improvements often show results within 3 to 6 weeks. Higher competition keywords usually take 2 to 4 months of steady ranking work. If you need inquiries immediately, we can start targeted Google Ads right away."
               }
             },
             {
               "@type": "Question",
-              "name": "What is Generative Engine Optimization (GEO) and why do I need it?",
+              "name": "What is AI Search Optimization and why do I need it?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "GEO is the process of optimizing your website so AI platforms like ChatGPT, Perplexity, and Google Gemini Overviews cite your company when users ask for recommendations. By implementing machine-readable entity files (llms.txt) and Wikidata knowledge graphs, we ensure AI bots recognize your authority."
+                "text": "Millions of people now use ChatGPT, Google Gemini, and Perplexity to find services. We structure your business information so these AI tools can read it easily and recommend your company when people ask for solutions."
               }
             },
             {
@@ -2636,15 +2689,15 @@ body.menu-open .floating-contact-pill {
               "name": "Can you rank my business in multiple cities like Delhi, Noida, and Aligarh?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! We specialize in multi-location geo-targeting across the Delhi NCR corridor (Okhla, South Delhi, Noida, Gurgaon, Faridabad) and Uttar Pradesh hubs (Aligarh, Lucknow, Agra)."
+                "text": "Yes. We specialize in ranking businesses across the Delhi NCR corridor (Okhla, South Delhi, Noida, Gurgaon) and Uttar Pradesh hubs like Aligarh. We create dedicated city pages and local map signals for each target area."
               }
             },
             {
               "@type": "Question",
-              "name": "How do we track whether the marketing campaign is actually working?",
+              "name": "How will I know if the marketing is actually working?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "We measure success in actual phone calls, WhatsApp messages, and verified customer inquiries. We set up Google Tag Manager conversion tracking on every button and form, giving you a live transparent dashboard."
+                "text": "We measure real business results: phone calls, WhatsApp inquiries, and contact form submissions. We provide a simple live dashboard showing exactly where every lead came from."
               }
             }
           ]
@@ -2849,9 +2902,6 @@ body.menu-open .floating-contact-pill {
         });
     }
     </script>
-
-    <!-- CHATBOT SCRIPT -->
-    <script src="tmd-chatbot.js?v=12" defer></script>
 
     <!-- CHATBOT SCRIPT -->
     <script src="tmd-chatbot.js?v=12" defer></script>
