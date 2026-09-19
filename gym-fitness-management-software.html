@@ -1757,6 +1757,86 @@ body.menu-open .floating-contact-pill {
 
     
 
+/* Light Theme Support for Module Cards */
+[data-theme="light"] .module-card {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+[data-theme="light"] .module-card h3 {
+    color: #0f172a;
+}
+[data-theme="light"] .module-card p {
+    color: #475569;
+}
+[data-theme="light"] .module-features {
+    border-top-color: rgba(0, 0, 0, 0.08);
+}
+[data-theme="light"] .module-features li {
+    color: #475569;
+}
+
+[data-theme="light"] .module-blue {
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.04) 0%, #ffffff 100%);
+    border-color: rgba(59, 130, 246, 0.25);
+}
+[data-theme="light"] .module-blue h3 { color: #1d4ed8; }
+[data-theme="light"] .module-blue:hover {
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 14px 35px rgba(59, 130, 246, 0.12);
+}
+
+[data-theme="light"] .module-emerald {
+    background: linear-gradient(180deg, rgba(16, 185, 129, 0.04) 0%, #ffffff 100%);
+    border-color: rgba(16, 185, 129, 0.25);
+}
+[data-theme="light"] .module-emerald h3 { color: #047857; }
+[data-theme="light"] .module-emerald:hover {
+    border-color: rgba(16, 185, 129, 0.5);
+    box-shadow: 0 14px 35px rgba(16, 185, 129, 0.12);
+}
+
+[data-theme="light"] .module-purple {
+    background: linear-gradient(180deg, rgba(139, 92, 246, 0.04) 0%, #ffffff 100%);
+    border-color: rgba(139, 92, 246, 0.25);
+}
+[data-theme="light"] .module-purple h3 { color: #6d28d9; }
+[data-theme="light"] .module-purple:hover {
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 14px 35px rgba(139, 92, 246, 0.12);
+}
+
+[data-theme="light"] .module-amber {
+    background: linear-gradient(180deg, rgba(245, 158, 11, 0.04) 0%, #ffffff 100%);
+    border-color: rgba(245, 158, 11, 0.25);
+}
+[data-theme="light"] .module-amber h3 { color: #b45309; }
+[data-theme="light"] .module-amber:hover {
+    border-color: rgba(245, 158, 11, 0.5);
+    box-shadow: 0 14px 35px rgba(245, 158, 11, 0.12);
+}
+
+[data-theme="light"] .module-pink {
+    background: linear-gradient(180deg, rgba(236, 72, 153, 0.04) 0%, #ffffff 100%);
+    border-color: rgba(236, 72, 153, 0.25);
+}
+[data-theme="light"] .module-pink h3 { color: #be185d; }
+[data-theme="light"] .module-pink:hover {
+    border-color: rgba(236, 72, 153, 0.5);
+    box-shadow: 0 14px 35px rgba(236, 72, 153, 0.12);
+}
+
+[data-theme="light"] .module-cyan {
+    background: linear-gradient(180deg, rgba(6, 182, 212, 0.04) 0%, #ffffff 100%);
+    border-color: rgba(6, 182, 212, 0.25);
+}
+[data-theme="light"] .module-cyan h3 { color: #0e7490; }
+[data-theme="light"] .module-cyan:hover {
+    border-color: rgba(6, 182, 212, 0.5);
+    box-shadow: 0 14px 35px rgba(6, 182, 212, 0.12);
+}
+
+
 /* ============================================================
    INTERACTIVE BIOMETRIC TURNSTILE SIMULATOR STYLING (SCOPED)
    ============================================================ */
@@ -2290,7 +2370,7 @@ body.menu-open .floating-contact-pill {
         </div>
     </section>
 
-    <!-- SECTION 3: WHAT WE BUILD (#modules) -->
+    <!-- SECTION 3: WHAT WE BUILD (#modules) - EXACT 6 CARDS (3x2 GRID) MATCHING DENTAL & PATHOLOGY MASTER TEMPLATE -->
     <section class="services" id="modules">
         <div class="container">
             <div class="section-header fade-in">
@@ -2298,54 +2378,77 @@ body.menu-open .floating-contact-pill {
                 <h2 class="section-title">Complete Features Engineered for <span class="gradient-text">High-Growth Gyms &amp; Fitness Chains</span></h2>
                 <p class="section-desc">Hardware turnstile connectivity, automated WhatsApp payments, trainer payroll, and paperless management built into one fast dashboard.</p>
             </div>
-            <div class="services-grid">
-                <!-- Module 1 -->
-                <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-fingerprint"></i></div>
+            <div class="modules-grid">
+                <!-- Module 1: Blue -->
+                <div class="module-card module-blue fade-in">
+                    <div class="module-icon"><i class="fas fa-fingerprint"></i></div>
                     <h3>Turnstile &amp; Biometric Integration</h3>
                     <p>Connects directly with ZKTeco, eSSL, Realtime, and facial machines. You get reliable <strong>zkteco biometric integration gym software</strong>, <strong>essl biometric turnstile gym software</strong>, <strong>biometric face recognition gym software</strong>, <strong>gym attendance software with biometric machine</strong>, and <strong>rfid card gym entry gate software</strong> with instant sub-second opening.</p>
+                    <ul class="module-features">
+                        <li><i class="fas fa-check"></i> Auto-locks gate the second a membership expires</li>
+                        <li><i class="fas fa-check"></i> Fingerprint, facial recognition &amp; RFID cards</li>
+                        <li><i class="fas fa-check"></i> Works offline over local LAN with auto-sync</li>
+                    </ul>
                 </div>
-                <!-- Module 2 -->
-                <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fab fa-whatsapp"></i></div>
+
+                <!-- Module 2: Emerald -->
+                <div class="module-card module-emerald fade-in">
+                    <div class="module-icon"><i class="fab fa-whatsapp"></i></div>
                     <h3>Automated WhatsApp Renewal Bot</h3>
                     <p>Save hours of follow-up calls. Our <strong>gym membership expiry alert whatsapp bot</strong> and <strong>gym fee collection software whatsapp link</strong> delivers automated payment notices, instant receipts, birthday wishes, and festival discounts automatically.</p>
+                    <ul class="module-features">
+                        <li><i class="fas fa-check"></i> Timely alerts 7 days, 3 days &amp; 1 day before expiry</li>
+                        <li><i class="fas fa-check"></i> 1-Click dynamic UPI QR code for fee payment</li>
+                        <li><i class="fas fa-check"></i> Instant automated digital PDF fee receipts</li>
+                    </ul>
                 </div>
-                <!-- Module 3 -->
-                <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-user-tie"></i></div>
+
+                <!-- Module 3: Purple -->
+                <div class="module-card module-purple fade-in">
+                    <div class="module-icon"><i class="fas fa-user-tie"></i></div>
                     <h3>Trainer PT Commission &amp; Payroll</h3>
                     <p>Manage floor trainers without friction. Our <strong>gym trainer payroll and attendance software</strong> automatically tracks trainer shifts, counts completed PT sessions, calculates percentage or flat splits, and generates clean monthly payout sheets.</p>
+                    <ul class="module-features">
+                        <li><i class="fas fa-check"></i> Biometric verification for every PT session</li>
+                        <li><i class="fas fa-check"></i> Customizable revenue split slabs (e.g. 60/40)</li>
+                        <li><i class="fas fa-check"></i> Transparent trainer dashboard &amp; monthly statements</li>
+                    </ul>
                 </div>
-                <!-- Module 4 -->
-                <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-apple-whole"></i></div>
-                    <h3>Diet &amp; Workout Routine Sharing</h3>
+
+                <!-- Module 4: Amber -->
+                <div class="module-card module-amber fade-in">
+                    <div class="module-icon"><i class="fas fa-apple-whole"></i></div>
+                    <h3>Diet, Workout &amp; BMI Tracking</h3>
                     <p>Help members hit their fitness goals. Includes <strong>body measurement and bmi tracking software gym</strong> so trainers can log weight, body fat, and measurements, and share digital diet plans and exercise routines directly to members' phones.</p>
+                    <ul class="module-features">
+                        <li><i class="fas fa-check"></i> Body measurements, fat % &amp; BMI progress charts</li>
+                        <li><i class="fas fa-check"></i> Workout plan builder for strength, fat loss &amp; cardio</li>
+                        <li><i class="fas fa-check"></i> Direct routine dispatch to member WhatsApp &amp; app</li>
+                    </ul>
                 </div>
-                <!-- Module 5 -->
-                <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-mobile-screen-button"></i></div>
-                    <h3>Member Mobile App &amp; Web Portal</h3>
-                    <p>Built by trusted <strong>custom fitness app developers india</strong>. Give your gym a branded <strong>gym member mobile app ios android</strong> where members book workout slots with <strong>gym batch time slot booking software</strong> and invite friends using <strong>gym trial pass and guest registration software</strong>.</p>
+
+                <!-- Module 5: Pink -->
+                <div class="module-card module-pink fade-in">
+                    <div class="module-icon"><i class="fas fa-mobile-screen-button"></i></div>
+                    <h3>Member Mobile App &amp; Slot Booking</h3>
+                    <p>Built by trusted <strong>custom fitness app developers india</strong>. Give your gym a branded <strong>gym member mobile app ios android</strong> where members book workout slots with <strong>gym batch time slot booking software</strong>, book classes via <strong>multi studio fitness scheduling software</strong>, and invite friends using <strong>gym trial pass and guest registration software</strong>.</p>
+                    <ul class="module-features">
+                        <li><i class="fas fa-check"></i> Batch slot booking for gym, yoga, CrossFit &amp; Zumba</li>
+                        <li><i class="fas fa-check"></i> 1-Day trial pass &amp; guest registration system</li>
+                        <li><i class="fas fa-check"></i> Member digital ID card &amp; active plan validity</li>
+                    </ul>
                 </div>
-                <!-- Module 6 -->
-                <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-                    <h3>Counter POS &amp; Maintenance Tracking</h3>
-                    <p>Quick billing at the reception desk. Includes complete <strong>gym financial accounting with gst software</strong>, locker rentals through <strong>gym locker management software</strong>, and service alerts via <strong>gym equipment maintenance tracking software</strong>.</p>
-                </div>
-                <!-- Module 7 -->
-                <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-boxes-stacked"></i></div>
-                    <h3>Inquiry CRM &amp; Supplement Inventory</h3>
-                    <p>Turn walk-ins into paying members. Uses <strong>gym lead management and inquiry crm</strong> and <strong>gym daily walk in visitor entry software</strong> to log new inquiries, plus <strong>gym supplement inventory software</strong> with barcode billing for shakes and protein tubs.</p>
-                </div>
-                <!-- Module 8 -->
-                <div class="service-card fade-in">
-                    <div class="service-icon"><i class="fas fa-network-wired"></i></div>
-                    <h3>Multi-Branch Gym Chain Central Hub</h3>
-                    <p>Run 1 gym or 10 locations smoothly. Our <strong>multi branch gym chain software</strong>, <strong>multi studio fitness scheduling software</strong>, and <strong>paperless gym management software india</strong> lets members work out across branches while you track total footfall and revenue from one screen.</p>
+
+                <!-- Module 6: Cyan -->
+                <div class="module-card module-cyan fade-in">
+                    <div class="module-icon"><i class="fas fa-boxes-stacked"></i></div>
+                    <h3>Counter POS, CRM &amp; Multi-Branch Hub</h3>
+                    <p>High-speed billing with <strong>gym financial accounting with gst software</strong>, locker management with <strong>gym locker management software</strong>, and equipment tracking via <strong>gym equipment maintenance tracking software</strong>. Turn walk-ins into members with <strong>gym lead management and inquiry crm</strong> and <strong>gym daily walk in visitor entry software</strong>, track stock with <strong>gym supplement inventory software</strong>, and manage multiple locations with <strong>multi branch gym chain software</strong> and <strong>paperless gym management software india</strong>.</p>
+                    <ul class="module-features">
+                        <li><i class="fas fa-check"></i> Quick counter billing, GST invoices &amp; locker slots</li>
+                        <li><i class="fas fa-check"></i> Walk-in visitor CRM &amp; protein supplement inventory</li>
+                        <li><i class="fas fa-check"></i> Multi-branch central access control &amp; live reporting</li>
+                    </ul>
                 </div>
             </div>
         </div>
