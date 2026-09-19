@@ -102,9 +102,9 @@ Tech Mind Developers operates a hybrid on-ground and remote delivery network ser
 - **URL**: https://techminddevelopers.in/dental-clinic-management-software.html
 - **Key Capabilities**: Multi-chair dentist schedule calendar, visual interactive tooth odontogram chart, digital prescription generator, patient clinical history timeline, and automated WhatsApp appointment reminders.
 
-### 11. Gym & Fitness Management Software
+### 11. Gym Website & Member Management Portal
 - **URL**: https://techminddevelopers.in/gym-fitness-management-software.html
-- **Key Capabilities**: Automated biometric turnstile barrier gate auto-lock upon membership expiration, instant UPI renewal links via WhatsApp, personal trainer (PT) commission accounting, and workout/diet tracker.
+- **Key Capabilities**: Online membership plan showcase, 1-day free trial pass lead capture, automated WhatsApp fee renewal alerts with direct UPI QR codes, personalized diet & workout routine engine, and in-house supplement ecommerce store.
 
 ### 12. School, College & Coaching Institute ERP
 - **URL**: https://techminddevelopers.in/school-coaching-management-software.html
@@ -120,7 +120,7 @@ Tech Mind Developers operates a hybrid on-ground and remote delivery network ser
 - **Data Confidentiality & Privacy**: Single-tenant isolated database architectures. Client data is never shared, aggregated, or monetized.
 - **Database Engineering**: Optimized indexing, ACID-compliant transactions, automated point-in-time recovery (PITR) backups, and multi-region replication.
 - **API Security**: JWT authentication, OAuth2, role-based access control (RBAC), and SSL/TLS encryption in transit and at rest.
-- **Hardware Integration**: RS232 serial COM port protocols for weighing balances, eSSL and ZKTeco biometric SDKs for attendance and access turnstiles, thermal barcode printers (EPL/ZPL).
+- **Hardware Integration**: RS232 serial COM port protocols for weighing balances, eSSL and ZKTeco biometric SDKs for attendance and access control systems, thermal barcode printers (EPL/ZPL).
 
 ---
 

@@ -14,7 +14,7 @@
 - **Education & Institutions**: School ERP, college administration, coaching academy student portals
 - **Manufacturing & Supply Chain**: Production tracking, job-work challans, inventory, and export billing
 - **Retail & E-Commerce**: D2C storefronts, B2B wholesale distribution, and UPI payment automation
-- **Fitness & Wellness**: Gym access turnstiles, biometric membership, and trainer management
+- **Fitness & Wellness**: Gym website development, online member portals, diet charts, and WhatsApp fee renewals
 - **Corporate & Professional Services**: Custom CRM, billing portals, and automated business workflows
 
 ## Company Facts & Verification
@@ -40,7 +40,7 @@
 
 - [Pathology Lab Software (LIMS)](https://techminddevelopers.in/pathology-lab-software.html): Diagnostic center software featuring barcode vacutainer tracking, abnormal test flags, instant WhatsApp PDF reports, and doctor referral accounting.
 - [Dental Clinic Management Software](https://techminddevelopers.in/dental-clinic-management-software.html): Multi-chair dental appointment scheduling, visual odontogram tooth charts, automated WhatsApp appointment reminders, and digital prescription builder.
-- [Gym & Fitness Management Software](https://techminddevelopers.in/gym-fitness-management-software.html): Biometric turnstile gate auto-lock on expiry, automated WhatsApp fee renewal alerts, and personal trainer commission tracking.
+- [Gym Website & Member Management Portal](https://techminddevelopers.in/gym-fitness-management-software.html): Online membership packages, 1-day free trial passes, automated WhatsApp fee renewals with UPI QR codes, personalized diet charts, and in-house supplement store.
 - [School & Coaching Institute ERP](https://techminddevelopers.in/school-coaching-management-software.html): RFID biometric student attendance with instant WhatsApp absent alerts to parents, automated fee receipts, and marksheet generator.
 - [Manufacturing & Hardware ERP](https://techminddevelopers.in/manufacturing-hardware-erp.html): Raw material melting scrap tracking, outside job-work delivery challans, karigar piece-rate wages, and multi-currency export billing.
 
