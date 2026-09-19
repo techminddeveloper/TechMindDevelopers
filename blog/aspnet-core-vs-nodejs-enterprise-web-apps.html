@@ -373,16 +373,14 @@ html {
     display: inline-flex;
     align-items: center;
     background: var(--bg-card);
-    border: 1px solid rgba(56, 189, 248, 0.35);
+    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 3px;
     gap: 3px;
     transition: var(--transition);
-    animation: langBorderGlow 1.8s infinite ease-in-out;
 }
 .nav-lang-switcher:hover {
-    border-color: #38bdf8;
-    box-shadow: 0 0 16px 3px rgba(56, 189, 248, 0.9);
+    border-color: var(--border-glow);
 }
 .nav-lang-btn{border:none;outline:none;background:transparent;color:var(--text-muted);font-size:0.82rem;font-weight:700;padding:6px 13px;border-radius:9px;cursor:pointer;transition:var(--transition);font-family:var(--font-primary);white-space:nowrap;}
 .nav-lang-btn:hover{color:var(--text-heading);}
@@ -420,7 +418,8 @@ html {
         flex-direction: column !important;
         padding: 2px !important;
         gap: 1px !important;
-        border: 1px solid rgba(56, 189, 248, 0.35);
+        border-width: 1px !important;
+        border-style: solid !important;
         border-radius: 7px !important;
         animation: langBorderGlow 1.8s infinite ease-in-out !important;
     }
@@ -455,6 +454,7 @@ html {
     .hero-img-wrap.mobile-scrolled .hero-img { transform: scale(1.08) !important; }
 }
 </style>
+    <link rel="stylesheet" href="blog-common.css">
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
