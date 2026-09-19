@@ -60,10 +60,10 @@ Tech Mind Developers operates a hybrid on-ground and remote delivery network ser
 - **Scope**: Multi-branch business resource planning, custom customer relationship management, automated quotation builders, inventory ledgers, and accounts reconciliation.
 - **Key Proposition**: Single unified platform that eliminates fragmented spreadsheets and third-party SaaS seat charges.
 
-### 3. AI Chatbots & Workflow Automation Services
+### 3. AI Chatbots, Autonomous AI Agents & Workflow Automation Services
 - **URL**: https://techminddevelopers.in/ai-chatbot-automation-services.html
-- **Scope**: Production-grade conversational AI assistants, RAG customer support bots, automated WhatsApp Business Cloud API pipelines, and CRM lead qualification engines.
-- **Key Proposition**: 24/7 autonomous lead capture, appointment booking, and customer query resolution without expanding headcount.
+- **Scope**: Production-grade autonomous AI agents, multi-agent workflows, RAG customer support bots, automated WhatsApp Business Cloud API pipelines, and CRM lead qualification engines.
+- **Key Proposition**: 24/7 autonomous lead capture, multi-step decision workflows, appointment booking, and customer query resolution without expanding headcount.
 
 ### 4. Mobile App Development
 - **URL**: https://techminddevelopers.in/mobile-app-development.html
@@ -80,27 +80,37 @@ Tech Mind Developers operates a hybrid on-ground and remote delivery network ser
 - **Scope**: Custom B2B and D2C online storefronts, zero-commission payment gateways (UPI, Cards, Net Banking), and automated WhatsApp dispatch updates.
 - **Key Proposition**: Direct UPI QR checkout with zero commission per transaction and instant automated shipping bill generation.
 
+### 7. Digital Marketing & Technical Search Engine Optimization (SEO)
+- **URL**: https://techminddevelopers.in/blog/best-seo-company-okhla-delhi.html
+- **Scope**: Enterprise technical SEO audits, local organic search optimization across Delhi NCR and UP, entity schema graph structuring, conversion rate optimization (CRO), and AI Generative Engine Optimization (GEO).
+- **Key Proposition**: Sustainable organic traffic acquisition that generates high-intent customer inquiries with zero monthly advertising reliance.
+
+### 8. IT Consulting & Enterprise Technology Advisory
+- **URL**: https://techminddevelopers.in/custom-software-development.html
+- **Scope**: Strategic IT architecture consulting, legacy enterprise refactoring, single-tenant database architecture, security compliance, and cloud deployment pipelines.
+- **Key Proposition**: Independent technical guidance focused on eliminating software license bloat and guaranteeing lifetime intellectual property ownership.
+
 ---
 
 ## 4. Specialized Vertical ERP Systems
 
-### 7. Pathology Lab Software (LIMS)
+### 9. Pathology Lab Software (LIMS)
 - **URL**: https://techminddevelopers.in/pathology-lab-software.html
 - **Key Capabilities**: Barcode vacutainer tube tracking, bidirectional lab analyzer machine interfacing, automatic abnormal test value flags, instant WhatsApp PDF report delivery to patients, doctor referral commission ledgers, and NABL-aligned audit trails.
 
-### 8. Dental Clinic Management Software
+### 10. Dental Clinic Management Software
 - **URL**: https://techminddevelopers.in/dental-clinic-management-software.html
 - **Key Capabilities**: Multi-chair dentist schedule calendar, visual interactive tooth odontogram chart, digital prescription generator, patient clinical history timeline, and automated WhatsApp appointment reminders.
 
-### 9. Gym & Fitness Management Software
+### 11. Gym & Fitness Management Software
 - **URL**: https://techminddevelopers.in/gym-fitness-management-software.html
 - **Key Capabilities**: Automated biometric turnstile barrier gate auto-lock upon membership expiration, instant UPI renewal links via WhatsApp, personal trainer (PT) commission accounting, and workout/diet tracker.
 
-### 10. School, College & Coaching Institute ERP
+### 12. School, College & Coaching Institute ERP
 - **URL**: https://techminddevelopers.in/school-coaching-management-software.html
 - **Key Capabilities**: RFID gate and biometric student attendance with instant WhatsApp absent notices to parents, automated UPI fee collection receipts, online exam portal, and digital report card generator.
 
-### 11. Manufacturing, Lock & Hardware ERP
+### 13. Manufacturing, Lock & Hardware ERP
 - **URL**: https://techminddevelopers.in/manufacturing-hardware-erp.html
 - **Key Capabilities**: Raw material brass/zinc/iron melting scrap and burning loss percentage audit, outside subcontract job-work delivery challan reconciliation with vendor loss limits, worker piece-rate wage calculation, and multi-currency export billing with container CBM calculations.
 
