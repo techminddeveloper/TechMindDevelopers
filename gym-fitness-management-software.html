@@ -3098,25 +3098,26 @@ body.menu-open .floating-contact-pill {
         document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
     }, 150);
 
-    // FAQ Accordion
+    // FAQ Accordion (Exact match with Pathology & Dental master templates)
     document.querySelectorAll('.faq-question').forEach(btn => {
         btn.addEventListener('click', () => {
             const item = btn.closest('.faq-item');
+            const answer = item.querySelector('.faq-answer');
             const isActive = item.classList.contains('active');
             
-            // Close other items
-            document.querySelectorAll('.faq-item').forEach(other => {
-                other.classList.remove('active');
-                other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-                const toggleIcon = other.querySelector('.faq-toggle-btn i');
-                if (toggleIcon) toggleIcon.className = 'fas fa-plus';
+            document.querySelectorAll('.faq-item').forEach(i => {
+                i.classList.remove('active');
+                i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                const a = i.querySelector('.faq-answer');
+                if (a) a.style.maxHeight = null;
             });
 
             if (!isActive) {
                 item.classList.add('active');
                 btn.setAttribute('aria-expanded', 'true');
-                const toggleIcon = item.querySelector('.faq-toggle-btn i');
-                if (toggleIcon) toggleIcon.className = 'fas fa-minus';
+                if (answer) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
             }
         });
     });
