@@ -66,6 +66,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
+
+
 /* ===== DARK THEME (default) ===== */
 :root, [data-theme="dark"] {
     --bg-primary: #0a0a0f;
@@ -174,7 +176,6 @@
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box }
 html { scroll-behavior:smooth; scroll-padding-top:80px }
-
 /* Sleek Theme-Responsive Scrollbar */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: #07090e; }
@@ -197,14 +198,22 @@ body.light-theme::-webkit-scrollbar-thumb {
 [data-theme="light"]::-webkit-scrollbar-thumb:hover,
 body.light-theme::-webkit-scrollbar-thumb:hover { background: #64748b; }
 
-body { font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif; background:var(--bg-primary); color:var(--text-primary); line-height:1.72; letter-spacing:-0.01em; overflow-x:hidden; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; text-rendering:optimizeLegibility; transition: background 0.4s ease, color 0.4s ease }
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #3b82f6 #07090e;
+}
+[data-theme="light"], body.light-theme {
+    scrollbar-color: #94a3b8 #f1f5f9;
+}
+
+body { font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; background:var(--bg-primary); color:var(--text-primary); line-height:1.72; letter-spacing:-0.01em; overflow-x:hidden; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; text-rendering:optimizeLegibility; transition: background 0.4s ease, color 0.4s ease }
 a { text-decoration:none; color:inherit }
 img { max-width:100%; display:block }
 .container { max-width:var(--max-width); margin:0 auto; padding:0 24px }
 .gradient-text { background:var(--gradient-hero); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text }
 .section-label { font-size:.8rem; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--accent-blue); margin-bottom:12px; display:inline-block }
 .section-title { font-size:clamp(2rem,4vw,2.8rem); font-weight:800; line-height:1.2; margin-bottom:16px }
-.section-desc { font-size:1.05rem; color:var(--text-secondary); max-width:640px; line-height:1.8 }
+.section-desc { font-size:1.05rem; color:var(--text-secondary); max-width:600px; line-height:1.8 }
 .section-header { text-align:center; margin-bottom:60px }
 .section-header .section-desc { margin:0 auto }
 section { padding:70px 0; position:relative }
@@ -217,16 +226,17 @@ section { padding:70px 0; position:relative }
 .bg-glow-3 { width:400px; height:400px; background:rgba(236,72,153,0.05); bottom:-100px; right:20% }
 
 /* NAVBAR */
-.navbar { position:fixed; top:0; left:0; width:100%; z-index:1000; padding:16px 0; background:var(--navbar-bg); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border-bottom:1px solid var(--glass-border); transition:padding 0.3s ease, box-shadow 0.3s ease }
+.navbar { position:fixed; top:0; left:0; width:100%; z-index:1000; padding:16px 0; background:var(--navbar-bg); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:none; border-bottom:1px solid var(--glass-border); transition:padding 0.3s ease, box-shadow 0.3s ease }
 .navbar.scrolled { box-shadow:0 8px 30px rgba(0,0,0,0.35); padding:10px 0 }
-.nav-container { display:flex; align-items:center; justify-content:space-between }
+.navbar .container { display:flex; align-items:center; justify-content:space-between }
 .nav-logo { font-size:1.3rem; font-weight:800; display:flex; align-items:center; gap:10px; transition:var(--transition); text-decoration:none }
-.nav-logo img { width:36px; height:36px; object-fit:contain; filter:drop-shadow(0 0 8px rgba(34,211,238,0.4)); transition:var(--transition); }
-.nav-logo:hover img { transform:scale(1.1) rotate(6deg); }
+.nav-logo .logo-img { width:32px; height:32px; object-fit:contain; filter:drop-shadow(0 0 8px rgba(34,211,238,0.4)); transition:var(--transition); }
+.nav-logo:hover .logo-img { transform:scale(1.1) rotate(6deg); filter:drop-shadow(0 0 16px rgba(34,211,238,0.8)); }
 .nav-links { display:flex; align-items:center; gap:6px; list-style:none; margin-left:auto; margin-right:16px; background:var(--glass); border:1px solid var(--glass-border); padding:5px 8px; border-radius:var(--radius-full); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
 .nav-links li { display:flex; }
 .nav-links a { font-size:.88rem; font-weight:600; color:var(--text-secondary); padding:8px 16px; border-radius:var(--radius-full); transition:var(--transition); position:relative; letter-spacing:0.2px; text-decoration:none; }
 
+/* Desktop Themed Nav Link Hover & ScrollSpy Active Effects */
 .nav-links li:nth-child(1) a:hover, .nav-links li:nth-child(1) a.active { color:#60a5fa; background:rgba(59,130,246,0.12); box-shadow:0 0 16px rgba(59,130,246,0.25); }
 .nav-links li:nth-child(2) a:hover, .nav-links li:nth-child(2) a.active { color:#f472b6; background:rgba(236,72,153,0.12); box-shadow:0 0 16px rgba(236,72,153,0.25); }
 .nav-links li:nth-child(3) a:hover, .nav-links li:nth-child(3) a.active { color:#34d399; background:rgba(16,185,129,0.12); box-shadow:0 0 16px rgba(16,185,129,0.25); }
@@ -236,12 +246,17 @@ section { padding:70px 0; position:relative }
 
 .nav-cta { padding:8px 20px!important; background:var(--gradient-primary)!important; border-radius:var(--radius-full)!important; font-weight:600!important; font-size:.85rem!important; color:white!important; transition:var(--transition)!important; box-shadow:0 4px 15px rgba(59,130,246,0.25); }
 .nav-cta:hover { transform:translateY(-1px)!important; box-shadow:0 8px 25px rgba(59,130,246,0.45)!important; background:var(--gradient-hero)!important; color:white!important; }
+.nav-cta::after { display:none!important }
 .nav-icon, .nav-arrow, .nav-cta-arrow { display:none!important }
+.nav-link-main { display:inline-flex; align-items:center }
 
 .nav-right { display:flex; align-items:center; gap:12px }
 .theme-toggle { width:38px; height:38px; background:var(--glass); border:1px solid var(--glass-border); border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--text-secondary); font-size:1rem; transition:var(--transition) }
 .theme-toggle:hover { color:var(--accent-blue); border-color:var(--accent-blue) }
+.theme-toggle svg { display:block; transition:transform 0.3s ease }
+.theme-toggle:hover svg { transform:rotate(30deg) }
 .hamburger { display:none; width:38px; height:38px; background:var(--glass); border:1px solid var(--glass-border); border-radius:10px; flex-direction:column; align-items:center; justify-content:center; gap:4px; cursor:pointer; padding:0; transition:var(--transition) }
+.hamburger:hover { border-color:var(--accent-blue) }
 .hamburger span { width:18px; height:2px; background:var(--text-primary); transition:var(--transition); border-radius:2px }
 .hamburger.active span:nth-child(1) { transform:rotate(45deg) translate(4px,4px) }
 .hamburger.active span:nth-child(2) { opacity:0 }
@@ -249,225 +264,1597 @@ section { padding:70px 0; position:relative }
 
 /* HERO */
 .hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding-top:96px; padding-bottom:40px; position:relative; z-index:1 }
-.hero .container { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr); gap:50px; align-items:center; margin-top:auto; margin-bottom:auto; width:100% }
+.hero .container { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:60px; align-items:center; margin-top:auto; margin-bottom:auto; width:100% }
 .hero-content { min-width:0; width:100% }
-.hero-badge { display:inline-flex; align-items:center; gap:8px; padding:8px 16px; background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-full); font-size:.82rem; font-weight:600; color:var(--accent-cyan); margin-bottom:24px }
+.hero-visual { min-width:0; width:100%; display:flex; justify-content:center; align-items:center }
+.hero-badge { display:inline-flex; align-items:center; gap:8px; padding:8px 16px; background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-full); font-size:.8rem; font-weight:500; color:var(--accent-cyan); margin-bottom:24px }
 .hero-badge .pulse { width:8px; height:8px; background:var(--accent-emerald); border-radius:50%; animation:pulse 2s infinite }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
-.hero h1 { font-size:clamp(2.4rem,4.5vw,3.6rem); font-weight:800; line-height:1.15; margin-bottom:24px; letter-spacing:-0.5px }
-.hero p { font-size:1.08rem; color:var(--text-secondary); margin-bottom:32px; max-width:560px; line-height:1.8 }
+.hero h1 { font-size:clamp(2.2rem,4.5vw,3.4rem); font-weight:800; line-height:1.15; margin-bottom:20px; letter-spacing:-1px }
+.hero h1 .static-line { display:block; margin-bottom:6px }
+.hero h1 .dynamic-line { display:block; max-width:100%; word-break:normal; overflow-wrap:break-word }
+#typewriterText::after { content:'|'; font-weight:300; color:var(--accent-cyan); animation:blinkCursor 0.8s infinite; margin-left:3px; display:inline-block }
+@keyframes blinkCursor { 0%,100%{opacity:1} 50%{opacity:0} }
+.hero p { font-size:1.05rem; color:var(--text-secondary); margin-bottom:30px; max-width:520px; line-height:1.75 }
 .hero-buttons { display:flex; gap:16px; flex-wrap:wrap }
-.btn-primary { display:inline-flex; align-items:center; gap:8px; padding:14px 30px; background:var(--gradient-primary); border-radius:var(--radius-full); font-weight:600; font-size:.95rem; color:white; transition:var(--transition); border:none; cursor:pointer }
+.btn-primary { display:inline-flex; align-items:center; gap:8px; padding:14px 32px; background:var(--gradient-primary); border-radius:var(--radius-full); font-weight:600; font-size:.95rem; color:white; transition:var(--transition); border:none; cursor:pointer }
 .btn-primary:hover { transform:translateY(-2px); box-shadow:0 12px 40px rgba(59,130,246,0.3) }
-.btn-secondary { display:inline-flex; align-items:center; gap:8px; padding:14px 30px; background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-full); font-weight:600; font-size:.95rem; color:var(--text-primary); transition:var(--transition); cursor:pointer }
+.btn-secondary { display:inline-flex; align-items:center; gap:8px; padding:14px 32px; background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-full); font-weight:600; font-size:.95rem; color:var(--text-primary); transition:var(--transition); cursor:pointer }
 .btn-secondary:hover { background:var(--bg-card-hover); border-color:rgba(255,255,255,0.15); transform:translateY(-2px) }
 
-/* PREVIEW CARD */
-.hero-visual { position:relative; display:flex; justify-content:center; align-items:center; width:100% }
-.preview-card-box { width:100%; max-width:480px; background:var(--code-bg); border:1px solid var(--glass-border); border-radius:var(--radius); padding:24px; backdrop-filter:blur(10px); position:relative; overflow:hidden; }
-.preview-card-box::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--gradient-hero) }
-.preview-bar { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--glass-border); font-size:.85rem; font-weight:600 }
-.preview-live-tag { display:inline-flex; align-items:center; gap:6px; color:#10b981; font-size:.75rem; background:rgba(16,185,129,0.1); padding:3px 8px; border-radius:12px; border:1px solid rgba(16,185,129,0.2) }
-.preview-metric-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px }
-.preview-metric { background:var(--glass); border:1px solid var(--glass-border); border-radius:12px; padding:14px; text-align:center }
-.preview-metric h5 { font-size:1.4rem; font-weight:800; color:var(--accent-blue); margin-bottom:2px }
-.preview-metric span { font-size:.75rem; color:var(--text-muted) }
-.preview-metric.green h5 { color:#10b981 }
-.preview-metric.cyan h5 { color:#06b6d4 }
-.preview-metric.pink h5 { color:#ec4899 }
-.preview-task-list { display:flex; flex-direction:column; gap:10px; margin-top:16px; border-top:1px solid var(--glass-border); padding-top:14px }
-.preview-task-item { display:flex; align-items:center; gap:10px; font-size:.82rem; color:var(--text-secondary) }
-.preview-task-item i { color:#10b981 }
+.hero-visual { position:relative; display:flex; justify-content:center; align-items:center; width:100%; max-width:100% }
+.hero-card { width:100%; max-width:500px; background:var(--code-bg); border:1px solid var(--glass-border); border-radius:var(--radius); padding:20px; backdrop-filter:blur(10px); position:relative; overflow:hidden; text-align:left; box-sizing:border-box }
+.hero-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--gradient-hero) }
+.code-block { font-family:'JetBrains Mono',monospace; font-size:.85rem; line-height:1.8; overflow-x:auto; overflow-y:hidden; text-align:left; -webkit-overflow-scrolling:touch; padding:12px 0; max-width:100% }
+.code-block::-webkit-scrollbar { height:4px }
+.code-block::-webkit-scrollbar-track { background:transparent }
+.code-block::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:4px }
+.code-header-bar { display:flex; align-items:center; justify-content:space-between; padding:10px 16px 6px; border-bottom:1px solid var(--glass-border) }
+.code-filename { font-size:0.75rem; color:var(--text-secondary) }
+.code-copy-btn { background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:0.8rem; transition:color 0.2s }
+.code-copy-btn:hover { color:var(--text-primary) }
+.code-line { display:flex; gap:12px; white-space:nowrap }
+.code-num { color:var(--text-muted); user-select:none; min-width:24px; text-align:right }
+.code-keyword { color:var(--code-keyword) } .code-func { color:var(--code-func) } .code-string { color:var(--code-string) } .code-comment { color:var(--code-comment); font-style:italic } .code-bracket { color:var(--code-bracket) } .code-prop { color:var(--code-prop) }
+.tech-tabs-container { display:flex; flex-wrap:wrap; gap:6px; padding:10px 14px 12px }
+.tech-tab { background:var(--tab-bg-default); border:1px solid var(--tab-border-default); color:var(--tab-color-default); padding:5px 12px; border-radius:20px; font-size:0.72rem; cursor:pointer; transition:all 0.2s }
+.tech-tab:hover { border-color:var(--tab-border-active); color:var(--tab-color-active) }
+.tech-tab.active { background:var(--tab-bg-active); border-color:var(--tab-border-active); color:var(--tab-color-active) }
+.hero-card .tech-stack { display:flex; gap:8px; flex-wrap:wrap; margin-top:24px; padding-top:20px; border-top:1px solid var(--glass-border) }
+.tech-tag { padding:4px 12px; background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-full); font-size:.72rem; font-weight:500; color:var(--text-secondary) }
 
 /* STATS */
-.stats-bar { padding:36px 0; border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border); background:var(--glass); backdrop-filter:blur(12px); position:relative; z-index:1 }
-.stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:28px; text-align:center }
-.stat-item h3 { font-size:clamp(1.8rem,3vw,2.4rem); font-weight:800; background:var(--gradient-cyan); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text }
+.stats-bar { padding:40px 0; border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border); background:var(--glass); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); position:relative; z-index:1; box-shadow:0 8px 32px rgba(0,0,0,0.1); }
+.stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; text-align:center }
+.stat-item { padding: 10px; transition: transform 0.3s ease; }
+.stat-item:hover { transform: translateY(-5px) scale(1.05); }
+.stat-item h3 { font-size:clamp(1.8rem,3vw,2.5rem); font-weight:800; background:var(--gradient-cyan); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter: drop-shadow(0 0 10px rgba(6,182,212,0.3)); }
 .stat-item p { font-size:.85rem; color:var(--text-muted); margin-top:4px; font-weight:500 }
 
-/* PROBLEMS SECTION (Contrast) */
-.problems { padding:80px 0; z-index:1 }
-.problems-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px }
-.problem-card { background:rgba(239,68,68,0.03); border:1px solid rgba(239,68,68,0.15); border-radius:var(--radius); padding:32px; transition:var(--transition); position:relative }
-.problem-card:hover { transform:translateY(-4px); border-color:rgba(239,68,68,0.35); box-shadow:0 12px 30px rgba(239,68,68,0.08) }
-.problem-icon { width:48px; height:48px; border-radius:12px; background:rgba(239,68,68,0.12); color:#ef4444; display:flex; align-items:center; justify-content:center; font-size:1.25rem; margin-bottom:18px }
-.problem-card h3 { font-size:1.15rem; font-weight:700; margin-bottom:10px; color:#fca5a5 }
-.problem-card p { font-size:.92rem; color:var(--text-secondary); line-height:1.7 }
-
-/* SERVICES GRID */
+/* SERVICES */
+.services { z-index:1; padding-bottom: 40px; }
 .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px }
-.service-card { border-radius:var(--radius); padding:32px 26px; transition:var(--transition); position:relative; display:flex; flex-direction:column; justify-content:space-between; backdrop-filter:blur(10px) }
-.service-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; opacity:0.85 }
-.service-icon { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:20px }
+.service-card { border-radius:var(--radius); padding:36px 28px; transition:var(--transition); position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; backdrop-filter:blur(10px) }
+.service-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; opacity:0.85; transition:var(--transition) }
+.service-icon { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin-bottom:22px; transition:var(--transition) }
 .service-card h3 { font-size:1.15rem; font-weight:700; margin-bottom:12px }
 .service-card p { font-size:.92rem; color:var(--text-secondary); line-height:1.72 }
 .service-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.06) }
-.service-tags span { padding:4px 11px; border-radius:var(--radius-full); font-size:.72rem; font-weight:500 }
+.service-tags span { padding:4px 11px; border-radius:var(--radius-full); font-size:.72rem; font-weight:500; transition:var(--transition) }
 
+/* Card 1: Custom Software (Electric Blue) */
 .service-card:nth-child(1) { background:linear-gradient(180deg, rgba(59,130,246,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(59,130,246,0.2) }
 .service-card:nth-child(1)::before { background:linear-gradient(90deg, #3b82f6, #60a5fa) }
-.service-card:nth-child(1) .service-icon { background:rgba(59,130,246,0.15); color:#60a5fa; border:1px solid rgba(59,130,246,0.3) }
+.service-card:nth-child(1) .service-icon { background:rgba(59,130,246,0.15); color:#60a5fa; border:1px solid rgba(59,130,246,0.3); box-shadow:0 0 20px rgba(59,130,246,0.2) }
 .service-card:nth-child(1) .service-tags span { background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.25); color:#93c5fd }
+.service-card:nth-child(1):hover { transform:translateY(-6px); border-color:rgba(59,130,246,0.55); box-shadow:0 16px 36px rgba(59,130,246,0.2) }
+.service-card:nth-child(1):hover .service-icon { transform:scale(1.08); box-shadow:0 0 28px rgba(59,130,246,0.4) }
 
+/* Card 2: AI & Automation (Hot Pink / Magenta) */
 .service-card:nth-child(2) { background:linear-gradient(180deg, rgba(236,72,153,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(236,72,153,0.2) }
 .service-card:nth-child(2)::before { background:linear-gradient(90deg, #ec4899, #f472b6) }
-.service-card:nth-child(2) .service-icon { background:rgba(236,72,153,0.15); color:#f472b6; border:1px solid rgba(236,72,153,0.3) }
+.service-card:nth-child(2) .service-icon { background:rgba(236,72,153,0.15); color:#f472b6; border:1px solid rgba(236,72,153,0.3); box-shadow:0 0 20px rgba(236,72,153,0.2) }
 .service-card:nth-child(2) .service-tags span { background:rgba(236,72,153,0.1); border:1px solid rgba(236,72,153,0.25); color:#f9a8d4 }
+.service-card:nth-child(2):hover { transform:translateY(-6px); border-color:rgba(236,72,153,0.55); box-shadow:0 16px 36px rgba(236,72,153,0.2) }
+.service-card:nth-child(2):hover .service-icon { transform:scale(1.08); box-shadow:0 0 28px rgba(236,72,153,0.4) }
 
+/* Card 3: Web Design (Emerald Green) */
 .service-card:nth-child(3) { background:linear-gradient(180deg, rgba(16,185,129,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(16,185,129,0.2) }
 .service-card:nth-child(3)::before { background:linear-gradient(90deg, #10b981, #34d399) }
-.service-card:nth-child(3) .service-icon { background:rgba(16,185,129,0.15); color:#34d399; border:1px solid rgba(16,185,129,0.3) }
+.service-card:nth-child(3) .service-icon { background:rgba(16,185,129,0.15); color:#34d399; border:1px solid rgba(16,185,129,0.3); box-shadow:0 0 20px rgba(16,185,129,0.2) }
 .service-card:nth-child(3) .service-tags span { background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25); color:#6ee7b7 }
+.service-card:nth-child(3):hover { transform:translateY(-6px); border-color:rgba(16,185,129,0.55); box-shadow:0 16px 36px rgba(16,185,129,0.2) }
+.service-card:nth-child(3):hover .service-icon { transform:scale(1.08); box-shadow:0 0 28px rgba(16,185,129,0.4) }
 
+/* Card 4: Mobile App (Electric Cyan) */
 .service-card:nth-child(4) { background:linear-gradient(180deg, rgba(6,182,212,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(6,182,212,0.2) }
 .service-card:nth-child(4)::before { background:linear-gradient(90deg, #06b6d4, #22d3ee) }
-.service-card:nth-child(4) .service-icon { background:rgba(6,182,212,0.15); color:#22d3ee; border:1px solid rgba(6,182,212,0.3) }
+.service-card:nth-child(4) .service-icon { background:rgba(6,182,212,0.15); color:#22d3ee; border:1px solid rgba(6,182,212,0.3); box-shadow:0 0 20px rgba(6,182,212,0.2) }
 .service-card:nth-child(4) .service-tags span { background:rgba(6,182,212,0.1); border:1px solid rgba(6,182,212,0.25); color:#67e8f9 }
+.service-card:nth-child(4):hover { transform:translateY(-6px); border-color:rgba(6,182,212,0.55); box-shadow:0 16px 36px rgba(6,182,212,0.2) }
+.service-card:nth-child(4):hover .service-icon { transform:scale(1.08); box-shadow:0 0 28px rgba(6,182,212,0.4) }
 
+/* Card 5: Cloud & DevOps (Warm Amber / Gold) */
 .service-card:nth-child(5) { background:linear-gradient(180deg, rgba(245,158,11,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(245,158,11,0.2) }
 .service-card:nth-child(5)::before { background:linear-gradient(90deg, #f59e0b, #fbbf24) }
-.service-card:nth-child(5) .service-icon { background:rgba(245,158,11,0.15); color:#fbbf24; border:1px solid rgba(245,158,11,0.3) }
+.service-card:nth-child(5) .service-icon { background:rgba(245,158,11,0.15); color:#fbbf24; border:1px solid rgba(245,158,11,0.3); box-shadow:0 0 20px rgba(245,158,11,0.2) }
 .service-card:nth-child(5) .service-tags span { background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.25); color:#fde68a }
+.service-card:nth-child(5):hover { transform:translateY(-6px); border-color:rgba(245,158,11,0.55); box-shadow:0 16px 36px rgba(245,158,11,0.2) }
+.service-card:nth-child(5):hover .service-icon { transform:scale(1.08); box-shadow:0 0 28px rgba(245,158,11,0.4) }
 
+/* Card 6: E-Commerce (Purple / Violet) */
 .service-card:nth-child(6) { background:linear-gradient(180deg, rgba(139,92,246,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(139,92,246,0.2) }
 .service-card:nth-child(6)::before { background:linear-gradient(90deg, #8b5cf6, #a78bfa) }
-.service-card:nth-child(6) .service-icon { background:rgba(139,92,246,0.15); color:#a78bfa; border:1px solid rgba(139,92,246,0.3) }
+.service-card:nth-child(6) .service-icon { background:rgba(139,92,246,0.15); color:#a78bfa; border:1px solid rgba(139,92,246,0.3); box-shadow:0 0 20px rgba(139,92,246,0.2) }
 .service-card:nth-child(6) .service-tags span { background:rgba(139,92,246,0.1); border:1px solid rgba(139,92,246,0.25); color:#c4b5fd }
+.service-card:nth-child(6):hover { transform:translateY(-6px); border-color:rgba(139,92,246,0.55); box-shadow:0 16px 36px rgba(139,92,246,0.2) }
+.service-card:nth-child(6):hover .service-icon { transform:scale(1.08); box-shadow:0 0 28px rgba(139,92,246,0.4) }
 
-.service-card:hover { transform:translateY(-6px); box-shadow:0 16px 36px rgba(0,0,0,0.2) }
+/* PROCESS SECTION */
+.process-section { z-index:1; padding-top:35px; padding-bottom:35px; position:relative }
+.process-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; margin-top:36px; position:relative }
+.process-card { border-radius:var(--radius); padding:28px 22px 24px; position:relative; overflow:hidden; transition:var(--transition); backdrop-filter:blur(10px); display:flex; flex-direction:column }
+.process-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px }
+.process-step-badge { position:absolute; top:18px; right:18px; font-size:0.75rem; font-weight:800; font-family:'JetBrains Mono', monospace; padding:4px 10px; border-radius:var(--radius-full); letter-spacing:0.5px }
+.process-icon { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.35rem; margin-bottom:20px; transition:var(--transition) }
+.process-card h3 { font-size:1.08rem; font-weight:700; margin-bottom:10px; transition:var(--transition) }
+.process-card p { font-size:.88rem; color:var(--text-secondary); line-height:1.68; margin-bottom:18px; flex-grow:1 }
+.process-deliverables { display:flex; flex-direction:column; gap:6px; padding-top:14px; border-top:1px solid rgba(255,255,255,0.06); font-size:0.78rem; font-weight:600 }
+.process-deliverables span { display:flex; align-items:center; gap:6px }
 
-/* COMPARISON TABLE */
-.comparison-section { padding:80px 0; background:var(--bg-secondary); border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border); z-index:1 }
-.comparison-wrap { overflow-x:auto; border-radius:var(--radius); border:1px solid var(--glass-border); background:var(--bg-card) }
-.comp-table { width:100%; border-collapse:collapse; text-align:left; font-size:.92rem }
-.comp-table th, .comp-table td { padding:18px 24px; border-bottom:1px solid var(--glass-border) }
-.comp-table th { background:rgba(255,255,255,0.02); font-weight:700; color:var(--text-primary); font-size:.95rem }
-.comp-table tr:last-child td { border-bottom:none }
-.comp-table .bad { color:#f87171 }
-.comp-table .good { color:#34d399; font-weight:600 }
-.comp-table tr:hover td { background:rgba(255,255,255,0.02) }
+/* Step 1: Discovery (Electric Blue) */
+.process-card:nth-child(1) { --step-border-default:rgba(59,130,246,0.25); --step-border-active:rgba(59,130,246,0.65); --step-glow:rgba(59,130,246,0.25); --step-icon-glow:rgba(59,130,246,0.2); --step-icon-glow-active:rgba(59,130,246,0.55); background:linear-gradient(180deg, rgba(59,130,246,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid var(--step-border-default); animation:processWave 3.6s ease-in-out infinite; animation-delay:0s }
+.process-card:nth-child(1)::before { background:linear-gradient(90deg, #3b82f6, #60a5fa) }
+.process-card:nth-child(1) .process-step-badge { background:rgba(59,130,246,0.15); color:#60a5fa; border:1px solid rgba(59,130,246,0.3) }
+.process-card:nth-child(1) .process-icon { background:rgba(59,130,246,0.15); color:#60a5fa; border:1px solid rgba(59,130,246,0.3); box-shadow:0 0 20px rgba(59,130,246,0.22); animation:processIconWave 3.6s ease-in-out infinite; animation-delay:0s }
+.process-card:nth-child(1) .process-deliverables span { color:#93c5fd }
+.process-card:nth-child(1):hover { transform:translateY(-8px); border-color:rgba(59,130,246,0.6); box-shadow:0 16px 36px rgba(59,130,246,0.22) }
+.process-card:nth-child(1):hover .process-icon { transform:scale(1.1) rotate(5deg); box-shadow:0 0 28px rgba(59,130,246,0.45) }
 
-/* PROCESS GRID */
-.process-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; position:relative }
-.process-step { background:var(--bg-card); border:1px solid var(--glass-border); border-radius:var(--radius); padding:28px 22px; position:relative; transition:var(--transition) }
-.process-step:hover { transform:translateY(-4px); border-color:var(--accent-blue) }
-.step-num { width:40px; height:40px; border-radius:50%; background:var(--gradient-primary); color:white; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.1rem; margin-bottom:18px }
-.process-step h3 { font-size:1.05rem; font-weight:700; margin-bottom:8px }
-.process-step p { font-size:.86rem; color:var(--text-secondary); line-height:1.6 }
+/* Step 2: Architecture & Design (Hot Pink) */
+.process-card:nth-child(2) { --step-border-default:rgba(236,72,153,0.25); --step-border-active:rgba(236,72,153,0.65); --step-glow:rgba(236,72,153,0.25); --step-icon-glow:rgba(236,72,153,0.2); --step-icon-glow-active:rgba(236,72,153,0.55); background:linear-gradient(180deg, rgba(236,72,153,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid var(--step-border-default); animation:processWave 3.6s ease-in-out infinite; animation-delay:0.45s }
+.process-card:nth-child(2)::before { background:linear-gradient(90deg, #ec4899, #f472b6) }
+.process-card:nth-child(2) .process-step-badge { background:rgba(236,72,153,0.15); color:#f472b6; border:1px solid rgba(236,72,153,0.3) }
+.process-card:nth-child(2) .process-icon { background:rgba(236,72,153,0.15); color:#f472b6; border:1px solid rgba(236,72,153,0.3); box-shadow:0 0 20px rgba(236,72,153,0.22); animation:processIconWave 3.6s ease-in-out infinite; animation-delay:0.45s }
+.process-card:nth-child(2) .process-deliverables span { color:#f9a8d4 }
+.process-card:nth-child(2):hover { transform:translateY(-8px); border-color:rgba(236,72,153,0.6); box-shadow:0 16px 36px rgba(236,72,153,0.22) }
+.process-card:nth-child(2):hover .process-icon { transform:scale(1.1) rotate(5deg); box-shadow:0 0 28px rgba(236,72,153,0.45) }
 
-/* FAQ ACCORDION */
-.faq { padding:80px 0; z-index:1 }
-.faq-list { max-width:860px; margin:0 auto; display:flex; flex-direction:column; gap:16px }
-.faq-item { background:var(--bg-card); border:1px solid var(--glass-border); border-radius:14px; overflow:hidden; transition:var(--transition) }
-.faq-item.active { border-color:var(--accent-blue); background:rgba(59,130,246,0.02) }
-.faq-question { width:100%; padding:20px 24px; background:none; border:none; text-align:left; color:var(--text-primary); font-weight:700; font-size:1.02rem; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-family:'Plus Jakarta Sans',sans-serif }
-.faq-question i { color:var(--accent-blue); transition:transform 0.3s ease }
-.faq-item.active .faq-question i { transform:rotate(180deg) }
-.faq-answer { max-height:0; overflow:hidden; transition:max-height 0.35s ease }
-.faq-answer p { padding:0 24px 22px; color:var(--text-secondary); font-size:.95rem; line-height:1.75 }
+/* Step 3: Agile Dev & AI (Emerald Green) */
+.process-card:nth-child(3) { --step-border-default:rgba(16,185,129,0.25); --step-border-active:rgba(16,185,129,0.65); --step-glow:rgba(16,185,129,0.25); --step-icon-glow:rgba(16,185,129,0.2); --step-icon-glow-active:rgba(16,185,129,0.55); background:linear-gradient(180deg, rgba(16,185,129,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid var(--step-border-default); animation:processWave 3.6s ease-in-out infinite; animation-delay:0.90s }
+.process-card:nth-child(3)::before { background:linear-gradient(90deg, #10b981, #34d399) }
+.process-card:nth-child(3) .process-step-badge { background:rgba(16,185,129,0.15); color:#34d399; border:1px solid rgba(16,185,129,0.3) }
+.process-card:nth-child(3) .process-icon { background:rgba(16,185,129,0.15); color:#34d399; border:1px solid rgba(16,185,129,0.3); box-shadow:0 0 20px rgba(16,185,129,0.22); animation:processIconWave 3.6s ease-in-out infinite; animation-delay:0.90s }
+.process-card:nth-child(3) .process-deliverables span { color:#6ee7b7 }
+.process-card:nth-child(3):hover { transform:translateY(-8px); border-color:rgba(16,185,129,0.6); box-shadow:0 16px 36px rgba(16,185,129,0.22) }
+.process-card:nth-child(3):hover .process-icon { transform:scale(1.1) rotate(5deg); box-shadow:0 0 28px rgba(16,185,129,0.45) }
 
-/* CTA BANNER */
-.cta-banner { padding:70px 0; background:linear-gradient(135deg, rgba(59,130,246,0.12), rgba(139,92,246,0.08)); border-top:1px solid rgba(59,130,246,0.25); border-bottom:1px solid rgba(59,130,246,0.25); text-align:center; z-index:1 }
-.cta-box { max-width:700px; margin:0 auto }
-.cta-box h2 { font-size:clamp(2rem,3.5vw,2.8rem); font-weight:800; margin-bottom:16px }
-.cta-box p { font-size:1.1rem; color:var(--text-secondary); margin-bottom:32px }
-.cta-buttons { display:flex; justify-content:center; gap:16px; flex-wrap:wrap }
+/* Step 4: Launch & 24/7 Support (Cyan / Azure) */
+.process-card:nth-child(4) { --step-border-default:rgba(6,182,212,0.25); --step-border-active:rgba(6,182,212,0.65); --step-glow:rgba(6,182,212,0.25); --step-icon-glow:rgba(6,182,212,0.2); --step-icon-glow-active:rgba(6,182,212,0.55); background:linear-gradient(180deg, rgba(6,182,212,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid var(--step-border-default); animation:processWave 3.6s ease-in-out infinite; animation-delay:1.35s }
+.process-card:nth-child(4)::before { background:linear-gradient(90deg, #06b6d4, #22d3ee) }
+.process-card:nth-child(4) .process-step-badge { background:rgba(6,182,212,0.15); color:#22d3ee; border:1px solid rgba(6,182,212,0.3) }
+.process-card:nth-child(4) .process-icon { background:rgba(6,182,212,0.15); color:#22d3ee; border:1px solid rgba(6,182,212,0.3); box-shadow:0 0 20px rgba(6,182,212,0.22); animation:processIconWave 3.6s ease-in-out infinite; animation-delay:1.35s }
+.process-card:nth-child(4) .process-deliverables span { color:#67e8f9 }
+.process-card:nth-child(4):hover { transform:translateY(-8px); border-color:rgba(6,182,212,0.6); box-shadow:0 16px 36px rgba(6,182,212,0.22) }
+.process-card:nth-child(4):hover .process-icon { transform:scale(1.1) rotate(5deg); box-shadow:0 0 28px rgba(6,182,212,0.45) }
+
+@keyframes processWave {
+    0%, 100% {
+        transform: translateY(0);
+        box-shadow: none;
+        border-color: var(--step-border-default);
+    }
+    15% {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 30px var(--step-glow);
+        border-color: var(--step-border-active);
+    }
+    30% {
+        transform: translateY(0);
+        box-shadow: none;
+        border-color: var(--step-border-default);
+    }
+}
+@keyframes processIconWave {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        box-shadow: 0 0 16px var(--step-icon-glow);
+    }
+    15% {
+        transform: scale(1.12) rotate(6deg);
+        box-shadow: 0 0 28px var(--step-icon-glow-active);
+    }
+    30% {
+        transform: scale(1) rotate(0deg);
+        box-shadow: 0 0 16px var(--step-icon-glow);
+    }
+}
+
+/* FLOATING QUICK CONTACT BUTTONS */
+.floating-contact-pill { position:fixed; bottom:24px; right:24px; z-index:997; display:flex; flex-direction:column; gap:10px; animation:floatUp 0.6s ease-out; }
+@keyframes floatUp { from { opacity:0; transform:translateY(30px) } to { opacity:1; transform:translateY(0) } }
+.float-btn { width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.25rem; color:white; text-decoration:none; transition:var(--transition); box-shadow:0 8px 24px rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.18); }
+.float-call { background:linear-gradient(135deg, #10b981, #059669); box-shadow:0 6px 20px rgba(16,185,129,0.45); }
+.float-call:hover { transform:scale(1.12) translateY(-2px); box-shadow:0 10px 28px rgba(16,185,129,0.65); color:white; }
+.float-wa { background:linear-gradient(135deg, #25D366, #128C7E); box-shadow:0 6px 20px rgba(37,211,102,0.45); }
+.float-wa:hover { transform:scale(1.12) translateY(-2px); box-shadow:0 10px 28px rgba(37,211,102,0.65); color:white; }
+
+/* ABOUT */
+.about { z-index:1; padding-top: 30px; padding-bottom: 30px; }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start }
+.about-features { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:32px }
+.about-feature { border-radius:var(--radius); padding:24px 20px; transition:var(--transition); position:relative; overflow:hidden; backdrop-filter:blur(8px); }
+.about-feature h4 { font-size:.95rem; font-weight:700; margin-bottom:6px; transition:var(--transition); }
+.about-feature p { font-size:.85rem; color:var(--text-secondary); line-height:1.65 }
+.about-feature .feature-icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:16px; transition:var(--transition); }
+
+/* Feature 1: AI (Pink) */
+.about-feature:nth-child(1) { background:linear-gradient(180deg, rgba(236,72,153,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(236,72,153,0.22); }
+.about-feature:nth-child(1) h4 { color:#f472b6; }
+.about-feature:nth-child(1) .feature-icon { background:rgba(236,72,153,0.15); color:#f472b6; border:1px solid rgba(236,72,153,0.3); box-shadow:0 0 18px rgba(236,72,153,0.22); }
+.about-feature:nth-child(1):hover { transform:translateY(-5px); border-color:rgba(236,72,153,0.55); box-shadow:0 14px 32px rgba(236,72,153,0.18); }
+.about-feature:nth-child(1):hover .feature-icon { transform:scale(1.08); box-shadow:0 0 26px rgba(236,72,153,0.45); }
+
+/* Feature 2: Arch (Blue) */
+.about-feature:nth-child(2) { background:linear-gradient(180deg, rgba(59,130,246,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(59,130,246,0.22); }
+.about-feature:nth-child(2) h4 { color:#60a5fa; }
+.about-feature:nth-child(2) .feature-icon { background:rgba(59,130,246,0.15); color:#60a5fa; border:1px solid rgba(59,130,246,0.3); box-shadow:0 0 18px rgba(59,130,246,0.22); }
+.about-feature:nth-child(2):hover { transform:translateY(-5px); border-color:rgba(59,130,246,0.55); box-shadow:0 14px 32px rgba(59,130,246,0.18); }
+.about-feature:nth-child(2):hover .feature-icon { transform:scale(1.08); box-shadow:0 0 26px rgba(59,130,246,0.45); }
+
+/* Feature 3: Business (Amber) */
+.about-feature:nth-child(3) { background:linear-gradient(180deg, rgba(245,158,11,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(245,158,11,0.22); }
+.about-feature:nth-child(3) h4 { color:#fbbf24; }
+.about-feature:nth-child(3) .feature-icon { background:rgba(245,158,11,0.15); color:#fbbf24; border:1px solid rgba(245,158,11,0.3); box-shadow:0 0 18px rgba(245,158,11,0.22); }
+.about-feature:nth-child(3):hover { transform:translateY(-5px); border-color:rgba(245,158,11,0.55); box-shadow:0 14px 32px rgba(245,158,11,0.18); }
+.about-feature:nth-child(3):hover .feature-icon { transform:scale(1.08); box-shadow:0 0 26px rgba(245,158,11,0.45); }
+
+/* Feature 4: Security (Emerald) */
+.about-feature:nth-child(4) { background:linear-gradient(180deg, rgba(16,185,129,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(16,185,129,0.22); }
+.about-feature:nth-child(4) h4 { color:#34d399; }
+.about-feature:nth-child(4) .feature-icon { background:rgba(16,185,129,0.15); color:#34d399; border:1px solid rgba(16,185,129,0.3); box-shadow:0 0 18px rgba(16,185,129,0.22); }
+.about-feature:nth-child(4):hover { transform:translateY(-5px); border-color:rgba(16,185,129,0.55); box-shadow:0 14px 32px rgba(16,185,129,0.18); }
+.about-feature:nth-child(4):hover .feature-icon { transform:scale(1.08); box-shadow:0 0 26px rgba(16,185,129,0.45); }
+
+.about-header { margin-bottom: 36px }
+.about-visual { padding-top: 12px }
+@media(max-width:1024px) { .about-visual { padding-top: 0 } }
+.about-card-stack { display:flex; flex-direction:column; gap:12px }
+.about-stat-card { border-radius:var(--radius); padding:15px 20px; display:flex; align-items:center; gap:18px; transition:var(--transition); backdrop-filter:blur(8px); }
+.about-stat-card .stat-icon { width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.15rem; flex-shrink:0; transition:var(--transition); }
+.about-stat-card h4 { font-size:1rem; font-weight:700; margin-bottom:4px; transition:var(--transition); }
+.about-stat-card p { font-size:.85rem; color:var(--text-secondary); line-height:1.6; }
+
+/* Stat Card 1: Founded 2014 (Blue) */
+.about-stat-card:nth-child(1) { background:linear-gradient(90deg, rgba(59,130,246,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(59,130,246,0.2); }
+.about-stat-card:nth-child(1) h4 { color:#60a5fa; }
+.about-stat-card:nth-child(1) .stat-icon { background:rgba(59,130,246,0.15); color:#60a5fa; border:1px solid rgba(59,130,246,0.3); box-shadow:0 0 16px rgba(59,130,246,0.22); }
+.about-stat-card:nth-child(1):hover { transform:translateX(8px); border-color:rgba(59,130,246,0.55); box-shadow:0 8px 24px rgba(59,130,246,0.18); }
+.about-stat-card:nth-child(1):hover .stat-icon { transform:scale(1.08); box-shadow:0 0 24px rgba(59,130,246,0.4); }
+
+/* Stat Card 2: Any Industry (Emerald) */
+.about-stat-card:nth-child(2) { background:linear-gradient(90deg, rgba(16,185,129,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(16,185,129,0.2); }
+.about-stat-card:nth-child(2) h4 { color:#34d399; }
+.about-stat-card:nth-child(2) .stat-icon { background:rgba(16,185,129,0.15); color:#34d399; border:1px solid rgba(16,185,129,0.3); box-shadow:0 0 16px rgba(16,185,129,0.22); }
+.about-stat-card:nth-child(2):hover { transform:translateX(8px); border-color:rgba(16,185,129,0.55); box-shadow:0 8px 24px rgba(16,185,129,0.18); }
+.about-stat-card:nth-child(2):hover .stat-icon { transform:scale(1.08); box-shadow:0 0 24px rgba(16,185,129,0.4); }
+
+/* Stat Card 3: Modern Tech Stack (Pink) */
+.about-stat-card:nth-child(3) { background:linear-gradient(90deg, rgba(236,72,153,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(236,72,153,0.2); }
+.about-stat-card:nth-child(3) h4 { color:#f472b6; }
+.about-stat-card:nth-child(3) .stat-icon { background:rgba(236,72,153,0.15); color:#f472b6; border:1px solid rgba(236,72,153,0.3); box-shadow:0 0 16px rgba(236,72,153,0.22); }
+.about-stat-card:nth-child(3):hover { transform:translateX(8px); border-color:rgba(236,72,153,0.55); box-shadow:0 8px 24px rgba(236,72,153,0.18); }
+.about-stat-card:nth-child(3):hover .stat-icon { transform:scale(1.08); box-shadow:0 0 24px rgba(236,72,153,0.4); }
+
+/* Stat Card 4: End-to-End Delivery (Cyan) */
+.about-stat-card:nth-child(4) { background:linear-gradient(90deg, rgba(6,182,212,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(6,182,212,0.2); }
+.about-stat-card:nth-child(4) h4 { color:#22d3ee; }
+.about-stat-card:nth-child(4) .stat-icon { background:rgba(6,182,212,0.15); color:#22d3ee; border:1px solid rgba(6,182,212,0.3); box-shadow:0 0 16px rgba(6,182,212,0.22); }
+.about-stat-card:nth-child(4):hover { transform:translateX(8px); border-color:rgba(6,182,212,0.55); box-shadow:0 8px 24px rgba(6,182,212,0.18); }
+.about-stat-card:nth-child(4):hover .stat-icon { transform:scale(1.08); box-shadow:0 0 24px rgba(6,182,212,0.4); }
+
+/* Stat Card 5: Dedicated Support (Purple) */
+.about-stat-card:nth-child(5) { background:linear-gradient(90deg, rgba(139,92,246,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(139,92,246,0.2); }
+.about-stat-card:nth-child(5) h4 { color:#a78bfa; }
+.about-stat-card:nth-child(5) .stat-icon { background:rgba(139,92,246,0.15); color:#a78bfa; border:1px solid rgba(139,92,246,0.3); box-shadow:0 0 16px rgba(139,92,246,0.22); }
+.about-stat-card:nth-child(5):hover { transform:translateX(8px); border-color:rgba(139,92,246,0.55); box-shadow:0 8px 24px rgba(139,92,246,0.18); }
+.about-stat-card:nth-child(5):hover .stat-icon { transform:scale(1.08); box-shadow:0 0 24px rgba(139,92,246,0.4); }
+
+/* Stat Card 6: On-Time & Budget (Amber) */
+.about-stat-card:nth-child(6) { background:linear-gradient(90deg, rgba(245,158,11,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(245,158,11,0.2); }
+.about-stat-card:nth-child(6) h4 { color:#fbbf24; }
+.about-stat-card:nth-child(6) .stat-icon { background:rgba(245,158,11,0.15); color:#fbbf24; border:1px solid rgba(245,158,11,0.3); box-shadow:0 0 16px rgba(245,158,11,0.22); }
+.about-stat-card:nth-child(6):hover { transform:translateX(8px); border-color:rgba(245,158,11,0.55); box-shadow:0 8px 24px rgba(245,158,11,0.18); }
+.about-stat-card:nth-child(6):hover .stat-icon { transform:scale(1.08); box-shadow:0 0 24px rgba(245,158,11,0.4); }
+
+/* TECH STACK */
+.tech-section { z-index:1; padding-top: 50px; padding-bottom: 22px; background:var(--bg-secondary); border-top:1px solid var(--glass-border); border-bottom:1px solid var(--glass-border) }
+.tech-categories { display:grid; grid-template-columns:repeat(3,1fr); gap:24px }
+.tech-category { background:var(--bg-card); border:1px solid var(--glass-border); border-radius:var(--radius); padding:28px }
+.tech-category h3 { font-size:1rem; font-weight:700; margin-bottom:16px; color:var(--accent-blue) }
+.tech-list { display:flex; flex-wrap:wrap; gap:8px }
+.tech-list span { padding:6px 14px; background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius-full); font-size:.78rem; font-weight:500; color:var(--text-secondary); transition:var(--transition) }
+.tech-list span:hover { border-color:var(--accent-blue); color:var(--accent-blue) }
+
+
+/* TECH CATEGORIES COLORS */
+/* Card 1: Backend (Blue) */
+.tech-category:nth-child(1) { background:linear-gradient(180deg, rgba(59,130,246,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(59,130,246,0.2) }
+.tech-category:nth-child(1) h3 { color:#60a5fa }
+.tech-category:nth-child(1) h3 i { background:rgba(59,130,246,0.15); color:#60a5fa; border:1px solid rgba(59,130,246,0.3); border-radius:8px; padding:6px; box-shadow:0 0 15px rgba(59,130,246,0.2) }
+.tech-category:nth-child(1) .tech-list span { background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.25); color:#93c5fd }
+.tech-category:nth-child(1):hover { transform:translateY(-4px); border-color:rgba(59,130,246,0.5); box-shadow:0 12px 30px rgba(59,130,246,0.15) }
+
+/* Card 2: Frontend (Pink) */
+.tech-category:nth-child(2) { background:linear-gradient(180deg, rgba(236,72,153,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(236,72,153,0.2) }
+.tech-category:nth-child(2) h3 { color:#f472b6 }
+.tech-category:nth-child(2) h3 i { background:rgba(236,72,153,0.15); color:#f472b6; border:1px solid rgba(236,72,153,0.3); border-radius:8px; padding:6px; box-shadow:0 0 15px rgba(236,72,153,0.2) }
+.tech-category:nth-child(2) .tech-list span { background:rgba(236,72,153,0.1); border:1px solid rgba(236,72,153,0.25); color:#f9a8d4 }
+.tech-category:nth-child(2):hover { transform:translateY(-4px); border-color:rgba(236,72,153,0.5); box-shadow:0 12px 30px rgba(236,72,153,0.15) }
+
+/* Card 3: Database (Emerald) */
+.tech-category:nth-child(3) { background:linear-gradient(180deg, rgba(16,185,129,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(16,185,129,0.2) }
+.tech-category:nth-child(3) h3 { color:#34d399 }
+.tech-category:nth-child(3) h3 i { background:rgba(16,185,129,0.15); color:#34d399; border:1px solid rgba(16,185,129,0.3); border-radius:8px; padding:6px; box-shadow:0 0 15px rgba(16,185,129,0.2) }
+.tech-category:nth-child(3) .tech-list span { background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25); color:#6ee7b7 }
+.tech-category:nth-child(3):hover { transform:translateY(-4px); border-color:rgba(16,185,129,0.5); box-shadow:0 12px 30px rgba(16,185,129,0.15) }
+
+/* Card 4: Cloud & DevOps (Cyan) */
+.tech-category:nth-child(4) { background:linear-gradient(180deg, rgba(6,182,212,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(6,182,212,0.2) }
+.tech-category:nth-child(4) h3 { color:#22d3ee }
+.tech-category:nth-child(4) h3 i { background:rgba(6,182,212,0.15); color:#22d3ee; border:1px solid rgba(6,182,212,0.3); border-radius:8px; padding:6px; box-shadow:0 0 15px rgba(6,182,212,0.2) }
+.tech-category:nth-child(4) .tech-list span { background:rgba(6,182,212,0.1); border:1px solid rgba(6,182,212,0.25); color:#67e8f9 }
+.tech-category:nth-child(4):hover { transform:translateY(-4px); border-color:rgba(6,182,212,0.5); box-shadow:0 12px 30px rgba(6,182,212,0.15) }
+
+/* Card 5: AI & Automation (Purple) */
+.tech-category:nth-child(5) { background:linear-gradient(180deg, rgba(139,92,246,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(139,92,246,0.2) }
+.tech-category:nth-child(5) h3 { color:#a78bfa }
+.tech-category:nth-child(5) h3 i { background:rgba(139,92,246,0.15); color:#a78bfa; border:1px solid rgba(139,92,246,0.3); border-radius:8px; padding:6px; box-shadow:0 0 15px rgba(139,92,246,0.2) }
+.tech-category:nth-child(5) .tech-list span { background:rgba(139,92,246,0.1); border:1px solid rgba(139,92,246,0.25); color:#c4b5fd }
+.tech-category:nth-child(5):hover { transform:translateY(-4px); border-color:rgba(139,92,246,0.5); box-shadow:0 12px 30px rgba(139,92,246,0.15) }
+
+/* Card 6: Architecture (Amber) */
+.tech-category:nth-child(6) { background:linear-gradient(180deg, rgba(245,158,11,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(245,158,11,0.2) }
+.tech-category:nth-child(6) h3 { color:#fbbf24 }
+.tech-category:nth-child(6) h3 i { background:rgba(245,158,11,0.15); color:#fbbf24; border:1px solid rgba(245,158,11,0.3); border-radius:8px; padding:6px; box-shadow:0 0 15px rgba(245,158,11,0.2) }
+.tech-category:nth-child(6) .tech-list span { background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.25); color:#fde68a }
+.tech-category:nth-child(6):hover { transform:translateY(-4px); border-color:rgba(245,158,11,0.5); box-shadow:0 12px 30px rgba(245,158,11,0.15) }
+
+/* CTA */
+.cta-section { z-index:1; padding-top: 15px; padding-bottom: 25px; }
+.cta-box { background:var(--bg-card); border:1px solid rgba(236,72,153,0.25); border-radius:24px; padding:60px; text-align:center; position:relative; overflow:hidden; box-shadow: 0 0 50px rgba(236,72,153,0.1); backdrop-filter:blur(10px); }
+.cta-box::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:var(--gradient-hero); box-shadow: 0 0 20px rgba(236,72,153,0.5); }
+.cta-box::after { content:''; position:absolute; bottom:-50%; left:-50%; width:200%; height:200%; background:radial-gradient(circle, rgba(236,72,153,0.05) 0%, transparent 60%); z-index:-1; pointer-events:none; }
+.cta-box h2 { font-size:clamp(1.8rem,3.5vw,2.5rem); font-weight:800; margin-bottom:16px; position:relative; }
+.cta-box p { font-size:1.05rem; color:var(--text-secondary); max-width:550px; margin:0 auto 32px; position:relative; }
+.cta-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; position:relative; }
 
 /* CONTACT */
-.contact { padding:80px 0; z-index:1 }
-.contact-grid { display:grid; grid-template-columns:1fr 1.3fr; gap:40px; align-items:start }
-.contact-info { display:flex; flex-direction:column; gap:14px }
-.contact-item { padding:18px 20px; border-radius:var(--radius); display:flex; align-items:center; gap:16px; background:var(--bg-card); border:1px solid var(--glass-border); transition:var(--transition) }
-.contact-item .icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0 }
-.contact-item h4 { font-size:.85rem; color:var(--text-muted); margin-bottom:3px }
-.contact-item a, .contact-item p { font-size:.95rem; font-weight:600; color:var(--text-primary) }
-.contact-item a:hover { color:var(--accent-blue) }
+.contact { z-index:1; padding-top: 30px; }
+.contact-grid { display:grid; grid-template-columns:1fr 1.2fr; gap:48px; align-items:start; }
+.contact-info { display:flex; flex-direction:column; gap:14px; }
+.contact-item { border-radius:var(--radius); padding:16px 20px; display:flex; align-items:center; gap:16px; transition:var(--transition); backdrop-filter:blur(8px); }
+.contact-item .icon { width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.15rem; flex-shrink:0; transition:var(--transition); }
+.contact-item h4 { font-size:.92rem; font-weight:700; margin-bottom:2px; transition:var(--transition); }
+.contact-item p, .contact-item a { font-size:.88rem; color:var(--text-secondary); transition:var(--transition); }
 
-.contact-form { background:var(--bg-card); border:1px solid var(--glass-border); border-radius:20px; padding:36px; position:relative; overflow:hidden }
-.contact-form::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--gradient-primary) }
-.form-group { margin-bottom:18px }
+/* Item 1: Email (Blue) */
+.contact-item:nth-child(1) { background:linear-gradient(90deg, rgba(59,130,246,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(59,130,246,0.2); }
+.contact-item:nth-child(1) h4 { color:#60a5fa; }
+.contact-item:nth-child(1) .icon { background:rgba(59,130,246,0.15); color:#60a5fa; border:1px solid rgba(59,130,246,0.3); box-shadow:0 0 16px rgba(59,130,246,0.25); }
+.contact-item:nth-child(1):hover { transform:translateX(6px); border-color:rgba(59,130,246,0.55); box-shadow:0 8px 24px rgba(59,130,246,0.18); }
+.contact-item:nth-child(1):hover .icon { transform:scale(1.08); box-shadow:0 0 24px rgba(59,130,246,0.45); }
+.contact-item:nth-child(1) a:hover { color:#93c5fd; }
+
+/* Item 2: Call Us (Emerald) */
+.contact-item:nth-child(2) { background:linear-gradient(90deg, rgba(16,185,129,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(16,185,129,0.2); }
+.contact-item:nth-child(2) h4 { color:#34d399; }
+.contact-item:nth-child(2) .icon { background:rgba(16,185,129,0.15); color:#34d399; border:1px solid rgba(16,185,129,0.3); box-shadow:0 0 16px rgba(16,185,129,0.25); }
+.contact-item:nth-child(2):hover { transform:translateX(6px); border-color:rgba(16,185,129,0.55); box-shadow:0 8px 24px rgba(16,185,129,0.18); }
+.contact-item:nth-child(2):hover .icon { transform:scale(1.08); box-shadow:0 0 24px rgba(16,185,129,0.45); }
+.contact-item:nth-child(2) a:hover { color:#6ee7b7; }
+
+/* Item 3: Location (Amber) */
+.contact-item:nth-child(3) { background:linear-gradient(90deg, rgba(245,158,11,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(245,158,11,0.2); }
+.contact-item:nth-child(3) h4 { color:#fbbf24; }
+.contact-item:nth-child(3) .icon { background:rgba(245,158,11,0.15); color:#fbbf24; border:1px solid rgba(245,158,11,0.3); box-shadow:0 0 16px rgba(245,158,11,0.25); }
+.contact-item:nth-child(3):hover { transform:translateX(6px); border-color:rgba(245,158,11,0.55); box-shadow:0 8px 24px rgba(245,158,11,0.18); }
+.contact-item:nth-child(3):hover .icon { transform:scale(1.08); box-shadow:0 0 24px rgba(245,158,11,0.45); }
+
+/* Item 4: LinkedIn (Cyan) */
+.contact-item:nth-child(4) { background:linear-gradient(90deg, rgba(6,182,212,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(6,182,212,0.2); }
+.contact-item:nth-child(4) h4 { color:#22d3ee; }
+.contact-item:nth-child(4) .icon { background:rgba(6,182,212,0.15); color:#22d3ee; border:1px solid rgba(6,182,212,0.3); box-shadow:0 0 16px rgba(6,182,212,0.25); }
+.contact-item:nth-child(4):hover { transform:translateX(6px); border-color:rgba(6,182,212,0.55); box-shadow:0 8px 24px rgba(6,182,212,0.18); }
+.contact-item:nth-child(4):hover .icon { transform:scale(1.08); box-shadow:0 0 24px rgba(6,182,212,0.45); }
+.contact-item:nth-child(4) a:hover { color:#67e8f9; }
+
+/* Item 5: GitHub (Purple) */
+.contact-item:nth-child(5) { background:linear-gradient(90deg, rgba(139,92,246,0.08) 0%, rgba(255,255,255,0.02) 100%); border:1px solid rgba(139,92,246,0.2); }
+.contact-item:nth-child(5) h4 { color:#a78bfa; }
+.contact-item:nth-child(5) .icon { background:rgba(139,92,246,0.15); color:#a78bfa; border:1px solid rgba(139,92,246,0.3); box-shadow:0 0 16px rgba(139,92,246,0.25); }
+.contact-item:nth-child(5):hover { transform:translateX(6px); border-color:rgba(139,92,246,0.55); box-shadow:0 8px 24px rgba(139,92,246,0.18); }
+.contact-item:nth-child(5):hover .icon { transform:scale(1.08); box-shadow:0 0 24px rgba(139,92,246,0.45); }
+.contact-item:nth-child(5) a:hover { color:#c4b5fd; }
+
+/* Contact Form Card */
+.contact-form { background:linear-gradient(180deg, rgba(59,130,246,0.06) 0%, rgba(139,92,246,0.04) 100%), var(--bg-card); border:1px solid rgba(99,102,241,0.25); border-radius:20px; padding:36px; box-shadow:0 0 40px rgba(99,102,241,0.1); backdrop-filter:blur(10px); position:relative; overflow:hidden; }
+.contact-form::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--gradient-primary); opacity:0.85; }
+.form-group { margin-bottom:20px }
 .form-group label { display:block; font-size:.82rem; font-weight:600; margin-bottom:8px; color:var(--text-secondary) }
-.form-group input, .form-group textarea { width:100%; padding:13px 16px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius-sm); color:var(--text-primary); font-family:'Plus Jakarta Sans',sans-serif; font-size:.9rem; outline:none; transition:var(--transition) }
+.form-group input, .form-group textarea { width:100%; padding:13px 16px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); border-radius:var(--radius-sm); color:var(--text-primary); font-family:'Inter',sans-serif; font-size:.9rem; transition:var(--transition); outline:none }
 .form-group input:focus, .form-group textarea:focus { border-color:var(--accent-blue); background:rgba(59,130,246,0.04); box-shadow:0 0 16px rgba(59,130,246,0.2) }
-.form-group textarea { min-height:110px; resize:vertical }
+.form-group textarea { min-height:120px; resize:vertical }
 .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px }
 
-/* FLOATING CONTACT PILL */
-.floating-contact-pill { position:fixed; bottom:24px; right:24px; z-index:999; display:flex; flex-direction:column; gap:12px }
-.float-btn { width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:1.35rem; box-shadow:0 8px 24px rgba(0,0,0,0.35); transition:var(--transition); text-decoration:none }
-.float-wa { background:#25d366 }
-.float-wa:hover { transform:scale(1.1); box-shadow:0 10px 28px rgba(37,211,102,0.45) }
-.float-call { background:var(--accent-blue) }
-.float-call:hover { transform:scale(1.1); box-shadow:0 10px 28px rgba(59,130,246,0.45) }
-
 /* FOOTER */
-.footer { padding:36px 0 30px; border-top:1px solid var(--glass-border); background:var(--bg-secondary); z-index:1; position:relative }
+.footer { padding:32px 0 28px; border-top:1px solid var(--glass-border); background:var(--bg-secondary); z-index:1; position:relative }
 .footer .container { display:flex; flex-direction:column; justify-content:center; align-items:center; gap:18px; text-align:center }
-.footer-socials { display:flex; gap:12px; align-items:center; justify-content:center; flex-wrap:wrap }
-.footer-social-link { width:38px; height:38px; border-radius:50%; background:var(--glass); border:1px solid var(--glass-border); display:flex; align-items:center; justify-content:center; font-size:.92rem; transition:var(--transition); text-decoration:none }
-.footer-social-link:hover { transform:translateY(-3px); border-color:var(--accent-blue); color:var(--accent-blue) }
-.footer-copy { font-size:.85rem; color:var(--text-muted) }
-.footer-copy a { background:var(--gradient-primary); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-weight:700 }
+.footer-logo { font-size:1.1rem; font-weight:700 }
+.footer-socials { display:flex; gap:12px; align-items:center; justify-content:center; flex-wrap:wrap; }
+.footer-social-link { width:38px; height:38px; border-radius:50%; background:var(--glass); border:1px solid var(--glass-border); display:flex; align-items:center; justify-content:center; color:var(--brand-color); font-size:.92rem; transition:var(--transition); text-decoration:none }
+
+/* Individual Social Icon Brand Colors & Glows */
+.footer-social-link:nth-child(1) { --brand-color:#ea4335; --brand-glow:rgba(234,67,53,0.4); --brand-bg:rgba(234,67,53,0.15); --brand-border:rgba(234,67,53,0.6); }
+.footer-social-link:nth-child(2) { --brand-color:#1877f2; --brand-glow:rgba(24,119,242,0.4); --brand-bg:rgba(24,119,242,0.15); --brand-border:rgba(24,119,242,0.6); }
+.footer-social-link:nth-child(3) { --brand-color:#ec4899; --brand-glow:rgba(236,72,153,0.4); --brand-bg:rgba(236,72,153,0.15); --brand-border:rgba(236,72,153,0.6); }
+.footer-social-link:nth-child(4) { --brand-color:#38bdf8; --brand-glow:rgba(56,189,248,0.4); --brand-bg:rgba(56,189,248,0.15); --brand-border:rgba(56,189,248,0.6); }
+.footer-social-link:nth-child(5) { --brand-color:#0a66c2; --brand-glow:rgba(10,102,194,0.4); --brand-bg:rgba(10,102,194,0.15); --brand-border:rgba(10,102,194,0.6); }
+.footer-social-link:nth-child(6) { --brand-color:#a855f7; --brand-glow:rgba(168,85,247,0.4); --brand-bg:rgba(168,85,247,0.15); --brand-border:rgba(168,85,247,0.6); }
+.footer-social-link:nth-child(7) { --brand-color:#10b981; --brand-glow:rgba(16,185,129,0.4); --brand-bg:rgba(16,185,129,0.15); --brand-border:rgba(16,185,129,0.6); }
+
+.footer-social-link:hover {
+    color: var(--brand-color);
+    border-color: var(--brand-border);
+    background: var(--brand-bg);
+    box-shadow: 0 0 18px var(--brand-glow);
+    transform: translateY(-4px) scale(1.18);
+}
+
+.footer-copy { font-size:.85rem; color:var(--text-muted); letter-spacing:0.2px; }
+.footer-copy a { background:var(--gradient-primary); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; font-weight:700; text-decoration:none; transition:var(--transition); display:inline-block; }
+.footer-copy a:hover { filter:drop-shadow(0 0 8px rgba(59,130,246,0.5)); transform:scale(1.02); }
 
 .fade-in { opacity:0; transform:translateY(30px); transition:opacity 0.6s ease, transform 0.6s ease }
 .fade-in.visible { opacity:1; transform:translateY(0) }
 
-.nav-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.65); z-index:10001; backdrop-filter:blur(6px); transition:opacity 0.3s ease }
+.nav-overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.65); z-index:10001; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); transition:opacity 0.3s ease }
 .nav-overlay.active { display:block }
-body.menu-open .navbar { z-index:10002!important; background:transparent!important; border-bottom-color:transparent!important }
-body.menu-open .nav-logo { opacity:0!important; pointer-events:none!important }
-body.menu-open .nav-right { z-index:10004!important; position:relative }
-body.menu-open #tmd-chatbot-btn, body.menu-open .floating-contact-pill { opacity:0!important; pointer-events:none!important }
+body.menu-open .navbar {
+    z-index: 10002 !important;
+    background: transparent !important;
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+body.menu-open .nav-logo {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.2s ease;
+}
+body.menu-open .nav-right {
+    z-index: 10004 !important;
+    position: relative;
+}
+body.menu-open #tmd-chatbot-btn,
+body.menu-open .floating-contact-pill {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: scale(0.8) !important;
+    transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
 
 @media(max-width:1024px) {
     .hero { min-height:auto; padding-top:120px; padding-bottom:60px }
     .hero .container { grid-template-columns:1fr; text-align:center; gap:40px }
-    .hero p { margin:0 auto 32px }
+    .hero p { margin:0 auto 36px }
     .hero-buttons { justify-content:center }
-    .hero-visual { display:flex; width:100%; max-width:480px; margin:0 auto }
+    .hero-visual { display:flex; width:100%; max-width:540px; margin:0 auto }
+    .hero-card { max-width:100%; box-sizing:border-box }
     .services-grid { grid-template-columns:repeat(2,1fr) }
     .process-grid { grid-template-columns:repeat(2,1fr) }
-    .problems-grid { grid-template-columns:1fr }
+    .about-grid { grid-template-columns:1fr }
+    .about-visual { order:-1 }
+    .tech-categories { grid-template-columns:repeat(2,1fr) }
     .contact-grid { grid-template-columns:1fr }
-    .stats-grid { grid-template-columns:repeat(2,1fr); gap:20px }
+    .stats-grid { grid-template-columns:repeat(2,1fr); gap:24px }
 }
 @media(max-width:768px) {
-    .nav-logo { font-size:1.05rem!important; gap:8px!important }
-    .nav-logo img { width:28px!important; height:28px!important }
+    .nav-logo { font-size:1.05rem !important; gap:8px !important; white-space:nowrap !important; }
+    .nav-logo .logo-img { width:28px !important; height:28px !important; }
     .nav-links {
         position: fixed;
         top: 0;
         right: -100%;
         width: 310px;
+        max-width: 86vw;
         height: 100vh;
-        background: var(--bg-primary);
-        border-left: 1px solid var(--glass-border);
+        background: rgba(12, 14, 24, 0.94);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
         flex-direction: column;
-        align-items: flex-start;
-        padding: 90px 24px 30px;
-        gap: 10px;
-        border-radius: 0;
-        backdrop-filter: none;
-        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
-        transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 76px 18px 24px;
+        gap: 8px;
+        transition: right 0.32s cubic-bezier(0.16, 1, 0.3, 1);
         z-index: 10003;
         margin: 0;
+        border-radius: 0;
+        border: none;
+        border-left: 1px solid var(--glass-border);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        box-shadow: -12px 0 35px rgba(0, 0, 0, 0.5);
         overflow-y: auto;
+        overscroll-behavior: contain;
     }
-    .nav-links.active { right: 0 }
-    .nav-links li { width: 100% }
-    .nav-links a { width: 100%; padding: 12px 16px; border-radius: 10px }
-    .hamburger { display: flex }
-    .services-grid { grid-template-columns: 1fr }
-    .process-grid { grid-template-columns: 1fr }
-    .form-row { grid-template-columns: 1fr }
-    .stats-grid { grid-template-columns: 1fr; gap: 16px }
+    .nav-links.active { right: 0; }
+    .nav-links::before {
+        content: "MENU NAVIGATION";
+        display: flex;
+        align-items: center;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        padding: 0 4px 6px;
+        border-bottom: 1px solid var(--glass-border);
+        margin-bottom: 4px;
+        width: 100%;
+    }
+    .nav-links li { width: 100%; }
+    .nav-links a {
+        width: 100%;
+        font-size: 0.92rem;
+        font-weight: 600;
+        padding: 9px 12px;
+        border-radius: 12px;
+        border: 1px solid var(--glass-border);
+        background: var(--glass);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a:active,
+    .nav-links a.active {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: var(--accent-blue);
+        transform: translateX(3px);
+    }
+    .nav-link-main {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .nav-icon {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 9px;
+        font-size: 0.88rem;
+        transition: transform 0.2s ease;
+        flex-shrink: 0;
+    }
+    .nav-links a:hover .nav-icon,
+    .nav-links a.active .nav-icon {
+        transform: scale(1.08);
+    }
+    .nav-icon-blue { background: rgba(59,130,246,0.14); color: #60a5fa; border: 1px solid rgba(59,130,246,0.25); }
+    .nav-icon-pink { background: rgba(236,72,153,0.14); color: #f472b6; border: 1px solid rgba(236,72,153,0.25); }
+    .nav-icon-emerald { background: rgba(16,185,129,0.14); color: #34d399; border: 1px solid rgba(16,185,129,0.25); }
+    .nav-icon-cyan { background: rgba(6,182,212,0.14); color: #22d3ee; border: 1px solid rgba(6,182,212,0.25); }
+    .nav-icon-purple { background: rgba(168,85,247,0.14); color: #c084fc; border: 1px solid rgba(168,85,247,0.25); }
+    .nav-icon-amber { background: rgba(245,158,11,0.14); color: #fbbf24; border: 1px solid rgba(245,158,11,0.25); }
+    .nav-arrow {
+        display: inline-block !important;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        opacity: 0.5;
+        transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+    }
+    .nav-links a:hover .nav-arrow,
+    .nav-links a.active .nav-arrow {
+        opacity: 1;
+        color: var(--accent-blue);
+        transform: translateX(2px);
+    }
+    .nav-cta-item { margin-top: 4px; }
+    .nav-cta {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        width: 100% !important;
+        padding: 12px 18px !important;
+        font-size: 0.95rem !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 18px rgba(59, 130, 246, 0.35) !important;
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        border: none !important;
+        transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    }
+    .nav-cta:hover,
+    .nav-cta:active {
+        transform: translateY(-1px) !important;
+        box-shadow: 0 6px 24px rgba(59, 130, 246, 0.5) !important;
+    }
+    .nav-cta-arrow {
+        display: inline-block !important;
+        font-size: 0.85rem;
+        transition: transform 0.2s ease;
+    }
+    .nav-cta:hover .nav-cta-arrow {
+        transform: translateX(3px);
+    }
+    .nav-links.active li {
+        animation: drawerItemSlide 0.3s ease backwards;
+    }
+    .nav-links.active li:nth-child(1) { animation-delay: 0.03s; }
+    .nav-links.active li:nth-child(2) { animation-delay: 0.06s; }
+    .nav-links.active li:nth-child(3) { animation-delay: 0.09s; }
+    .nav-links.active li:nth-child(4) { animation-delay: 0.12s; }
+    .nav-links.active li:nth-child(5) { animation-delay: 0.15s; }
+    .nav-links.active li:nth-child(6) { animation-delay: 0.18s; }
+    .nav-links.active li:nth-child(7) { animation-delay: 0.21s; }
+    @keyframes drawerItemSlide {
+        from { opacity: 0; transform: translateX(14px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    [data-theme="light"] .nav-links {
+        background: #ffffff !important;
+        border-left: 1px solid rgba(0, 0, 0, 0.08) !important;
+        box-shadow: -15px 0 45px rgba(0, 0, 0, 0.14) !important;
+    }
+    [data-theme="light"] .nav-links::before {
+        color: #64748b !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+    }
+    [data-theme="light"] .nav-links a:not(.nav-cta) {
+        background: #f8fafc !important;
+        border: 1px solid rgba(0, 0, 0, 0.06) !important;
+        color: #0f172a !important;
+    }
+    [data-theme="light"] .nav-links a:not(.nav-cta):hover,
+    [data-theme="light"] .nav-links a:not(.nav-cta):active,
+    [data-theme="light"] .nav-links a:not(.nav-cta).active {
+        background: #ffffff !important;
+        border-color: var(--accent-blue) !important;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.12) !important;
+    }
+    [data-theme="light"] .nav-arrow {
+        color: #94a3b8 !important;
+    }
+    [data-theme="light"] .nav-icon-blue { background: rgba(59,130,246,0.1); color: #2563eb; }
+    [data-theme="light"] .nav-icon-pink { background: rgba(236,72,153,0.1); color: #db2777; }
+    [data-theme="light"] .nav-icon-emerald { background: rgba(16,185,129,0.1); color: #059669; }
+    [data-theme="light"] .nav-icon-cyan { background: rgba(6,182,212,0.1); color: #0891b2; }
+    [data-theme="light"] .nav-icon-purple { background: rgba(168,85,247,0.1); color: #9333ea; }
+    [data-theme="light"] .nav-icon-amber { background: rgba(245,158,11,0.1); color: #d97706; }
+    [data-theme="light"] .nav-overlay {
+        background: rgba(15, 23, 42, 0.55);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+    .hamburger { display:flex; z-index:10004 }
+    .navbar { padding:9px 0 !important; }
+    .nav-right { gap:8px !important; position:relative; z-index:10004; }
+    .hero { padding-top:72px !important; padding-bottom:36px !important; }
+    .hero-badge { margin-bottom:14px !important; }
+    .hero-visual { max-width:100%; padding:0 }
+    .hero-card { padding:14px 12px; max-width:100% }
+    .code-block { font-size:0.72rem; line-height:1.6; overflow-x:auto; max-width:100% }
+    .code-line { white-space:nowrap }
+    .services-grid { grid-template-columns:1fr }
+    .process-grid { grid-template-columns:1fr }
+    .about-features { grid-template-columns:1fr }
+    .tech-categories { grid-template-columns:1fr }
+    .cta-box { padding:40px 24px }
+    .form-row { grid-template-columns:1fr }
+    section { padding:40px 0 }
+    .footer .container { flex-direction:column; text-align:center }
+    .stats-grid { grid-template-columns:1fr 1fr }
+    .footer-socials { gap:8px; flex-wrap:nowrap; }
+
+    .floating-contact-pill { bottom:20px; right:16px; left:auto; gap:8px; flex-direction:column; }
+    .float-btn { width:42px; height:42px; font-size:1.15rem; }
+
+    .footer-social-link {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+        animation: socialWave 3.6s ease-in-out infinite;
+    }
+    .footer-social-link:nth-child(1) { animation-delay: 0s; }
+    .footer-social-link:nth-child(2) { animation-delay: 0.40s; }
+    .footer-social-link:nth-child(3) { animation-delay: 0.80s; }
+    .footer-social-link:nth-child(4) { animation-delay: 1.20s; }
+    .footer-social-link:nth-child(5) { animation-delay: 1.60s; }
+    .footer-social-link:nth-child(6) { animation-delay: 2.00s; }
+    .footer-social-link:nth-child(7) { animation-delay: 2.40s; }
 }
+
+@keyframes socialWave {
+    0%, 100% {
+        color: var(--brand-color);
+        border-color: var(--glass-border);
+        background: var(--glass);
+        box-shadow: none;
+        transform: translateY(0) scale(1);
+    }
+    14% {
+        color: var(--brand-color);
+        border-color: var(--brand-border);
+        background: var(--brand-bg);
+        box-shadow: 0 0 18px var(--brand-glow);
+        transform: translateY(-4px) scale(1.18);
+    }
+    30% {
+        color: var(--brand-color);
+        border-color: var(--glass-border);
+        background: var(--glass);
+        box-shadow: none;
+        transform: translateY(0) scale(1);
+    }
+}
+@media(max-width:480px) {
+    .nav-logo { font-size:0.95rem !important; gap:6px !important; white-space:nowrap !important; }
+    .nav-logo .logo-img { width:26px !important; height:26px !important; }
+    .navbar { padding:7px 0 !important; }
+    .nav-right { gap:6px !important; }
+    .hero { padding-top:64px !important; padding-bottom:28px !important; }
+    .hero-badge { margin-bottom:12px !important; padding:6px 12px !important; font-size:0.75rem !important; }
+    .hero h1 { font-size:1.6rem; line-height:1.25; margin-bottom:12px }
+    .hero h1 .dynamic-line { min-height:auto }
+    .hero p { font-size:0.95rem; line-height:1.6; margin-bottom:24px }
+    .hero-buttons { flex-direction:column; align-items:center }
+    .btn-primary, .btn-secondary { width:100%; justify-content:center; padding:12px 24px; font-size:0.88rem }
+    .hero-visual { max-width:100%; padding:0 }
+    .hero-card { padding:10px 8px; border-radius:12px; max-width:100% }
+    .code-block { font-size:0.65rem; line-height:1.5; padding:8px 0 }
+    .code-num { min-width:18px; font-size:0.6rem }
+    .code-line { gap:6px }
+    .tech-tabs-container { gap:4px!important; padding:8px 6px 10px!important; justify-content:center }
+    .tech-tabs-container button { font-size:0.62rem!important; padding:3px 7px!important }
+    .container { padding:0 16px }
+    .footer-socials { gap:6px; flex-wrap:nowrap; }
+    .footer-social-link { width:30px; height:30px; font-size:0.75rem; }
+}
+
+[data-theme="light"] .tech-category:nth-child(1) { background:linear-gradient(180deg, rgba(59,130,246,0.06) 0%, #ffffff 100%); border-color:rgba(59,130,246,0.25) }
+[data-theme="light"] .tech-category:nth-child(1) h3 { color:#1d4ed8 }
+[data-theme="light"] .tech-category:nth-child(1) .tech-list span { background:rgba(59,130,246,0.08); border-color:rgba(59,130,246,0.3); color:#1d4ed8 }
+
+[data-theme="light"] .tech-category:nth-child(2) { background:linear-gradient(180deg, rgba(236,72,153,0.06) 0%, #ffffff 100%); border-color:rgba(236,72,153,0.25) }
+[data-theme="light"] .tech-category:nth-child(2) h3 { color:#be185d }
+[data-theme="light"] .tech-category:nth-child(2) .tech-list span { background:rgba(236,72,153,0.08); border-color:rgba(236,72,153,0.3); color:#be185d }
+
+[data-theme="light"] .tech-category:nth-child(3) { background:linear-gradient(180deg, rgba(16,185,129,0.06) 0%, #ffffff 100%); border-color:rgba(16,185,129,0.25) }
+[data-theme="light"] .tech-category:nth-child(3) h3 { color:#047857 }
+[data-theme="light"] .tech-category:nth-child(3) .tech-list span { background:rgba(16,185,129,0.08); border-color:rgba(16,185,129,0.3); color:#047857 }
+
+[data-theme="light"] .tech-category:nth-child(4) { background:linear-gradient(180deg, rgba(6,182,212,0.06) 0%, #ffffff 100%); border-color:rgba(6,182,212,0.25) }
+[data-theme="light"] .tech-category:nth-child(4) h3 { color:#0e7490 }
+[data-theme="light"] .tech-category:nth-child(4) .tech-list span { background:rgba(6,182,212,0.08); border-color:rgba(6,182,212,0.3); color:#0e7490 }
+
+[data-theme="light"] .tech-category:nth-child(5) { background:linear-gradient(180deg, rgba(139,92,246,0.06) 0%, #ffffff 100%); border-color:rgba(139,92,246,0.25) }
+[data-theme="light"] .tech-category:nth-child(5) h3 { color:#6d28d9 }
+[data-theme="light"] .tech-category:nth-child(5) .tech-list span { background:rgba(139,92,246,0.08); border-color:rgba(139,92,246,0.3); color:#6d28d9 }
+
+[data-theme="light"] .tech-category:nth-child(6) { background:linear-gradient(180deg, rgba(245,158,11,0.06) 0%, #ffffff 100%); border-color:rgba(245,158,11,0.25) }
+[data-theme="light"] .tech-category:nth-child(6) h3 { color:#b45309 }
+[data-theme="light"] .tech-category:nth-child(6) .tech-list span { background:rgba(245,158,11,0.08); border-color:rgba(245,158,11,0.3); color:#b45309 }
+
+
+[data-theme="light"] .about-feature:nth-child(1) { background:linear-gradient(180deg, rgba(236,72,153,0.06) 0%, #ffffff 100%); border-color:rgba(236,72,153,0.25) }
+[data-theme="light"] .about-feature:nth-child(1) h4 { color:#be185d }
+[data-theme="light"] .about-feature:nth-child(2) { background:linear-gradient(180deg, rgba(59,130,246,0.06) 0%, #ffffff 100%); border-color:rgba(59,130,246,0.25) }
+[data-theme="light"] .about-feature:nth-child(2) h4 { color:#1d4ed8 }
+[data-theme="light"] .about-feature:nth-child(3) { background:linear-gradient(180deg, rgba(245,158,11,0.06) 0%, #ffffff 100%); border-color:rgba(245,158,11,0.25) }
+[data-theme="light"] .about-feature:nth-child(3) h4 { color:#b45309 }
+[data-theme="light"] .about-feature:nth-child(4) { background:linear-gradient(180deg, rgba(16,185,129,0.06) 0%, #ffffff 100%); border-color:rgba(16,185,129,0.25) }
+[data-theme="light"] .about-feature:nth-child(4) h4 { color:#047857 }
+
+[data-theme="light"] .about-stat-card:nth-child(1) { background:linear-gradient(90deg, rgba(59,130,246,0.06) 0%, #ffffff 100%); border-color:rgba(59,130,246,0.25) }
+[data-theme="light"] .about-stat-card:nth-child(1) h4 { color:#1d4ed8 }
+[data-theme="light"] .about-stat-card:nth-child(2) { background:linear-gradient(90deg, rgba(16,185,129,0.06) 0%, #ffffff 100%); border-color:rgba(16,185,129,0.25) }
+[data-theme="light"] .about-stat-card:nth-child(2) h4 { color:#047857 }
+[data-theme="light"] .about-stat-card:nth-child(3) { background:linear-gradient(90deg, rgba(236,72,153,0.06) 0%, #ffffff 100%); border-color:rgba(236,72,153,0.25) }
+[data-theme="light"] .about-stat-card:nth-child(3) h4 { color:#be185d }
+[data-theme="light"] .about-stat-card:nth-child(4) { background:linear-gradient(90deg, rgba(6,182,212,0.06) 0%, #ffffff 100%); border-color:rgba(6,182,212,0.25) }
+[data-theme="light"] .about-stat-card:nth-child(4) h4 { color:#0e7490 }
+[data-theme="light"] .about-stat-card:nth-child(5) { background:linear-gradient(90deg, rgba(139,92,246,0.06) 0%, #ffffff 100%); border-color:rgba(139,92,246,0.25) }
+[data-theme="light"] .about-stat-card:nth-child(5) h4 { color:#6d28d9 }
+[data-theme="light"] .about-stat-card:nth-child(6) { background:linear-gradient(90deg, rgba(245,158,11,0.06) 0%, #ffffff 100%); border-color:rgba(245,158,11,0.25) }
+[data-theme="light"] .about-stat-card:nth-child(6) h4 { color:#b45309 }
+
+[data-theme="light"] .contact-item:nth-child(1) { background:linear-gradient(90deg, rgba(59,130,246,0.06) 0%, #ffffff 100%); border-color:rgba(59,130,246,0.25) }
+[data-theme="light"] .contact-item:nth-child(1) h4 { color:#1d4ed8 }
+[data-theme="light"] .contact-item:nth-child(2) { background:linear-gradient(90deg, rgba(16,185,129,0.06) 0%, #ffffff 100%); border-color:rgba(16,185,129,0.25) }
+[data-theme="light"] .contact-item:nth-child(2) h4 { color:#047857 }
+[data-theme="light"] .contact-item:nth-child(3) { background:linear-gradient(90deg, rgba(245,158,11,0.06) 0%, #ffffff 100%); border-color:rgba(245,158,11,0.25) }
+[data-theme="light"] .contact-item:nth-child(3) h4 { color:#b45309 }
+[data-theme="light"] .contact-item:nth-child(4) { background:linear-gradient(90deg, rgba(6,182,212,0.06) 0%, #ffffff 100%); border-color:rgba(6,182,212,0.25) }
+[data-theme="light"] .contact-item:nth-child(4) h4 { color:#0e7490 }
+[data-theme="light"] .contact-item:nth-child(5) { background:linear-gradient(90deg, rgba(139,92,246,0.06) 0%, #ffffff 100%); border-color:rgba(139,92,246,0.25) }
+[data-theme="light"] .contact-item:nth-child(5) h4 { color:#6d28d9 }
+
+[data-theme="light"] .contact-form { background:linear-gradient(180deg, rgba(59,130,246,0.04) 0%, #ffffff 100%); border-color:rgba(99,102,241,0.2); box-shadow:0 10px 30px rgba(0,0,0,0.05); }
+[data-theme="light"] .form-group input, [data-theme="light"] .form-group textarea { background:#ffffff; border-color:rgba(0,0,0,0.12); color:#1a1a2e; }
+[data-theme="light"] .form-group input:focus, [data-theme="light"] .form-group textarea:focus { border-color:#3b82f6; background:#ffffff; box-shadow:0 0 12px rgba(59,130,246,0.2); }
+@media(min-width: 769px) {
+    [data-theme="light"] .nav-links { background:rgba(0,0,0,0.03); border-color:rgba(0,0,0,0.08); }
+    [data-theme="light"] .nav-links li:nth-child(1) a:hover { color:#1d4ed8; background:rgba(59,130,246,0.1); }
+    [data-theme="light"] .nav-links li:nth-child(2) a:hover { color:#be185d; background:rgba(236,72,153,0.1); }
+    [data-theme="light"] .nav-links li:nth-child(3) a:hover { color:#047857; background:rgba(16,185,129,0.1); }
+    [data-theme="light"] .nav-links li:nth-child(4) a:hover { color:#0e7490; background:rgba(6,182,212,0.1); }
+    [data-theme="light"] .nav-links li:nth-child(5) a:hover { color:#b45309; background:rgba(245,158,11,0.1); }
+    [data-theme="light"] .nav-links li:nth-child(6) a:hover { color:#6d28d9; background:rgba(139,92,246,0.1); }
+}
+[data-theme="light"] .nav-logo .logo-img { filter:drop-shadow(0 2px 8px rgba(29,78,216,0.35)) brightness(0.68) saturate(2.0) contrast(1.35); }
+[data-theme="light"] .nav-logo:hover .logo-img { filter:drop-shadow(0 4px 14px rgba(29,78,216,0.55)) brightness(0.68) saturate(2.0) contrast(1.35); }
+
+[data-theme="light"] .floating-contact-pill { background:rgba(255,255,255,0.92); border-color:rgba(0,0,0,0.1); box-shadow:0 10px 30px rgba(0,0,0,0.12); }
+[data-theme="light"] .floating-status { color:#334155; }
+[data-theme="light"] .process-card:nth-child(1) { background:linear-gradient(180deg, rgba(59,130,246,0.06) 0%, #ffffff 100%); border-color:rgba(59,130,246,0.25); }
+[data-theme="light"] .process-card:nth-child(1) h3 { color:#1d4ed8; }
+[data-theme="light"] .process-card:nth-child(1) .process-deliverables span { color:#1e40af; }
+[data-theme="light"] .process-card:nth-child(2) { background:linear-gradient(180deg, rgba(236,72,153,0.06) 0%, #ffffff 100%); border-color:rgba(236,72,153,0.25); }
+[data-theme="light"] .process-card:nth-child(2) h3 { color:#be185d; }
+[data-theme="light"] .process-card:nth-child(2) .process-deliverables span { color:#9d174d; }
+[data-theme="light"] .process-card:nth-child(3) { background:linear-gradient(180deg, rgba(16,185,129,0.06) 0%, #ffffff 100%); border-color:rgba(16,185,129,0.25); }
+[data-theme="light"] .process-card:nth-child(3) h3 { color:#047857; }
+[data-theme="light"] .process-card:nth-child(3) .process-deliverables span { color:#065f46; }
+[data-theme="light"] .process-card:nth-child(4) { background:linear-gradient(180deg, rgba(6,182,212,0.06) 0%, #ffffff 100%); border-color:rgba(6,182,212,0.25); }
+[data-theme="light"] .process-card:nth-child(4) h3 { color:#0e7490; }
+/* ============================================================
+   ENHANCED MODERN FAQ SECTION (CYBER-GLASS DESIGN)
+   ============================================================ */
+.faq-section {
+    padding: 36px 0 24px;
+    position: relative;
+    background: radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.07) 0%, transparent 60%);
+}
+.faq-section .section-header { margin-bottom: 24px; }
+.faq-container {
+    max-width: 880px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.faq-item {
+    background: linear-gradient(180deg, rgba(56, 189, 248, 0.05) 0%, rgba(15, 23, 42, 0.85) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.faq-item:hover {
+    border-color: rgba(56, 189, 248, 0.55);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px -8px rgba(56, 189, 248, 0.25), inset 0 0 20px rgba(56, 189, 248, 0.05);
+}
+
+.faq-item.active {
+    border-color: rgba(56, 189, 248, 0.85);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(26, 38, 64, 0.85) 100%);
+    box-shadow: 0 16px 45px -10px rgba(56, 189, 248, 0.35), 0 0 0 1px rgba(56, 189, 248, 0.4);
+}
+
+/* Left Gradient Neon Glow Accent Line */
+.faq-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #38bdf8 0%, #818cf8 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.faq-item.active::before,
+.faq-item:hover::before {
+    opacity: 1;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    color: var(--text-primary);
+}
+
+.faq-q-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Sleek Tech Number Badge */
+.faq-num-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.88rem;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover .faq-num-badge {
+    border-color: rgba(56, 189, 248, 0.5);
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+}
+
+.faq-item.active .faq-num-badge {
+    background: linear-gradient(135deg, #38bdf8, #6366f1);
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.5);
+}
+
+.faq-q-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+/* Category Chip */
+.faq-category-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 9px;
+    border-radius: 20px;
+    width: fit-content;
+    color: #94a3b8;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pill-cyan { background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+.pill-blue { background: rgba(59, 130, 246, 0.14); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.35); }
+.pill-emerald { background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+.pill-purple { background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+.pill-pink { background: rgba(236, 72, 153, 0.14); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.35); }
+.pill-amber { background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+.pill-rose { background: rgba(244, 63, 94, 0.12); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+
+.faq-q-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    line-height: 1.45;
+    transition: color 0.3s ease;
+}
+
+.faq-item:hover .faq-q-title,
+.faq-item.active .faq-q-title {
+    color: #38bdf8;
+}
+
+/* Interactive Floating Toggle Button */
+.faq-toggle-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 0.88rem;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    flex-shrink: 0;
+}
+
+.faq-item:hover .faq-toggle-btn {
+    background: rgba(56, 189, 248, 0.15);
+    border-color: rgba(56, 189, 248, 0.4);
+    color: #38bdf8;
+}
+
+.faq-item.active .faq-toggle-btn {
+    transform: rotate(45deg);
+    background: linear-gradient(135deg, #38bdf8, #6366f1);
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.6);
+}
+
+/* Interior Answer Area */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-answer-inner {
+    padding: 4px 24px 22px 78px;
+    color: #cbd5e1;
+    font-size: 0.96rem;
+    line-height: 1.8;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    margin-top: 4px;
+    padding-top: 16px;
+}
+
+.faq-answer-inner strong {
+    color: #38bdf8;
+    font-weight: 700;
+}
+
+/* Light Theme Support */
+[data-theme="light"] .faq-section {
+    background: radial-gradient(circle at 50% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 60%);
+}
+
+[data-theme="light"] .faq-item {
+    background: #ffffff;
+    border: 1px solid rgba(37, 99, 235, 0.22);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .faq-item:hover {
+    border-color: rgba(37, 99, 235, 0.4);
+    box-shadow: 0 12px 30px -8px rgba(37, 99, 235, 0.15);
+}
+
+[data-theme="light"] .faq-item.active {
+    border-color: #2563eb;
+    background: linear-gradient(135deg, #ffffff 0%, rgba(239, 246, 255, 0.8) 100%);
+    box-shadow: 0 14px 35px -8px rgba(37, 99, 235, 0.2);
+}
+
+[data-theme="light"] .faq-num-badge {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    color: #64748b;
+}
+
+[data-theme="light"] .faq-item.active .faq-num-badge {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: #ffffff;
+}
+
+[data-theme="light"] .faq-q-title {
+    color: #0f172a;
+}
+
+[data-theme="light"] .faq-item:hover .faq-q-title,
+[data-theme="light"] .faq-item.active .faq-q-title {
+    color: #2563eb;
+}
+
+[data-theme="light"] .faq-toggle-btn {
+    background: #f1f5f9;
+    border-color: #e2e8f0;
+    color: #64748b;
+}
+
+[data-theme="light"] .faq-item.active .faq-toggle-btn {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: #ffffff;
+}
+
+[data-theme="light"] .faq-answer-inner {
+    color: #334155;
+    border-top-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .faq-answer-inner strong {
+    color: #2563eb;
+}
+
+[data-theme="light"] .faq-category-pill {
+    color: #475569;
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+[data-theme="light"] .pill-cyan { background: rgba(2, 132, 199, 0.1); color: #0284c7; border-color: rgba(2, 132, 199, 0.25); }
+[data-theme="light"] .pill-blue { background: rgba(37, 99, 235, 0.1); color: #2563eb; border-color: rgba(37, 99, 235, 0.25); }
+[data-theme="light"] .pill-emerald { background: rgba(5, 150, 105, 0.1); color: #059669; border-color: rgba(5, 150, 105, 0.25); }
+[data-theme="light"] .pill-purple { background: rgba(124, 58, 237, 0.1); color: #7c3aed; border-color: rgba(124, 58, 237, 0.25); }
+[data-theme="light"] .pill-pink { background: rgba(219, 39, 119, 0.1); color: #db2777; border-color: rgba(219, 39, 119, 0.25); }
+[data-theme="light"] .pill-amber { background: rgba(217, 119, 6, 0.1); color: #d97706; border-color: rgba(217, 119, 6, 0.25); }
+[data-theme="light"] .pill-rose { background: rgba(225, 29, 72, 0.1); color: #e11d48; border-color: rgba(225, 29, 72, 0.25); }
+
+/* Mobile Screens */
+@media (max-width: 640px) {
+    .faq-q-left { gap: 12px; }
+    .faq-num-badge { width: 32px; height: 32px; font-size: 0.78rem; border-radius: 9px; }
+    .faq-question { padding: 16px 14px; gap: 10px; }
+    .faq-q-title { font-size: 0.95rem; }
+    .faq-category-pill { font-size: 0.68rem; padding: 2px 7px; }
+    .faq-toggle-btn { width: 30px; height: 30px; font-size: 0.78rem; }
+    .faq-answer-inner { padding: 4px 14px 18px 58px; font-size: 0.9rem; }
+}
+
+    
+
+/* ==================== ADDITIONAL SERVICE STYLES ==================== */
+
+
+/* Simple, Human-Centric Service Page Styles */
+
+/* Real-Life Business Problems Grid */
+.pain-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 36px;
+}
+.pain-card {
+    background: linear-gradient(180deg, rgba(239, 68, 68, 0.05) 0%, rgba(15, 23, 42, 0.7) 100%);
+    border: 1px solid rgba(239, 68, 68, 0.22);
+    border-radius: var(--radius);
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+.pain-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(239, 68, 68, 0.45);
+    box-shadow: 0 12px 30px rgba(239, 68, 68, 0.12);
+}
+.pain-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    margin-bottom: 16px;
+}
+.pain-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #f87171;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.pain-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 14px;
+}
+.pain-solution {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.86rem;
+    font-weight: 500;
+    color: #e2e8f0;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.28);
+    padding: 12px 14px;
+    border-radius: 10px;
+    line-height: 1.55;
+}
+.pain-solution strong {
+    color: #34d399;
+    display: block;
+    margin-bottom: 2px;
+}
+.pain-solution i {
+    margin-top: 3px;
+    color: #10b981;
+    font-size: 0.95rem;
+}
+
+[data-theme="light"] .pain-card {
+    background: #ffffff;
+    border-color: rgba(239, 68, 68, 0.2);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+}
+[data-theme="light"] .pain-solution {
+    background: rgba(16, 185, 129, 0.08);
+    color: #1e293b;
+}
+
+/* What We Build (Modules) Grid */
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 36px;
+}
+.module-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 30px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+}
+.module-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+}
+.module-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 18px;
+    transition: var(--transition);
+}
+.module-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.module-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+.module-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.84rem;
+}
+.module-features li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+}
+.module-features li i {
+    font-size: 0.75rem;
+}
+
+/* Module Color Themes */
+.module-blue { border-color: rgba(59,130,246,0.22); background: linear-gradient(180deg, rgba(59,130,246,0.06) 0%, rgba(15,23,42,0.7) 100%); }
+.module-blue::before { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+.module-blue .module-icon { background: rgba(59,130,246,0.15); color: #60a5fa; border: 1px solid rgba(59,130,246,0.3); }
+.module-blue .module-features li i { color: #60a5fa; }
+.module-blue:hover { transform: translateY(-5px); border-color: rgba(59,130,246,0.55); box-shadow: 0 14px 35px rgba(59,130,246,0.18); }
+
+.module-pink { border-color: rgba(236,72,153,0.22); background: linear-gradient(180deg, rgba(236,72,153,0.06) 0%, rgba(15,23,42,0.7) 100%); }
+.module-pink::before { background: linear-gradient(90deg, #ec4899, #f472b6); }
+.module-pink .module-icon { background: rgba(236,72,153,0.15); color: #f472b6; border: 1px solid rgba(236,72,153,0.3); }
+.module-pink .module-features li i { color: #f472b6; }
+.module-pink:hover { transform: translateY(-5px); border-color: rgba(236,72,153,0.55); box-shadow: 0 14px 35px rgba(236,72,153,0.18); }
+
+.module-emerald { border-color: rgba(16,185,129,0.22); background: linear-gradient(180deg, rgba(16,185,129,0.06) 0%, rgba(15,23,42,0.7) 100%); }
+.module-emerald::before { background: linear-gradient(90deg, #10b981, #34d399); }
+.module-emerald .module-icon { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
+.module-emerald .module-features li i { color: #34d399; }
+.module-emerald:hover { transform: translateY(-5px); border-color: rgba(16,185,129,0.55); box-shadow: 0 14px 35px rgba(16,185,129,0.18); }
+
+.module-cyan { border-color: rgba(6,182,212,0.22); background: linear-gradient(180deg, rgba(6,182,212,0.06) 0%, rgba(15,23,42,0.7) 100%); }
+.module-cyan::before { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+.module-cyan .module-icon { background: rgba(6,182,212,0.15); color: #22d3ee; border: 1px solid rgba(6,182,212,0.3); }
+.module-cyan .module-features li i { color: #22d3ee; }
+.module-cyan:hover { transform: translateY(-5px); border-color: rgba(6,182,212,0.55); box-shadow: 0 14px 35px rgba(6,182,212,0.18); }
+
+.module-amber { border-color: rgba(245,158,11,0.22); background: linear-gradient(180deg, rgba(245,158,11,0.06) 0%, rgba(15,23,42,0.7) 100%); }
+.module-amber::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+.module-amber .module-icon { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
+.module-amber .module-features li i { color: #fbbf24; }
+.module-amber:hover { transform: translateY(-5px); border-color: rgba(245,158,11,0.55); box-shadow: 0 14px 35px rgba(245,158,11,0.18); }
+
+.module-purple { border-color: rgba(139,92,246,0.22); background: linear-gradient(180deg, rgba(139,92,246,0.06) 0%, rgba(15,23,42,0.7) 100%); }
+.module-purple::before { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+.module-purple .module-icon { background: rgba(139,92,246,0.15); color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
+.module-purple .module-features li i { color: #a78bfa; }
+.module-purple:hover { transform: translateY(-5px); border-color: rgba(139,92,246,0.55); box-shadow: 0 14px 35px rgba(139,92,246,0.18); }
+
+[data-theme="light"] .module-card { background: #ffffff; }
+
+/* Friendly Hero Preview Box */
+.preview-card-box {
+    background: var(--bg-card);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    backdrop-filter: blur(12px);
+    position: relative;
+    overflow: hidden;
+}
+.preview-card-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+}
+.preview-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--glass-border);
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+.preview-live-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    font-size: 0.74rem;
+}
+.preview-metric-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+}
+.preview-metric {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+}
+.preview-metric h5 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--accent-blue);
+}
+.preview-metric span {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+}
+.preview-activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.82rem;
+}
+.preview-activity-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 10px 12px;
+    border-radius: 8px;
+}
+.preview-act-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+}
+.preview-act-left i { font-size: 0.9rem; }
+.preview-status-pill {
+    font-size: 0.72rem;
+    padding: 3px 9px;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+}
+.status-done { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+.status-sync { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+
+/* 3-Step Simple Roadmap */
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 36px;
+}
+.roadmap-card {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 28px 22px;
+    position: relative;
+    transition: var(--transition);
+}
+.roadmap-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-blue);
+    box-shadow: 0 12px 30px rgba(56, 189, 248, 0.12);
+}
+.roadmap-step-pill {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-size: 0.74rem;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(56, 189, 248, 0.15);
+    color: var(--accent-blue);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    margin-bottom: 14px;
+}
+.roadmap-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.roadmap-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+    .modules-grid { grid-template-columns: repeat(2, 1fr); }
+    .roadmap-grid { grid-template-columns: 1fr; }
+    .pain-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+    .modules-grid { grid-template-columns: 1fr; }
+    .preview-metric-row {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    .preview-metric {
+        padding: 10px 4px;
+    }
+    .preview-metric h5 {
+        font-size: 0.98rem;
+        margin-bottom: 2px;
+    }
+    .preview-metric span {
+        font-size: 0.66rem;
+        line-height: 1.25;
+        display: block;
+    }
+}
+@media (max-width: 380px) {
+    .preview-metric-row {
+        gap: 6px;
+    }
+    .preview-metric {
+        padding: 8px 2px;
+    }
+    .preview-metric h5 {
+        font-size: 0.88rem;
+    }
+    .preview-metric span {
+        font-size: 0.60rem;
+    }
+}
+
+    
+
+/* Light Theme Support for Module Cards */
+[data-theme="light"] .module-card {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+[data-theme="light"] .module-card h3 {
+    color: #0f172a;
+}
+[data-theme="light"] .module-card p {
+    color: #475569;
+}
+[data-theme="light"] .module-features {
+    border-top-color: rgba(0, 0, 0, 0.08);
+}
+[data-theme="light"] .module-features li {
+    color: #475569;
+}
+
+[data-theme="light"] .module-blue {
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.04) 0%, #ffffff 100%);
+    border-color: rgba(59, 130, 246, 0.25);
+}
+[data-theme="light"] .module-blue h3 { color: #1d4ed8; }
+[data-theme="light"] .module-blue:hover {
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 14px 35px rgba(59, 130, 246, 0.12);
+}
+
+[data-theme="light"] .module-emerald {
+    background: linear-gradient(180deg, rgba(16, 185, 129, 0.04) 0%, #ffffff 100%);
+    border-color: rgba(16, 185, 129, 0.25);
+}
+[data-theme="light"] .module-emerald h3 { color: #047857; }
+[data-theme="light"] .module-emerald:hover {
+    border-color: rgba(16, 185, 129, 0.5);
+    box-shadow: 0 14px 35px rgba(16, 185, 129, 0.12);
+}
+
+[data-theme="light"] .module-purple {
+    background: linear-gradient(180deg, rgba(139, 92, 246, 0.04) 0%, #ffffff 100%);
+    border-color: rgba(139, 92, 246, 0.25);
+}
+[data-theme="light"] .module-purple h3 { color: #6d28d9; }
+[data-theme="light"] .module-purple:hover {
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 14px 35px rgba(139, 92, 246, 0.12);
+}
+
+[data-theme="light"] .module-amber {
+    background: linear-gradient(180deg, rgba(245, 158, 11, 0.04) 0%, #ffffff 100%);
+    border-color: rgba(245, 158, 11, 0.25);
+}
+[data-theme="light"] .module-amber h3 { color: #b45309; }
+[data-theme="light"] .module-amber:hover {
+    border-color: rgba(245, 158, 11, 0.5);
+    box-shadow: 0 14px 35px rgba(245, 158, 11, 0.12);
+}
+
+[data-theme="light"] .module-pink {
+    background: linear-gradient(180deg, rgba(236, 72, 153, 0.04) 0%, #ffffff 100%);
+    border-color: rgba(236, 72, 153, 0.25);
+}
+[data-theme="light"] .module-pink h3 { color: #be185d; }
+[data-theme="light"] .module-pink:hover {
+    border-color: rgba(236, 72, 153, 0.5);
+    box-shadow: 0 14px 35px rgba(236, 72, 153, 0.12);
+}
+
+[data-theme="light"] .module-cyan {
+    background: linear-gradient(180deg, rgba(6, 182, 212, 0.04) 0%, #ffffff 100%);
+    border-color: rgba(6, 182, 212, 0.25);
+}
+[data-theme="light"] .module-cyan h3 { color: #0e7490; }
+[data-theme="light"] .module-cyan:hover {
+    border-color: rgba(6, 182, 212, 0.5);
+    box-shadow: 0 14px 35px rgba(6, 182, 212, 0.12);
+}
+
+/* Fail-safe visibility transition */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-in.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6TZZCBV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
+    <!-- Ambient Grid & Glows -->
     <div class="bg-grid"></div>
     <div class="bg-glow bg-glow-1"></div>
     <div class="bg-glow bg-glow-2"></div>
@@ -481,13 +1868,12 @@ body.menu-open #tmd-chatbot-btn, body.menu-open .floating-contact-pill { opacity
                 <span>Tech Mind <span class="gradient-text">Developers</span></span>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#problems" onclick="closeMenu()">Why Agencies Fail</a></li>
-                <li><a href="#services" onclick="closeMenu()">Our Growth Pillars</a></li>
-                <li><a href="#comparison" onclick="closeMenu()">Why Us</a></li>
-                <li><a href="#process" onclick="closeMenu()">How It Works</a></li>
-                <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
-                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-                <li class="nav-cta-item"><a href="#contact" class="nav-cta" onclick="closeMenu()"><span>Free SEO Audit</span></a></li>
+                <li><a href="#problems" onclick="closeMenu()"><span class="nav-link-content"><i class="fas fa-triangle-exclamation nav-icon nav-icon-pink"></i><span class="nav-label">Why Agencies Fail</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
+                <li><a href="#modules" onclick="closeMenu()"><span class="nav-link-content"><i class="fas fa-cubes nav-icon nav-icon-emerald"></i><span class="nav-label">Growth Pillars</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
+                <li><a href="#delivery" onclick="closeMenu()"><span class="nav-link-content"><i class="fas fa-list-check nav-icon nav-icon-cyan"></i><span class="nav-label">How It Works</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
+                <li><a href="#faq" onclick="closeMenu()"><span class="nav-link-content"><i class="fas fa-circle-question nav-icon nav-icon-purple"></i><span class="nav-label">FAQ</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
+                <li><a href="#contact" onclick="closeMenu()"><span class="nav-link-content"><i class="fas fa-paper-plane nav-icon nav-icon-amber"></i><span class="nav-label">Contact</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
+                <li class="nav-cta-item"><a href="#contact" class="nav-cta" onclick="closeMenu()"><span>Free SEO Audit</span> <i class="fas fa-arrow-right nav-cta-arrow"></i></a></li>
             </ul>
             <div class="nav-right">
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
@@ -503,10 +1889,11 @@ body.menu-open #tmd-chatbot-btn, body.menu-open .floating-contact-pill { opacity
             <div class="hero-content">
                 <div class="hero-badge"><span class="pulse"></span>Engineering-Led Digital Marketing &amp; Technical SEO</div>
                 <h1>
-                    Data-Driven Technical SEO &amp; High-Performance <span class="gradient-text">Digital Marketing.</span>
+                    <span class="static-line">Engineering-Led Technical SEO.</span>
+                    <span class="dynamic-line"><span class="gradient-text">Real Organic Leads, Zero Fluff.</span></span>
                 </h1>
                 <p>
-                    Stop burning cash on generic social media posts and vanity impression reports that never ring your phone. We build <strong>sub-second technical SEO foundations</strong>, dominate <strong>Google Maps 3-Pack rankings</strong> across Delhi NCR, and position your brand for <strong>AI Search Engines (ChatGPT &amp; Perplexity)</strong> with 100% transparent reporting and zero lock-in contracts.
+                    Stop burning cash on generic social media posts and vanity impression reports that never ring your phone. We build <strong>sub-second technical SEO foundations</strong>, dominate <strong>Google Maps 3-Pack rankings</strong> across Delhi NCR, and position your brand for <strong>AI Search Engines (ChatGPT &amp; Perplexity)</strong> with 100% transparent reporting and <strong>zero monthly lock-in contracts</strong>.
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn-primary">Claim Your Free Technical Audit <i class="fas fa-arrow-right"></i></a>
@@ -514,7 +1901,7 @@ body.menu-open #tmd-chatbot-btn, body.menu-open .floating-contact-pill { opacity
                 </div>
             </div>
 
-            <!-- HERO VISUAL (SEO Performance Card) -->
+            <!-- Standard Master Preview Card (100% Master Parity) -->
             <div class="hero-visual">
                 <div class="preview-card-box">
                     <div class="preview-bar">
@@ -530,366 +1917,523 @@ body.menu-open #tmd-chatbot-btn, body.menu-open .floating-contact-pill { opacity
                             <h5>0.8s</h5>
                             <span>Page Load Time</span>
                         </div>
-                        <div class="preview-metric green">
-                            <h5>98/100</h5>
-                            <span>Core Web Vitals</span>
-                        </div>
-                    </div>
-
-                    <div class="preview-metric-row">
-                        <div class="preview-metric cyan">
+                        <div class="preview-metric">
                             <h5>Top 3</h5>
                             <span>Google Maps 3-Pack</span>
                         </div>
-                        <div class="preview-metric pink">
+                        <div class="preview-metric">
                             <h5>100%</h5>
                             <span>AI Search Grounded</span>
                         </div>
                     </div>
 
-                    <div class="preview-task-list">
-                        <div class="preview-task-item"><i class="fas fa-check-circle"></i> Zero monthly lock-in contracts</div>
-                        <div class="preview-task-item"><i class="fas fa-check-circle"></i> Code-level technical crawl &amp; schema fixes</div>
-                        <div class="preview-task-item"><i class="fas fa-check-circle"></i> High-intent leads routed straight to WhatsApp &amp; CRM</div>
+                    <div class="preview-activity-list">
+                        <div class="preview-activity-item">
+                            <div class="preview-act-left">
+                                <i class="fas fa-bolt" style="color:#60a5fa"></i>
+                                <span>Core Web Vitals: 98/100 Mobile Score achieved for B2B Client</span>
+                            </div>
+                            <span class="preview-status-pill status-done">LCP 0.8s</span>
+                        </div>
+                        <div class="preview-activity-item">
+                            <div class="preview-act-left">
+                                <i class="fas fa-map-pin" style="color:#a855f7"></i>
+                                <span>Google Maps Ranking: Ranked #1 in Okhla &amp; South Delhi</span>
+                            </div>
+                            <span class="preview-status-pill status-done" style="background:rgba(168,85,247,0.15);color:#c084fc">Top 3 Rank</span>
+                        </div>
+                        <div class="preview-activity-item">
+                            <div class="preview-act-left">
+                                <i class="fas fa-brain" style="color:#10b981"></i>
+                                <span>AI Search Engine Optimization: Knowledge Graph cited by Perplexity</span>
+                            </div>
+                            <span class="preview-status-pill status-done" style="background:rgba(16,185,129,0.15);color:#10b981">GEO Grounded</span>
+                        </div>
+                        <div class="preview-activity-item">
+                            <div class="preview-act-left">
+                                <i class="fas fa-comments-dollar" style="color:#f59e0b"></i>
+                                <span>High-Intent Lead Ingestion: 48 Verified Sales Inquiries routed</span>
+                            </div>
+                            <span class="preview-status-pill status-done" style="background:rgba(245,158,11,0.15);color:#f59e0b">WhatsApp Leads</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- STATS BAR -->
-    <div class="stats-bar">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>12+</h3>
-                    <p>Years in Software &amp; Search</p>
-                </div>
-                <div class="stat-item">
-                    <h3>500+</h3>
-                    <p>Code &amp; SEO Audits Delivered</p>
-                </div>
-                <div class="stat-item">
-                    <h3>Sub-1s</h3>
-                    <p>Average Page Speed Target</p>
-                </div>
-                <div class="stat-item">
-                    <h3>0 Traps</h3>
-                    <p>Zero Lock-in Contract Freedom</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SECTION 1: THE COMMON PAIN POINTS (#problems) -->
-    <section class="problems" id="problems">
+    <!-- SECTION 1: THE COMMON PAIN POINTS (#problems - Exactly 6 Cards) -->
+    <section class="services" id="problems">
         <div class="container">
             <div class="section-header fade-in">
                 <span class="section-label">The Brutal Truth</span>
                 <h2 class="section-title">Why Most Traditional Marketing Agencies <span class="gradient-text">Fail Your Business</span></h2>
-                <p class="section-desc">If you have hired a digital marketing agency before, you probably lived through this exact frustrating playbook.</p>
+                <p class="section-desc">If you have hired a digital marketing agency before, you probably lived through this exact frustrating playbook. Here is why vanity metrics cost you money and how engineering fixes it.</p>
             </div>
-            <div class="problems-grid">
-                <div class="problem-card fade-in">
-                    <div class="problem-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+            
+            <div class="services-grid">
+                <!-- Problem 1 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div>
                     <h3>Vanity Reports Instead of Real Bank Deposits</h3>
-                    <p>Traditional agencies send 30-page PDF reports filled with useless metrics like impressions, post reach, and hollow website hits. None of that pays your staff or rent. What matters is how many qualified phone calls and WhatsApp inquiries your website generates every single week.</p>
+                    <p>Traditional agencies send 30-page PDF reports filled with useless metrics like impressions, post reach, and hollow website hits. None of that pays your staff or rent. What matters is how many qualified phone calls and WhatsApp inquiries your website generates every week.</p>
                 </div>
-                <div class="problem-card fade-in">
-                    <div class="problem-icon"><i class="fas fa-gauge-simple-low"></i></div>
+
+                <!-- Problem 2 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-gauge-simple-low"></i></div>
                     <h3>Slow, Bloated Websites That Google Refuses to Rank</h3>
-                    <p>Most marketers do not know how to code. They install 40 plugins on a bloated theme that takes 6 seconds to open on a mobile phone. Google's algorithm immediately downranks slow websites, and 50% of your potential customers bounce before the page even loads.</p>
+                    <p>Most marketers do not know how to code. They install 40 plugins on a bloated theme that takes 6 seconds to open on mobile phones. Google immediately downranks slow websites, and 50% of your potential customers bounce before the page even loads.</p>
                 </div>
-                <div class="problem-card fade-in">
-                    <div class="problem-icon"><i class="fas fa-robot"></i></div>
+
+                <!-- Problem 3 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-robot"></i></div>
                     <h3>Completely Invisible on Modern AI Search (GEO)</h3>
-                    <p>In 2026, millions of high-ticket buyers are asking ChatGPT, Perplexity, and Google Gemini for vendor recommendations. Without structured knowledge graphs and machine-readable data, AI bots have no idea what your company does and will recommend your competitors instead.</p>
+                    <p>In 2026, millions of high-ticket buyers ask ChatGPT, Perplexity, and Google Gemini for vendor recommendations. Without structured knowledge graphs and machine-readable data, AI bots have no idea what your company does and will recommend competitors instead.</p>
                 </div>
-                <div class="problem-card fade-in">
-                    <div class="problem-icon"><i class="fas fa-handcuffs"></i></div>
-                    <h3>Rigid 6-Month Lock-in Contracts with Zero Guarantees</h3>
-                    <p>Agencies trap you in long contracts, assign your account to an intern who just copy-pastes generic templates, and make excuses when leads dry up. You deserve a technical partner who earns your trust through continuous performance, not legal lock-ins.</p>
+
+                <!-- Problem 4 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-handcuffs"></i></div>
+                    <h3>Rigid 6 to 12 Month Lock-in Contracts</h3>
+                    <p>Agencies trap you in long contracts, assign your account to an intern who just copy-pastes generic templates, and make excuses when leads dry up. You deserve a technical partner who earns your trust through continuous monthly performance, not legal lock-ins.</p>
+                </div>
+
+                <!-- Problem 5 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-fire"></i></div>
+                    <h3>Wasteful Ad Spend on Irrelevant Tire-Kickers</h3>
+                    <p>Amateur PPC managers run broad-match Google Ads that burn through your budget in 3 days, bringing job seekers and irrelevant clicks instead of high-budget corporate buyers. Without negative keyword shields, your money evaporates into thin air.</p>
+                </div>
+
+                <!-- Problem 6 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-lock"></i></div>
+                    <h3>Hostage Data &amp; No Asset Ownership</h3>
+                    <p>When you leave a generic agency, they often hold your ad accounts, landing page files, and analytics hostage. At Tech Mind Developers, you get 100% full administrative ownership of every single account, pixel, and code asset from day one.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 2: WHAT WE BUILD (CORE PILLARS) (#services) -->
-    <section class="services" id="services">
+    <!-- SECTION 2: WHAT WE BUILD (#modules - Exactly 6 Cards in 3x2 Grid) -->
+    <section class="services" id="modules">
         <div class="container">
             <div class="section-header fade-in">
-                <span class="section-label">Engineering-Led Growth</span>
+                <span class="section-label">Core Modules</span>
                 <h2 class="section-title">Our 6 High-Performance <span class="gradient-text">Growth Pillars</span></h2>
                 <p class="section-desc">We combine software engineering, semantic search science, and high-converting funnel design to bring you high-intent clients who are ready to buy.</p>
             </div>
-            <div class="services-grid">
-                <!-- Pillar 1 -->
-                <div class="service-card fade-in">
-                    <div>
-                        <div class="service-icon"><i class="fas fa-code"></i></div>
-                        <h3>Technical SEO &amp; Core Web Vitals</h3>
-                        <p>We fix what normal agencies cannot touch: server response time (TTFB), Largest Contentful Paint (LCP), Cumulative Layout Shift (CLS), broken crawl budgets, and deep JSON-LD Knowledge Graph schemas so Google indexes every page flawlessly.</p>
+
+            <div class="modules-grid">
+                <!-- Module 1: Blue -->
+                <div class="module-card module-blue fade-in">
+                    <div class="module-header">
+                        <div class="module-icon"><i class="fas fa-code"></i></div>
+                        <div>
+                            <span class="module-tag">Code-Level Architecture</span>
+                            <h3>Technical SEO &amp; Core Web Vitals Engineering</h3>
+                        </div>
                     </div>
-                    <div class="service-tags">
-                        <span>Sub-Second Speed</span>
-                        <span>Structured Schema</span>
-                        <span>Crawl Audit</span>
-                    </div>
+                    <p>We fix what normal agencies cannot touch: server response time (TTFB), Largest Contentful Paint (LCP), Cumulative Layout Shift (CLS), broken crawl budgets, and deep JSON-LD Knowledge Graph schemas so Google indexes every page flawlessly.</p>
+                    <ul class="module-feature-list">
+                        <li><i class="fas fa-check"></i> Sub-second page load speeds (&lt;1s target on mobile)</li>
+                        <li><i class="fas fa-check"></i> Complete JSON-LD Organization &amp; Service schema injection</li>
+                        <li><i class="fas fa-check"></i> Canonicalization, XML sitemaps, and robots.txt optimization</li>
+                        <li><i class="fas fa-check"></i> Server-side caching and clean HTML5/CSS3 refactoring</li>
+                    </ul>
                 </div>
 
-                <!-- Pillar 2 -->
-                <div class="service-card fade-in">
-                    <div>
-                        <div class="service-icon"><i class="fas fa-brain"></i></div>
-                        <h3>Generative Engine Optimization (GEO)</h3>
-                        <p>We prepare your brand for modern AI search. By building interconnected entity graphs, Wikidata disambiguation, and machine-readable context files (llms.txt), we ensure ChatGPT, Perplexity, and Google Gemini cite your company as the #1 recommended solution.</p>
+                <!-- Module 2: Emerald -->
+                <div class="module-card module-emerald fade-in">
+                    <div class="module-header">
+                        <div class="module-icon"><i class="fas fa-brain"></i></div>
+                        <div>
+                            <span class="module-tag">Next-Gen Search</span>
+                            <h3>Generative Engine Optimization (GEO) &amp; AI Search</h3>
+                        </div>
                     </div>
-                    <div class="service-tags">
-                        <span>ChatGPT Search</span>
-                        <span>Perplexity Citations</span>
-                        <span>Entity Disambiguation</span>
-                    </div>
+                    <p>We prepare your brand for modern AI search. By building interconnected entity graphs, Wikidata disambiguation, and machine-readable context files (llms.txt), we ensure ChatGPT, Perplexity, and Google Gemini cite your company as the top recommended solution.</p>
+                    <ul class="module-feature-list">
+                        <li><i class="fas fa-check"></i> Standardized llms.txt &amp; llms-full.txt machine context files</li>
+                        <li><i class="fas fa-check"></i> Wikidata entity disambiguation and Knowledge Graph sync</li>
+                        <li><i class="fas fa-check"></i> High-authority citations optimized for AI RAG pipelines</li>
+                        <li><i class="fas fa-check"></i> Optimization for ChatGPT Search, Perplexity AI &amp; Gemini</li>
+                    </ul>
                 </div>
 
-                <!-- Pillar 3 -->
-                <div class="service-card fade-in">
-                    <div>
-                        <div class="service-icon"><i class="fas fa-map-location-dot"></i></div>
-                        <h3>Hyper-Local Google Maps 3-Pack Dominance</h3>
-                        <p>When nearby customers search for your service in Okhla, South Delhi, Noida, Gurgaon, or Aligarh, we make your Google Business Profile (GBP) appear in the top 3 map results with verified geo-signals, review management, and local citation authority.</p>
+                <!-- Module 3: Purple -->
+                <div class="module-card module-purple fade-in">
+                    <div class="module-header">
+                        <div class="module-icon"><i class="fas fa-map-location-dot"></i></div>
+                        <div>
+                            <span class="module-tag">Local Maps Dominance</span>
+                            <h3>Hyper-Local Google Business Profile &amp; 3-Pack Ranking</h3>
+                        </div>
                     </div>
-                    <div class="service-tags">
-                        <span>Google Business Profile</span>
-                        <span>Local 3-Pack</span>
-                        <span>Geo Citations</span>
-                    </div>
+                    <p>When nearby customers search for your services in Okhla, South Delhi, Noida, Gurgaon, or Aligarh, we make your Google Business Profile (GBP) appear in the top 3 map results with verified geo-signals, review management, and local citation authority.</p>
+                    <ul class="module-feature-list">
+                        <li><i class="fas fa-check"></i> Google Maps Local 3-Pack ranking across target hubs</li>
+                        <li><i class="fas fa-check"></i> Exact NAP (Name, Address, Phone) consistency across directories</li>
+                        <li><i class="fas fa-check"></i> Geo-tagged local image optimization and category tuning</li>
+                        <li><i class="fas fa-check"></i> Automated review collection funnels for 5-star reputation</li>
+                    </ul>
                 </div>
 
-                <!-- Pillar 4 -->
-                <div class="service-card fade-in">
-                    <div>
-                        <div class="service-icon"><i class="fas fa-bullseye"></i></div>
-                        <h3>High-Intent Topical Authority Clusters</h3>
-                        <p>Instead of publishing useless filler blogs that nobody reads, we build targeted content clusters around exact transactional keywords. We target buyers who have urgent problems and money in hand, turning organic readers into booked inquiries.</p>
+                <!-- Module 4: Pink -->
+                <div class="module-card module-pink fade-in">
+                    <div class="module-header">
+                        <div class="module-icon"><i class="fas fa-bullseye"></i></div>
+                        <div>
+                            <span class="module-tag">Topical Authority</span>
+                            <h3>High-Intent Topical Authority Content Clusters</h3>
+                        </div>
                     </div>
-                    <div class="service-tags">
-                        <span>Topical Clusters</span>
-                        <span>High-Intent Keywords</span>
-                        <span>Commercial Intent</span>
-                    </div>
+                    <p>Instead of publishing useless filler blogs that nobody reads, we build targeted content clusters around exact transactional keywords. We target buyers who have urgent problems and money in hand, turning organic readers into booked inquiries.</p>
+                    <ul class="module-feature-list">
+                        <li><i class="fas fa-check"></i> Commercial &amp; transactional intent keyword mapping</li>
+                        <li><i class="fas fa-check"></i> Multi-tier pillar and cluster article architecture</li>
+                        <li><i class="fas fa-check"></i> Semantic internal linking that multiplies PageRank authority</li>
+                        <li><i class="fas fa-check"></i> Human-written, authentic content that keeps dwell time high</li>
+                    </ul>
                 </div>
 
-                <!-- Pillar 5 -->
-                <div class="service-card fade-in">
-                    <div>
-                        <div class="service-icon"><i class="fas fa-filter-circle-dollar"></i></div>
-                        <h3>Conversion Rate Optimization (CRO)</h3>
-                        <p>Getting visitors to your website is only half the battle. We redesign landing pages with clear psychological cues, friction-free forms, and instant WhatsApp click-to-chat triggers that convert ordinary browsers into paying clients.</p>
+                <!-- Module 5: Cyan -->
+                <div class="module-card module-cyan fade-in">
+                    <div class="module-header">
+                        <div class="module-icon"><i class="fas fa-filter-circle-dollar"></i></div>
+                        <div>
+                            <span class="module-tag">Conversion Rate Optimization</span>
+                            <h3>Conversion Rate Optimization (CRO) &amp; Sales Funnels</h3>
+                        </div>
                     </div>
-                    <div class="service-tags">
-                        <span>Instant WhatsApp CTAs</span>
-                        <span>Frictionless Forms</span>
-                        <span>Funnel Engineering</span>
-                    </div>
+                    <p>Getting visitors to your website is only half the battle. We redesign landing pages with clear psychological cues, friction-free forms, and instant WhatsApp click-to-chat triggers that convert ordinary browsers into paying clients.</p>
+                    <ul class="module-feature-list">
+                        <li><i class="fas fa-check"></i> High-converting landing page layouts and visual hierarchy</li>
+                        <li><i class="fas fa-check"></i> One-click WhatsApp pre-filled consultation CTAs</li>
+                        <li><i class="fas fa-check"></i> Google Tag Manager custom event and goal tracking</li>
+                        <li><i class="fas fa-check"></i> Instant lead routing to sales team email and CRM</li>
+                    </ul>
                 </div>
 
-                <!-- Pillar 6 -->
-                <div class="service-card fade-in">
-                    <div>
-                        <div class="service-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
-                        <h3>High-Precision Google Search Ads (PPC)</h3>
-                        <p>When you need instant leads tomorrow, our performance marketing campaigns target exact search keywords with laser-focused negative keyword lists. You never waste budget on tire-kickers or irrelevant search clicks.</p>
+                <!-- Module 6: Amber -->
+                <div class="module-card module-amber fade-in">
+                    <div class="module-header">
+                        <div class="module-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+                        <div>
+                            <span class="module-tag">High-Precision PPC</span>
+                            <h3>Performance Marketing &amp; Google Search Ads</h3>
+                        </div>
                     </div>
-                    <div class="service-tags">
-                        <span>Negative Keyword Shields</span>
-                        <span>High Quality Scores</span>
-                        <span>Direct Lead Routing</span>
-                    </div>
+                    <p>When you need instant leads tomorrow, our performance marketing campaigns target exact search keywords with laser-focused negative keyword lists. You never waste budget on tire-kickers or irrelevant search clicks.</p>
+                    <ul class="module-feature-list">
+                        <li><i class="fas fa-check"></i> Negative keyword shields preventing wasteful spend</li>
+                        <li><i class="fas fa-check"></i> High Quality Scores that lower your cost-per-click (CPC)</li>
+                        <li><i class="fas fa-check"></i> Custom high-converting landing pages matched to ad copy</li>
+                        <li><i class="fas fa-check"></i> Daily bid adjustments and ROAS conversion optimization</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 3: COMPARISON TABLE (#comparison) -->
-    <section class="comparison-section" id="comparison">
-        <div class="container">
-            <div class="section-header fade-in">
-                <span class="section-label">Side by Side</span>
-                <h2 class="section-title">How We Compare to <span class="gradient-text">Traditional Marketing Agencies</span></h2>
-                <p class="section-desc">See the clear architectural difference between an engineering-led growth team and a standard social media agency.</p>
-            </div>
-            <div class="comparison-wrap fade-in">
-                <table class="comp-table">
-                    <thead>
-                        <tr>
-                            <th>Capability / Standard</th>
-                            <th>Traditional Marketing Agencies</th>
-                            <th>Tech Mind Developers</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Technical Code &amp; Speed Audits</strong></td>
-                            <td class="bad"><i class="fas fa-times"></i> None (No software engineers on staff)</td>
-                            <td class="good"><i class="fas fa-check"></i> Code-level Core Web Vitals optimization to &lt;1 second</td>
-                        </tr>
-                        <tr>
-                            <td><strong>AI Search Engine Optimization (GEO)</strong></td>
-                            <td class="bad"><i class="fas fa-times"></i> Unaware of modern LLM search pipelines</td>
-                            <td class="good"><i class="fas fa-check"></i> Complete llms.txt &amp; Wikidata Knowledge Graph grounding</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Local Google Maps 3-Pack</strong></td>
-                            <td class="bad"><i class="fas fa-times"></i> Basic profile creation with no geo-signals</td>
-                            <td class="good"><i class="fas fa-check"></i> Deep local schema, proximity signals &amp; category dominance</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Contract Terms</strong></td>
-                            <td class="bad"><i class="fas fa-times"></i> Rigid 6 to 12 month lock-in traps</td>
-                            <td class="good"><i class="fas fa-check"></i> Zero lock-in contracts (Cancel anytime if not satisfied)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Data &amp; Asset Ownership</strong></td>
-                            <td class="bad"><i class="fas fa-times"></i> Host accounts in their own agency portal</td>
-                            <td class="good"><i class="fas fa-check"></i> 100% full admin ownership of all your analytics and ad accounts</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Lead Routing</strong></td>
-                            <td class="bad"><i class="fas fa-times"></i> Unmonitored contact forms lost in spam folders</td>
-                            <td class="good"><i class="fas fa-check"></i> Instant WhatsApp and CRM notifications the second a lead lands</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 4: STEP-BY-STEP PROCESS (#process) -->
-    <section class="process" id="process">
+    <!-- SECTION 3: STEP-BY-STEP ROADMAP (#delivery - Exactly 6 Cards) -->
+    <section class="roadmap-section" id="delivery">
         <div class="container">
             <div class="section-header fade-in">
                 <span class="section-label">The Roadmap</span>
-                <h2 class="section-title">Our Proven 4-Phase <span class="gradient-text">Organic Ranking System</span></h2>
-                <p class="section-desc">A transparent, milestone-driven framework designed to systematically lift your business into Google's top results.</p>
+                <h2 class="section-title">Our Proven 6-Step <span class="gradient-text">Organic Ranking Roadmap</span></h2>
+                <p class="section-desc">A transparent, engineering-driven process that systematically lifts your business to Google's first page.</p>
             </div>
-            <div class="process-grid">
-                <div class="process-step fade-in">
-                    <div class="step-num">1</div>
-                    <h3>Deep Code &amp; Search Audit</h3>
+
+            <div class="roadmap-grid">
+                <div class="roadmap-card fade-in">
+                    <span class="roadmap-step-pill">Step 01 &bull; Week 1</span>
+                    <h3>Deep Code, Speed &amp; Search Audit</h3>
                     <p>We analyze your server performance, mobile Core Web Vitals, indexing errors, schema gaps, and competitor keyword positioning to uncover exact quick-win opportunities.</p>
                 </div>
-                <div class="process-step fade-in">
-                    <div class="step-num">2</div>
-                    <h3>Technical Overhaul &amp; Schema</h3>
+
+                <div class="roadmap-card fade-in">
+                    <span class="roadmap-step-pill">Step 02 &bull; Week 2</span>
+                    <h3>Code Refactoring &amp; Schema Injection</h3>
                     <p>Our developers clean up website bloat, compress media, eliminate slow render-blocking scripts, and install Google-validated JSON-LD Organization and Service schemas.</p>
                 </div>
-                <div class="process-step fade-in">
-                    <div class="step-num">3</div>
-                    <h3>High-Intent Keyword Clusters</h3>
+
+                <div class="roadmap-card fade-in">
+                    <span class="roadmap-step-pill">Step 03 &bull; Week 3</span>
+                    <h3>Google Business Profile &amp; Geo-Citations</h3>
+                    <p>We optimize your Google Maps listing, align NAP consistency across high-authority regional directories, and seed hyper-local signals for Delhi NCR and UP.</p>
+                </div>
+
+                <div class="roadmap-card fade-in">
+                    <span class="roadmap-step-pill">Step 04 &bull; Week 4</span>
+                    <h3>High-Intent Keyword Cluster Architecture</h3>
                     <p>We architect dedicated landing pages and authoritative articles specifically mapped to high-ticket search queries where prospective customers have immediate intent to buy.</p>
                 </div>
-                <div class="process-step fade-in">
-                    <div class="step-num">4</div>
-                    <h3>Local &amp; AI Citation Authority</h3>
-                    <p>We build authoritative geo-signals across Delhi NCR directories and seed machine-readable entity data so modern AI assistants (Perplexity, ChatGPT) cite your company.</p>
+
+                <div class="roadmap-card fade-in">
+                    <span class="roadmap-step-pill">Step 05 &bull; Week 5</span>
+                    <h3>AI Grounding (GEO) &amp; Conversion Funnels</h3>
+                    <p>We deploy standardized llms.txt context files, connect Wikidata knowledge entities, and configure instant WhatsApp lead capture funnels on high-traffic pages.</p>
+                </div>
+
+                <div class="roadmap-card fade-in">
+                    <span class="roadmap-step-pill">Step 06 &bull; Week 6 Onward</span>
+                    <h3>Continuous Scaling with Zero Lock-in Traps</h3>
+                    <p>You receive transparent live tracking dashboards with zero monthly lock-in contracts. We continuously optimize keyword rankings, review health, and lead conversion rates.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 5: FREQUENTLY ASKED QUESTIONS (#faq) -->
-    <section class="faq" id="faq">
+    <!-- SECTION 4: FREQUENTLY ASKED QUESTIONS (#faq - Exactly 10 Items) -->
+    <section class="faq-section" id="faq">
         <div class="container">
             <div class="section-header fade-in">
-                <span class="section-label">Got Questions?</span>
-                <h2 class="section-title">Clear Answers to <span class="gradient-text">Common Questions</span></h2>
-                <p class="section-desc">Everything you need to know about our technical SEO and digital marketing services without confusing industry jargon.</p>
+                <span class="section-label">Honest Answers</span>
+                <h2 class="section-title">Frequently Asked Questions <span class="gradient-text">About SEO &amp; Marketing</span></h2>
+                <p class="section-desc">Clear answers about technical SEO, Google Maps rankings, AI search readiness, timelines, and contract freedom.</p>
             </div>
-            <div class="faq-list">
-                <div class="faq-item active fade-in">
-                    <button class="faq-question" aria-expanded="true">
-                        <span>How is technical SEO different from normal SEO services?</span>
-                        <i class="fas fa-chevron-down"></i>
+
+            <div class="faq-container">
+                <!-- FAQ 1 -->
+                <div class="faq-item fade-in">
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <div class="faq-q-left">
+                            <div class="faq-num-badge">01</div>
+                            <div class="faq-q-content">
+                                <span class="faq-category-pill pill-cyan"><i class="fas fa-tag"></i> Zero Lock-in Contracts</span>
+                                <div class="faq-q-title">Do you require long-term 6 or 12 month lock-in contracts?</div>
+                            </div>
+                        </div>
+                        <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
-                    <div class="faq-answer" style="max-height: 300px;">
-                        <p>Normal SEO usually means writing generic blog posts and hoping Google notices. Technical SEO is the foundation: it fixes your website's actual code, server speed, mobile responsiveness, XML sitemaps, crawl budget efficiency, and JSON-LD structured schemas. Without a solid technical foundation, even the best content in the world will struggle to rank on Google.</p>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            No. We believe in earning your partnership every single month. We do not lock you into rigid long-term contracts. You retain 100% full admin ownership of all your analytics, ad accounts, and creative assets, and you are free to cancel or pause at any time without penalty.
+                        </div>
                     </div>
                 </div>
 
+                <!-- FAQ 2 -->
                 <div class="faq-item fade-in">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>How long does it take to see real organic rankings and inquiries?</span>
-                        <i class="fas fa-chevron-down"></i>
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <div class="faq-q-left">
+                            <div class="faq-num-badge">02</div>
+                            <div class="faq-q-content">
+                                <span class="faq-category-pill pill-emerald"><i class="fas fa-code"></i> Technical vs Normal SEO</span>
+                                <div class="faq-q-title">How is technical SEO different from normal SEO services?</div>
+                            </div>
+                        </div>
+                        <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Technical fixes (speed, schema, indexing errors) and local Google Business Profile improvements typically show measurable movement within 3 to 6 weeks. High-competition organic keywords usually take 2 to 4 months of systematic topical authority building. If you need immediate sales inquiries tomorrow, we combine SEO with laser-targeted Google Search Ads.</p>
+                        <div class="faq-answer-inner">
+                            Normal SEO usually means writing generic blog posts and hoping Google notices. Technical SEO is the foundation: it fixes your website code, server speed, mobile responsiveness, XML sitemaps, crawl budget efficiency, and JSON-LD structured schemas. Without a solid technical foundation, even the best content in the world will struggle to rank on Google.
+                        </div>
                     </div>
                 </div>
 
+                <!-- FAQ 3 -->
                 <div class="faq-item fade-in">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>What is Generative Engine Optimization (GEO) and why do I need it?</span>
-                        <i class="fas fa-chevron-down"></i>
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <div class="faq-q-left">
+                            <div class="faq-num-badge">03</div>
+                            <div class="faq-q-content">
+                                <span class="faq-category-pill pill-purple"><i class="fas fa-hourglass-half"></i> Ranking Timelines</span>
+                                <div class="faq-q-title">How long does it take to see real organic rankings and inquiries?</div>
+                            </div>
+                        </div>
+                        <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
-                        <p>GEO is the process of optimizing your website so AI platforms like ChatGPT, Perplexity, and Google Gemini Overviews cite your company when users ask for recommendations. By implementing machine-readable entity files (llms.txt) and Wikidata knowledge graphs, we ensure AI bots recognize your authority and suggest your services to potential clients.</p>
+                        <div class="faq-answer-inner">
+                            Technical fixes (speed, schema, indexing errors) and local Google Business Profile improvements typically show measurable movement within 3 to 6 weeks. High-competition organic keywords usually take 2 to 4 months of systematic topical authority building. If you need immediate sales inquiries tomorrow, we combine SEO with laser-targeted Google Search Ads.
+                        </div>
                     </div>
                 </div>
 
+                <!-- FAQ 4 -->
                 <div class="faq-item fade-in">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Do you require long-term 6 or 12 month lock-in contracts?</span>
-                        <i class="fas fa-chevron-down"></i>
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <div class="faq-q-left">
+                            <div class="faq-num-badge">04</div>
+                            <div class="faq-q-content">
+                                <span class="faq-category-pill pill-pink"><i class="fas fa-brain"></i> AI Search Optimization</span>
+                                <div class="faq-q-title">What is Generative Engine Optimization (GEO) and why do I need it?</div>
+                            </div>
+                        </div>
+                        <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
-                        <p>No. We believe in earning your partnership every single month. We do not lock you into rigid long-term contracts. You retain 100% full admin ownership of all your analytics, ad accounts, and creative assets, and you are free to cancel or pause at any time.</p>
+                        <div class="faq-answer-inner">
+                            GEO is the process of optimizing your website so AI platforms like ChatGPT, Perplexity, and Google Gemini Overviews cite your company when users ask for recommendations. By implementing machine-readable entity files (llms.txt) and Wikidata knowledge graphs, we ensure AI bots recognize your authority and suggest your services to potential clients.
+                        </div>
                     </div>
                 </div>
 
+                <!-- FAQ 5 -->
                 <div class="faq-item fade-in">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Can you rank my business in multiple cities like Delhi, Noida, and Aligarh?</span>
-                        <i class="fas fa-chevron-down"></i>
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <div class="faq-q-left">
+                            <div class="faq-num-badge">05</div>
+                            <div class="faq-q-content">
+                                <span class="faq-category-pill pill-cyan"><i class="fas fa-map-location-dot"></i> Multi-City Ranking</span>
+                                <div class="faq-q-title">Can you rank my business in multiple cities like Delhi, Noida, and Aligarh?</div>
+                            </div>
+                        </div>
+                        <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes. We specialize in multi-location geo-targeting across the Delhi NCR corridor (Okhla, South Delhi, Noida, Gurgaon, Faridabad) and Uttar Pradesh hubs (Aligarh, Lucknow, Agra). We create dedicated local landing pages and hyper-local citation signals that allow you to capture high-intent inquiries from multiple commercial hubs.</p>
+                        <div class="faq-answer-inner">
+                            Yes! We specialize in multi-location geo-targeting across the Delhi NCR corridor (Okhla, South Delhi, Noida, Gurgaon, Faridabad) and Uttar Pradesh hubs (Aligarh, Lucknow, Agra). We create dedicated local landing pages and hyper-local citation signals that allow you to capture high-intent inquiries from multiple commercial hubs. Read our case studies in <a href="blog/best-seo-company-okhla-delhi.html" style="color:var(--accent-blue); text-decoration:underline;">Okhla SEO</a> and <a href="blog/best-seo-company-aligarh.html" style="color:var(--accent-blue); text-decoration:underline;">Aligarh SEO</a>.
+                        </div>
                     </div>
                 </div>
 
+                <!-- FAQ 6 -->
                 <div class="faq-item fade-in">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>How do we track whether the marketing campaign is actually working?</span>
-                        <i class="fas fa-chevron-down"></i>
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <div class="faq-q-left">
+                            <div class="faq-num-badge">06</div>
+                            <div class="faq-q-content">
+                                <span class="faq-category-pill pill-amber"><i class="fas fa-chart-pie"></i> ROI &amp; Attribution</span>
+                                <div class="faq-q-title">How do we track whether the marketing campaign is actually working?</div>
+                            </div>
+                        </div>
+                        <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
-                        <p>We measure success the same way you do: in actual phone calls, WhatsApp messages, and verified customer inquiries. We set up Google Tag Manager conversion tracking on every button and form, giving you a live transparent dashboard showing exactly where your leads originated.</p>
+                        <div class="faq-answer-inner">
+                            We measure success in actual phone calls, WhatsApp messages, and verified customer inquiries. We set up Google Tag Manager conversion tracking on every button and form, giving you a live transparent dashboard showing exactly where your leads originated and how much revenue they produced.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="faq-item fade-in">
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <div class="faq-q-left">
+                            <div class="faq-num-badge">07</div>
+                            <div class="faq-q-content">
+                                <span class="faq-category-pill pill-emerald"><i class="fas fa-bolt"></i> Core Web Vitals</span>
+                                <div class="faq-q-title">Will you fix our website speed and mobile Core Web Vitals?</div>
+                            </div>
+                        </div>
+                        <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes, absolutely. Because our team is composed of seasoned software engineers and systems architects, we optimize your codebase directly. We optimize images, defer render-blocking JavaScript, implement server-side caching, and eliminate CSS bloat until your website achieves sub-second load times on mobile.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="faq-item fade-in">
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <div class="faq-q-left">
+                            <div class="faq-num-badge">08</div>
+                            <div class="faq-q-content">
+                                <span class="faq-category-pill pill-purple"><i class="fas fa-ad"></i> Google Ads &amp; PPC</span>
+                                <div class="faq-q-title">How do you prevent wasted ad spend on Google Ads?</div>
+                            </div>
+                        </div>
+                        <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            We use exact match and phrase match bidding structures paired with extensive negative keyword lists (thousands of blocked terms including jobs, salary, free, cracked, etc.). This guarantees that only commercial buyers with purchasing intent click on your ads.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 9 -->
+                <div class="faq-item fade-in">
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <div class="faq-q-left">
+                            <div class="faq-num-badge">09</div>
+                            <div class="faq-q-content">
+                                <span class="faq-category-pill pill-pink"><i class="fas fa-user-shield"></i> Account Ownership</span>
+                                <div class="faq-q-title">Do I retain full ownership of our Google Analytics, Search Console, and ad accounts?</div>
+                            </div>
+                        </div>
+                        <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            100% yes. We build all campaigns directly inside your own Google Ads, GA4, and Search Console properties. You have master administrative access at all times, and your data is never held hostage.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 10 -->
+                <div class="faq-item fade-in">
+                    <button class="faq-question" type="button" aria-expanded="false">
+                        <div class="faq-q-left">
+                            <div class="faq-num-badge">10</div>
+                            <div class="faq-q-content">
+                                <span class="faq-category-pill pill-cyan"><i class="fas fa-map-pin"></i> Delhi NCR &amp; Noida Support</span>
+                                <div class="faq-q-title">Do you provide in-person meetings and support across Delhi NCR and Uttar Pradesh?</div>
+                            </div>
+                        </div>
+                        <span class="faq-toggle-btn"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes! With our engineering headquarters in Okhla, New Delhi, and delivery hubs in Aligarh, UP, we provide face-to-face strategy sessions across South Delhi, Noida, Gurgaon, and Aligarh commercial corridors.
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 6: CTA BANNER -->
-    <section class="cta-banner">
+    <!-- FEATURED MARKETING BLOG RESOURCE CALLOUT BANNER -->
+    <div class="container" style="margin-top: 10px; margin-bottom: 30px;">
+        <div style="background: rgba(56, 189, 248, 0.06); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 16px; padding: 22px 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; backdrop-filter: blur(10px);">
+            <div style="display: flex; align-items: center; gap: 16px; max-width: 680px;">
+                <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(56, 189, 248, 0.15); color: var(--accent-blue); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;">
+                    <i class="fas fa-book-open-reader"></i>
+                </div>
+                <div>
+                    <h4 style="margin: 0 0 4px; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Helpful SEO Case Studies &amp; Local Ranking Guides</h4>
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">Read our deep architectural breakdowns on how local businesses in Okhla and Aligarh dominate Google search rankings.</p>
+                </div>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <a href="blog/best-seo-company-okhla-delhi.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; font-size: 0.86rem; font-weight: 700; background: var(--gradient-primary); color: white; border-radius: 9999px; text-decoration: none; white-space: nowrap; transition: var(--transition);">
+                    Okhla SEO Guide <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="blog/best-seo-company-aligarh.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; font-size: 0.86rem; font-weight: 700; background: rgba(255,255,255,0.06); color: var(--text-primary); border: 1px solid var(--border); border-radius: 9999px; text-decoration: none; white-space: nowrap; transition: var(--transition);">
+                    Aligarh SEO Guide <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
         <div class="container">
             <div class="cta-box fade-in">
                 <h2>Ready to Outrank Your Competitors with Real Technical SEO?</h2>
                 <p>Request a complimentary code and search visibility audit. We will analyze your website speed, ranking gaps, and schema health with zero sales pressure.</p>
                 <div class="cta-buttons">
-                    <a href="#contact" class="btn-primary">Get Your Free Technical Audit <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn-primary">Claim Your Free Technical Audit <i class="fas fa-arrow-right"></i></a>
                     <a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20want%20to%20discuss%20Digital%20Marketing%20and%20SEO%20services." class="btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Chat with Us on WhatsApp</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 7: CONTACT & INQUIRY FORM (#contact) -->
+    <!-- SECTION 5: CONTACT & INQUIRY FORM (#contact) -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header fade-in">
                 <span class="section-label">Friendly Chat</span>
-                <h2 class="section-title">Let us Talk About Your <span class="gradient-text">Business Growth</span></h2>
-                <p class="section-desc">Tell us about your business and your current search visibility bottlenecks. We will reply within 24 hours with an actionable roadmap.</p>
+                <h2 class="section-title">Schedule a Strategy Session for Your <span class="gradient-text">Business Growth</span></h2>
+                <p class="section-desc">No pushy sales calls. Just tell us your business goals and current bottlenecks, and we will reply within 24 hours with an honest technical estimate.</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-info fade-in">
@@ -910,14 +2454,14 @@ body.menu-open #tmd-chatbot-btn, body.menu-open .floating-contact-pill { opacity
                     <div class="contact-item">
                         <div class="icon"><i class="fas fa-location-dot"></i></div>
                         <div>
-                            <h4>Physical Locations</h4>
+                            <h4>Our Locations</h4>
                             <p>Delhi NCR (Okhla) &bull; Aligarh, UP</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="icon"><i class="fab fa-whatsapp"></i></div>
                         <div>
-                            <h4>WhatsApp Direct</h4>
+                            <h4>WhatsApp Chat</h4>
                             <a href="https://wa.me/917835019421" target="_blank" rel="noopener noreferrer">+91-7835019421</a>
                         </div>
                     </div>
@@ -929,7 +2473,6 @@ body.menu-open #tmd-chatbot-btn, body.menu-open .floating-contact-pill { opacity
                         </div>
                     </div>
                 </div>
-
                 <div class="contact-form fade-in">
                     <form action="https://formsubmit.co/contact@techminddevelopers.in" method="POST" id="contactForm">
                         <input type="hidden" name="_captcha" value="false">
@@ -951,17 +2494,17 @@ body.menu-open #tmd-chatbot-btn, body.menu-open .floating-contact-pill { opacity
                                 <input type="tel" id="phone" name="phone" placeholder="+917835019421" required>
                             </div>
                             <div class="form-group">
-                                <label for="subject">Your Website URL or Business Name</label>
-                                <input type="text" id="subject" name="subject" placeholder="e.g. www.yourcompany.com">
+                                <label for="subject">Your Website URL or Business Category</label>
+                                <input type="text" id="subject" name="subject" placeholder="e.g. www.yourcompany.com or Manufacturing/Healthcare">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="message">What are your primary goals or biggest marketing bottlenecks?</label>
-                            <textarea id="message" name="message" placeholder="e.g. Need more local Google Maps calls, website is loading slowly, want to rank for high-intent keywords without agency lock-ins..." required></textarea>
+                            <label for="message">What search or marketing bottlenecks are costing you leads right now?</label>
+                            <textarea id="message" name="message" placeholder="e.g. Want to rank top 3 on Google Maps in Okhla/Noida, website is slow, tired of agency lock-in contracts..." required></textarea>
                         </div>
                         <div id="formStatusMsg" style="display: none; padding: 14px 18px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; font-size: 0.92rem; text-align: center;"></div>
                         <button type="submit" class="btn-primary" id="submitBtn" style="width:100%;justify-content:center">
-                            <i class="fas fa-paper-plane"></i> Request My Free Strategy Roadmap
+                            <i class="fas fa-paper-plane"></i> Send Me a Growth Roadmap
                         </button>
                     </form>
                 </div>
@@ -975,7 +2518,7 @@ body.menu-open #tmd-chatbot-btn, body.menu-open .floating-contact-pill { opacity
         <a href="tel:+917835019421" class="float-btn float-call" aria-label="Call Us Now" title="Call Us: +91-7835019421"><i class="fas fa-phone"></i></a>
     </div>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (Exact Site Standard) -->
     <footer class="footer">
         <div class="container">
             <div class="footer-socials">
@@ -1014,7 +2557,7 @@ body.menu-open #tmd-chatbot-btn, body.menu-open .floating-contact-pill { opacity
         },
         {
           "@type": "Service",
-          "name": "Technical SEO & Digital Marketing Services Delhi NCR",
+          "name": "Tech Mind Digital Marketing & Technical SEO Services Delhi NCR",
           "provider": {
             "@type": "Organization",
             "name": "Tech Mind Developers",
@@ -1058,6 +2601,14 @@ body.menu-open #tmd-chatbot-btn, body.menu-open .floating-contact-pill { opacity
           "mainEntity": [
             {
               "@type": "Question",
+              "name": "Do you require long-term 6 or 12 month lock-in contracts?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. We believe in earning your partnership every single month. We do not lock you into rigid long-term contracts. You retain 100% full admin ownership of all your analytics, ad accounts, and creative assets."
+              }
+            },
+            {
+              "@type": "Question",
               "name": "How is technical SEO different from normal SEO services?",
               "acceptedAnswer": {
                 "@type": "Answer",
@@ -1082,18 +2633,10 @@ body.menu-open #tmd-chatbot-btn, body.menu-open .floating-contact-pill { opacity
             },
             {
               "@type": "Question",
-              "name": "Do you require long-term 6 or 12 month lock-in contracts?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No. We believe in earning your partnership every single month. We do not lock you into rigid long-term contracts. You retain 100% full admin ownership of all your analytics, ad accounts, and creative assets."
-              }
-            },
-            {
-              "@type": "Question",
               "name": "Can you rank my business in multiple cities like Delhi, Noida, and Aligarh?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. We specialize in multi-location geo-targeting across the Delhi NCR corridor (Okhla, South Delhi, Noida, Gurgaon, Faridabad) and Uttar Pradesh hubs (Aligarh, Lucknow, Agra)."
+                "text": "Yes! We specialize in multi-location geo-targeting across the Delhi NCR corridor (Okhla, South Delhi, Noida, Gurgaon, Faridabad) and Uttar Pradesh hubs (Aligarh, Lucknow, Agra)."
               }
             },
             {
@@ -1110,7 +2653,6 @@ body.menu-open #tmd-chatbot-btn, body.menu-open .floating-contact-pill { opacity
     }
     </script>
 
-    <!-- SCRIPTS -->
     <script>
     // Theme Toggle
     const themeToggle = document.getElementById('themeToggle');
@@ -1163,7 +2705,7 @@ body.menu-open #tmd-chatbot-btn, body.menu-open .floating-contact-pill { opacity
         navbar.classList.toggle('scrolled', window.scrollY > 15);
     });
 
-    // Smooth ScrollSpy
+    // High-Performance Smooth ScrollSpy
     (function() {
         const spyLinks = document.querySelectorAll('.nav-links a[href^="#"]:not(.nav-cta)');
         if (!spyLinks.length) return;
@@ -1232,11 +2774,12 @@ body.menu-open #tmd-chatbot-btn, body.menu-open .floating-contact-pill { opacity
         revealElements.forEach(el => el.classList.add('visible'));
     }
 
+    // Fail-safe immediate reveal fallback: guarantees the page is NEVER blank
     setTimeout(() => {
         document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
     }, 150);
 
-    // FAQ Accordion
+    // FAQ Accordion (Master Verified Implementation)
     document.querySelectorAll('.faq-question').forEach(btn => {
         btn.addEventListener('click', () => {
             const item = btn.closest('.faq-item');
@@ -1287,10 +2830,10 @@ body.menu-open #tmd-chatbot-btn, body.menu-open .floating-contact-pill { opacity
                 statusMsg.style.background = 'rgba(16, 185, 129, 0.15)';
                 statusMsg.style.border = '1px solid #10b981';
                 statusMsg.style.color = '#10b981';
-                statusMsg.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! We have received your inquiry. We will analyze your website and reply within 24 hours.';
+                statusMsg.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! We have received your inquiry. We will review it and get back to you within 24 hours.';
                 
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Request My Free Strategy Roadmap';
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Me an Estimate';
                 contactForm.reset();
             })
             .catch(err => {
@@ -1301,11 +2844,14 @@ body.menu-open #tmd-chatbot-btn, body.menu-open .floating-contact-pill { opacity
                 statusMsg.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Oops! Something went wrong. Please try again or email us directly.';
                 
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Request My Free Strategy Roadmap';
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Me an Estimate';
             });
         });
     }
     </script>
+
+    <!-- CHATBOT SCRIPT -->
+    <script src="tmd-chatbot.js?v=12" defer></script>
 
     <!-- CHATBOT SCRIPT -->
     <script src="tmd-chatbot.js?v=12" defer></script>
