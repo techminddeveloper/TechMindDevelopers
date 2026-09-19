@@ -1854,33 +1854,29 @@ body.menu-open .floating-contact-pill {
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6TZZCBV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Ambient Grid & Glows -->
+        <!-- Ambient Grid & Glows -->
     <div class="bg-grid"></div>
-    <div class="glow-orb glow-blue"></div>
-    <div class="glow-orb glow-purple"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
 
-    <!-- SITE NAVBAR -->
+    <!-- NAVIGATION BAR -->
     <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="favicon.svg" alt="Tech Mind Developers" class="logo-img">
-                <span class="logo-text">Tech Mind <span class="gradient-text">Developers</span></span>
+        <div class="container nav-container">
+            <a href="https://techminddevelopers.in/" class="nav-logo" aria-label="Tech Mind Developers Home">
+                <img src="logo-icon.png" alt="Tech Mind Developers Logo" class="logo-img" width="36" height="36">
+                <span>Tech Mind <span class="gradient-text">Developers</span></span>
             </a>
-
-            <div class="nav-links" id="navLinks">
-                <a href="index.html">Home</a>
-                <a href="index.html#services">Services</a>
-                <a href="index.html#solutions">Solutions</a>
-                <a href="#problems">Why TMD</a>
-                <a href="#modules">Pillars</a>
-                <a href="#delivery">Roadmap</a>
-                <a href="#faq">FAQ</a>
-                <a href="blog/">Blog</a>
-                <a href="#contact" class="btn-primary" style="padding:8px 18px;font-size:0.85rem">Contact Us</a>
-            </div>
-
-            <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#problems" onclick="closeMenu()"><span class="nav-link-content"><i class="fas fa-triangle-exclamation nav-icon nav-icon-pink"></i><span class="nav-label">Why TMD</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
+                <li><a href="#modules" onclick="closeMenu()"><span class="nav-link-content"><i class="fas fa-cubes nav-icon nav-icon-emerald"></i><span class="nav-label">Core Pillars</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
+                <li><a href="#delivery" onclick="closeMenu()"><span class="nav-link-content"><i class="fas fa-list-check nav-icon nav-icon-cyan"></i><span class="nav-label">Roadmap</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
+                <li><a href="#faq" onclick="closeMenu()"><span class="nav-link-content"><i class="fas fa-circle-question nav-icon nav-icon-purple"></i><span class="nav-label">FAQ</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
+                <li><a href="#contact" onclick="closeMenu()"><span class="nav-link-content"><i class="fas fa-paper-plane nav-icon nav-icon-amber"></i><span class="nav-label">Contact</span></span><i class="fas fa-chevron-right nav-arrow"></i></a></li>
+                <li class="nav-cta-item"><a href="#contact" class="nav-cta" onclick="closeMenu()"><span>Claim Free Audit</span> <i class="fas fa-arrow-right nav-cta-arrow"></i></a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
                 <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
             </div>
         </div>
@@ -2522,71 +2518,22 @@ body.menu-open .floating-contact-pill {
         <a href="tel:+917835019421" class="float-btn float-call" aria-label="Call Us Now" title="Call Us: +91-7835019421"><i class="fas fa-phone"></i></a>
     </div>
 
-    <!-- SITE FOOTER -->
+        <!-- FOOTER (Exact Site Standard) -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <img src="favicon.svg" alt="Tech Mind Developers" class="logo-img">
-                        <span class="logo-text">Tech Mind <span class="gradient-text">Developers</span></span>
-                    </div>
-                    <p>Engineering-led digital marketing, technical SEO, and generative engine optimization across Delhi NCR and globally. Real business results with zero long-term lock-in contracts.</p>
-                    <div class="social-links">
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fab fa-x-twitter"></i></a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Core Services</h4>
-                    <ul>
-                        <li><a href="digital-marketing-seo-services.html">Technical SEO &amp; Marketing</a></li>
-                        <li><a href="manufacturing-hardware-erp.html">Manufacturing ERP Systems</a></li>
-                        <li><a href="hospital-management-software.html">Hospital Management (HMIS)</a></li>
-                        <li><a href="school-management-software.html">School Management Systems</a></li>
-                        <li><a href="real-estate-crm-software.html">Real Estate CRM Platforms</a></li>
-                        <li><a href="ecommerce-web-development.html">Custom E-Commerce Stores</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Target Locations</h4>
-                    <ul>
-                        <li><a href="blog/best-seo-company-okhla-delhi.html">Okhla Industrial Hub SEO</a></li>
-                        <li><a href="blog/best-seo-company-aligarh.html">Aligarh Manufacturing SEO</a></li>
-                        <li><a href="digital-marketing-seo-services.html#modules">Delhi NCR Google 3-Pack</a></li>
-                        <li><a href="digital-marketing-seo-services.html#modules">Noida Tech Corridors</a></li>
-                        <li><a href="digital-marketing-seo-services.html#modules">Gurgaon Cyber City Search</a></li>
-                        <li><a href="digital-marketing-seo-services.html#modules">Global B2B SEO Export</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Direct Contact</h4>
-                    <ul>
-                        <li><a href="tel:+917835019421"><i class="fas fa-phone"></i> +91-7835019421</a></li>
-                        <li><a href="mailto:contact@techminddevelopers.in"><i class="fas fa-envelope"></i> contact@techminddevelopers.in</a></li>
-                        <li><a href="https://wa.me/917835019421" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp Live Chat</a></li>
-                        <li><a href="#contact"><i class="fas fa-shield-halved"></i> Zero Lock-in Guarantee</a></li>
-                    </ul>
-                </div>
+            <div class="footer-socials">
+                <a href="https://www.google.co.in/search?q=Tech+Mind+Developers" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Google"><i class="fab fa-google"></i></a>
+                <a href="https://www.facebook.com/TechMindDeveloper/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/techminddevelopers/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/techminddevelop" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.linkedin.com/company/tech-mind-developers/" class="footer-social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:contact@techminddevelopers.in" class="footer-social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Tech Mind Developers. All rights reserved. &bull; Engineered for sub-second performance &amp; verified organic rankings.</p>
-                <div class="footer-bottom-links">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                    <a href="sitemap.xml">XML Sitemap</a>
-                </div>
-            </div>
+            <p class="footer-copy">&copy; 2014 - 2026 <a href="https://techminddevelopers.in/">Tech Mind Developers</a>. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- JSON-LD STRUCTURED DATA -->
+<!-- JSON-LD STRUCTURED DATA -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
