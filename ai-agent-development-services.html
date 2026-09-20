@@ -1840,26 +1840,63 @@ body.menu-open .floating-contact-pill {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 12px;
     background: rgba(255,255,255,0.02);
     border: 1px solid rgba(255,255,255,0.05);
-    padding: 10px 12px;
-    border-radius: 8px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    transition: var(--transition);
 }
 .preview-act-left {
     display: flex;
     align-items: center;
     gap: 10px;
     color: var(--text-secondary);
+    min-width: 0;
+    flex: 1;
 }
-.preview-act-left i { font-size: 0.9rem; }
+.preview-act-left i {
+    font-size: 0.92rem;
+    flex-shrink: 0;
+}
+.preview-act-left span {
+    font-size: 0.82rem;
+    line-height: 1.4;
+}
 .preview-status-pill {
-    font-size: 0.72rem;
-    padding: 3px 9px;
-    border-radius: var(--radius-full);
-    font-weight: 600;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    padding: 4px 11px !important;
+    border-radius: 9999px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    letter-spacing: 0.02em !important;
 }
-.status-done { background: rgba(16, 185, 129, 0.15); color: #34d399; }
-.status-sync { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+.preview-status-pill i {
+    font-size: 0.68rem !important;
+    line-height: 1 !important;
+}
+.status-done {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.status-sync {
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+.status-amber {
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
 
 /* 3-Step Simple Roadmap */
 .roadmap-grid {
@@ -1926,6 +1963,30 @@ body.menu-open .floating-contact-pill {
         font-size: 0.66rem;
         line-height: 1.25;
         display: block;
+    }
+}
+@media (max-width: 480px) {
+    .preview-card-box {
+        padding: 16px 12px !important;
+    }
+    .preview-activity-item {
+        padding: 8px 10px !important;
+        gap: 8px !important;
+    }
+    .preview-act-left {
+        gap: 8px !important;
+    }
+    .preview-act-left span {
+        font-size: 0.76rem !important;
+        line-height: 1.35 !important;
+    }
+    .preview-status-pill {
+        font-size: 0.68rem !important;
+        padding: 3px 8px !important;
+        gap: 4px !important;
+    }
+    .preview-status-pill i {
+        font-size: 0.62rem !important;
     }
 }
 @media (max-width: 380px) {
@@ -2123,21 +2184,21 @@ body.menu-open .floating-contact-pill {
                                 <i class="fas fa-bolt" style="color:#60a5fa"></i>
                                 <span>WhatsApp Lead: Replied to buyer inquiry in 5 seconds and booked call</span>
                             </div>
-                            <span class="preview-status-pill status-done">Auto Done</span>
+                            <span class="preview-status-pill status-done"><i class="fas fa-check-circle"></i> Auto Done</span>
                         </div>
                         <div class="preview-activity-item">
                             <div class="preview-act-left">
                                 <i class="fas fa-file-invoice" style="color:#10b981"></i>
                                 <span>Order &amp; Billing: Created GST invoice and updated inventory records</span>
                             </div>
-                            <span class="preview-status-pill status-done" style="background:rgba(16,185,129,0.15);color:#10b981">Auto Done</span>
+                            <span class="preview-status-pill status-done"><i class="fas fa-check-circle"></i> Auto Done</span>
                         </div>
                         <div class="preview-activity-item">
                             <div class="preview-act-left">
                                 <i class="fas fa-qrcode" style="color:#f59e0b"></i>
                                 <span>Payment: Sent dynamic UPI QR code on WhatsApp and confirmed payment</span>
                             </div>
-                            <span class="preview-status-pill status-done" style="background:rgba(245,158,11,0.15);color:#f59e0b">Auto Done</span>
+                            <span class="preview-status-pill status-amber"><i class="fas fa-check-circle"></i> Auto Done</span>
                         </div>
                     </div>
 
