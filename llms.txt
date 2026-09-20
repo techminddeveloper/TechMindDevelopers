@@ -39,7 +39,7 @@
 ## Specialized Industry ERP Verticals
 
 - [Pathology Lab Software (LIMS)](https://techminddevelopers.in/pathology-lab-software.html): Diagnostic center software featuring barcode vacutainer tracking, abnormal test flags, instant WhatsApp PDF reports, and doctor referral accounting.
-- [Dental Clinic Management Software](https://techminddevelopers.in/dental-clinic-management-software.html): Multi-chair dental appointment scheduling, visual odontogram tooth charts, automated WhatsApp appointment reminders, and digital prescription builder.
+- [Dental Clinic Management Software](https://techminddevelopers.in/dental-clinic-management-software.html): Modern clinic website, online appointment booking, automated WhatsApp visit reminders, digital patient records, UPI billing, and zero monthly software rent.
 - [Gym Website & Member Management Portal](https://techminddevelopers.in/gym-fitness-management-software.html): Online membership packages, 1-day free trial passes, automated WhatsApp fee renewals with UPI QR codes, personalized diet charts, and in-house supplement store.
 - [School & Coaching Institute ERP](https://techminddevelopers.in/school-coaching-management-software.html): RFID biometric student attendance with instant WhatsApp absent alerts to parents, automated fee receipts, and marksheet generator.
 - [Manufacturing & Hardware ERP](https://techminddevelopers.in/manufacturing-hardware-erp.html): Raw material melting scrap tracking, outside job-work delivery challans, karigar piece-rate wages, and multi-currency export billing.
