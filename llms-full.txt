@@ -65,27 +65,32 @@ Tech Mind Developers operates a hybrid on-ground and remote delivery network ser
 - **Scope**: Production-grade autonomous AI agents, multi-agent workflows, RAG customer support bots, automated WhatsApp Business Cloud API pipelines, and CRM lead qualification engines.
 - **Key Proposition**: 24/7 autonomous lead capture, multi-step decision workflows, appointment booking, and customer query resolution without expanding headcount.
 
-### 4. Mobile App Development
+### 4. AI Agent & Autonomous Workflow Development Services
+- **URL**: https://techminddevelopers.in/ai-agent-development-services.html
+- **Scope**: Production autonomous AI agents, WhatsApp sales booking bots, automated GST billing and UPI payment links, real-time inventory alerts, plain English chat search for business data, and private cloud deployment.
+- **Key Proposition**: Custom autonomous AI agents that run daily business tasks across databases, CRMs, and APIs 24/7 with 100% code ownership and zero monthly software rent.
+
+### 5. Mobile App Development
 - **URL**: https://techminddevelopers.in/mobile-app-development.html
 - **Scope**: Native iOS (Swift) and Android (Kotlin), alongside high-performance cross-platform applications built with Flutter and React Native.
 - **Key Proposition**: Offline-first local SQLite sync, real-time geolocation tracking, biometrics, and unified push notification architectures.
 
-### 5. Website Design & Development
+### 6. Website Design & Development
 - **URL**: https://techminddevelopers.in/website-design-development.html
 - **Scope**: High-converting corporate websites, bespoke landing pages, semantic HTML5/CSS3 architecture, and mobile-first responsive design.
 - **Key Proposition**: Ultra-fast sub-second load times, Google Core Web Vitals optimization, and built-in conversion funnels.
 
-### 6. Ecommerce Development
+### 7. Ecommerce Development
 - **URL**: https://techminddevelopers.in/ecommerce-development.html
 - **Scope**: Custom B2B and D2C online storefronts, zero-commission payment gateways (UPI, Cards, Net Banking), and automated WhatsApp dispatch updates.
 - **Key Proposition**: Direct UPI QR checkout with zero commission per transaction and instant automated shipping bill generation.
 
-### 7. Digital Marketing & Technical Search Engine Optimization (SEO)
+### 8. Digital Marketing & Technical Search Engine Optimization (SEO)
 - **URL**: https://techminddevelopers.in/digital-marketing-seo-services.html
 - **Scope**: Enterprise technical SEO audits, local organic search optimization across Delhi NCR and UP, entity schema graph structuring, conversion rate optimization (CRO), and AI Generative Engine Optimization (GEO).
 - **Key Proposition**: Sustainable organic traffic acquisition that generates high-intent customer inquiries with zero monthly advertising reliance.
 
-### 8. IT Consulting & Enterprise Technology Advisory
+### 9. IT Consulting & Enterprise Technology Advisory
 - **URL**: https://techminddevelopers.in/custom-software-development.html
 - **Scope**: Strategic IT architecture consulting, legacy enterprise refactoring, single-tenant database architecture, security compliance, and cloud deployment pipelines.
 - **Key Proposition**: Independent technical guidance focused on eliminating software license bloat and guaranteeing lifetime intellectual property ownership.
