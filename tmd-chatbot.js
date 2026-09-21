@@ -604,9 +604,9 @@
 '/* Mobile & Tablet Screens */',
 '@media (max-width: 768px) {',
 '    .tmd-chat-window { right: 0; bottom: 0; left: 0; width: 100%; height: 100vh; height: 100dvh; max-height: 100dvh; border-radius: 0; }',
-'    .tmd-chat-trigger-wrap { bottom: 106px; right: 0px; width: 76px; height: 76px; }',
-'    body.has-float-home .tmd-chat-trigger-wrap, body:has(.float-home) .tmd-chat-trigger-wrap, .tmd-chat-trigger-wrap.has-float-home { bottom: 156px; }',
-'    .tmd-chat-trigger { width: 46px; height: 46px; font-size: 1.2rem; }',
+'    .tmd-chat-trigger-wrap { bottom: 108px; right: 0px; width: 78px; height: 78px; }',
+'    body.has-float-home .tmd-chat-trigger-wrap, body:has(.float-home) .tmd-chat-trigger-wrap, .tmd-chat-trigger-wrap.has-float-home { bottom: 158px; }',
+'    .tmd-chat-trigger { width: 50px; height: 50px; font-size: 1.32rem; }',
 '}'
         ].join('\n');
         document.head.appendChild(style);
