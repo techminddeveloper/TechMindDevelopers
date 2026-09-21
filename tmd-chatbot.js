@@ -108,7 +108,7 @@
 '/* Trigger Wrapper & Static Curved Top-Arc Caption */',
 '.tmd-chat-trigger-wrap {',
 '    position: fixed;',
-'    bottom: 140px;',
+'    bottom: 202px;',
 '    right: 10px;',
 '    z-index: 9998;',
 '    width: 94px;',
@@ -600,7 +600,7 @@
 '/* Mobile Screens */',
 '@media (max-width: 480px) {',
 '    .tmd-chat-window { right: 0; bottom: 0; left: 0; width: 100%; height: 100vh; height: 100dvh; max-height: 100dvh; border-radius: 0; }',
-'    .tmd-chat-trigger-wrap { bottom: 135px; right: 10px; width: 76px; height: 76px; }',
+'    .tmd-chat-trigger-wrap { bottom: 185px; right: 10px; width: 76px; height: 76px; }',
 '    .tmd-chat-trigger { width: 46px; height: 46px; font-size: 1.2rem; }',
 '}'
         ].join('\n');
