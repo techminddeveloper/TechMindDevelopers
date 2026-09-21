@@ -108,7 +108,7 @@
 '/* Trigger Wrapper & Static Curved Top-Arc Caption */',
 '.tmd-chat-trigger-wrap {',
 '    position: fixed;',
-'    bottom: 202px;',
+'    bottom: 140px;',
 '    right: 10px;',
 '    z-index: 9998;',
 '    width: 94px;',
@@ -118,6 +118,9 @@
 '    justify-content: center;',
 '    cursor: pointer;',
 '    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);',
+'}',
+'body.has-float-home .tmd-chat-trigger-wrap, body:has(.float-home) .tmd-chat-trigger-wrap, .tmd-chat-trigger-wrap.has-float-home {',
+'    bottom: 188px;',
 '}',
 '.tmd-chat-trigger-wrap:hover { transform: scale(1.08); }',
 '.tmd-chat-trigger-wrap.active { display: none; }',
@@ -600,7 +603,8 @@
 '/* Mobile Screens */',
 '@media (max-width: 480px) {',
 '    .tmd-chat-window { right: 0; bottom: 0; left: 0; width: 100%; height: 100vh; height: 100dvh; max-height: 100dvh; border-radius: 0; }',
-'    .tmd-chat-trigger-wrap { bottom: 185px; right: 10px; width: 76px; height: 76px; }',
+'    .tmd-chat-trigger-wrap { bottom: 130px; right: 10px; width: 76px; height: 76px; }',
+'    body.has-float-home .tmd-chat-trigger-wrap, body:has(.float-home) .tmd-chat-trigger-wrap, .tmd-chat-trigger-wrap.has-float-home { bottom: 166px; }',
 '    .tmd-chat-trigger { width: 46px; height: 46px; font-size: 1.2rem; }',
 '}'
         ].join('\n');
@@ -608,9 +612,14 @@
     }
 
     function buildHTML() {
+        var hasHome = document.querySelector('.floating-contact-pill .float-home') !== null;
+        if (hasHome) {
+            document.body.classList.add('has-float-home');
+        }
+
         // Trigger Wrapper with Static Top-Arc Caption
         var wrap = document.createElement('div');
-        wrap.className = 'tmd-chat-trigger-wrap';
+        wrap.className = 'tmd-chat-trigger-wrap' + (hasHome ? ' has-float-home' : '');
         wrap.id = 'tmdChatTriggerWrap';
         wrap.setAttribute('aria-label', 'Ask AI Assistant');
         wrap.innerHTML =
