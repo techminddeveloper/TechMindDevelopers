@@ -496,11 +496,16 @@ html {
     }
 
     /* Floating Pill */
-    .floating-contact-pill { position:fixed; bottom:24px; right:24px; display:flex; flex-direction:column; gap:12px; z-index:999; }
-    .float-btn { width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff !important; font-size:1.35rem; text-decoration:none !important; box-shadow:0 10px 30px rgba(0,0,0,0.5); transition:var(--transition); }
-    .float-wa { background:#25d366 !important; }
-    .float-call { background:#0284c7 !important; }
-    .float-btn:hover { transform:scale(1.12); color:#fff !important; }
+    .floating-contact-pill { position:fixed; bottom:24px; right:24px; display:flex; flex-direction:column; gap:10px; z-index:999; }
+    .float-btn { width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff !important; font-size:1.2rem; text-decoration:none !important; box-shadow:0 10px 25px rgba(0,0,0,0.45); transition:var(--transition); }
+    .float-home { background:linear-gradient(135deg, #6366f1, #4f46e5) !important; box-shadow:0 8px 20px rgba(99,102,241,0.4) !important; }
+    .float-wa { background:linear-gradient(135deg, #25d366, #128c7e) !important; box-shadow:0 8px 20px rgba(37,211,102,0.4) !important; }
+    .float-call { background:linear-gradient(135deg, #0284c7, #0369a1) !important; box-shadow:0 8px 20px rgba(2,132,199,0.4) !important; }
+    .float-btn:hover { transform:scale(1.12) translateY(-2px); color:#fff !important; }
+    @media (max-width: 680px) {
+        .floating-contact-pill { bottom:18px; right:14px; gap:8px; }
+        .float-btn { width:44px; height:44px; font-size:1.1rem; }
+    }
 
     /* Footer */
     .footer { border-top:1px solid var(--border); padding:36px 0; text-align:center; font-size:0.88rem; color:var(--text-muted); }
@@ -1130,9 +1135,10 @@ html {
     </script>
 
     <!-- Floating Quick Contact -->
-    <div class="floating-contact-pill">
-        <a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20want%20to%20discuss%20custom%20AI%20agents%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="float-btn float-wa" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="tel:+917835019421" class="float-btn float-call" aria-label="Call Tech Mind Developers"><i class="fas fa-phone-alt"></i></a>
+    <div class="floating-contact-pill" id="floatingContact">
+        <a href="https://techminddevelopers.in/" class="float-btn float-home" aria-label="Visit Tech Mind Developers Main Website" title="Visit Main Website"><i class="fas fa-home"></i></a>
+        <a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20want%20to%20discuss%20custom%20AI%20agents%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="float-btn float-wa" aria-label="Chat on WhatsApp" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+917835019421" class="float-btn float-call" aria-label="Call Tech Mind Developers" title="Call Us Directly"><i class="fas fa-phone-alt"></i></a>
     </div>
 
     <script>
