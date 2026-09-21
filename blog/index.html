@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
     <!-- Google Tag Manager -->
@@ -64,6 +64,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.webp?v=2">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="blog-common.css">
     <style>
 /* Sleek Theme-Responsive Scrollbar */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
@@ -224,11 +225,16 @@ html {
     }
     
     /* Floating Pill */
-    .floating-contact-pill { position:fixed; bottom:24px; right:24px; display:flex; flex-direction:column; gap:12px; z-index:999; }
-    .float-btn { width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff !important; font-size:1.35rem; text-decoration:none !important; box-shadow:0 10px 30px rgba(0,0,0,0.5); transition:var(--transition, all 0.3s ease); }
-    .float-wa { background:#25d366 !important; }
-    .float-call { background:#0284c7 !important; }
-    .float-btn:hover { transform:scale(1.12); color:#fff !important; }
+    .floating-contact-pill { position:fixed; bottom:24px; right:24px; display:flex; flex-direction:column; gap:10px; z-index:999; }
+    .float-btn { width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff !important; font-size:1.2rem; text-decoration:none !important; box-shadow:0 10px 25px rgba(0,0,0,0.45); transition:var(--transition, all 0.3s ease); position:relative; }
+    .float-home { background:linear-gradient(135deg, #6366f1, #4f46e5) !important; box-shadow:0 8px 20px rgba(99,102,241,0.4) !important; }
+    .float-wa { background:linear-gradient(135deg, #25d366, #128c7e) !important; box-shadow:0 8px 20px rgba(37,211,102,0.4) !important; }
+    .float-call { background:linear-gradient(135deg, #0284c7, #0369a1) !important; box-shadow:0 8px 20px rgba(2,132,199,0.4) !important; }
+    .float-btn:hover { transform:scale(1.12) translateY(-2px); color:#fff !important; }
+    @media (max-width: 680px) {
+        .floating-contact-pill { bottom:18px; right:14px; gap:8px; }
+        .float-btn { width:44px; height:44px; font-size:1.1rem; }
+    }
 
     /* Last-Read Card Return Highlight (5-Second Gentle Breathing Pulse) */
     @keyframes lastReadPulse {
