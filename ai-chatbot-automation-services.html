@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
     <!-- Google Tag Manager -->
@@ -468,6 +468,8 @@ section { padding:70px 0; position:relative }
 .floating-contact-pill { position:fixed; bottom:24px; right:24px; z-index:997; display:flex; flex-direction:column; gap:10px; animation:floatUp 0.6s ease-out; }
 @keyframes floatUp { from { opacity:0; transform:translateY(30px) } to { opacity:1; transform:translateY(0) } }
 .float-btn { width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.25rem; color:white; text-decoration:none; transition:var(--transition); box-shadow:0 8px 24px rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.18); }
+.float-home { background:linear-gradient(135deg, #6366f1, #4f46e5); box-shadow:0 6px 20px rgba(99,102,241,0.45); }
+.float-home:hover { transform:scale(1.12) translateY(-2px); box-shadow:0 10px 28px rgba(99,102,241,0.65); color:white; }
 .float-call { background:linear-gradient(135deg, #10b981, #059669); box-shadow:0 6px 20px rgba(16,185,129,0.45); }
 .float-call:hover { transform:scale(1.12) translateY(-2px); box-shadow:0 10px 28px rgba(16,185,129,0.65); color:white; }
 .float-wa { background:linear-gradient(135deg, #25D366, #128C7E); box-shadow:0 6px 20px rgba(37,211,102,0.45); }
@@ -2261,6 +2263,7 @@ body.menu-open .floating-contact-pill {
 
     <!-- FLOATING ACTIONS -->
     <div class="floating-contact-pill" id="floatingContact">
+        <a href="https://techminddevelopers.in/" class="float-btn float-home" aria-label="Visit Tech Mind Developers Main Website" title="Visit Main Website"><i class="fas fa-home"></i></a>
         <a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20want%20to%20inquire%20about%20AI%20Chatbots%20and%20Business%20Automation." target="_blank" rel="noopener noreferrer" class="float-btn float-wa" aria-label="Chat on WhatsApp" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
         <a href="tel:+917835019421" class="float-btn float-call" aria-label="Call Us Now" title="Call Us: +91-7835019421"><i class="fas fa-phone"></i></a>
     </div>

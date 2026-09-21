@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
     <!-- Google Tag Manager -->
@@ -487,7 +487,8 @@ try{
 }catch(e){}
 </script>
 <script>(async function initViewCounter(){const slug=window.location.pathname.split('/').pop().replace('.html','')||'blog-post';const el=document.getElementById('viewCount');if(!el)return;const lk='tmd_v_lock_'+slug;const ck='tmd_v_cnt_'+slug;const lr=localStorage.getItem(lk);const cc=localStorage.getItem(ck)||'1';const now=Date.now();const H24=24*60*60*1000;el.textContent=cc;if(lr&&cc&&(now-parseInt(lr,10))<H24)return;try{const k='tmd_blog_'+slug.replace(/[^a-zA-Z0-9_-]/g,'_');const r=await fetch('https://api.visitorbadge.io/api/visitors?path='+k,{cache:'no-cache'});if(r.ok){const t=await r.text();const m=t.match(/aria-label="VISITORS:\s*([0-9,kM\.\+]+)"/i)||t.match(/>([0-9,kM\.\+]+)</);if(m&&m[1]){el.textContent=m[1];localStorage.setItem(ck,m[1]);localStorage.setItem(lk,now.toString());}}}catch(e){el.textContent=cc||'1';}})();</script>
-<div class="floating-contact-pill"><a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20want%20to%20discuss%20mobile%20app%20development%20for%20my%20business%20in%20Okhla%20Delhi." target="_blank" rel="noopener noreferrer" class="float-btn float-wa" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a><a href="tel:+917835019421" class="float-btn float-call" aria-label="Call Tech Mind Developers"><i class="fas fa-phone-alt"></i></a></div>
+<div class="floating-contact-pill">
+        <a href="https://techminddevelopers.in/" class="float-btn float-home" aria-label="Visit Tech Mind Developers Main Website" title="Visit Main Website"><i class="fas fa-home"></i></a><a href="https://wa.me/917835019421?text=Hi%20Tech%20Mind%20Developers,%20I%20want%20to%20discuss%20mobile%20app%20development%20for%20my%20business%20in%20Okhla%20Delhi." target="_blank" rel="noopener noreferrer" class="float-btn float-wa" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a><a href="tel:+917835019421" class="float-btn float-call" aria-label="Call Tech Mind Developers"><i class="fas fa-phone-alt"></i></a></div>
 <script>
 // Mobile Scroll-Triggered Banner Zoom Effect
 (function initMobileBannerZoom() {

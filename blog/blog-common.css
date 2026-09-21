@@ -93,3 +93,60 @@
         border-radius: 4px !important;
     }
 }
+
+/* ============================================================
+   UNIFIED FLOATING CONTACT & HOME PILL
+   ============================================================ */
+.floating-contact-pill {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 999;
+}
+.float-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff !important;
+    font-size: 1.2rem;
+    text-decoration: none !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+    transition: all 0.25s ease;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.18);
+}
+.float-home {
+    background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
+    box-shadow: 0 8px 20px rgba(99,102,241,0.45) !important;
+}
+.float-wa {
+    background: linear-gradient(135deg, #25d366, #128c7e) !important;
+    box-shadow: 0 8px 20px rgba(37,211,102,0.45) !important;
+}
+.float-call {
+    background: linear-gradient(135deg, #0284c7, #0369a1) !important;
+    box-shadow: 0 8px 20px rgba(2,132,199,0.45) !important;
+}
+.float-btn:hover {
+    transform: scale(1.12) translateY(-2px);
+    color: #fff !important;
+}
+@media (max-width: 680px) {
+    .floating-contact-pill {
+        bottom: 18px !important;
+        right: 14px !important;
+        gap: 8px !important;
+    }
+    .float-btn {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 1.1rem !important;
+    }
+}
+
