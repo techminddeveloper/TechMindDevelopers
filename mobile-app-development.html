@@ -2240,6 +2240,8 @@ body.menu-open .floating-contact-pill {
                 </div>
                 <div class="contact-form fade-in">
                     <form action="https://formsubmit.co/contact@techminddevelopers.in" method="POST" id="contactForm">
+                        <!-- Anti-bot honeypot trap: hidden from humans, traps automated spam bots -->
+                        <input type="text" name="_honey" style="display:none !important;" tabindex="-1" autocomplete="off">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_subject" value="New Mobile App Development Inquiry!">
                         <input type="hidden" name="_next" value="https://techminddevelopers.in/mobile-app-development.html">
@@ -2515,11 +2517,55 @@ body.menu-open .floating-contact-pill {
 
     // Contact form AJAX submit
     const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
+        if (contactForm) {
+        let formStartTime = Date.now();
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
             const statusMsg = document.getElementById('formStatusMsg');
+
+            // 1. Anti-Bot Honeypot Trap
+            const honeyField = contactForm.querySelector('input[name="_honey"]');
+            if (honeyField && honeyField.value.trim() !== '') {
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                    statusMsg.style.display = 'block';
+                    statusMsg.style.background = 'rgba(16, 185, 129, 0.15)';
+                    statusMsg.style.border = '1px solid #10b981';
+                    statusMsg.style.color = '#10b981';
+                    statusMsg.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.';
+                    contactForm.reset();
+                localStorage.setItem('tmd_contact_cooldown', Date.now().toString());
+                formStartTime = Date.now();
+                }, 800);
+                return;
+            }
+
+            // 2. Anti-Bot Speed Trap (Humans take at least 2.5s to fill form)
+            if (Date.now() - formStartTime < 2500) {
+                statusMsg.style.display = 'block';
+                statusMsg.style.background = 'rgba(239, 68, 68, 0.15)';
+                statusMsg.style.border = '1px solid #ef4444';
+                statusMsg.style.color = '#ef4444';
+                statusMsg.innerHTML = '<i class="fas fa-shield-alt"></i> Automated submission detected. Please take a moment to review your message.';
+                return;
+            }
+
+            // 3. Client-Side Rate Limiting / Cooldown Lock (60 Seconds)
+            const lastSubmitted = localStorage.getItem('tmd_contact_cooldown');
+            const now = Date.now();
+            if (lastSubmitted && (now - parseInt(lastSubmitted, 10)) < 60000) {
+                const waitSecs = Math.ceil((60000 - (now - parseInt(lastSubmitted, 10))) / 1000);
+                statusMsg.style.display = 'block';
+                statusMsg.style.background = 'rgba(245, 158, 11, 0.15)';
+                statusMsg.style.border = '1px solid #f59e0b';
+                statusMsg.style.color = '#f59e0b';
+                statusMsg.innerHTML = `<i class="fas fa-clock"></i> Please wait ${waitSecs} seconds before sending another message.`;
+                return;
+            }
             
             btn.disabled = true;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
@@ -2545,6 +2591,8 @@ body.menu-open .floating-contact-pill {
                 btn.disabled = false;
                 btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Me an Estimate';
                 contactForm.reset();
+                localStorage.setItem('tmd_contact_cooldown', Date.now().toString());
+                formStartTime = Date.now();
             })
             .catch(err => {
                 statusMsg.style.display = 'block';
@@ -2615,6 +2663,6 @@ body.menu-open .floating-contact-pill {
     })();
     </script>
     <!-- CHATBOT SCRIPT -->
-    <script defer src="tmd-chatbot.js?v=16"></script>
+    <script defer src="tmd-chatbot.js?v=17"></script>
 </body>
 </html>

@@ -742,10 +742,20 @@
         var svc = SERVICES[state.selectedService] ? SERVICES[state.selectedService].label : 'General Inquiry';
         var currentUrl = (state.userWebsiteUrl && state.userWebsiteUrl !== 'Not provided') ? state.userWebsiteUrl : 'N/A';
 
+        // Anti-Flood / Rate-Limit Check: max 1 lead dispatch per 60 seconds
+        var lastLeadTs = localStorage.getItem('tmd_bot_lead_ts');
+        var now = Date.now();
+        if (lastLeadTs && (now - parseInt(lastLeadTs, 10)) < 60000) {
+            console.log('[TMD Bot Lead Protection] Throttle active, skipping duplicate dispatch.');
+            return;
+        }
+        localStorage.setItem('tmd_bot_lead_ts', now.toString());
+
         var fields = {
             _subject: '🚀 New Client Lead from AI Chatbot: ' + state.userName + ' (' + state.userPhone + ')',
             _template: 'table',
             _captcha: 'false',
+            _honey: '',
             _autoresponse: 'Thank you ' + state.userName + ' for contacting Tech Mind Developers! We have received your inquiry for ' + svc + '. Our technical team will reach out to you on ' + state.userPhone + ' shortly. For urgent assistance, reach us on WhatsApp: ' + CONFIG.whatsappUrl,
             name: state.userName,
             email: state.userEmail,
