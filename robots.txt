@@ -41,4 +41,9 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
+# Block AI-specific files from search indexing
+User-agent: Googlebot
+Disallow: /llms.txt
+Disallow: /llms-full.txt
+
 Sitemap: https://techminddevelopers.in/sitemap.xml
