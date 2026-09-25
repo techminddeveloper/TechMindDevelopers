@@ -283,6 +283,100 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
     .hero-img { transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) !important; will-change: transform; }
     .hero-img-wrap.mobile-scrolled .hero-img { transform: scale(1.08) !important; }
 }
+/* FAQ Accordion Interactive Styling */
+.faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 28px 0 38px;
+}
+.faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: var(--transition);
+    backdrop-filter: blur(12px);
+}
+.faq-item:hover {
+    border-color: var(--border-glow);
+}
+.faq-item.active {
+    border-color: rgba(56, 189, 248, 0.45);
+    box-shadow: 0 4px 20px rgba(56, 189, 248, 0.15);
+}
+.faq-question {
+    width: 100%;
+    padding: 18px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    gap: 14px;
+    text-align: left;
+    transition: color 0.25s ease;
+    user-select: none;
+    font-family: inherit;
+}
+.faq-question:hover {
+    color: var(--accent);
+}
+.faq-question i {
+    color: var(--accent);
+    font-size: 0.88rem;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s ease;
+    padding: 0 22px;
+    color: var(--text);
+    font-size: 0.98rem;
+    line-height: 1.8;
+}
+.faq-item.active .faq-answer {
+    max-height: 600px;
+    padding: 14px 22px 20px;
+    border-top: 1px solid rgba(56, 189, 248, 0.18);
+}
+[data-theme="light"] .faq-item {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+[data-theme="light"] .faq-item.active {
+    border-color: rgba(2, 132, 199, 0.5);
+    box-shadow: 0 4px 20px rgba(2, 132, 199, 0.12);
+}
+[data-theme="light"] .faq-question {
+    color: #0f172a;
+}
+[data-theme="light"] .faq-answer {
+    color: #334155;
+}
+[data-theme="light"] .faq-item.active .faq-answer {
+    border-top-color: rgba(2, 132, 199, 0.15);
+}
+@media (max-width: 680px) {
+    .faq-question {
+        padding: 14px 16px;
+        font-size: 0.96rem;
+    }
+    .faq-item.active .faq-answer {
+        padding: 12px 16px 16px;
+        font-size: 0.92rem;
+    }
+}
 </style>
     <link rel="stylesheet" href="blog-common.css">
     <script type="application/ld+json">
@@ -413,7 +507,7 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
 
             <h2>Frequently Asked Questions About Mobile App Development in Noida</h2>
             <div class="faq-accordion">
-                <div class="faq-item">
+                <div class="faq-item active">
                     <div class="faq-question"><span>How much does custom mobile app development cost in Noida?</span><i class="fas fa-chevron-down"></i></div>
                     <div class="faq-answer">Basic minimum viable product mobile apps with essential authentication, clean user interfaces, and basic backend integrations start between 45,000 and 85,000 INR. Full-scale commercial platforms featuring real-time tracking, payment gateways, complex database syncing, and custom management dashboards range from 1,20,000 to 3,50,000 INR.</div>
                 </div>
@@ -513,7 +607,7 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
 
             <h2>Noida Mobile App Development Ke Baare Me Aksar Pooche Jane Wale Sawal</h2>
             <div class="faq-accordion">
-                <div class="faq-item">
+                <div class="faq-item active">
                     <div class="faq-question"><span>Noida me custom mobile app banwane ka kitna kharcha aata hai?</span><i class="fas fa-chevron-down"></i></div>
                     <div class="faq-answer">Ek clean MVP mobile application jisme basic login, core features aur standard backend ho, lagbhag 45,000 se 85,000 INR me ban jati hai. Full-fledged commercial apps jisme payment gateway, live location tracking, chat features aur custom admin dashboard ho, unka cost 1,20,000 se 3,50,000 INR ke beech hota hai.</div>
                 </div>
@@ -583,6 +677,16 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
         localStorage.setItem('tmd-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateThemeIcon(newTheme);
+    });
+
+// FAQ Accordion Toggle
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', function(){
+            const item = this.closest('.faq-item');
+            if (item) {
+                item.classList.toggle('active');
+            }
+        });
     });
 
     // Bilingual Switcher
