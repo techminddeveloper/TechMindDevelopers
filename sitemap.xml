@@ -87,7 +87,7 @@
 </url>
 <url>
   <loc>https://techminddevelopers.in/blog/index.html</loc>
-  <lastmod>2026-09-10T00:00:00+00:00</lastmod>
+  <lastmod>2026-09-25T00:00:00+00:00</lastmod>
   <priority>0.90</priority>
 </url>
 <url>
@@ -299,5 +299,47 @@
     <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techminddevelopers.in/blog/best-software-development-company-noida.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://techminddevelopers.in/blog/best-website-design-development-company-noida.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://techminddevelopers.in/blog/best-mobile-app-development-company-noida.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://techminddevelopers.in/blog/best-seo-company-noida.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://techminddevelopers.in/blog/best-ai-agents-and-automation-company-noida.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://techminddevelopers.in/blog/top-10-website-development-company-noida.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://techminddevelopers.in/blog/creative-website-designing-company-noida.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
   </url>
 </urlset>
