@@ -406,6 +406,38 @@ html {
 }
 </style>
     <link rel="stylesheet" href="blog-common.css">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Why should restaurants have their own website instead of relying only on Zomato and Swiggy?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Food delivery aggregators take 25% to 35% commission on every order and never share customer phone numbers with you. Your own ordering website eliminates commissions and builds a loyal direct customer base."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can customers order directly on WhatsApp from the online digital menu?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Customers browse your mouth-watering photo menu, select spicy levels or add-ons, and tap 'Order on WhatsApp' to dispatch orders directly to your kitchen counter."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can guests book table reservations online?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. We build table booking modules where guests select party size, time slots, and special celebration notes with instant confirmation SMS/WhatsApp."
+            }
+        }
+    ]
+}
+    </script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -475,6 +507,37 @@ html {
     <h4>💡 What We Build for Restaurants</h4>
     <p>At <strong>Tech Mind Developers</strong>, we build clean, lightning-fast restaurant websites with digital menus, direct UPI checkout, table reservations, and automated WhatsApp order alerts for kitchen staff.</p>
 </div>
+<h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. Why should restaurants have their own website instead of relying only on Zomato and Swiggy?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Food delivery aggregators take 25% to 35% commission on every order and never share customer phone numbers with you. Your own ordering website eliminates commissions and builds a loyal direct customer base.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Can customers order directly on WhatsApp from the online digital menu?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Yes. Customers browse your mouth-watering photo menu, select spicy levels or add-ons, and tap 'Order on WhatsApp' to dispatch orders directly to your kitchen counter.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Can guests book table reservations online?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Yes. We build table booking modules where guests select party size, time slots, and special celebration notes with instant confirmation SMS/WhatsApp.</p>
+        </div>
+    </div>
+</div>
+
 
             <div class="author-card">
                 <img src="../logo-icon.png" alt="Tech Mind Developers" class="author-img">
@@ -515,7 +578,37 @@ html {
     <p><strong>Tech Mind Developers</strong> me, hum digital menus, direct UPI checkout, table reservations aur kitchen staff ke liye automated WhatsApp order alerts ke sath clean, lightning-fast restaurant websites build karte hain.</p>
 </div>
 
-            <div class="author-card">
+            <h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. Restaurants ko Swiggy aur Zomato ke alawa apni website kyun chahiye?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Aggregators 25% se 35% commission kaat lete hain aur customer data nahi dete. Apni website se zero commission lagta hai aur saara profit aapka rehta hai.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Kya customer online menu dekh kar WhatsApp par order de sakta hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Haan. Digital QR menu se customer food items select karke 1-click me direct kitchen counter par WhatsApp order send kar sakta hai.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Kya table reservation website se book ho sakta hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Haan. Guests date, time slot aur guest count select karke instant table reserve kar sakte hain.</p>
+        </div>
+    </div>
+</div>
+<div class="author-card">
                 <img src="../logo-icon.png" alt="Tech Mind Developers" class="author-img">
                 <div class="author-info">
                     <h4>Written by Tech Mind Developers Team</h4>
@@ -710,5 +803,24 @@ html {
     observer.observe(banner);
 })();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            var isActive = item.classList.contains('active');
+            var parent = item.closest('.faq-accordion');
+            if (parent) {
+                parent.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('active'); });
+            }
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>

@@ -407,6 +407,38 @@ html {
 }
 </style>
     <link rel="stylesheet" href="blog-common.css">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How does WhatsApp AI automation help clinics and local businesses?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It operates as a tireless 24/7 digital front desk: instantly answers customer FAQs, books patient appointments, sends diagnostic PDF reports, and qualifies sales leads in under 3 seconds."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can the AI bot answer complex customer questions in Hindi and Hinglish?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Our NLP models understand natural conversational queries in English, Hindi, and colloquial Hinglish, ensuring local Indian customers get friendly, accurate answers."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does it use the official WhatsApp Business Cloud API?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. We build strictly on Meta's official WhatsApp Business Cloud API, guaranteeing verified green badge compatibility, high delivery rates, and zero risk of phone number banning."
+            }
+        }
+    ]
+}
+    </script>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6TZZCBV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -503,6 +535,37 @@ html {
     <p>Add a direct WhatsApp chat button on your website, Google Maps profile, and Instagram bio. Over 75% of Indian customers prefer chatting on WhatsApp rather than filling out slow website contact forms!</p>
     <p style="margin-top: 12px; font-weight: 600;"><a href="../ai-chatbot-automation-services.html" style="color: var(--accent); text-decoration: underline; text-underline-offset: 4px; display: inline-flex; align-items: center; gap: 6px;">👉 Explore our WhatsApp AI Bot &amp; Business Automation Services <i class="fas fa-arrow-right" style="font-size: 0.85em;"></i></a></p>
 </div>
+<h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. How does WhatsApp AI automation help clinics and local businesses?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>It operates as a tireless 24/7 digital front desk: instantly answers customer FAQs, books patient appointments, sends diagnostic PDF reports, and qualifies sales leads in under 3 seconds.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Can the AI bot answer complex customer questions in Hindi and Hinglish?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Yes. Our NLP models understand natural conversational queries in English, Hindi, and colloquial Hinglish, ensuring local Indian customers get friendly, accurate answers.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Does it use the official WhatsApp Business Cloud API?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Yes. We build strictly on Meta's official WhatsApp Business Cloud API, guaranteeing verified green badge compatibility, high delivery rates, and zero risk of phone number banning.</p>
+        </div>
+    </div>
+</div>
+
 
 
             <div class="author-card">
@@ -574,7 +637,37 @@ html {
     <p style="margin-top: 12px; font-weight: 600;"><a href="../ai-chatbot-automation-services.html" style="color: var(--accent); text-decoration: underline; text-underline-offset: 4px; display: inline-flex; align-items: center; gap: 6px;">👉 Hamari WhatsApp AI Automation &amp; Bot Development Services dekhein <i class="fas fa-arrow-right" style="font-size: 0.85em;"></i></a></p>
 </div>
 
-            <div class="author-card">
+            <h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. Clinics aur businesses ke liye WhatsApp AI automation kaise kaam karta hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Ye 24/7 digital receptionist ki tarah kaam karta hai: patient appointments book karta hai, diagnostic reports bhejta hai aur inquiries ka 3 second me reply deta hai.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Kya AI bot Hindi aur Hinglish me baat samajh sakta hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Haan. Hamare models English, Hindi aur Hinglish teenon me natural tareeqe se baat karte hain aur customer ko bilkul human jaisa helpful reply dete hain.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Kya isme official WhatsApp API use hoti hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Haan, 100%. Hum Meta ke official WhatsApp Business Cloud API par build karte hain jisse number ban hone ka koi risk nahi hota.</p>
+        </div>
+    </div>
+</div>
+<div class="author-card">
                 <img src="../logo-icon.png" alt="Tech Mind Developers" class="author-avatar">
                 <div class="author-info">
                     <h4>Written by Tech Mind Developers Team</h4>
@@ -763,5 +856,24 @@ html {
     observer.observe(banner);
 })();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            var isActive = item.classList.contains('active');
+            var parent = item.closest('.faq-accordion');
+            if (parent) {
+                parent.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('active'); });
+            }
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>

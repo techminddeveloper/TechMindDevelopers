@@ -407,14 +407,37 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
             <p>After go-live, our dedicated support team provides continuous monitoring, cloud server maintenance, and fast feature additions whenever your business scales to new locations.</p>
 
             <h2>Frequently Asked Questions</h2>
-            <h3>Why should businesses in Noida choose custom software over ready-made tools?</h3>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. Why should businesses in Noida choose custom software over ready-made tools?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
             <p>Ready-made software charges heavy monthly fees per user and forces you to change your real workflow. Custom software built by Tech Mind Developers gives you 100% code ownership, zero monthly rent, and adapts perfectly to your exact staff and billing processes.</p>
-            <h3>How much does custom software development cost in Noida?</h3>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. How much does custom software development cost in Noida?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
             <p>Basic business workflow tools start from 35,000 to 60,000 INR. Complete multi-department factory ERPs or custom web portals with WhatsApp and GST integrations range between 85,000 and 2,50,000 INR depending on complexity.</p>
-            <h3>Can custom software integrate with Tally and WhatsApp?</h3>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Can custom software integrate with Tally and WhatsApp?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
             <p>Yes. We build two-way syncing with Tally Prime for accounting, direct WhatsApp Meta Cloud API triggers for customer receipts, and UPI payment reconciliation.</p>
+        </div>
+    </div>
+</div>
 
-            <div class="author-card">
+<div class="author-card">
                 <img src="../logo-icon.png" alt="Tech Mind Developers Engineering Team">
                 <div class="author-info">
                     <h4>Tech Mind Developers Engineering Team</h4>
@@ -497,14 +520,37 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
             <p>Go-live ke baad bhi hamari dedicated team continuous monitoring, cloud server maintenance aur fast feature additions provide karti hai jab bhi aapka business expand hota hai.</p>
 
             <h2>Frequently Asked Questions</h2>
-            <h3>Noida ke businesses ko ready-made tools ke badle custom software kyun choose karna chahiye?</h3>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. Noida ke businesses ko ready-made tools ke badle custom software kyun choose karna chahiye?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
             <p>Ready-made software har mahine per-user heavy fees leta hai aur aapko apna asli workflow badalne par majboor karta hai. Tech Mind Developers ke custom software me aapko 100% code ownership milti hai, monthly rent zero hota hai aur ye aapke exact staff aur billing process ke hisab se chalta hai.</p>
-            <h3>Noida me custom software development ka kitna kharcha aata hai?</h3>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Noida me custom software development ka kitna kharcha aata hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
             <p>Basic business workflow tools 35,000 se 60,000 INR se start hote hain. Complete multi-department factory ERP ya custom web portal jisme WhatsApp aur GST integration ho, complexity ke hisab se 85,000 se 2,50,000 INR ke beech hota hai.</p>
-            <h3>Kya custom software Tally aur WhatsApp ke sath integrate ho sakta hai?</h3>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Kya custom software Tally aur WhatsApp ke sath integrate ho sakta hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
             <p>Haan. Hum accounting ke liye Tally Prime ke sath two-way sync, customer receipts ke liye direct WhatsApp Meta Cloud API triggers aur UPI payment reconciliation build karte hain.</p>
+        </div>
+    </div>
+</div>
 
-            <div class="author-card">
+<div class="author-card">
                 <img src="../logo-icon.png" alt="Tech Mind Developers Engineering Team">
                 <div class="author-info">
                     <h4>Tech Mind Developers Engineering Team</h4>
@@ -636,5 +682,24 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
     observer.observe(banner);
 })();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            var isActive = item.classList.contains('active');
+            var parent = item.closest('.faq-accordion');
+            if (parent) {
+                parent.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('active'); });
+            }
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>

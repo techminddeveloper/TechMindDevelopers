@@ -407,6 +407,38 @@ html {
 }
 </style>
     <link rel="stylesheet" href="blog-common.css">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How can Khurja pottery makers sell directly to international buyers?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A high-speed export website showcasing high-resolution ceramic tableware, ISO lab certifications, packaging drop-test videos, and container load calculators allows global buyers to place wholesale orders with confidence."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do we handle fragile ceramic shipping calculations?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We integrate volumetric freight calculators and wooden pallet packing estimations so buyers receive transparent shipping estimates upfront."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can B2B buyers order custom ceramic glaze samples?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Dedicated sample order portals allow interior designers and hotel chains to order paid ceramic sample boxes with door-to-door courier tracking."
+            }
+        }
+    ]
+}
+    </script>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6TZZCBV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -486,6 +518,37 @@ html {
     <h4>Pro Tip for Ceramic Exporters</h4>
     <p>If you export ceramics to the US, Europe, or the Gulf, adding multi-currency pricing (USD, EUR, AED) with automated Stripe international checkout allows global buyers to place orders effortlessly.</p>
 </div>
+<h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. How can Khurja pottery makers sell directly to international buyers?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>A high-speed export website showcasing high-resolution ceramic tableware, ISO lab certifications, packaging drop-test videos, and container load calculators allows global buyers to place wholesale orders with confidence.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. How do we handle fragile ceramic shipping calculations?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>We integrate volumetric freight calculators and wooden pallet packing estimations so buyers receive transparent shipping estimates upfront.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Can B2B buyers order custom ceramic glaze samples?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Yes. Dedicated sample order portals allow interior designers and hotel chains to order paid ceramic sample boxes with door-to-door courier tracking.</p>
+        </div>
+    </div>
+</div>
+
 
 
             <div class="author-card">
@@ -539,6 +602,36 @@ html {
 <p>Agar aap US, Europe ya Gulf countries me ceramics export karte hain, toh multi-currency pricing (USD, EUR, AED) aur automated Stripe international checkout add karne se overseas buyers bina kisi pareshani ke direct orders place kar sakte hain.</p>
 </div>
 
+<h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. Khurja ke pottery manufacturers international market me kaise sell karein?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Ek high-speed export website ISO testing, drop-test videos aur container capacity calculator ke sath foreign buyers ko direct bulk orders dene me madad karti hai.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Ceramic crockery ke fragile shipping charges kaise calculate hote hain?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>System me volumetric freight aur pallet packing calculators integrated hote hain jo accurate shipping estimate dikhate hain.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Kya hotel chains aur buyers sample order kar sakte hain?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Haan. Dedicated sample order checkout ke zariye designers aur buyers paid sample mangwa sakte hain.</p>
+        </div>
+    </div>
+</div>
 <div class="author-card">
 <img alt="Tech Mind Developers" class="author-avatar" src="../logo-icon.png"/>
 <div class="author-info">
@@ -729,5 +822,24 @@ html {
     observer.observe(banner);
 })();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            var isActive = item.classList.contains('active');
+            var parent = item.closest('.faq-accordion');
+            if (parent) {
+                parent.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('active'); });
+            }
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>

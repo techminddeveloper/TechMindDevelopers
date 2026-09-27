@@ -407,14 +407,37 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
             <p>Once your site is live, we provide ongoing updates, content additions, and server speed monitoring so your online presence stays fresh and competitive year-round.</p>
 
             <h2>Frequently Asked Questions</h2>
-            <h3>How fast will my business website load on mobile phones?</h3>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. How fast will my business website load on mobile phones?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
             <p>Our websites load in under 1 second on standard 4G mobile networks. We do not use heavy page-builder plugins or bulky themes. We write clean, optimized code that scores 95+ on Google PageSpeed Insights.</p>
-            <h3>How much does a corporate business website cost in Noida?</h3>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. How much does a corporate business website cost in Noida?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
             <p>Professional business landing websites start from 18,000 to 35,000 INR. Custom corporate portals or e-commerce web stores with payment gateway integrations range between 45,000 and 1,20,000 INR with complete code ownership.</p>
-            <h3>Will our website include direct WhatsApp chat buttons and inquiry alerts?</h3>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Will our website include direct WhatsApp chat buttons and inquiry alerts?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
             <p>Yes. Every website we build includes floating one-tap WhatsApp chat buttons, mobile click-to-call dialing, and instant lead alerts delivered straight to your email and phone.</p>
+        </div>
+    </div>
+</div>
 
-            <div class="author-card">
+<div class="author-card">
                 <img src="../logo-icon.png" alt="Tech Mind Developers Engineering Team">
                 <div class="author-info">
                     <h4>Tech Mind Developers Engineering Team</h4>
@@ -497,14 +520,37 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
             <p>Ek baar site live hone ke baad bhi, hum ongoing updates, content additions aur server speed monitoring provide karte hain taaki aapki online presence poore saal fresh aur competitive rahe.</p>
 
             <h2>Frequently Asked Questions</h2>
-            <h3>Hamari business website mobile phones par kitni tezi se open hogi?</h3>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. Hamari business website mobile phones par kitni tezi se open hogi?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
             <p>Hamari websites standard 4G mobile networks par 1 second se kam me load hoti hain. Hum heavy page-builder plugins ya bulky themes use nahi karte. Hum clean, optimized code likhte hain jo Google PageSpeed Insights par 95+ score karta hai.</p>
-            <h3>Noida me corporate business website banwane ka kitna cost aata hai?</h3>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Noida me corporate business website banwane ka kitna cost aata hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
             <p>Professional business landing websites 18,000 se 35,000 INR se start hoti hain. Custom corporate portals ya payment gateway integration ke sath e-commerce stores 45,000 se 1,20,000 INR ke beech aate hain with complete code ownership.</p>
-            <h3>Kya hamari website me direct WhatsApp chat buttons aur inquiry alerts shamil honge?</h3>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Kya hamari website me direct WhatsApp chat buttons aur inquiry alerts shamil honge?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
             <p>Haan. Har website me floating one-tap WhatsApp chat buttons, mobile click-to-call dialing aur instant lead alerts shaamil hote hain jo seedha aapke email aur phone par deliver hote hain.</p>
+        </div>
+    </div>
+</div>
 
-            <div class="author-card">
+<div class="author-card">
                 <img src="../logo-icon.png" alt="Tech Mind Developers Engineering Team">
                 <div class="author-info">
                     <h4>Tech Mind Developers Engineering Team</h4>
@@ -636,5 +682,24 @@ body{background:var(--bg);color:var(--text);line-height: 1.82;-webkit-font-smoot
     observer.observe(banner);
 })();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            var isActive = item.classList.contains('active');
+            var parent = item.closest('.faq-accordion');
+            if (parent) {
+                parent.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('active'); });
+            }
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>

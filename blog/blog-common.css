@@ -174,7 +174,8 @@
 /* ============================================================
    FAQ ACCORDION (INTERACTIVE & SLEEK)
    ============================================================ */
-.faq-accordion {
+.faq-accordion,
+.faq-container {
     display: flex;
     flex-direction: column;
     gap: 14px;
@@ -275,10 +276,22 @@
    ============================================================ */
 .article-content p a,
 .article-body p a,
+.article-container p a,
 .post-content p a,
+.lang-content p a,
+.lang-content-en p a,
+.lang-content-hien p a,
+.highlight-box a,
+.faq-answer a,
+.comp-box a,
+.comp-val a,
 .article-content li a,
 .article-body li a,
-.post-content li a {
+.article-container li a,
+.post-content li a,
+.lang-content li a,
+.lang-content-en li a,
+.lang-content-hien li a {
     color: #38bdf8 !important;
     text-decoration: underline !important;
     text-underline-offset: 4px !important;
@@ -289,19 +302,43 @@
 
 .article-content p a:visited,
 .article-body p a:visited,
+.article-container p a:visited,
 .post-content p a:visited,
+.lang-content p a:visited,
+.lang-content-en p a:visited,
+.lang-content-hien p a:visited,
+.highlight-box a:visited,
+.faq-answer a:visited,
+.comp-box a:visited,
+.comp-val a:visited,
 .article-content li a:visited,
 .article-body li a:visited,
-.post-content li a:visited {
+.article-container li a:visited,
+.post-content li a:visited,
+.lang-content li a:visited,
+.lang-content-en li a:visited,
+.lang-content-hien li a:visited {
     color: #38bdf8 !important;
 }
 
 .article-content p a:hover,
 .article-body p a:hover,
+.article-container p a:hover,
 .post-content p a:hover,
+.lang-content p a:hover,
+.lang-content-en p a:hover,
+.lang-content-hien p a:hover,
+.highlight-box a:hover,
+.faq-answer a:hover,
+.comp-box a:hover,
+.comp-val a:hover,
 .article-content li a:hover,
 .article-body li a:hover,
-.post-content li a:hover {
+.article-container li a:hover,
+.post-content li a:hover,
+.lang-content li a:hover,
+.lang-content-en li a:hover,
+.lang-content-hien li a:hover {
     color: #7dd3fc !important;
     text-shadow: 0 0 10px rgba(56, 189, 248, 0.5) !important;
 }
@@ -309,27 +346,171 @@
 /* Light Theme Link Styling */
 [data-theme="light"] .article-content p a,
 [data-theme="light"] .article-body p a,
+[data-theme="light"] .article-container p a,
 [data-theme="light"] .post-content p a,
+[data-theme="light"] .lang-content p a,
+[data-theme="light"] .lang-content-en p a,
+[data-theme="light"] .lang-content-hien p a,
+[data-theme="light"] .highlight-box a,
+[data-theme="light"] .faq-answer a,
+[data-theme="light"] .comp-box a,
+[data-theme="light"] .comp-val a,
 [data-theme="light"] .article-content li a,
 [data-theme="light"] .article-body li a,
-[data-theme="light"] .post-content li a {
+[data-theme="light"] .article-container li a,
+[data-theme="light"] .post-content li a,
+[data-theme="light"] .lang-content li a,
+[data-theme="light"] .lang-content-en li a,
+[data-theme="light"] .lang-content-hien li a {
     color: #0284c7 !important;
 }
 
 [data-theme="light"] .article-content p a:visited,
 [data-theme="light"] .article-body p a:visited,
+[data-theme="light"] .article-container p a:visited,
 [data-theme="light"] .post-content p a:visited,
+[data-theme="light"] .lang-content p a:visited,
+[data-theme="light"] .lang-content-en p a:visited,
+[data-theme="light"] .lang-content-hien p a:visited,
+[data-theme="light"] .highlight-box a:visited,
+[data-theme="light"] .faq-answer a:visited,
+[data-theme="light"] .comp-box a:visited,
+[data-theme="light"] .comp-val a:visited,
 [data-theme="light"] .article-content li a:visited,
 [data-theme="light"] .article-body li a:visited,
-[data-theme="light"] .post-content li a:visited {
+[data-theme="light"] .article-container li a:visited,
+[data-theme="light"] .post-content li a:visited,
+[data-theme="light"] .lang-content li a:visited,
+[data-theme="light"] .lang-content-en li a:visited,
+[data-theme="light"] .lang-content-hien li a:visited {
     color: #0284c7 !important;
 }
 
 [data-theme="light"] .article-content p a:hover,
 [data-theme="light"] .article-body p a:hover,
+[data-theme="light"] .article-container p a:hover,
 [data-theme="light"] .post-content p a:hover,
+[data-theme="light"] .lang-content p a:hover,
+[data-theme="light"] .lang-content-en p a:hover,
+[data-theme="light"] .lang-content-hien p a:hover,
+[data-theme="light"] .highlight-box a:hover,
+[data-theme="light"] .faq-answer a:hover,
+[data-theme="light"] .comp-box a:hover,
+[data-theme="light"] .comp-val a:hover,
 [data-theme="light"] .article-content li a:hover,
 [data-theme="light"] .article-body li a:hover,
-[data-theme="light"] .post-content li a:hover {
+[data-theme="light"] .article-container li a:hover,
+[data-theme="light"] .post-content li a:hover,
+[data-theme="light"] .lang-content li a:hover,
+[data-theme="light"] .lang-content-en li a:hover,
+[data-theme="light"] .lang-content-hien li a:hover {
     color: #0369a1 !important;
+}
+
+/* ============================================================
+   RESPONSIVE TECH & FEATURE COMPARISON CARDS
+   (Replaces wide tables to eliminate horizontal scroll)
+   ============================================================ */
+.comp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0 32px;
+}
+.comp-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 22px;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+}
+.comp-card:hover {
+    border-color: var(--border-glow);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+}
+.comp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+}
+.comp-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--text-heading);
+}
+.comp-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+.comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+}
+.comp-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+[data-theme="light"] .comp-box {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.06);
+}
+.comp-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+.comp-val {
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.6;
+}
+.comp-verdict {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    border-radius: 8px;
+    color: #10b981;
+    font-size: 0.88rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+[data-theme="light"] .comp-card {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+[data-theme="light"] .comp-card:hover {
+    border-color: rgba(2, 132, 199, 0.4);
+    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.08);
+}
+[data-theme="light"] .comp-header {
+    border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+[data-theme="light"] .comp-badge {
+    background: rgba(2, 132, 199, 0.1);
+    color: #0284c7;
+    border-color: rgba(2, 132, 199, 0.25);
 }

@@ -407,6 +407,38 @@ html {
 }
 </style>
     <link rel="stylesheet" href="blog-common.css">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What core services does Tech Mind Developers provide?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Since 2014, we have delivered custom corporate websites, enterprise ERP & CRM systems, mobile apps in Flutter/React Native, AI agent automation, and advanced technical SEO/AEO engineering."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is your philosophy on source code and intellectual property ownership?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We believe you should own what you pay for. Upon project completion, you receive 100% full source code ownership, administrative credentials, and database rights with zero proprietary lock-in."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Where are your engineering offices located?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We operate engineering centers in Okhla, New Delhi (Jamia Nagar) and Aligarh, Uttar Pradesh, serving clients across Delhi NCR, nationwide, and internationally across the USA, UK, and Middle East."
+            }
+        }
+    ]
+}
+    </script>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6TZZCBV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -535,6 +567,37 @@ html {
     <li><strong>Agile Development &amp; Live Testing:</strong> We build your solution with clean code and share live test previews so you can give feedback at every milestone.</li>
     <li><strong>Deployment &amp; Handover:</strong> We deploy your system to high-speed cloud servers, connect domain and email, and provide direct training and ongoing support.</li>
 </ol>
+<h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. What core services does Tech Mind Developers provide?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Since 2014, we have delivered custom corporate websites, enterprise ERP & CRM systems, mobile apps in Flutter/React Native, AI agent automation, and advanced technical SEO/AEO engineering.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. What is your philosophy on source code and intellectual property ownership?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>We believe you should own what you pay for. Upon project completion, you receive 100% full source code ownership, administrative credentials, and database rights with zero proprietary lock-in.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Where are your engineering offices located?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>We operate engineering centers in Okhla, New Delhi (Jamia Nagar) and Aligarh, Uttar Pradesh, serving clients across Delhi NCR, nationwide, and internationally across the USA, UK, and Middle East.</p>
+        </div>
+    </div>
+</div>
+
 
             <div class="author-card">
                 <img src="../logo-icon.png" alt="Tech Mind Developers" class="author-avatar">
@@ -637,7 +700,37 @@ html {
     <li><strong>Deployment Aur Handover:</strong> Hum aapke system ko high-speed cloud servers par deploy karte hain, domain aur email connect karte hain, aur direct training aur continuous ongoing support provide karte hain.</li>
 </ol>
 
-            <div class="author-card">
+            <h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. Tech Mind Developers ke main services kya hain?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>2014 se hum corporate websites, custom ERP/CRM software, mobile apps, AI automation aur technical SEO me specialize karte hain.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Source code ownership ko lekar aapki policy kya hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Hum aapko 100% source code aur database rights handover karte hain. Koi monthly royalty ya software lock-in nahi rehta.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Aapke development offices kahan par hain?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Hamare development centers Okhla, New Delhi aur Aligarh, UP me hain, jahan se hum India aur global clients ko serve karte hain.</p>
+        </div>
+    </div>
+</div>
+<div class="author-card">
                 <img src="../logo-icon.png" alt="Tech Mind Developers" class="author-avatar">
                 <div class="author-info">
                     <h4>Written by Tech Mind Developers Team</h4>
@@ -827,5 +920,24 @@ html {
     observer.observe(banner);
 })();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            var isActive = item.classList.contains('active');
+            var parent = item.closest('.faq-accordion');
+            if (parent) {
+                parent.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('active'); });
+            }
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>

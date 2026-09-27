@@ -407,6 +407,38 @@ html {
 }
 </style>
     <link rel="stylesheet" href="blog-common.css">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Why do leather and shoe factories in Agra and Noida need custom ERP?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Footwear manufacturing involves complex matrix tracking (size, color, sole material, upper leather grade). Standard accounting tools cannot track size-wise inventory accurately."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can the ERP track cutting room leather consumption and yield?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Our software calculates leather square-footage yield per hide, identifying cutting waste and maximizing leather utilization across production lines."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can we generate carton barcodes for retail dispatches?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The ERP auto-generates EAN-13 barcodes and shipping carton labels for seamless dispatch to large retail chains and e-commerce fulfillment centers."
+            }
+        }
+    ]
+}
+    </script>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6TZZCBV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -485,6 +517,37 @@ html {
     <p>Whether you manufacture footwear, industrial hardware, or manage high-volume wholesale distribution, custom ERP ensures seamless transparency across production lines, raw materials, and dealer billing.</p>
     <p style="margin-top: 12px; font-weight: 600;"><a href="../erp-crm-software-development.html" style="color: var(--accent); text-decoration: underline; text-underline-offset: 4px; display: inline-flex; align-items: center; gap: 6px;">👉 Explore our Custom ERP &amp; CRM Architecture &amp; Modules <i class="fas fa-arrow-right" style="font-size: 0.85em;"></i></a></p>
 </div>
+<h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. Why do leather and shoe factories in Agra and Noida need custom ERP?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Footwear manufacturing involves complex matrix tracking (size, color, sole material, upper leather grade). Standard accounting tools cannot track size-wise inventory accurately.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Can the ERP track cutting room leather consumption and yield?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Yes. Our software calculates leather square-footage yield per hide, identifying cutting waste and maximizing leather utilization across production lines.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Can we generate carton barcodes for retail dispatches?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Yes. The ERP auto-generates EAN-13 barcodes and shipping carton labels for seamless dispatch to large retail chains and e-commerce fulfillment centers.</p>
+        </div>
+    </div>
+</div>
+
 
 
             <div class="author-card">
@@ -538,7 +601,37 @@ html {
     <p style="margin-top: 12px; font-weight: 600;"><a href="../erp-crm-software-development.html" style="color: var(--accent); text-decoration: underline; text-underline-offset: 4px; display: inline-flex; align-items: center; gap: 6px;">👉 Hamari Custom ERP &amp; CRM Development Services aur Modules dekhein <i class="fas fa-arrow-right" style="font-size: 0.85em;"></i></a></p>
 </div>
 
-            <div class="author-card">
+            <h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. Agra aur Noida ke footwear factories ke liye custom ERP kyun zaroori hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Joota manufacturing me size, color aur leather grade ka complex matrix hota hai jo normal accounting software me maintain nahi ho pata.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Kya cutting room me leather consumption aur wastage track ho sakti hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Haan. Har leather sheet ka square footage yield track hota hai taaki cutting room me leather waste minimum ho sake.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Kya retail stores ke liye carton barcode labels generate honge?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Haan. E-commerce aur retail chains ke compliance ke mutabiq automatic barcode labels print hote hain.</p>
+        </div>
+    </div>
+</div>
+<div class="author-card">
                 <img src="../logo-icon.png" alt="Tech Mind Developers" class="author-avatar">
                 <div class="author-info">
                     <h4>Written by Tech Mind Developers Team</h4>
@@ -727,5 +820,24 @@ html {
     observer.observe(banner);
 })();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            var isActive = item.classList.contains('active');
+            var parent = item.closest('.faq-accordion');
+            if (parent) {
+                parent.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('active'); });
+            }
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>

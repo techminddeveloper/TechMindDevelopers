@@ -407,6 +407,38 @@ html {
 }
 </style>
     <link rel="stylesheet" href="blog-common.css">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What manufacturing stages does this custom ERP cover?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our hardware ERP tracks raw brass melting, die casting, stamping, electroplating, polishing, assembly, packaging, and final carton dispatch with batch lot numbers."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can we prevent brass raw material theft and scrap leakage?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The system automatically reconciles raw metal issued against finished goods weight and generated scrap, flagging abnormal losses instantly."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How does the ERP handle distributor credit limits and billing?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It sets automated credit limits per wholesale distributor. If a distributor has unpaid invoices beyond their limit, the system pauses new dispatches until approved by the owner."
+            }
+        }
+    ]
+}
+    </script>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6TZZCBV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -481,6 +513,37 @@ html {
     <p>Unlike monthly SaaS software that charges you every time you add a billing operator or store manager, custom ERP built by Tech Mind Developers gives you 100% code ownership with unlimited user logins forever.</p>
     <p style="margin-top: 12px; font-weight: 600;"><a href="../manufacturing-hardware-erp.html" style="color: var(--accent); text-decoration: underline; text-underline-offset: 4px; display: inline-flex; align-items: center; gap: 6px;">👉 Explore our Hardware Manufacturing &amp; Factory ERP Software <i class="fas fa-arrow-right" style="font-size: 0.85em;"></i></a></p>
 </div>
+<h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. What manufacturing stages does this custom ERP cover?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Our hardware ERP tracks raw brass melting, die casting, stamping, electroplating, polishing, assembly, packaging, and final carton dispatch with batch lot numbers.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Can we prevent brass raw material theft and scrap leakage?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Yes. The system automatically reconciles raw metal issued against finished goods weight and generated scrap, flagging abnormal losses instantly.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. How does the ERP handle distributor credit limits and billing?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>It sets automated credit limits per wholesale distributor. If a distributor has unpaid invoices beyond their limit, the system pauses new dispatches until approved by the owner.</p>
+        </div>
+    </div>
+</div>
+
 
 
             <div class="author-card">
@@ -530,6 +593,36 @@ html {
 <p style="margin-top: 12px; font-weight: 600;"><a href="../manufacturing-hardware-erp.html" style="color: var(--accent); text-decoration: underline; text-underline-offset: 4px; display: inline-flex; align-items: center; gap: 6px;">👉 Hamari Hardware Manufacturing &amp; Factory ERP Software Services dekhein <i class="fas fa-arrow-right" style="font-size: 0.85em;"></i></a></p>
 </div>
 
+<h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. Ye custom ERP factory ke kaun-kaun se stages cover karta hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Ye software raw material, casting, electroplating, polishing, assembly aur final carton packing tak har step ka batch-wise record maintain karta hai.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Kya pital aur raw material scrap ka leakage control ho sakta hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Haan. System issued raw material ke weight ko finished maal aur scrap se match karke kisi bhi unusual loss par instant alert deta hai.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. ERP wholesale distributors ki credit limit kaise handle karta hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Har dealer ki credit limit set rehti hai. Limit cross hone par system naya dispatch pause kar deta hai jab tak owner approve na kare.</p>
+        </div>
+    </div>
+</div>
 <div class="author-card">
 <img alt="Tech Mind Developers" class="author-avatar" src="../logo-icon.png"/>
 <div class="author-info">
@@ -725,5 +818,24 @@ html {
     observer.observe(banner);
 })();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            var isActive = item.classList.contains('active');
+            var parent = item.closest('.faq-accordion');
+            if (parent) {
+                parent.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('active'); });
+            }
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>

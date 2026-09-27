@@ -406,6 +406,38 @@ html {
 }
 </style>
     <link rel="stylesheet" href="blog-common.css">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What are the key benefits of a modern school management website?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It automates online admission inquiries, provides instant fee receipts, sends daily student attendance notices to parents, and showcases school academic and sports achievements."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can parents check report cards and exam marks online?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Parents log into a secure student portal using their registered mobile number to view term report cards, attendance percentages, and teacher remarks."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does the software comply with school board privacy norms?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. All student and staff data is protected with encrypted SSL and role-based administrative permissions, ensuring zero unauthorized data leaks."
+            }
+        }
+    ]
+}
+    </script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -485,6 +517,37 @@ html {
         <i class="fas fa-arrow-right"></i> Explore School &amp; Coaching ERP Software
     </a>
 </div>
+<h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. What are the key benefits of a modern school management website?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>It automates online admission inquiries, provides instant fee receipts, sends daily student attendance notices to parents, and showcases school academic and sports achievements.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Can parents check report cards and exam marks online?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Yes. Parents log into a secure student portal using their registered mobile number to view term report cards, attendance percentages, and teacher remarks.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Does the software comply with school board privacy norms?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Yes. All student and staff data is protected with encrypted SSL and role-based administrative permissions, ensuring zero unauthorized data leaks.</p>
+        </div>
+    </div>
+</div>
+
 
             <div class="author-card">
                 <img src="../logo-icon.png" alt="Tech Mind Developers" class="author-img">
@@ -537,6 +600,36 @@ html {
     </a>
 </div>
 
+<h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. School management website ke main fayde kya hain?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Online admission forms, instant fee receipt, parents ko WhatsApp absent alert aur school toppers ka showcase sab ek jagah integrate ho jata hai.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Kya parents bache ka report card online dekh sakte hain?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Haan. Secure parent portal me login karke term report card aur attendance percentage asani se check ki ja sakti hai.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Kya student data secure aur private rehta hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Haan, 100%. Encrypted security aur role-based access se bacho aur staff ka personal data poori tarah confidential rehta hai.</p>
+        </div>
+    </div>
+</div>
 <div class="author-card">
     <img src="../logo-icon.png" alt="Tech Mind Developers" class="author-img">
     <div class="author-info">
@@ -734,5 +827,24 @@ html {
     observer.observe(banner);
 })();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            var isActive = item.classList.contains('active');
+            var parent = item.closest('.faq-accordion');
+            if (parent) {
+                parent.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('active'); });
+            }
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>

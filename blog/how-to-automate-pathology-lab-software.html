@@ -406,6 +406,38 @@ html {
 }
 </style>
     <link rel="stylesheet" href="blog-common.css">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How does automating pathology lab software save time?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It eliminates manual report typing in MS Word, auto-calculates normal biological reference ranges, prints QR barcoded sample labels, and automatically delivers PDF reports to patient WhatsApp within seconds of doctor verification."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can referring doctors view their patient reports online?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Doctors receive a dedicated referral portal where they can monitor referred patient tests, download finalized clinical reports, and track diagnostic progress."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can the software connect with automated biochemistry analyzers?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. We interface software with standard bidirectional and unidirectional lab machines via RS232 and TCP/IP protocols to auto-populate test values with zero manual human error."
+            }
+        }
+    ]
+}
+    </script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -489,6 +521,37 @@ html {
 
 <h2>Our Pathology Lab Software Solution</h2>
 <p>At <strong>Tech Mind Developers</strong>, we build <a href="../pathology-lab-software.html" style="color:var(--accent);font-weight:700;">custom Pathology Lab Management Software (LIMS)</a> using reliable technologies like <strong>ASP.NET Core, React, and SQL Server</strong>. You can check out our open-source project on <a href="https://github.com/techminddeveloper/Pathology-Lab" target="_blank" style="color:var(--accent);font-weight:700;">GitHub</a>.</p>
+<h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. How does automating pathology lab software save time?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>It eliminates manual report typing in MS Word, auto-calculates normal biological reference ranges, prints QR barcoded sample labels, and automatically delivers PDF reports to patient WhatsApp within seconds of doctor verification.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Can referring doctors view their patient reports online?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Yes. Doctors receive a dedicated referral portal where they can monitor referred patient tests, download finalized clinical reports, and track diagnostic progress.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Can the software connect with automated biochemistry analyzers?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Yes. We interface software with standard bidirectional and unidirectional lab machines via RS232 and TCP/IP protocols to auto-populate test values with zero manual human error.</p>
+        </div>
+    </div>
+</div>
+
 
             <div class="author-card">
                 <img src="../logo-icon.png" alt="Tech Mind Developers" class="author-img">
@@ -543,6 +606,36 @@ html {
 <h2>Hamara Pathology Lab Software Solution</h2>
 <p>Tech Mind Developers me hum ASP.NET Core, React aur secure databases ka use karke fast, reliable <a href="../pathology-lab-software.html" style="color:var(--accent);font-weight:700;">custom Pathology Lab software</a> build karte hain. Sabse badi baat: zero monthly software fees aur aapke patient data ki 100% permanent security.</p>
 
+<h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. Pathology lab software automate karne se samay kaise bachta hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Word me hath se report type karne ka jhanjhat khatam hota hai, normal reference range auto-calculate hoti hai aur doctor ke verify karte hi PDF report patient ke WhatsApp par deliver ho jati hai.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Kya referral doctors patient reports online dekh sakte hain?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Haan. Doctors ko alag login portal milta hai jahan wo apne referred patients ke reports aur test status real-time me dekh sakte hain.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Kya software lab testing machines se direct connect ho sakta hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Haan. Analyzer machine se values direct software me auto-fill ho jaati hain jisse typing error ka risk zero ho jata hai.</p>
+        </div>
+    </div>
+</div>
 <div class="author-card">
 <img alt="Tech Mind Developers" class="author-avatar" src="../logo-icon.png"/>
 <div class="author-info">
@@ -739,5 +832,24 @@ html {
     observer.observe(banner);
 })();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            var isActive = item.classList.contains('active');
+            var parent = item.closest('.faq-accordion');
+            if (parent) {
+                parent.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('active'); });
+            }
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>

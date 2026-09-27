@@ -407,6 +407,38 @@ html {
 }
 </style>
     <link rel="stylesheet" href="blog-common.css">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How does an online store help local boutique and fashion shop owners?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It expands your customer reach beyond your physical market to nationwide shoppers, showcases new seasonal arrivals on Instagram and WhatsApp, and allows customers to buy 24/7."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do customers choose their correct size online?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We build interactive size recommendation charts, fabric stretch guides, and model measurement notes that reduce size-related customer return rates by 45%."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can we run flash sales and discount coupon codes?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The admin dashboard allows you to schedule countdown flash sales, buy-one-get-one deals, and VIP customer discount codes in seconds."
+            }
+        }
+    ]
+}
+    </script>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6TZZCBV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -490,6 +522,37 @@ html {
     <h4>Pro Tip for Boutique Owners</h4>
     <p>Post short 15-second video reels on Instagram or Facebook showing your newest fabric or stitched dress, and put your direct website link in your bio. Viewers who love the video can tap the link and buy the outfit in under 30 seconds!</p>
 </div>
+<h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. How does an online store help local boutique and fashion shop owners?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>It expands your customer reach beyond your physical market to nationwide shoppers, showcases new seasonal arrivals on Instagram and WhatsApp, and allows customers to buy 24/7.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. How do customers choose their correct size online?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>We build interactive size recommendation charts, fabric stretch guides, and model measurement notes that reduce size-related customer return rates by 45%.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Can we run flash sales and discount coupon codes?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Yes. The admin dashboard allows you to schedule countdown flash sales, buy-one-get-one deals, and VIP customer discount codes in seconds.</p>
+        </div>
+    </div>
+</div>
+
 
 
             <div class="author-card">
@@ -548,7 +611,37 @@ html {
     <p>Instagram ya Facebook par apne newest fabric ya stitched dress dikhate hue short 15-second video reels post karein, aur bio me apna direct website link dalein. Video pasand aane wale viewers link par tap karke 30 seconds se kam me outfit khareed sakte hain!</p>
 </div>
 
-            <div class="author-card">
+            <h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. Local kapde aur fashion shop ke liye online store kaise helpful hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Aapka business local market se nikal kar poore desh me sell karne lagta hai, aur customers 24 ghante naye collections browse aur buy kar sakte hain.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Customer online shopping me sahi size kaise select karein?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Interactive size chart aur fabric guide se customer apna exact fit chun sakta hai jisse return exchange ka kharcha kaafi kam ho jata hai.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Kya festival offers aur coupon codes chala sakte hain?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Haan. Admin panel se aap timer flash sales aur discount coupon codes asani se activate kar sakte hain.</p>
+        </div>
+    </div>
+</div>
+<div class="author-card">
                 <img src="../logo-icon.png" alt="Tech Mind Developers" class="author-avatar">
                 <div class="author-info">
                     <h4>Written by Tech Mind Developers Team</h4>
@@ -737,5 +830,24 @@ html {
     observer.observe(banner);
 })();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            var isActive = item.classList.contains('active');
+            var parent = item.closest('.faq-accordion');
+            if (parent) {
+                parent.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('active'); });
+            }
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>

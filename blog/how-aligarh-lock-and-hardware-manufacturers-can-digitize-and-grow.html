@@ -407,6 +407,38 @@ html {
 }
 </style>
     <link rel="stylesheet" href="blog-common.css">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How does a custom digital platform help hardware and lock manufacturers in Aligarh?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A custom digital system connects your brass, zinc, and iron casting stages with raw material inventory, tracks wholesale distributor orders, and showcases export-quality lock catalogs to global B2B buyers with 24/7 RFQ inquiries."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Can we track worker piece-rate production on the software?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. We build worker barcode tracking and piece-rate wage calculation modules so factory owners can track daily assembly counts per karigar accurately."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Will foreign buyers be able to place bulk inquiries on our catalog?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. We integrate interactive RFQ (Request for Quote) portals with technical dimension sheets, finish options (antique brass, satin chrome), and instant WhatsApp/Email alerts."
+            }
+        }
+    ]
+}
+    </script>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6TZZCBV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -504,6 +536,37 @@ html {
     <p>Modern architectural projects in metropolitan cities demand digital biometric door locks and sleek matte black hardware. Aligarh manufacturers that offer both traditional brass durability and modern smart-lock technologies are capturing the highest profit margins in the market.</p>
     <p style="margin-top: 12px; font-weight: 600;"><a href="../manufacturing-hardware-erp.html" style="color: var(--accent); text-decoration: underline; text-underline-offset: 4px; display: inline-flex; align-items: center; gap: 6px;">👉 Explore our Hardware Manufacturing &amp; Factory ERP Software <i class="fas fa-arrow-right" style="font-size: 0.85em;"></i></a></p>
 </div>
+<h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. How does a custom digital platform help hardware and lock manufacturers in Aligarh?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>A custom digital system connects your brass, zinc, and iron casting stages with raw material inventory, tracks wholesale distributor orders, and showcases export-quality lock catalogs to global B2B buyers with 24/7 RFQ inquiries.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Can we track worker piece-rate production on the software?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Yes. We build worker barcode tracking and piece-rate wage calculation modules so factory owners can track daily assembly counts per karigar accurately.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Will foreign buyers be able to place bulk inquiries on our catalog?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Yes. We integrate interactive RFQ (Request for Quote) portals with technical dimension sheets, finish options (antique brass, satin chrome), and instant WhatsApp/Email alerts.</p>
+        </div>
+    </div>
+</div>
+
 
 
             <div class="author-card">
@@ -576,7 +639,37 @@ html {
     <p style="margin-top: 12px; font-weight: 600;"><a href="../manufacturing-hardware-erp.html" style="color: var(--accent); text-decoration: underline; text-underline-offset: 4px; display: inline-flex; align-items: center; gap: 6px;">👉 Hamari Hardware Manufacturing &amp; Factory ERP Software Services dekhein <i class="fas fa-arrow-right" style="font-size: 0.85em;"></i></a></p>
 </div>
 
-            <div class="author-card">
+            <h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. Aligarh ke lock aur hardware manufacturers ke liye digital platform kaise madad karta hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Ek custom digital system casting aur electroplating se lekar wholesale dispatch tak sab kuch sync karta hai, aur global buyers ko digital lock catalog showcase karta hai.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Kya software par karigar ka piece-rate hisaab track ho sakta hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Haan. Barcode aur daily piece-rate modules se har karigar ka daily production aur payment calculation accurately manage hota hai.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Kya foreign buyers website se bulk export inquiry bhej sakte hain?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Haan. Technical drawings, finish options aur bulk RFQ quotation forms ke sath overseas buyers direct export orders place kar sakte hain.</p>
+        </div>
+    </div>
+</div>
+<div class="author-card">
                 <img src="../logo-icon.png" alt="Tech Mind Developers" class="author-avatar">
                 <div class="author-info">
                     <h4>Written by Tech Mind Developers Team</h4>
@@ -765,5 +858,24 @@ html {
     observer.observe(banner);
 })();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            var isActive = item.classList.contains('active');
+            var parent = item.closest('.faq-accordion');
+            if (parent) {
+                parent.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('active'); });
+            }
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>

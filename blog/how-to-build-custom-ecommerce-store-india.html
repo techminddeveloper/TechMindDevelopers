@@ -406,6 +406,38 @@ html {
 }
 </style>
     <link rel="stylesheet" href="blog-common.css">
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Why choose a custom e-commerce store over Shopify or WooCommerce in India?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Custom stores load in under 0.8s, have zero recurring percentage sales commission cuts, integrate directly with Indian COD verification to eliminate RTO losses, and offer 100% code ownership."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How do you stop fake Cash on Delivery (COD) orders and high RTO shipping fees?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We implement automated WhatsApp OTP verification before confirming COD orders, along with fraud detection algorithms that flag high-risk postal codes."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Which Indian courier logistics APIs can be integrated?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We integrate Shiprocket, Delhivery, Bluedart, NimbusPost, and iThinkLogistics for 1-click airway bill generation, courier assignment, and live WhatsApp tracking."
+            }
+        }
+    ]
+}
+    </script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -475,6 +507,37 @@ html {
 
 <h2>How Tech Mind Developers Builds Your Online Store</h2>
 <p>We build secure, high-speed storefronts using modern web technologies (.NET Core, React, PHP, or Next.js) connected to Razorpay, Stripe, and Shiprocket for automated shipping. You get a clean, mobile-friendly admin dashboard to add products, track inventory, process orders on the go, and retain complete control over your customer data and profit margins.</p>
+<h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. Why choose a custom e-commerce store over Shopify or WooCommerce in India?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Custom stores load in under 0.8s, have zero recurring percentage sales commission cuts, integrate directly with Indian COD verification to eliminate RTO losses, and offer 100% code ownership.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. How do you stop fake Cash on Delivery (COD) orders and high RTO shipping fees?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>We implement automated WhatsApp OTP verification before confirming COD orders, along with fraud detection algorithms that flag high-risk postal codes.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Which Indian courier logistics APIs can be integrated?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>We integrate Shiprocket, Delhivery, Bluedart, NimbusPost, and iThinkLogistics for 1-click airway bill generation, courier assignment, and live WhatsApp tracking.</p>
+        </div>
+    </div>
+</div>
+
 
             <div class="author-card">
                 <img src="../logo-icon.png" alt="Tech Mind Developers" class="author-avatar">
@@ -515,6 +578,36 @@ html {
 <h2>Tech Mind Developers Aapka Online Store Kaise Build Karta Hai</h2>
 <p>Hum modern technologies (.NET Core, React, PHP ya Next.js) ka use karke fast aur secure online storefronts banate hain jo Razorpay, Stripe aur Shiprocket se directly connected hote hain. Aapko milta hai ek simple, mobile-friendly dashboard jahan se aap products add kar sakte hain, stock update kar sakte hain aur orders process kar sakte hain, bina kisi data share ya platform fees ke.</p>
 
+<h2>Frequently Asked Questions</h2>
+<div class="faq-accordion">
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>01. India me Shopify ki jagah custom e-commerce store kyun banwayein?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Custom store sub-second load hota hai, koi monthly percentage cut nahi lagta, aur fake COD orders ko OTP se verify karke RTO courier loss 70% kam karta hai.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>02. Fake Cash on Delivery (COD) aur RTO courier loss kaise rukta hai?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Hum automated WhatsApp OTP verification implement karte hain jisse sirf genuine customers ke COD orders dispatch hote hain.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button type="button" class="faq-question">
+            <span>03. Kaunse courier partners integrate hote hain?</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+            <p>Shiprocket, Delhivery aur Bluedart direct integrate hote hain jisse 1-click AWB label print hota hai aur customer ko live WhatsApp tracking milti hai.</p>
+        </div>
+    </div>
+</div>
 <div class="author-card">
 <img alt="Tech Mind Developers" class="author-avatar" src="../logo-icon.png"/>
 <div class="author-info">
@@ -711,5 +804,24 @@ html {
     observer.observe(banner);
 })();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = this.closest('.faq-item');
+            var isActive = item.classList.contains('active');
+            var parent = item.closest('.faq-accordion');
+            if (parent) {
+                parent.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('active'); });
+            }
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>
