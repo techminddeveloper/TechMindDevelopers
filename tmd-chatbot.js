@@ -6,6 +6,15 @@
 (function() {
     'use strict';
 
+    // Unregister any legacy service workers to prevent Android Play Protect / PWA alerts
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for (var i = 0; i < registrations.length; i++) {
+                registrations[i].unregister();
+            }
+        });
+    }
+
     var CONFIG = {
         phone: '917835019421',
         displayPhone: '+91-7835019421',
